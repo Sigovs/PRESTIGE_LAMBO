@@ -34,3 +34,14 @@ Processed web sizes live in `site/assets/img/`: `model-*-{648,960,1296}` and `he
 - Gallery shots in mixed environments: they would break the one-image-system side-profile set.
 
 **Cut-outs from Alex's Figma** (`research/cutouts-from-figma/*_raw1.png`, lamborghini.com chooser renders): img1 = Revuelto SV (stored as `cut-revuelto-sv-*`, not on the page), img2 = Urus SE Performante, img3 = Temerario, img4 = Revuelto. They are normalised by `site/_tools/process-cutouts.py`: painted shadows are removed, one generated contact shadow is added, and all cars share one px-per-mm scale and one baseline.
+
+**Models tile art — supplied by Alex (current, replaces the cut-outs above on the page):**
+
+| Source file (supplied by Alex) | Model | Output (`site/assets/img/`) |
+|---|---|---|
+| `MODELS/image1.png` (1373×390) | Urus SE | `model-art-urus-se-{600,1200}.webp`, `-600.png` |
+| `MODELS/image 2.png` (1350×390) | Urus SE Performante | `model-art-urus-se-performante-{600,1200}.webp`, `-600.png` |
+| `MODELS/image 3.png` (1350×390) | Temerario | `model-art-temerario-{600,1200}.webp`, `-600.png` |
+| `MODELS/image 4.png` (1350×390) | Revuelto | `model-art-revuelto-{600,1200}.webp`, `-600.png` |
+
+Resize and export only, via `site/_tools/process-models-alex.py`: shadows as supplied, no recolour, no re-cut, never upscaled. The `cut-*` files from `process-cutouts.py` stay on disk and are no longer referenced by the page.
