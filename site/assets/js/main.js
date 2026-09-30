@@ -8,6 +8,7 @@
     'use strict';
 
     const root = document.documentElement;
+    if (root.classList.contains('figma')) return; // static capture mode — see index.html
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     /* ---------- Lenis — never constructed under reduced motion ---------- */

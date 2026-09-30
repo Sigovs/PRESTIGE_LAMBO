@@ -7,7 +7,15 @@
     <meta name="description" content="Lamborghini Miami is an authorized Lamborghini dealer on Biscayne Boulevard, North Miami Beach. New and pre-owned Lamborghini, Ad Personam, service, parts and certified collision and paint.">
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="assets/img/bull.svg" type="image/svg+xml">
-    <script>document.documentElement.classList.add('js');</script>
+    <script>
+        /* ?figma = static capture mode for html.to.design import: no reveals, no Lenis, every image eager. */
+        if (/[?&]figma\b/.test(location.search)) {
+            document.documentElement.classList.add('figma');
+            document.addEventListener('DOMContentLoaded', () => document.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; }));
+        } else {
+            document.documentElement.classList.add('js');
+        }
+    </script>
 
     <!-- Stand-in brand face: Roboto Flex (wdth 25–151, wght 100–1000). See DESIGN_SYSTEM.md §1.1 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
