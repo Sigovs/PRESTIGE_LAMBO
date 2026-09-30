@@ -1,14 +1,14 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "0a986738597d8fc5fe6af0a295a52c0ae6ea9dee28c1b6a83ba931a1fec1ac92",
-  "fileCount": 244,
+  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
+  "fileCount": 334,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 8588,
-      "screens": 9.54,
-      "mediaTotal": 19,
-      "fullBleedMedia": 2,
+      "pageHeightPx": 8668,
+      "screens": 9.63,
+      "mediaTotal": 24,
+      "fullBleedMedia": 5,
       "largestTypePx": 120,
       "smallestTypePx": 14,
       "typeScaleRatio": 8.57,
@@ -16,9 +16,9 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 12839,
-      "screens": 15.21,
-      "mediaTotal": 19,
+      "pageHeightPx": 13020,
+      "screens": 15.43,
+      "mediaTotal": 24,
       "fullBleedMedia": 6,
       "largestTypePx": 80,
       "smallestTypePx": 14,
@@ -35,7 +35,7 @@
       "metrics": {
         "eventCoverage": 0.949,
         "mediaCoverage": 0.591,
-        "competitionRatio": 0,
+        "competitionRatio": 0.079,
         "structuralShare": 0.761,
         "negativeSpaceShare": 0.199,
         "rankMassShare": 0.673,
@@ -56,7 +56,7 @@
           "selector": ".hero__img",
           "function": null,
           "matched": 1,
-          "inDocument": 1,
+          "inDocument": 5,
           "hasMedia": true,
           "share": 0.589,
           "isWrapper": false,
@@ -74,7 +74,7 @@
           "selector": ".hero__copy",
           "function": null,
           "matched": 1,
-          "inDocument": 1,
+          "inDocument": 5,
           "hasMedia": false,
           "share": 0.125,
           "isWrapper": false,
@@ -92,14 +92,14 @@
           "selector": ".hero__actions",
           "function": null,
           "matched": 1,
-          "inDocument": 1,
+          "inDocument": 5,
           "hasMedia": false,
           "share": 0.024,
           "isWrapper": false,
           "rects": [
             {
               "x": 60,
-              "y": 505,
+              "y": 506,
               "w": 434,
               "h": 72
             }
@@ -141,7 +141,23 @@
           }
         }
       ],
-      "competitors": [],
+      "competitors": [
+        {
+          "name": "div.hero__controls",
+          "rect": {
+            "x": 60,
+            "y": 816,
+            "w": 1320,
+            "h": 52
+          },
+          "hasMedia": false,
+          "maxFontPx": 16,
+          "hasAction": true,
+          "area": 68640,
+          "share": 0.053,
+          "ratio": 0.079
+        }
+      ],
       "excluded": [
         {
           "selector": ".site-header",
@@ -159,13 +175,13 @@
       "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.898,
+        "eventCoverage": 0.854,
         "mediaCoverage": 0.739,
-        "competitionRatio": 0,
-        "structuralShare": 0.898,
+        "competitionRatio": 0.053,
+        "structuralShare": 0.854,
         "negativeSpaceShare": 0,
-        "rankMassShare": 0.908,
-        "subjectShareOfEvent": 0.792,
+        "rankMassShare": 0.868,
+        "subjectShareOfEvent": 0.833,
         "chromeShare": 0.095,
         "declaredMasses": 3,
         "readsWithoutMedia": true
@@ -174,7 +190,7 @@
         "x": 0,
         "y": 0,
         "w": 390,
-        "h": 812.0838012695312
+        "h": 768.7897338867188
       },
       "components": [
         {
@@ -182,7 +198,7 @@
           "selector": ".hero__img",
           "function": null,
           "matched": 1,
-          "inDocument": 1,
+          "inDocument": 5,
           "hasMedia": true,
           "share": 0.739,
           "isWrapper": false,
@@ -200,14 +216,14 @@
           "selector": ".hero__copy",
           "function": null,
           "matched": 1,
-          "inDocument": 1,
+          "inDocument": 5,
           "hasMedia": false,
           "share": 0.22,
           "isWrapper": false,
           "rects": [
             {
               "x": 24,
-              "y": 444,
+              "y": 400,
               "w": 329,
               "h": 220
             }
@@ -218,14 +234,14 @@
           "selector": ".hero__actions",
           "function": null,
           "matched": 1,
-          "inDocument": 1,
+          "inDocument": 5,
           "hasMedia": false,
           "share": 0.129,
           "isWrapper": false,
           "rects": [
             {
               "x": 24,
-              "y": 688,
+              "y": 645,
               "w": 342,
               "h": 124
             }
@@ -233,7 +249,23 @@
         }
       ],
       "negativeSpace": [],
-      "competitors": [],
+      "competitors": [
+        {
+          "name": "div.hero__controls",
+          "rect": {
+            "x": 24,
+            "y": 784,
+            "w": 342,
+            "h": 44
+          },
+          "hasMedia": false,
+          "maxFontPx": 16,
+          "hasAction": true,
+          "area": 15048,
+          "share": 0.046,
+          "ratio": 0.053
+        }
+      ],
       "excluded": [
         {
           "selector": ".site-header",
@@ -242,7 +274,7 @@
         }
       ],
       "problems": [
-        "eventCoverage 89.8% is below the A1 floor of 90%"
+        "eventCoverage 85.4% is below the A1 floor of 90%"
       ],
       "verdict": "fail",
       "label": "mobile",
@@ -287,8 +319,8 @@
     }
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T21:06:13.381Z",
+  "finishedAt": "2026-09-30T22:08:41.063Z",
   "blockers": [
-    "A1 mobile: eventCoverage 89.8% is below the A1 floor of 90%"
+    "A1 mobile: eventCoverage 85.4% is below the A1 floor of 90%"
   ]
 }

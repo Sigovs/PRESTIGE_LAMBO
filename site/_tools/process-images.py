@@ -39,6 +39,9 @@ JOBS = [
   (R+'showroom-facility/history-under-1600/history_1983_biscayne-land-future-home-sign_640x427.jpg', None, 'archive-1983', [640]),
   (R+'showroom-facility/history-under-1600/history_1986_grand-opening-night_640x427.jpg', None, 'archive-1986', [640]),
   # Inventory primary photos (1024x768 max); crop drops the Prestige/Lamborghini Miami footer band
+  # New 2026 Temerario (stock 10914) has no dealer photos yet: official green Temerario, shown as a
+  # representative image and captioned as such on the card
+  (P+'temerario_side-profile-green-sunset_2560x1463.jpg', (1060, 330, 2500, 1140), 'inv-2026-temerario-rep', [1024, 640]),
   (S+'urus-se-2026.jpg', (0, 24, 1024, 600), 'inv-2026-urus-se', [1024, 640]),
   (S+'revuelto-2024-giallo.jpg', (0, 24, 1024, 600), 'inv-2024-revuelto-giallo', [1024, 640]),
   (S+'revuelto-2024-acheso.jpg', (0, 24, 1024, 600), 'inv-2024-revuelto-acheso', [1024, 640]),

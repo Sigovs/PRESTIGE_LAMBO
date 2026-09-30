@@ -129,7 +129,8 @@
     --hex-h: 3.25rem;       /* 52px */
     --icon-sm: 1.25rem;
     --dot-w: 3.5rem;        /* 56px progress segment */
-    --band-w: 78%;          /* Urus SE side-profile band on desktop */  /* landscape phones: car pulled right, clear of the copy */
+    --band-w: 78%;
+    --car-travel: 0.375rem;  /* 6px: model tile hover, the car eases forward */          /* Urus SE side-profile band on desktop */  /* landscape phones: car pulled right, clear of the copy */
     --lockup-w: 17.5rem;  /* dealer lockup, 280px (1406px master = 5x) */
     --prestige-w: 7.5rem; /* parent logo, 120px (318px master = 2.65x) */
     --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */

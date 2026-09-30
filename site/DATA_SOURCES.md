@@ -45,6 +45,10 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 - **Three Revuelto VINs.** Their listings have no photos. Showing the two photographed Revueltos is enough; the rest are behind "View all inventory".
 - **2026 Temerario.** It is shown even though it has no photos, because it is the only new Temerario. Its card carries a visibly-labelled plate, "Photography in preparation", instead of a borrowed image (CP4, CP7).
 
+### Representative image
+
+- **2026 Temerario, stock 10914.** On a live re-check, 30 Sep 2026, the listing still has no photos. The card therefore shows the official lamborghini.com green Temerario (`research/press-images/temerario_side-profile-green-sunset_2560x1463.jpg`), captioned "Representative image" on the card. It is not the listed vehicle, and the page does not claim it is.
+
 ### Price notes
 
 - **Fee statement (source).** The captured listing pages (`srp.html`, `new.html`) print: "Price includes dealer fee of $1447.50 and $299 electronic filing fee. Tax, tag, title and registrations fees are not included and are calculated at time of purchase."
@@ -56,6 +60,20 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 
 - Every listed price ends in ",697". That is the source's convention and is reproduced unchanged.
 - **Confirm:** Florida §501.976(18) requires specific wording to disclose a predelivery (dealer) fee. The source calls it a "dealer fee"; the client should confirm the statutory wording.
+
+## Model range: tile spec rows (captured from lamborghini.com, 30 Sep 2026)
+
+Every tile shows the same three rows, labelled as the corporate KPI labels them: "Max power (combined ICE+EE)", "Top speed" and "0–100 km/h".
+
+| Model | Max power | Top speed | 0–100 km/h | Source |
+|---|---|---|---|---|
+| Temerario | 920 CV (677 kW) | 343 km/h | 2.7 s | https://www.lamborghini.com/en-en/models/temerario |
+| Revuelto | 1,015 CV (747 kW) | >350 km/h | 2.5 s | https://www.lamborghini.com/en-en/models/revuelto-models/revuelto |
+| Urus SE | 800 CV (588 kW; the spec list reads "Max power @ rpm (ICE+EE) 800 CV @ 6000 rpm") | 312 km/h | 3.4 s (published as "3,4 s") | https://www.lamborghini.com/en-en/models/urus/urus-se |
+| Urus SE Performante | 812 CV (597 kW) | 312 km/h | 3.3 s (published as "3,3 s") | https://www.lamborghini.com/en-en/models/urus/urus-se-performante |
+
+- The Temerario and Urus SE pages also publish EPA MPG / MPGe figures. The tiles show none, so the EPA note is not needed; if MPG is ever added, it must carry "(EPA)" and "Your mileage will vary".
+- **On-page date line removed at Alex's direction.** The line under the range grid ("Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026.") is gone, and the capture date is recorded here instead. The Revuelto SV note is now in the footer legal lines only.
 
 ## Model range: manufacturer claims
 
@@ -69,7 +87,7 @@ Source: `research/LAMBORGHINI_CI_RESEARCH.md`, captured from lamborghini.com on 
 | Revuelto SV: 1,065 CV, limited to 1,963 units | verified | CI §5 (media.lamborghini.com press release) |
 | "Revuelto SV: Under approval, not available for sale" | verified | CI §1.9, shot 04 |
 | "Urus at its peak" (Urus SE Performante) | verified as a corporate Urus claim; **confirm** that it may be reused against the SE Performante | CI §5 |
-| Urus SE: plug-in hybrid, 800 CV | dealer-stated. It comes from the current Urus SE page, which reproduces AL press copy ("first PHEV… 800 CV"). **Confirm** against lamborghini.com | `research/CURRENT_SITE_CONTENT.md` §3.2 |
+| Urus SE: 800 CV | **now verified** on lamborghini.com/en-en/models/urus/urus-se (see the tile table). Previously dealer-stated. It comes from the current Urus SE page, which reproduces AL press copy ("first PHEV… 800 CV"). **Confirm** against lamborghini.com | `research/CURRENT_SITE_CONTENT.md` §3.2 |
 | Current range = Revuelto, Temerario, Urus SE, Urus SE Performante | verified | CI §5, shot 02 ("Configure your" tabs) |
 
 - **Confirm:** on 30 Sep 2026 the corporate US page read "Revuelto, Revuelto SV: Under approval, not available for sale" (shot 04). That covers both models. Lamborghini Miami lists pre-owned 2024–25 Revuelto units, so this page applies the note to the Revuelto SV only, as the brief instructs. Lamborghini Americas should confirm the correct US wording.

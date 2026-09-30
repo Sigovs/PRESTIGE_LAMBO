@@ -1,6 +1,6 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "0a986738597d8fc5fe6af0a295a52c0ae6ea9dee28c1b6a83ba931a1fec1ac92",
+  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
   "build": {
     "private": false
   },
@@ -55,10 +55,10 @@
     },
     {
       "id": "temerario-figures",
-      "claim": "920 CV 343 km/h 2.7 s 0–100 km/h",
+      "claim": "920 CV 343 km/h 2.7 s 1,015 CV >350 km/h 2.5 s 800 CV 312 km/h 3.4 s 812 CV 3.3 s 0–100 km/h",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
-      "source": "lamborghini.com/en-en/models/temerario, captured 30 Sep 2026 (research/LAMBORGHINI_CI_RESEARCH.md §1.9)",
+      "source": "lamborghini.com model pages (Temerario, Revuelto, Urus SE, Urus SE Performante) tech-spec lists, captured 30 Sep 2026 — see DATA_SOURCES tile table",
       "sourceType": "public-record",
       "appearsAt": [
         ".model__facts"
@@ -66,33 +66,12 @@
     },
     {
       "id": "revuelto-sv",
-      "claim": "Revuelto SV 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
+      "claim": "Revuelto SV: Under approval, not available for sale.",
       "status": "verified",
       "source": "media.lamborghini.com Revuelto SV release; lamborghini.com homepage disclaimer (CI §1.9, §5)",
       "sourceType": "public-record",
       "appearsAt": [
-        ".model__note",
         ".site-footer__legal"
-      ]
-    },
-    {
-      "id": "urus-se-power",
-      "claim": "800 CV",
-      "status": "verified",
-      "source": "Current Urus SE page on lamborghinimiami.com reproducing Automobili Lamborghini press copy (CURRENT_SITE_CONTENT §3.2) — client to confirm against lamborghini.com",
-      "sourceType": "client-data",
-      "appearsAt": [
-        ".model__facts"
-      ]
-    },
-    {
-      "id": "figures-capture",
-      "claim": "as captured on 30 Sep 2026",
-      "status": "verified",
-      "source": "research/LAMBORGHINI_CI_RESEARCH.md header",
-      "sourceType": "public-record",
-      "appearsAt": [
-        ".range__source"
       ]
     },
     {
@@ -188,7 +167,7 @@
       "class": "bare-count",
       "text": "14780",
       "context": "14780 Biscayne Boulevard,",
-      "where": "main#main > section.hero > div.hero__inner > div.hero__copy > p.hero__place"
+      "where": "article#hero-slide-1 > div.hero__inner > div.hero__copy > p.hero__place"
     },
     {
       "class": "bare-count",
@@ -200,37 +179,37 @@
       "class": "bare-count",
       "text": "343",
       "context": "343 km/h",
-      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
       "class": "bare-count",
       "text": "100",
       "context": "0–100 km/h",
-      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dt"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dt.rv"
     },
     {
       "class": "grouped-number",
-      "text": "1,065",
-      "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
-    },
-    {
-      "class": "grouped-number",
-      "text": "1,963",
-      "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
+      "text": "1,015",
+      "context": "1,015 CV",
+      "where": "li#range-revuelto > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
       "class": "bare-count",
-      "text": "065",
-      "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
+      "text": "015",
+      "context": "1,015 CV",
+      "where": "li#range-revuelto > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
       "class": "bare-count",
-      "text": "963",
-      "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
+      "text": "350",
+      "context": ">350 km/h",
+      "where": "li#range-revuelto > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
+    },
+    {
+      "class": "bare-count",
+      "text": "100",
+      "context": "0–100 km/h",
+      "where": "li#range-revuelto > div.model__body > div.model__meta > dl.model__facts > div > dt.rv"
     },
     {
       "class": "bare-count",
@@ -240,15 +219,33 @@
     },
     {
       "class": "bare-count",
-      "text": "2026",
-      "context": "Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026.",
-      "where": "section#range > div.container > p.range__source"
+      "text": "312",
+      "context": "312 km/h",
+      "where": "li#range-urus-se > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
-      "class": "year",
-      "text": "2026",
-      "context": "Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026.",
-      "where": "section#range > div.container > p.range__source"
+      "class": "bare-count",
+      "text": "100",
+      "context": "0–100 km/h",
+      "where": "li#range-urus-se > div.model__body > div.model__meta > dl.model__facts > div > dt.rv"
+    },
+    {
+      "class": "bare-count",
+      "text": "812",
+      "context": "812 CV",
+      "where": "li#range-urus-se-performante > div.model__body > div.model__meta > dl.model__facts > div > dd"
+    },
+    {
+      "class": "bare-count",
+      "text": "312",
+      "context": "312 km/h",
+      "where": "li#range-urus-se-performante > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
+    },
+    {
+      "class": "bare-count",
+      "text": "100",
+      "context": "0–100 km/h",
+      "where": "li#range-urus-se-performante > div.model__body > div.model__meta > dl.model__facts > div > dt.rv"
     },
     {
       "class": "bare-count",
@@ -344,7 +341,7 @@
       "class": "bare-count",
       "text": "187",
       "context": "187 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
     },
     {
       "class": "currency",
@@ -398,13 +395,13 @@
       "class": "grouped-number",
       "text": "1,411",
       "context": "1,411 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
     },
     {
       "class": "bare-count",
       "text": "411",
       "context": "1,411 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
     },
     {
       "class": "currency",
@@ -458,13 +455,13 @@
       "class": "grouped-number",
       "text": "18,536",
       "context": "18,536 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
     },
     {
       "class": "bare-count",
       "text": "536",
       "context": "18,536 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
     },
     {
       "class": "currency",
@@ -614,49 +611,49 @@
       "class": "bare-count",
       "text": "1977",
       "context": "Lamborghini Miami is part of Prestige Imports, the family dealership Irv David founded in Miami in 1977. It began at a g",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "bare-count",
       "text": "1986",
       "context": "Lamborghini Miami is part of Prestige Imports, the family dealership Irv David founded in Miami in 1977. It began at a g",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "year",
       "text": "1977",
       "context": "Lamborghini Miami is part of Prestige Imports, the family dealership Irv David founded in Miami in 1977. It began at a g",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "year",
       "text": "1986",
       "context": "Lamborghini Miami is part of Prestige Imports, the family dealership Irv David founded in Miami in 1977. It began at a g",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "bare-count",
       "text": "2007",
       "context": "Since 2007 the house has been led by his son, Brett David. In 2011 Brett and his sister, Brooke, created the Ride2Revive",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "bare-count",
       "text": "2011",
       "context": "Since 2007 the house has been led by his son, Brett David. In 2011 Brett and his sister, Brooke, created the Ride2Revive",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "year",
       "text": "2007",
       "context": "Since 2007 the house has been led by his son, Brett David. In 2011 Brett and his sister, Brooke, created the Ride2Revive",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "year",
       "text": "2011",
       "context": "Since 2007 the house has been led by his son, Brett David. In 2011 Brett and his sister, Brooke, created the Ride2Revive",
-      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p"
+      "where": "section#house > div.container > div.house__grid > div.house__intro > div.house__text > p.rv"
     },
     {
       "class": "bare-count",
@@ -782,37 +779,37 @@
       "class": "bare-count",
       "text": "2026",
       "context": "Inventory listings, prices and mileage as published on lamborghinimiami.com on 30 Sep 2026, and subject to change. Pleas",
-      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p"
+      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p.rv"
     },
     {
       "class": "year",
       "text": "2026",
       "context": "Inventory listings, prices and mileage as published on lamborghinimiami.com on 30 Sep 2026, and subject to change. Pleas",
-      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p"
+      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p.rv"
     },
     {
       "class": "bare-count",
       "text": "2026",
       "context": "© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181",
-      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p"
+      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p.rv"
     },
     {
       "class": "bare-count",
       "text": "14780",
       "context": "© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181",
-      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p"
+      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p.rv"
     },
     {
       "class": "bare-count",
       "text": "33181",
       "context": "© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181",
-      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p"
+      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p.rv"
     },
     {
       "class": "year",
       "text": "2026",
       "context": "© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181",
-      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p"
+      "where": "html.js > body > footer.site-footer > div.container > div.site-footer__legal > p.rv"
     }
   ],
   "validation": {
@@ -820,13 +817,13 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 108,
-      "entries": 14,
+      "hits": 111,
+      "entries": 12,
       "uncovered": 0
     }
   },
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T21:07:02.879Z"
+  "finishedAt": "2026-09-30T22:09:35.445Z"
 }

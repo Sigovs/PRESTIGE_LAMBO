@@ -1,6 +1,6 @@
 {
   "gate": "Gate 3 · Product Usefulness",
-  "sourceSeal": "0a986738597d8fc5fe6af0a295a52c0ae6ea9dee28c1b6a83ba931a1fec1ac92",
+  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
   "answers": {
     "businessIdentifiableInFiveSeconds": null,
     "primaryActionIdentifiableInFiveSeconds": null,
@@ -41,7 +41,7 @@
       "name": "contact / enquire",
       "selector": "a[href*='contact-us']",
       "present": true,
-      "count": 7
+      "count": 12
     },
     {
       "name": "directions",
@@ -70,5 +70,5 @@
     "unanswered: atLeastAsUsableAsTheIncumbent"
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T21:07:00.711Z"
+  "finishedAt": "2026-09-30T22:09:32.126Z"
 }

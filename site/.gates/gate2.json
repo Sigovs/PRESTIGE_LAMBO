@@ -1,12 +1,111 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "0a986738597d8fc5fe6af0a295a52c0ae6ea9dee28c1b6a83ba931a1fec1ac92",
+  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
   "detector": {
     "desktop": {
       "sections": [
         {
           "section": "section.hero",
           "groups": [
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.917,
+                0.917,
+                0.917,
+                0.917,
+                0.917
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "upper",
+                "image": "lower",
+                "cta": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__inner",
+              "formula": "5×equal|i:lower|h:upper|m:top|c:lower|align:start|cont:none|int:link",
+              "shape": "5×equal|i:lower|h:upper|m:top|c:lower"
+            },
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.119,
+                0.119,
+                0.119,
+                0.119,
+                0.119
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "5×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "5×equal|m:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.189,
+                0.189,
+                0.189,
+                0.189
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "4×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "4×equal|m:mid"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.494,
+                0.494,
+                0.494
+              ],
+              "slots": {
+                "cta": "upper",
+                "meta": "upper"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__actions",
+              "formula": "3×equal|m:upper|c:upper|align:start|cont:none|int:link",
+              "shape": "3×equal|m:upper|c:upper"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.137,
+                0.137,
+                0.137
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "3×equal|m:mid|align:start|cont:none|int:static",
+              "shape": "3×equal|m:mid"
+            },
             {
               "units": 2,
               "widthClass": "equal",
@@ -21,33 +120,30 @@
               "sample": "span.hero__line",
               "formula": "2×equal||align:start|cont:none|int:static",
               "shape": "2×equal|"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.28,
+                0.28
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "div.hero__copy",
+              "formula": "2×equal|h:lower|m:top|align:start|cont:none|int:static",
+              "shape": "2×equal|h:lower|m:top"
             }
           ]
         },
         {
           "section": "section#range.range",
           "groups": [
-            {
-              "units": 6,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.45,
-                0.45,
-                0.45,
-                0.45,
-                0.45,
-                0.45
-              ],
-              "slots": {
-                "image": "mid"
-              },
-              "align": "start",
-              "container": "fill",
-              "interaction": "static",
-              "sample": "figure.model__media",
-              "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
-              "shape": "6×equal|i:mid"
-            },
             {
               "units": 4,
               "widthClass": "equal",
@@ -60,15 +156,133 @@
               "slots": {
                 "image": "upper",
                 "meta": "lower",
-                "heading": "mid",
+                "heading": "lower",
                 "cta": "bottom"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "li#range-temerario.model",
-              "formula": "4×equal|i:upper|h:mid|m:lower|c:bottom|align:start|cont:none|int:link",
-              "shape": "4×equal|i:upper|h:mid|m:lower|c:bottom"
+              "formula": "4×equal|i:upper|h:lower|m:lower|c:bottom|align:start|cont:none|int:link",
+              "shape": "4×equal|i:upper|h:lower|m:lower|c:bottom"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.45,
+                0.45,
+                0.45,
+                0.45
+              ],
+              "slots": {
+                "image": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "figure.model__media",
+              "formula": "4×equal|i:mid|align:start|cont:none|int:static",
+              "shape": "4×equal|i:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.45,
+                0.45,
+                0.45,
+                0.45
+              ],
+              "slots": {
+                "meta": "upper",
+                "heading": "top",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.model__body",
+              "formula": "4×equal|h:top|m:upper|c:bottom|align:start|cont:none|int:link",
+              "shape": "4×equal|h:top|m:upper|c:bottom"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.217,
+                0.217,
+                0.217,
+                0.217
+              ],
+              "slots": {
+                "meta": "top",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.model__meta",
+              "formula": "4×equal|m:top|c:bottom|align:start|cont:none|int:link",
+              "shape": "4×equal|m:top|c:bottom"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.217,
+                0.217,
+                0.217,
+                0.217
+              ],
+              "slots": {
+                "meta": "top"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "dl.model__facts",
+              "formula": "4×equal|m:top|align:start|cont:none|int:static",
+              "shape": "4×equal|m:top"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.217,
+                0.217,
+                0.217,
+                0.217
+              ],
+              "slots": {
+                "cta": "mid",
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.model__actions",
+              "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
+              "shape": "4×equal|m:mid|c:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.078,
+                0.078,
+                0.078,
+                0.078
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "4×equal|m:mid|align:start|cont:none|int:static",
+              "shape": "4×equal|m:mid"
             },
             {
               "units": 3,
@@ -104,97 +318,6 @@
               "sample": "h3.model__name",
               "formula": "3×equal||align:start|cont:none|int:static",
               "shape": "3×equal|"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.217,
-                0.217,
-                0.217
-              ],
-              "slots": {
-                "cta": "mid",
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__actions",
-              "formula": "3×equal|m:mid|c:mid|align:start|cont:none|int:link",
-              "shape": "3×equal|m:mid|c:mid"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.078,
-                0.078,
-                0.078
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "3×equal|m:mid|align:start|cont:none|int:static",
-              "shape": "3×equal|m:mid"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.217,
-                0.217,
-                0.217
-              ],
-              "slots": {
-                "cta": "upper",
-                "meta": "upper"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__actions",
-              "formula": "3×equal|m:upper|c:upper|align:start|cont:none|int:link",
-              "shape": "3×equal|m:upper|c:upper"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.217,
-                0.217
-              ],
-              "slots": {
-                "meta": "top",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__meta",
-              "formula": "2×equal|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "2×equal|m:top|c:bottom"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.137,
-                0.137
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "2×equal|m:mid|align:start|cont:none|int:static",
-              "shape": "2×equal|m:mid"
             }
           ]
         },
@@ -539,7 +662,7 @@
               "align": "start",
               "container": "none",
               "interaction": "link",
-              "sample": "li",
+              "sample": "li.rv",
               "formula": "14×equal|c:mid|align:start|cont:none|int:link",
               "shape": "14×equal|c:mid"
             },
@@ -571,14 +694,14 @@
                 0.138
               ],
               "slots": {
-                "cta": "top"
+                "cta": "upper"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "ul",
-              "formula": "2×equal|c:top|align:start|cont:none|int:link",
-              "shape": "2×equal|c:top"
+              "formula": "2×equal|c:upper|align:start|cont:none|int:link",
+              "shape": "2×equal|c:upper"
             },
             {
               "units": 2,
@@ -625,7 +748,7 @@
               "align": "start",
               "container": "none",
               "interaction": "link",
-              "sample": "li",
+              "sample": "li.rv",
               "formula": "14×equal|c:mid|align:start|cont:none|int:link",
               "shape": "14×equal|c:mid"
             },
@@ -657,14 +780,14 @@
                 0.15
               ],
               "slots": {
-                "cta": "top"
+                "cta": "upper"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "ul",
-              "formula": "2×equal|c:top|align:start|cont:none|int:link",
-              "shape": "2×equal|c:top"
+              "formula": "2×equal|c:upper|align:start|cont:none|int:link",
+              "shape": "2×equal|c:upper"
             },
             {
               "units": 2,
@@ -696,6 +819,86 @@
           "section": "section.hero",
           "groups": [
             {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "mid",
+                "heading": "lower",
+                "image": "upper",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__inner",
+              "formula": "5×equal|i:upper|h:lower|m:mid|c:bottom|align:start|cont:none|int:link",
+              "shape": "5×equal|i:upper|h:lower|m:mid|c:bottom"
+            },
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "5×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "5×equal|m:mid"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "cta": "top",
+                "meta": "top"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__actions",
+              "formula": "3×equal|m:top|c:top|align:start|cont:none|int:link",
+              "shape": "3×equal|m:top|c:top"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.504,
+                0.504,
+                0.504
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "3×equal|m:mid|align:start|cont:none|int:static",
+              "shape": "3×equal|m:mid"
+            },
+            {
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
@@ -709,6 +912,60 @@
               "sample": "span.hero__line",
               "formula": "2×equal||align:start|cont:none|int:static",
               "shape": "2×equal|"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "cta": "upper",
+                "meta": "upper"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__actions",
+              "formula": "2×equal|m:upper|c:upper|align:start|cont:none|int:link",
+              "shape": "2×equal|m:upper|c:upper"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.557,
+                0.557
+              ],
+              "slots": {
+                "meta": "upper",
+                "heading": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "div.hero__copy",
+              "formula": "2×equal|h:lower|m:upper|align:start|cont:none|int:static",
+              "shape": "2×equal|h:lower|m:upper"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.557,
+                0.557
+              ],
+              "slots": {
+                "meta": "upper",
+                "heading": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "div.hero__copy",
+              "formula": "2×equal|h:bottom|m:upper|align:start|cont:none|int:static",
+              "shape": "2×equal|h:bottom|m:upper"
             }
           ]
         },
@@ -726,6 +983,66 @@
                 0.877
               ],
               "slots": {
+                "meta": "top",
+                "heading": "upper",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "header.section-head",
+              "formula": "5×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
+              "shape": "5×equal|h:upper|m:top|c:bottom"
+            },
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "image": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "figure.model__media",
+              "formula": "5×equal|i:mid|align:start|cont:none|int:static",
+              "shape": "5×equal|i:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "top"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "dl.model__facts",
+              "formula": "4×equal|m:top|align:start|cont:none|int:static",
+              "shape": "4×equal|m:top"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
                 "cta": "mid",
                 "meta": "mid"
               },
@@ -733,8 +1050,68 @@
               "container": "none",
               "interaction": "link",
               "sample": "div.model__actions",
-              "formula": "5×equal|m:mid|c:mid|align:start|cont:none|int:link",
-              "shape": "5×equal|m:mid|c:mid"
+              "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
+              "shape": "4×equal|m:mid|c:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.289,
+                0.289,
+                0.289,
+                0.289
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "4×equal|m:mid|align:start|cont:none|int:static",
+              "shape": "4×equal|m:mid"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "image": "top",
+                "meta": "mid",
+                "heading": "mid",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "li#range-temerario.model",
+              "formula": "3×equal|i:top|h:mid|m:mid|c:bottom|align:start|cont:none|int:link",
+              "shape": "3×equal|i:top|h:mid|m:mid|c:bottom"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "top",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.model__body",
+              "formula": "3×equal|h:top|m:top|c:bottom|align:start|cont:none|int:link",
+              "shape": "3×equal|h:top|m:top|c:bottom"
             },
             {
               "units": 3,
@@ -770,138 +1147,6 @@
               "sample": "h3.model__name",
               "formula": "3×equal||align:start|cont:none|int:static",
               "shape": "3×equal|"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.289,
-                0.289,
-                0.289
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "3×equal|m:mid|align:start|cont:none|int:static",
-              "shape": "3×equal|m:mid"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "cta": "lower",
-                "meta": "lower"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__meta",
-              "formula": "3×equal|m:lower|c:lower|align:start|cont:none|int:link",
-              "shape": "3×equal|m:lower|c:lower"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "meta": "top",
-                "heading": "upper",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "header.section-head",
-              "formula": "2×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "2×equal|h:upper|m:top|c:bottom"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "image": "top",
-                "meta": "mid",
-                "heading": "upper",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "li#range-temerario.model",
-              "formula": "2×equal|i:top|h:upper|m:mid|c:bottom|align:start|cont:none|int:link",
-              "shape": "2×equal|i:top|h:upper|m:mid|c:bottom"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "meta": "top",
-                "heading": "top",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__body",
-              "formula": "2×equal|h:top|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "2×equal|h:top|m:top|c:bottom"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "image": "top",
-                "meta": "mid",
-                "heading": "mid",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "li#range-revuelto.model",
-              "formula": "2×equal|i:top|h:mid|m:mid|c:bottom|align:start|cont:none|int:link",
-              "shape": "2×equal|i:top|h:mid|m:mid|c:bottom"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.504,
-                0.504
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "2×equal|m:mid|align:start|cont:none|int:static",
-              "shape": "2×equal|m:mid"
             }
           ]
         },
@@ -1257,7 +1502,7 @@
               "align": "start",
               "container": "none",
               "interaction": "link",
-              "sample": "li",
+              "sample": "li.rv",
               "formula": "11×equal|c:mid|align:start|cont:none|int:link",
               "shape": "11×equal|c:mid"
             },
@@ -1295,7 +1540,7 @@
               "align": "start",
               "container": "none",
               "interaction": "link",
-              "sample": "li",
+              "sample": "li.rv",
               "formula": "4×equal|c:mid|align:start|cont:none|int:link",
               "shape": "4×equal|c:mid"
             },
@@ -1359,7 +1604,7 @@
               "align": "start",
               "container": "none",
               "interaction": "link",
-              "sample": "li",
+              "sample": "li.rv",
               "formula": "11×equal|c:mid|align:start|cont:none|int:link",
               "shape": "11×equal|c:mid"
             },
@@ -1397,7 +1642,7 @@
               "align": "start",
               "container": "none",
               "interaction": "link",
-              "sample": "li",
+              "sample": "li.rv",
               "formula": "4×equal|c:mid|align:start|cont:none|int:link",
               "shape": "4×equal|c:mid"
             },
@@ -1437,7 +1682,7 @@
           ]
         }
       ],
-      "bandRun": 1,
+      "bandRun": 0,
       "viewport": {
         "w": 390,
         "h": 844
@@ -1447,39 +1692,39 @@
   "findings": [
     {
       "kind": "parallel-units",
-      "section": "section#range.range",
-      "units": 6,
-      "shape": "6×equal|i:mid",
-      "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
+      "section": "section.hero",
+      "units": 5,
+      "shape": "5×equal|i:lower|h:upper|m:top|c:lower",
+      "formula": "5×equal|i:lower|h:upper|m:top|c:lower|align:start|cont:none|int:link",
       "disposition": null
     },
     {
       "kind": "parallel-units",
-      "section": "section#range.range",
+      "section": "section.hero",
+      "units": 5,
+      "shape": "5×equal|m:mid",
+      "formula": "5×equal|m:mid|align:start|cont:box|int:static",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section.hero",
       "units": 4,
-      "shape": "4×equal|i:upper|h:mid|m:lower|c:bottom",
-      "formula": "4×equal|i:upper|h:mid|m:lower|c:bottom|align:start|cont:none|int:link",
+      "shape": "4×equal|m:mid",
+      "formula": "4×equal|m:mid|align:start|cont:box|int:static",
       "disposition": null
     },
     {
       "kind": "parallel-units",
-      "section": "section#range.range",
+      "section": "section.hero",
       "units": 3,
-      "shape": "3×equal|h:upper|m:mid",
-      "formula": "3×equal|h:upper|m:mid|align:start|cont:none|int:static",
+      "shape": "3×equal|m:upper|c:upper",
+      "formula": "3×equal|m:upper|c:upper|align:start|cont:none|int:link",
       "disposition": null
     },
     {
       "kind": "parallel-units",
-      "section": "section#range.range",
-      "units": 3,
-      "shape": "3×equal|m:mid|c:mid",
-      "formula": "3×equal|m:mid|c:mid|align:start|cont:none|int:link",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section#range.range",
+      "section": "section.hero",
       "units": 3,
       "shape": "3×equal|m:mid",
       "formula": "3×equal|m:mid|align:start|cont:none|int:static",
@@ -1488,9 +1733,65 @@
     {
       "kind": "parallel-units",
       "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|i:upper|h:lower|m:lower|c:bottom",
+      "formula": "4×equal|i:upper|h:lower|m:lower|c:bottom|align:start|cont:none|int:link",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|i:mid",
+      "formula": "4×equal|i:mid|align:start|cont:none|int:static",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|h:top|m:upper|c:bottom",
+      "formula": "4×equal|h:top|m:upper|c:bottom|align:start|cont:none|int:link",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|m:top|c:bottom",
+      "formula": "4×equal|m:top|c:bottom|align:start|cont:none|int:link",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|m:top",
+      "formula": "4×equal|m:top|align:start|cont:none|int:static",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|m:mid|c:mid",
+      "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
+      "units": 4,
+      "shape": "4×equal|m:mid",
+      "formula": "4×equal|m:mid|align:start|cont:none|int:static",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "section#range.range",
       "units": 3,
-      "shape": "3×equal|m:upper|c:upper",
-      "formula": "3×equal|m:upper|c:upper|align:start|cont:none|int:link",
+      "shape": "3×equal|h:upper|m:mid",
+      "formula": "3×equal|h:upper|m:mid|align:start|cont:none|int:static",
       "disposition": null
     },
     {
@@ -1575,6 +1876,24 @@
     },
     {
       "kind": "repeated-shape",
+      "shape": "5×equal|m:mid",
+      "sections": [
+        "section.hero",
+        "section#inventory.inventory"
+      ],
+      "disposition": null
+    },
+    {
+      "kind": "repeated-shape",
+      "shape": "4×equal|m:mid",
+      "sections": [
+        "section.hero",
+        "section#range.range"
+      ],
+      "disposition": null
+    },
+    {
+      "kind": "repeated-shape",
       "shape": "2×equal|m:lower|c:lower",
       "sections": [
         "section#inventory.inventory",
@@ -1602,7 +1921,7 @@
     },
     {
       "kind": "repeated-shape",
-      "shape": "2×equal|c:top",
+      "shape": "2×equal|c:upper",
       "sections": [
         "footer.site-footer",
         "div.container"
@@ -1613,15 +1932,22 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T21:06:21.083Z",
+  "finishedAt": "2026-09-30T22:08:51.068Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
-    "undisposed parallel-units: 6×equal|i:mid",
-    "undisposed parallel-units: 4×equal|i:upper|h:mid|m:lower|c:bottom",
-    "undisposed parallel-units: 3×equal|h:upper|m:mid",
-    "undisposed parallel-units: 3×equal|m:mid|c:mid",
-    "undisposed parallel-units: 3×equal|m:mid",
+    "undisposed parallel-units: 5×equal|i:lower|h:upper|m:top|c:lower",
+    "undisposed parallel-units: 5×equal|m:mid",
+    "undisposed parallel-units: 4×equal|m:mid",
     "undisposed parallel-units: 3×equal|m:upper|c:upper",
+    "undisposed parallel-units: 3×equal|m:mid",
+    "undisposed parallel-units: 4×equal|i:upper|h:lower|m:lower|c:bottom",
+    "undisposed parallel-units: 4×equal|i:mid",
+    "undisposed parallel-units: 4×equal|h:top|m:upper|c:bottom",
+    "undisposed parallel-units: 4×equal|m:top|c:bottom",
+    "undisposed parallel-units: 4×equal|m:top",
+    "undisposed parallel-units: 4×equal|m:mid|c:mid",
+    "undisposed parallel-units: 4×equal|m:mid",
+    "undisposed parallel-units: 3×equal|h:upper|m:mid",
     "undisposed parallel-units: 5×equal|m:mid",
     "undisposed parallel-units: 3×equal|i:mid|h:top|m:top",
     "undisposed parallel-units: 3×equal|i:mid",
@@ -1632,9 +1958,11 @@
     "undisposed parallel-units: 4×equal|m:top|c:upper",
     "undisposed parallel-units: 14×equal|c:mid",
     "undisposed parallel-units: 4×equal|m:top|c:upper",
+    "undisposed repeated-shape: 5×equal|m:mid",
+    "undisposed repeated-shape: 4×equal|m:mid",
     "undisposed repeated-shape: 2×equal|m:lower|c:lower",
     "undisposed repeated-shape: 14×equal|c:mid",
     "undisposed repeated-shape: 4×equal|m:top|c:upper",
-    "undisposed repeated-shape: 2×equal|c:top"
+    "undisposed repeated-shape: 2×equal|c:upper"
   ]
 }
