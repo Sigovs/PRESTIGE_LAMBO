@@ -122,7 +122,14 @@
     --adp-media-min-short: 7.5rem; /* short phones: 120px */
     --hero-media-short: 78%;
     --hero-scene-h: min(74svh, 160vw);       /* portrait phones: photo field height */
-    --hero-scene-h-short: min(66svh, 160vw); /* ≤600px tall phones */  /* landscape phones: car pulled right, clear of the copy */
+    --hero-scene-h-short: min(66svh, 160vw); /* ≤600px tall phones */
+    --hero-scene-h-model: min(58svh, 118vw); /* model slides on phones: whole car across the width */
+    --claim-measure: 10ch;  /* claim titles wrap to 2–3 lines */
+    --hex: 3rem;            /* 48px hexagon arrow */
+    --hex-h: 3.25rem;       /* 52px */
+    --icon-sm: 1.25rem;
+    --dot-w: 3.5rem;        /* 56px progress segment */
+    --band-w: 78%;          /* Urus SE side-profile band on desktop */  /* landscape phones: car pulled right, clear of the copy */
     --lockup-w: 17.5rem;  /* dealer lockup, 280px (1406px master = 5x) */
     --prestige-w: 7.5rem; /* parent logo, 120px (318px master = 2.65x) */
     --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */
@@ -151,6 +158,9 @@
     --ease-rise: cubic-bezier(0.2, 0.7, 0.2, 1);   /* = --ease-out */
     --rise-step: 70ms;      /* sibling stagger */
     --rise-cap: 400ms;      /* no element waits longer than this */
+    /* hero slider (user direction, Alex) */
+    --dur-slide: 800ms;     /* crossfade */
+    --slide-hold: 6500ms;   /* autoplay dwell per slide — mirrored in main.js */
 
     --z-header: 1040;
     --z-menu:   1050;

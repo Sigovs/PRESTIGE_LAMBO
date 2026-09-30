@@ -23,6 +23,13 @@ JOBS = [
   (P+'urus-se-performante_side-profile-lime_1440x355.jpg', None, 'model-urus-se-performante', [1296, 960, 648]),
   # Mobile hero: yellow Temerario, night track — portrait phones only; crop centred on the car (x 950-2450)
   (P+'temerario_front-3q-yellow-night-track_2560x1463.jpg', (950, 0, 2450, 1463), 'hero-temerario-night-p', [1400, 1000, 750]),
+  # Hero slider (model slides). Phones reuse the full frames in a shorter field with a
+  # per-slide object-position (authored in main.css); Urus SE has its own phone frame.
+  (P+'temerario_front-3q-aero-dark_1744x1000.jpg', None, 'slide-temerario', [1744, 1280, 960]),
+  (P+'revuelto_front-green-mountain-road_2560x1440.jpg', None, 'slide-revuelto', [2400, 1920, 1440, 960]),
+  (P+'urus-se_side-profile-orange_2160x533.jpg', None, 'slide-urus-se', [2160, 1440, 960]),
+  (P+'urus-se_front-3q-orange-dust_2560x1440.jpg', None, 'slide-urus-se-m', [1920, 1280, 960]),
+  (P+'urus-se-performante_top-3q-lime-night_2560x1440.jpg', None, 'slide-urus-se-performante', [2400, 1920, 1440, 960]),
   # Service: dealer workshop; crop drops watermark
   (R+'service/service_workshop-white-bays-technician_1697x2121.jpg', (170, 0, 1626, 1820), 'service-workshop', [1200, 800, 560]),
   # Showroom aerial at night; crop drops watermark

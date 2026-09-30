@@ -391,12 +391,110 @@ address { font-style: normal; }
 .hero {
     position: relative;
     isolation: isolate;
-    min-height: 100vh;
-    min-height: 100svh;
     background: var(--surface-0-dark);
     overflow: hidden;
-    display: flex;
 }
+/* ---- Slider (user direction, Alex): corporate claim-led model carousel.
+   Slides stack in one grid cell; crossfade, never travel. Without JS only
+   slide 1 exists visually (no-JS / ?figma), so the page is complete. ---- */
+.hero__slides { display: grid; touch-action: pan-y; }
+.hero__slide {
+    grid-area: 1 / 1;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+.hero__slide:not(:first-child) { display: none; }
+.js .hero__slide:not(:first-child) { display: flex; }
+.js .hero__slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--dur-slide) var(--ease-out), visibility 0s linear var(--dur-slide);
+}
+.js .hero__slide.is-active {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--dur-slide) var(--ease-out), visibility 0s;
+}
+.figma[data-slide] .hero__slide { display: none; }
+.figma[data-slide] .hero__slide.is-figma-slide { display: flex; }
+.hero__scrim { display: none; }
+.hero__title--claim { max-width: var(--claim-measure); }
+.hero__inv { color: var(--grey-0); border-bottom-color: var(--grey-0); justify-self: start; order: 3; }
+/* "In our inventory" drops to its own line, inside the copy zone rather than over the car */
+.hero__actions:has(.hero__inv)::before { content: ""; order: 2; flex-basis: 100%; height: 0; }
+
+/* controls: numbered progress, pause/play, hexagon arrows (corporate btn-icon-special) */
+.hero__controls {
+    display: none;
+    position: absolute;
+    left: 0; right: 0; bottom: var(--sp-16);
+    z-index: 2;
+    align-items: center;
+    gap: var(--sp-8);
+}
+.js .hero__controls { display: flex; }
+/* a quiet floor under the controls so numerals and arrows hold on every frame */
+.hero__controls::before {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: calc(-1 * var(--sp-32));
+    width: 100vw; height: calc(100% + var(--sp-80));
+    transform: translateX(-50%);
+    background: linear-gradient(0deg, rgb(0 0 0 / 0.72) 0%, rgb(0 0 0 / 0) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+.figma .hero__controls { display: none; }
+.hero__dots { display: flex; gap: var(--sp-4); margin-right: auto; }
+.hero__dot {
+    display: grid;
+    align-content: center;
+    gap: var(--sp-4);
+    min-width: var(--tap);
+    min-height: var(--tap);
+    padding-inline: var(--sp-4);
+    color: var(--grey-3);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: var(--track-upper);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.hero__dot[aria-current="true"], .hero__dot:hover { color: var(--grey-0); }
+.hero__dot-bar { display: block; height: var(--stroke-2); background: rgb(255 255 255 / 0.28); overflow: hidden; }
+.hero__dot-fill {
+    display: block; height: 100%;
+    background: var(--grey-0);
+    transform: scaleX(var(--p, 0));
+    transform-origin: left center;
+}
+.hero__dot[aria-current="true"] .hero__dot-fill { --p: var(--progress, 1); }
+.hero__toggle, .hero__arrow {
+    display: grid;
+    place-items: center;
+    width: var(--tap);
+    height: var(--tap);
+    color: var(--grey-0);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.hero__toggle:hover, .hero__arrow:hover { color: var(--accent-dark); }
+.hero__arrows { display: none; gap: var(--sp-8); }
+.hero__arrow { position: relative; width: var(--hex); height: var(--hex-h); }
+.hero__hex { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__arrow-icon { width: var(--icon-sm); height: var(--icon-sm); }
+.hero__arrow--prev .hero__arrow-icon { transform: scaleX(-1); }
+@media (min-width: 768px) {
+    .hero__controls { bottom: var(--sp-32); gap: var(--sp-16); }
+    .hero__arrows { display: flex; }
+    .hero__dot { min-width: var(--dot-w); }
+}
+
 
 /* Portrait formats (phones, portrait tablets): the photograph is IN FLOW, as the
    middle row between the copy and the actions, so it can never run under either.
@@ -481,7 +579,12 @@ address { font-style: normal; }
         mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
     }
     .hero__inner { grid-template-rows: 1fr auto auto; align-content: end; row-gap: var(--sp-24); }
+    .js .hero__inner { padding-bottom: calc(var(--tap) + var(--sp-16) * 2); }
     .hero__copy { grid-row: 2; }
+    /* model slides on phones: a shorter photo field sized so the whole car fits the width */
+    .hero__slide--model { --hero-scene-h: var(--hero-scene-h-model); }
+    .hero__slide--model .hero__img { object-position: var(--m-pos, 50%) 50%; }
+    .hero__slide--model .hero__title--claim { font-size: min(var(--fs-56), var(--display-xl-short)); line-height: var(--lh-52); }
     .hero__actions { grid-row: 3; gap: var(--sp-8); }
     .hero__actions .btn--secondary {
         width: auto;
@@ -528,6 +631,52 @@ address { font-style: normal; }
 @media (min-width: 1200px) {
     .hero__inner { padding-top: calc(var(--header-h) + var(--sp-56)); }
 }
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--bleed .hero__media { top: 0; height: 100%; }
+    .hero__slide--bleed .hero__img {
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--d-pos, 50% 50%);
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    .hero__slide--bleed .hero__scrim {
+        display: block;
+        position: absolute; inset: 0; z-index: -1;
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
+            linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) 34%, rgb(0 0 0 / 0) 62%);
+    }
+    .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-32) * 2); }
+}
+/* Urus SE on desktop: the side-profile band sits lower-right, clear of the copy column
+   (its own black left edge runs into the page black) */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--urus-se .hero__media { left: auto; right: 0; bottom: 0; width: var(--band-w); }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
+    .hero__slide--bleed { --scrim-a: 0.9; }
+}
+/* portrait tablets: clear the control row */
+@media (min-width: 768px) and (orientation: portrait) {
+    .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-32) * 2); }
+}
+/* short screens: compact claim, one row of actions; "In our inventory" stays in the
+   Models tiles and the header rather than crowding the slide */
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
+    .hero__slide--model .hero__title--claim { max-width: none; font-size: var(--fs-40); line-height: var(--lh-46); }
+    .hero__slide--model .hero__inv { display: none; }
+    .hero__dots { gap: 0; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero__slide--model .hero__title--claim { max-width: 16ch; font-size: var(--fs-48); line-height: var(--lh-46); }
+    .hero__slide--model .hero__inv { display: none; }
+}
+/* per-slide authored framing */
+.hero__slide--temerario { --d-pos: 70% 50%; --m-pos: 53%; --scrim-a: 0.7; }
+.hero__slide--revuelto { --d-pos: 40% 60%; --m-pos: 21%; --scrim-a: 0.82; }
+.hero__slide--urus-se { --m-pos: 23%; }
+.hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.78; }
 /* phones on their side: same diagonal, compressed so the copy and both actions
    fit above the fold and clear the car */
 @media (orientation: landscape) and (max-height: 600px) {
@@ -1131,7 +1280,7 @@ address { font-style: normal; }
                     transform var(--dur-rise) var(--ease-rise);
         transition-delay: min(calc(var(--i, 0) * var(--rise-step)), var(--rise-cap));
     }
-    .js.is-loaded [data-hero-line] { opacity: 1; transform: none; }
+    .js.is-loaded .hero__slide.is-active [data-hero-line] { opacity: 1; transform: none; }
 
     .js .hero__media { opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
     .js.is-loaded .hero__media { opacity: 1; }

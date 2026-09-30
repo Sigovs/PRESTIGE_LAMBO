@@ -181,6 +181,97 @@
         window.addEventListener('scroll', () => { clearTimeout(sweepT); sweepT = setTimeout(sweep, 400); }, { passive: true });
     }
 
+    /* ---------- Hero slider (user direction, Alex): corporate claim-led carousel.
+       Crossfade, text rises in on each slide, autoplay with visible progress and a
+       pause control; pauses on hover, focus within, hidden tab and off-screen; no
+       autoplay under reduced motion. Slide 1 is the LCP; others load when idle. ---------- */
+    const heroEl = document.querySelector('[data-hero]');
+    const slides = heroEl ? [...heroEl.querySelectorAll('[data-slide]')] : [];
+    if (slides.length > 1) {
+        const HOLD = 6500;                                   // mirror of --slide-hold
+        const dots = [...heroEl.querySelectorAll('[data-go]')];
+        const toggle = heroEl.querySelector('[data-toggle]');
+        const live = heroEl.querySelector('[data-hero-live]');
+        let idx = 0, elapsed = 0, last = 0, raf = 0;
+        let userPaused = reduceMotion.matches, hovering = false, focusWithin = false, inView = true;
+
+        const loadSlide = (s) => s.querySelectorAll('[data-srcset],[data-src]').forEach((el) => {
+            if (el.dataset.srcset) { el.srcset = el.dataset.srcset; el.removeAttribute('data-srcset'); }
+            if (el.dataset.src) { el.src = el.dataset.src; el.removeAttribute('data-src'); }
+        });
+        const idle = window.requestIdleCallback || ((f) => setTimeout(f, 1200));
+        window.addEventListener('load', () => idle(() => slides.slice(1).forEach(loadSlide)));
+
+        slides.forEach((s, i) => { if (i) { s.inert = true; s.setAttribute('aria-hidden', 'true'); } });
+
+        const playing = () => !userPaused && !hovering && !focusWithin && !document.hidden && inView;
+        function paint() { dots[idx]?.style.setProperty('--progress', Math.min(elapsed / HOLD, 1)); }
+        function tick(t) {
+            raf = 0;
+            if (!playing()) { last = 0; return; }
+            if (last) elapsed += t - last;
+            last = t;
+            if (elapsed >= HOLD) { go(idx + 1, false); return; }
+            paint();
+            raf = requestAnimationFrame(tick);
+        }
+        function run() { if (!raf && playing()) { last = 0; raf = requestAnimationFrame(tick); } }
+
+        function go(n, byUser) {
+            n = (n + slides.length) % slides.length;
+            if (n === idx) return;
+            loadSlide(slides[n]);
+            const from = slides[idx], to = slides[n];
+            from.classList.remove('is-active'); from.inert = true; from.setAttribute('aria-hidden', 'true');
+            to.classList.add('is-active'); to.inert = false; to.removeAttribute('aria-hidden');
+            dots[idx]?.removeAttribute('aria-current'); dots[idx]?.style.setProperty('--progress', 0);
+            dots[n]?.setAttribute('aria-current', 'true');
+            idx = n; elapsed = 0; paint();
+            if (byUser || !playing()) live.textContent = to.getAttribute('aria-label');
+            if (raf) { cancelAnimationFrame(raf); raf = 0; }
+            run();
+        }
+        function setPaused(p) {
+            userPaused = p;
+            toggle.setAttribute('aria-label', p ? 'Play slideshow' : 'Pause slideshow');
+            toggle.querySelector('use').setAttribute('href', p ? '#i-play' : '#i-pause');
+            live.setAttribute('aria-live', p ? 'polite' : 'off');
+            run();
+        }
+        setPaused(userPaused);
+
+        heroEl.querySelector('[data-prev]').addEventListener('click', () => go(idx - 1, true));
+        heroEl.querySelector('[data-next]').addEventListener('click', () => go(idx + 1, true));
+        dots.forEach((d) => d.addEventListener('click', () => go(+d.dataset.go, true)));
+        toggle.addEventListener('click', () => setPaused(!userPaused));
+        heroEl.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1, true); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1, true); }
+        });
+        heroEl.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hovering = true; } });
+        heroEl.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { hovering = false; run(); } });
+        heroEl.addEventListener('focusin', () => { focusWithin = true; live.setAttribute('aria-live', 'polite'); });
+        heroEl.addEventListener('focusout', (e) => {
+            if (!heroEl.contains(e.relatedTarget)) { focusWithin = false; live.setAttribute('aria-live', userPaused ? 'polite' : 'off'); run(); }
+        });
+        document.addEventListener('visibilitychange', run);
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(([e]) => { inView = e.isIntersecting; run(); }, { threshold: 0.35 }).observe(heroEl);
+        }
+        // swipe: horizontal only; vertical movement stays with the page (touch-action: pan-y)
+        let sx = 0, sy = 0, tracking = false;
+        const track = heroEl.querySelector('[data-hero-track]');
+        track.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') { tracking = true; sx = e.clientX; sy = e.clientY; } });
+        track.addEventListener('pointerup', (e) => {
+            if (!tracking) return; tracking = false;
+            const dx = e.clientX - sx, dy = e.clientY - sy;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(idx + (dx < 0 ? 1 : -1), true);
+        });
+        track.addEventListener('pointercancel', () => { tracking = false; });
+        window.__hero = { go: (n) => go(n, true), get index() { return idx; }, pause: () => setPaused(true) };
+        run();
+    }
+
     /* ---------- Hero subject box, published for the composition audit ----------
        The car's box inside the rendered photograph, as fractions of the image
        (DESIGN_SYSTEM.md §6). Read-only; nothing on the page depends on it. */
