@@ -1,6 +1,6 @@
 {
   "gate": "Gate 3 · Product Usefulness",
-  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
   "answers": {
     "businessIdentifiableInFiveSeconds": null,
     "primaryActionIdentifiableInFiveSeconds": null,
@@ -23,7 +23,7 @@
       "name": "vehicle detail pages",
       "selector": ".vcard a[href*='vehicle-details']",
       "present": true,
-      "count": 6
+      "count": 4
     },
     {
       "name": "call sales",
@@ -70,5 +70,5 @@
     "unanswered: atLeastAsUsableAsTheIncumbent"
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T20:12:23.527Z"
+  "finishedAt": "2026-09-30T20:36:09.460Z"
 }

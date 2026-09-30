@@ -74,6 +74,7 @@
 
     --lh-display-ratio: 0.875;  /* 70/80, corporate mobile hero */
     --display-xl-fluid: 21vw;  /* keeps LAMBORGHINI on one line down to 320px */
+    --display-xl-short: 15vw;  /* short phones: 48px at 320 */
     --display-l-fluid: 15vw;   /* keeps PERFORMANTE inside its column down to 320px */
     --lh-display-l-ratio: 0.93; /* 52/56 */
     --track-upper: 0.08em;   /* uppercase ≤ 40px (I4) */
@@ -117,6 +118,10 @@
     --bull-h: 3.6875rem;  /* 59px */
     --bull-sm: 2.5rem;    /* footer mark, 40px */
     --tap: 2.75rem;       /* 44px minimum touch target */
+    --tap-pad: 0.75rem;   /* 12px: grows a 21px text link to a 45px target */
+    --adp-media-min: 12rem; /* portrait: the cabin never shrinks below 192px */
+    --adp-media-min-short: 7.5rem; /* short phones: 120px */
+    --hero-media-short: 78%;  /* landscape phones: car pulled right, clear of the copy */
     --lockup-w: 17.5rem;  /* dealer lockup, 280px (1406px master = 5x) */
     --prestige-w: 7.5rem; /* parent logo, 120px (318px master = 2.65x) */
     --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */
@@ -128,9 +133,7 @@
     --measure-legal: 80ch;
     --measure-legal-wide: 90ch;
     --feather-top: 22%;   /* hero image top-edge feather */
-    --adp-scrim-top: 26%;     /* portrait: top band behind the title */
-    --adp-scrim-mid: 22%;     /* portrait: dense floor under the lead */
-    --adp-scrim-bottom: 48%;  /* portrait: where the lower scrim ends */
+    --adp-scrim-top: 30%;     /* landscape: dense part of the windscreen scrim */
     --adp-scrim-land: 52%;    /* landscape: windscreen band scrim ends */
 
     /* ---- Motion ---- */

@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
   "detector": {
     "desktop": {
       "sections": [
@@ -140,13 +140,9 @@
           "section": "section#inventory.inventory",
           "groups": [
             {
-              "units": 12,
+              "units": 8,
               "widthClass": "equal",
               "widthRatios": [
-                0.296,
-                0.296,
-                0.296,
-                0.296,
                 0.296,
                 0.296,
                 0.296,
@@ -161,15 +157,13 @@
               "container": "none",
               "interaction": "static",
               "sample": "dl.vcard__rows",
-              "formula": "12×equal||align:start|cont:none|int:static",
-              "shape": "12×equal|"
+              "formula": "8×equal||align:start|cont:none|int:static",
+              "shape": "8×equal|"
             },
             {
-              "units": 6,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.329,
-                0.329,
                 0.329,
                 0.329,
                 0.329,
@@ -185,15 +179,13 @@
               "container": "fill",
               "interaction": "link",
               "sample": "li.vcard",
-              "formula": "6×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:fill|int:link",
-              "shape": "6×equal|i:mid|h:top|m:top|c:bottom"
+              "formula": "4×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:fill|int:link",
+              "shape": "4×equal|i:mid|h:top|m:top|c:bottom"
             },
             {
-              "units": 6,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.296,
-                0.296,
                 0.296,
                 0.296,
                 0.296,
@@ -206,15 +198,13 @@
               "container": "fill",
               "interaction": "static",
               "sample": "figure.vcard__media",
-              "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
-              "shape": "6×equal|i:mid"
+              "formula": "4×equal|i:mid|align:start|cont:fill|int:static",
+              "shape": "4×equal|i:mid"
             },
             {
-              "units": 6,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.133,
-                0.133,
                 0.133,
                 0.133,
                 0.133,
@@ -227,8 +217,28 @@
               "container": "box",
               "interaction": "static",
               "sample": "a.btn",
-              "formula": "6×equal|m:mid|align:start|cont:box|int:static",
-              "shape": "6×equal|m:mid"
+              "formula": "4×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "4×equal|m:mid"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.917,
+                0.917
+              ],
+              "slots": {
+                "heading": "top",
+                "meta": "top",
+                "image": "mid",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div#new.inv-group",
+              "formula": "2×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:none|int:link",
+              "shape": "2×equal|i:mid|h:top|m:top|c:bottom"
             },
             {
               "units": 2,
@@ -275,22 +285,21 @@
               "shape": "7×equal|"
             },
             {
-              "units": 2,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
                 0.095,
-                0.098
+                0.095,
+                0.098,
+                0.094
               ],
-              "slots": {
-                "cta": "upper",
-                "meta": "lower"
-              },
+              "slots": {},
               "align": "right",
               "container": "none",
-              "interaction": "link",
-              "sample": "dd.spec__value",
-              "formula": "2×equal|m:lower|c:upper|align:right|cont:none|int:link",
-              "shape": "2×equal|m:lower|c:upper"
+              "interaction": "static",
+              "sample": "a",
+              "formula": "4×equal||align:right|cont:none|int:static",
+              "shape": "4×equal|"
             },
             {
               "units": 2,
@@ -726,15 +735,9 @@
           "section": "section#inventory.inventory",
           "groups": [
             {
-              "units": 20,
+              "units": 14,
               "widthClass": "equal",
               "widthRatios": [
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
                 0.754,
                 0.754,
                 0.754,
@@ -757,49 +760,8 @@
               "container": "none",
               "interaction": "static",
               "sample": "p.vcard__colour",
-              "formula": "20×equal|m:lower|align:start|cont:none|int:static",
-              "shape": "20×equal|m:lower"
-            },
-            {
-              "units": 7,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754
-              ],
-              "slots": {},
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "dl.vcard__rows",
-              "formula": "7×equal||align:start|cont:none|int:static",
-              "shape": "7×equal|"
-            },
-            {
-              "units": 6,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754
-              ],
-              "slots": {
-                "image": "mid"
-              },
-              "align": "start",
-              "container": "fill",
-              "interaction": "static",
-              "sample": "figure.vcard__media",
-              "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
-              "shape": "6×equal|i:mid"
+              "formula": "14×equal|m:lower|align:start|cont:none|int:static",
+              "shape": "14×equal|m:lower"
             },
             {
               "units": 4,
@@ -828,34 +790,34 @@
                 0.754
               ],
               "slots": {
+                "image": "mid"
+              },
+              "align": "start",
+              "container": "fill",
+              "interaction": "static",
+              "sample": "figure.vcard__media",
+              "formula": "4×equal|i:mid|align:start|cont:fill|int:static",
+              "shape": "4×equal|i:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.754,
+                0.754,
+                0.754,
+                0.754
+              ],
+              "slots": {
+                "cta": "lower",
                 "meta": "lower"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "div.vcard__foot",
-              "formula": "4×equal|m:lower|align:start|cont:none|int:link",
-              "shape": "4×equal|m:lower"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "heading": "top",
-                "meta": "top",
-                "image": "upper"
-              },
-              "align": "start",
-              "container": "fill",
-              "interaction": "link",
-              "sample": "li.vcard",
-              "formula": "3×equal|i:upper|h:top|m:top|align:start|cont:fill|int:link",
-              "shape": "3×equal|i:upper|h:top|m:top"
+              "formula": "4×equal|m:lower|c:lower|align:start|cont:none|int:link",
+              "shape": "4×equal|m:lower|c:lower"
             },
             {
               "units": 2,
@@ -881,19 +843,20 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.754,
-                0.754
+                0.877,
+                0.877
               ],
               "slots": {
-                "cta": "lower",
-                "meta": "lower"
+                "heading": "top",
+                "meta": "top",
+                "image": "upper"
               },
               "align": "start",
-              "container": "none",
+              "container": "fill",
               "interaction": "link",
-              "sample": "div.vcard__foot",
-              "formula": "2×equal|m:lower|c:lower|align:start|cont:none|int:link",
-              "shape": "2×equal|m:lower|c:lower"
+              "sample": "li.vcard",
+              "formula": "2×equal|i:upper|h:top|m:top|align:start|cont:fill|int:link",
+              "shape": "2×equal|i:upper|h:top|m:top"
             }
           ]
         },
@@ -963,6 +926,22 @@
               "sample": "div.spec__row",
               "formula": "5×equal|m:upper|c:mid|align:start|cont:none|int:link",
               "shape": "5×equal|m:upper|c:mid"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.315,
+                0.315,
+                0.322
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a",
+              "formula": "3×equal||align:start|cont:none|int:static",
+              "shape": "3×equal|"
             },
             {
               "units": 2,
@@ -1327,25 +1306,25 @@
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 6,
-      "shape": "6×equal|i:mid|h:top|m:top|c:bottom",
-      "formula": "6×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:fill|int:link",
+      "units": 4,
+      "shape": "4×equal|i:mid|h:top|m:top|c:bottom",
+      "formula": "4×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:fill|int:link",
       "disposition": null
     },
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 6,
-      "shape": "6×equal|i:mid",
-      "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
+      "units": 4,
+      "shape": "4×equal|i:mid",
+      "formula": "4×equal|i:mid|align:start|cont:fill|int:static",
       "disposition": null
     },
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 6,
-      "shape": "6×equal|m:mid",
-      "formula": "6×equal|m:mid|align:start|cont:box|int:static",
+      "units": 4,
+      "shape": "4×equal|m:mid",
+      "formula": "4×equal|m:mid|align:start|cont:box|int:static",
       "disposition": null
     },
     {
@@ -1427,14 +1406,14 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T20:11:39.689Z",
+  "finishedAt": "2026-09-30T20:35:29.096Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 4×equal|m:mid|c:mid",
     "undisposed parallel-units: 3×equal|m:mid",
-    "undisposed parallel-units: 6×equal|i:mid|h:top|m:top|c:bottom",
-    "undisposed parallel-units: 6×equal|i:mid",
-    "undisposed parallel-units: 6×equal|m:mid",
+    "undisposed parallel-units: 4×equal|i:mid|h:top|m:top|c:bottom",
+    "undisposed parallel-units: 4×equal|i:mid",
+    "undisposed parallel-units: 4×equal|m:mid",
     "undisposed parallel-units: 3×equal|i:upper|m:bottom",
     "undisposed parallel-units: 5×equal|m:mid|c:mid",
     "undisposed parallel-units: 14×equal|c:mid",

@@ -27,8 +27,6 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 | 2026 Temerario, New | ZHWUC1ZC1TLA02400 | 10914 | Verde Mercurius Metallic | 37 mi | none listed, shown as "Price on request" | https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290 |
 | 2024 Revuelto, Pre-owned | ZHWUC1ZM3RLA00116 | 86180 | Giallo Metallic | 187 mi | $651,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655 |
 | 2024 Revuelto, Pre-owned | ZHWUC1ZM0RLA00252 | CJ2602 | Grigio Acheso Matt | 1,411 mi | $741,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65607471 |
-| 2018 Huracán Performante Spyder, Pre-owned | ZHWUS4ZF6JLA10746 | CJ2607 | Nero Noctis | 8,104 mi | $411,697 | https://www.lamborghinimiami.com/vehicle-details/used-2018-lamborghini-huracan-performante-spyder-north-miami-beach-fl-id-65671487 |
-| 2022 Urus, Pre-owned | ZPBUA1ZL8NLA17774 | 86168X | Nero Noctis Matt | 31,094 mi | $211,697 | https://www.lamborghinimiami.com/vehicle-details/used-2022-lamborghini-urus---north-miami-beach-fl-id-65586654 |
 
 ### Listing endpoints
 
@@ -37,14 +35,26 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 
 ### Left out, and why
 
+- **2018 Huracán Performante Spyder, ZHWUS4ZF6JLA10746, removed in the 30 Sep critic pass.** It is listed as Nero Noctis, but its photo shows a mid-grey car.
+- **2022 Urus, ZPBUA1ZL8NLA17774, removed in the 30 Sep critic pass.** It is listed as Nero Noctis Matt, but its photo reads as gloss.
+- Both follow the same rule as the 2021 Urus: when the listing and its photo disagree, the car is not shown. The page no longer claims that photographs show the listed vehicle.
+- A consistent candidate if a third pre-owned card is wanted: the 2015 Huracán LP610-4, ZHWUC1ZF6FLA02875, Nero Nemesis Matt, 18,536 mi, $246,697. Its photo shows a matt black car. It is not added, because the inventory layout is waiting on Alex's decision (K3).
+
 - **2021 Urus, ZPBUA1ZL7MLA15500.** It is listed as "Grigio Keres Matt", but its photo shows a dark green car. The listing contradicts itself, so it is not shown.
 - **Three Revuelto VINs.** Their listings have no photos. Showing the two photographed Revueltos is enough; the rest are behind "View all inventory".
 - **2026 Temerario.** It is shown even though it has no photos, because it is the only new Temerario. Its card carries a visibly-labelled plate, "Photography in preparation", instead of a borrowed image (CP4, CP7).
 
 ### Price notes
 
+- **Fee statement (source).** The captured listing pages (`srp.html`, `new.html`) print: "Price includes dealer fee of $1447.50 and $299 electronic filing fee. Tax, tag, title and registrations fees are not included and are calculated at time of purchase."
+- **Arithmetic check** of the data-layer `sellingPrice` against the printed price:
+  - 86180: $649,950 + $1,447.50 + $299 = $651,696.50, printed as **$651,697**
+  - CJ2602: $739,950 + $1,747.50 = **$741,697**
+- The page now prints that fee statement next to the prices in `.inventory__note`, replacing the vaguer "applicable fees" line.
+- The new Urus SE and Temerario carry a data-layer `sellingPrice` (313,631 and 470,849), but the source shows no public price for them. The page keeps "Price on request" and does not publish those figures.
+
 - Every listed price ends in ",697". That is the source's convention and is reproduced unchanged.
-- **Confirm:** Florida §501.976(16) requires an advertised price to include all fees except tax, tag, registration and title. We cannot tell whether the listed prices meet this, so the page prints no "includes fees" statement. It says "Price, availability and applicable fees are subject to change; please confirm with our sales team." The client must confirm the pricing basis, and whether the §501.976(18) predelivery-fee disclosure applies.
+- **Confirm:** Florida §501.976(18) requires specific wording to disclose a predelivery (dealer) fee. The source calls it a "dealer fee"; the client should confirm the statutory wording.
 
 ## Model range: manufacturer claims
 

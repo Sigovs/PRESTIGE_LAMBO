@@ -1,6 +1,6 @@
 {
   "gate": "Gate 1/2 · delegated — rendered hero conformance",
-  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
   "viewports": [
     {
       "label": "desktop",
@@ -22,7 +22,7 @@
         "fit": "fill",
         "position": {
           "x": 0.5,
-          "y": 0.5
+          "y": 1
         },
         "natural": {
           "w": 1440,
@@ -87,14 +87,14 @@
         },
         "media": {
           "x": 0,
-          "y": 404,
+          "y": 364,
           "w": 390,
-          "h": 224
+          "h": 264
         },
-        "fit": "fill",
+        "fit": "contain",
         "position": {
           "x": 0.5,
-          "y": 0.5
+          "y": 1
         },
         "natural": {
           "w": 390,
@@ -149,7 +149,7 @@
   ],
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T20:11:59.367Z",
+  "finishedAt": "2026-09-30T20:35:47.137Z",
   "sourceEvidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/hero-source-declared.png",
   "blockers": [
     "humanConfirmed is false — the annotated source frame must be checked by a person: a wrongly declared subjectBox cannot produce a pass"

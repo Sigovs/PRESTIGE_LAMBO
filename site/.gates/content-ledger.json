@@ -1,13 +1,13 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
   "build": {
     "private": false
   },
   "claims": [
     {
       "id": "inv-prices",
-      "claim": "$651,697 $741,697 $411,697 $211,697",
+      "claim": "$651,697 $741,697",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghinimiami.com VDP JSON-LD (offers.price), curl 30 Sep 2026; research/inventory-capture-2026-09-30/vdp-jsonld.json",
@@ -18,7 +18,7 @@
     },
     {
       "id": "inv-odometer",
-      "claim": "24 mi 37 mi 187 mi 1,411 mi 8,104 mi 31,094 mi",
+      "claim": "24 mi 37 mi 187 mi 1,411 mi",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghinimiami.com VDP JSON-LD mileageFromOdometer, 30 Sep 2026",
@@ -29,7 +29,7 @@
     },
     {
       "id": "inv-identity",
-      "claim": "2026 Urus SE 2026 Temerario 2024 Revuelto 2018 Huracán Performante Spyder 2022 Urus Stock 10918 10914 86180 CJ2602 CJ2607 86168X VINs ZPBUD6ZLXTLA46954 ZHWUC1ZC1TLA02400 ZHWUC1ZM3RLA00116 ZHWUC1ZM0RLA00252 ZHWUS4ZF6JLA10746 ZPBUA1ZL8NLA17774",
+      "claim": "2026 Urus SE 2026 Temerario 2024 Revuelto Stock 10918 10914 86180 CJ2602 VINs ZPBUD6ZLXTLA46954 ZHWUC1ZC1TLA02400 ZHWUC1ZM3RLA00116 ZHWUC1ZM0RLA00252",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghinimiami.com SRP and VDP JSON-LD, 30 Sep 2026",
@@ -145,12 +145,23 @@
     },
     {
       "id": "model-years-in-links",
-      "claim": "2024 2025 2026 2018 2022",
+      "claim": "2024 2025 2026",
       "status": "verified",
       "source": "inventory capture 30 Sep 2026",
       "sourceType": "live-system",
       "appearsAt": [
         ".vcard__title"
+      ]
+    },
+    {
+      "id": "inv-fees",
+      "claim": "price includes dealer fee of $1,447.50 and $299 electronic filing fee; tax, tag, title and registration fees are not included",
+      "status": "dated-requires-reconciliation",
+      "captureDate": "2026-09-30",
+      "source": "lamborghinimiami.com SRP pages, captured 30 Sep 2026 (research/inventory-capture-2026-09-30/srp.html, new.html); sellingPrice + $1,746.50 = printed price",
+      "sourceType": "live-system",
+      "appearsAt": [
+        ".inventory__note"
       ]
     }
   ],
@@ -230,13 +241,13 @@
     {
       "class": "bare-count",
       "text": "2026",
-      "context": "Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026. Revuelto SV: Under approv",
+      "context": "Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026.",
       "where": "section#range > div.container > p.range__source"
     },
     {
       "class": "year",
       "text": "2026",
-      "context": "Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026. Revuelto SV: Under approv",
+      "context": "Figures are manufacturer data published by Automobili Lamborghini, as captured on 30 Sep 2026.",
       "where": "section#range > div.container > p.range__source"
     },
     {
@@ -432,135 +443,45 @@
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
     },
     {
-      "class": "bare-count",
-      "text": "2018",
-      "context": "2018 Huracán Performante Spyder",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
-    },
-    {
-      "class": "year",
-      "text": "2018",
-      "context": "2018 Huracán Performante Spyder",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
-    },
-    {
-      "class": "grouped-number",
-      "text": "8,104",
-      "context": "8,104 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
-    },
-    {
-      "class": "bare-count",
-      "text": "104",
-      "context": "8,104 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+      "class": "currency",
+      "text": "$1,447.50",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
+      "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
     },
     {
       "class": "currency",
-      "text": "$411,697",
-      "context": "$411,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+      "text": "$299",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
+      "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
     },
     {
       "class": "grouped-number",
-      "text": "411,697",
-      "context": "$411,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "bare-count",
-      "text": "411",
-      "context": "$411,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "bare-count",
-      "text": "697",
-      "context": "$411,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "bare-count",
-      "text": "2018",
-      "context": ": 2018 Huracán Performante Spyder",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
-    },
-    {
-      "class": "year",
-      "text": "2018",
-      "context": ": 2018 Huracán Performante Spyder",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
-    },
-    {
-      "class": "bare-count",
-      "text": "2022",
-      "context": "2022 Urus",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
-    },
-    {
-      "class": "year",
-      "text": "2022",
-      "context": "2022 Urus",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
-    },
-    {
-      "class": "grouped-number",
-      "text": "31,094",
-      "context": "31,094 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
-    },
-    {
-      "class": "bare-count",
-      "text": "094",
-      "context": "31,094 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
-    },
-    {
-      "class": "currency",
-      "text": "$211,697",
-      "context": "$211,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "grouped-number",
-      "text": "211,697",
-      "context": "$211,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "bare-count",
-      "text": "211",
-      "context": "$211,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "bare-count",
-      "text": "697",
-      "context": "$211,697",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
-    },
-    {
-      "class": "bare-count",
-      "text": "2022",
-      "context": ": 2022 Urus",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
-    },
-    {
-      "class": "year",
-      "text": "2022",
-      "context": ": 2022 Urus",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+      "text": "1,447",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
+      "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
     },
     {
       "class": "bare-count",
       "text": "2026",
-      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. Price, availability and applicable fees are sub",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
+      "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
+    },
+    {
+      "class": "bare-count",
+      "text": "447",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
+      "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
+    },
+    {
+      "class": "bare-count",
+      "text": "299",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
       "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
     },
     {
       "class": "year",
       "text": "2026",
-      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. Price, availability and applicable fees are sub",
+      "context": "Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer",
       "where": "section#inventory > div.container > div.inventory__foot > p.t-legal"
     },
     {
@@ -839,13 +760,13 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 113,
-      "entries": 13,
+      "hits": 98,
+      "entries": 14,
       "uncovered": 0
     }
   },
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T20:12:26.794Z"
+  "finishedAt": "2026-09-30T20:36:12.609Z"
 }

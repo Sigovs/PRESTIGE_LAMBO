@@ -38,13 +38,22 @@
     const hero = document.querySelector('.hero');
     let ticking = false;
 
+    const photoChapters = [...document.querySelectorAll('.adp')];
     function updateHeader() {
         ticking = false;
         if (!header) return;
-        const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - header.offsetHeight : 0;
-        // Solid only once the header has left the hero, so an opaque bar never
-        // cuts across the hero's live scene.
-        header.classList.toggle('is-solid', window.scrollY > heroEnd);
+        const h = header.offsetHeight;
+        const y = window.scrollY;
+        // >= : an anchor landing exactly at the end of the hero (#range) must
+        // already read as solid. Sub-pixel rounding gets one pixel of slack.
+        const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - h : 0;
+        // Over a full-bleed photographic chapter the header keeps the hero's
+        // gradient treatment instead of an opaque bar across the photograph.
+        const overPhoto = photoChapters.some((el) => {
+            const r = el.getBoundingClientRect();
+            return r.top <= 1 && r.bottom > h + 1;
+        });
+        header.classList.toggle('is-solid', y >= heroEnd - 1 && !overPhoto);
     }
     window.addEventListener('scroll', () => {
         if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
@@ -128,7 +137,14 @@
         const tall = /-m-\d+\./.test(img.currentSrc || '');
         const f = (img.dataset[tall ? 'subjectTall' : 'subjectWide'] || '').split(',').map(Number);
         if (f.length !== 4) return;
-        const r = img.getBoundingClientRect();
+        let r = img.getBoundingClientRect();
+        // with object-fit: contain (portrait layouts) measure the drawn picture,
+        // not the letterboxed element box; object-position is 50% 100%
+        if (getComputedStyle(img).objectFit === 'contain' && img.naturalWidth) {
+            const k = Math.min(r.width / img.naturalWidth, r.height / img.naturalHeight);
+            const w = img.naturalWidth * k, hgt = img.naturalHeight * k;
+            r = { left: r.left + (r.width - w) / 2, top: r.bottom - hgt, width: w, height: hgt };
+        }
         window.__subject = {
             label: 'Temerario (photograph)',
             left: r.left + f[0] * r.width, top: r.top + f[1] * r.height,

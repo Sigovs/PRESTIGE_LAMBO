@@ -1,13 +1,13 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
-  "fileCount": 109,
+  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
+  "fileCount": 170,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 9603,
-      "screens": 10.67,
-      "mediaTotal": 17,
+      "pageHeightPx": 8988,
+      "screens": 9.99,
+      "mediaTotal": 14,
       "fullBleedMedia": 2,
       "largestTypePx": 120,
       "smallestTypePx": 14,
@@ -16,9 +16,9 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 13681,
-      "screens": 16.21,
-      "mediaTotal": 17,
+      "pageHeightPx": 12544,
+      "screens": 14.86,
+      "mediaTotal": 14,
       "fullBleedMedia": 2,
       "largestTypePx": 80,
       "smallestTypePx": 14,
@@ -99,7 +99,7 @@
           "rects": [
             {
               "x": 60,
-              "y": 756,
+              "y": 505,
               "w": 434,
               "h": 72
             }
@@ -159,22 +159,22 @@
       "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.78,
-        "mediaCoverage": 0.276,
+        "eventCoverage": 0.804,
+        "mediaCoverage": 0.323,
         "competitionRatio": 0,
-        "structuralShare": 0.719,
-        "negativeSpaceShare": 0.078,
-        "rankMassShare": 0.651,
-        "subjectShareOfEvent": 0.376,
+        "structuralShare": 0.772,
+        "negativeSpaceShare": 0.04,
+        "rankMassShare": 0.699,
+        "subjectShareOfEvent": 0.43,
         "chromeShare": 0.095,
         "declaredMasses": 3,
         "readsWithoutMedia": true
       },
       "envelope": {
         "x": 0,
-        "y": 128,
+        "y": 120,
         "w": 390,
-        "h": 684.083984375
+        "h": 692.0469970703125
       },
       "components": [
         {
@@ -184,14 +184,14 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": true,
-          "share": 0.265,
+          "share": 0.313,
           "isWrapper": false,
           "rects": [
             {
               "x": 0,
-              "y": 404,
+              "y": 364,
               "w": 390,
-              "h": 224
+              "h": 264
             }
           ]
         },
@@ -207,7 +207,7 @@
           "rects": [
             {
               "x": 24,
-              "y": 128,
+              "y": 120,
               "w": 329,
               "h": 220
             }
@@ -238,14 +238,14 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": false,
-          "share": 0.041,
+          "share": 0.029,
           "isWrapper": false,
           "rects": [
             {
-              "x": 24,
-              "y": 372,
-              "w": 327,
-              "h": 41
+              "x": 0,
+              "y": 364,
+              "w": 390,
+              "h": 24
             }
           ]
         },
@@ -256,13 +256,13 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": false,
-          "share": 0.023,
+          "share": 0.029,
           "isWrapper": false,
           "rects": [
             {
-              "x": 24,
+              "x": 0,
               "y": 628,
-              "w": 327,
+              "w": 390,
               "h": 24
             }
           ]
@@ -278,10 +278,10 @@
           ],
           "why": null,
           "rect": {
-            "x": 24.18,
-            "y": 372.204,
-            "w": 326.82,
-            "h": 41.356
+            "x": 0,
+            "y": 363.764,
+            "w": 390,
+            "h": 24.476000000000003
           }
         },
         {
@@ -293,10 +293,10 @@
           ],
           "why": null,
           "rect": {
-            "x": 24.18,
+            "x": 0,
             "y": 627.936,
-            "w": 326.82,
-            "h": 23.632
+            "w": 390,
+            "h": 24.476000000000003
           }
         }
       ],
@@ -309,7 +309,7 @@
         }
       ],
       "problems": [
-        "eventCoverage 78.0% is below the A1 floor of 90%"
+        "eventCoverage 80.4% is below the A1 floor of 90%"
       ],
       "verdict": "fail",
       "label": "mobile",
@@ -354,8 +354,8 @@
     }
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T20:11:32.727Z",
+  "finishedAt": "2026-09-30T20:35:21.467Z",
   "blockers": [
-    "A1 mobile: eventCoverage 78.0% is below the A1 floor of 90%"
+    "A1 mobile: eventCoverage 80.4% is below the A1 floor of 90%"
   ]
 }

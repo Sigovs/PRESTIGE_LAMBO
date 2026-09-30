@@ -62,20 +62,20 @@
             "role": "negative-space",
             "function": "visual pause inside the event",
             "rect": {
-              "x": 0.062,
-              "y": 0.441,
-              "w": 0.838,
-              "h": 0.049
+              "x": 0.0,
+              "y": 0.431,
+              "w": 1.0,
+              "h": 0.029
             }
           },
           {
             "role": "negative-space",
             "function": "visual pause inside the event",
             "rect": {
-              "x": 0.062,
+              "x": 0.0,
               "y": 0.744,
-              "w": 0.838,
-              "h": 0.028
+              "w": 1.0,
+              "h": 0.029
             }
           }
         ]
