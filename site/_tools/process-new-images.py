@@ -47,3 +47,7 @@ export(im, 'slide-revuelto-aerial', [2560, 1920, 1280], jpg_widths=(1920, 1280))
 # Slide 4 (Urus SE), landscape: official lamborghini.com Urus SE gallery frame, orange Urus SE on red rocks at sunset
 im = Image.open('research/press-images/urus-se_rocks-sunset-orange_2560x1440.jpg').convert('RGB')
 export(im, 'slide-urus-se-rocks', [2560, 1920, 1280], jpg_widths=(1920, 1280))
+
+# Slide 1 (dealer), landscape: Alex's own edit of img8 ("slide 1d.jpg", 1920x1080): car shifted right, left side darkened
+im = Image.open(SRC + 'slide 1d.jpg').convert('RGB')
+export(im, 'hero-dealer-alex', [1920, 1280], jpg_widths=(1920, 1280))

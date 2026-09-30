@@ -177,6 +177,12 @@
     --drive-text-lag: 200ms;  /* the tile's text starts this long after its car */
     /* hero slider (user direction, Alex) */
     --dur-slide: 800ms;     /* crossfade */
+    /* hero text entrance (Alex): from the left, on load and on every slide change */
+    --hero-in-x: -48px;
+    --dur-hero-in: 750ms;   /* on --ease-drive */
+    --dur-hero-out: 250ms;  /* the outgoing lines fade first, no travel */
+    --hero-step: 80ms;      /* top-to-bottom stagger */
+    --hero-cap: 400ms;
     --ctrl-gap: 8px;        /* slider controls reach opacity 0 this far below the header (mirrored in main.js) */
     --ctrl-fade: 96px;      /* scroll distance over which they fade (mirrored in main.js) */
     --slide-hold: 6500ms;   /* autoplay dwell per slide — mirrored in main.js */

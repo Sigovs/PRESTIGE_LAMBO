@@ -61,3 +61,8 @@ Resize and export only, via `site/_tools/process-models-alex.py`: shadows as sup
 | File | Dimensions | Model (verified by eye) | Source URL | Found on | Used for |
 |---|---|---|---|---|---|
 | `urus-se_rocks-sunset-orange_2560x1440.jpg` | 2560×1440 | Urus SE (orange; SE rear-light signature and standard bonnet, from the Urus SE model page gallery) | https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/0_facelift_2025/model_details/urus_se/gallery/4d.jpg | https://www.lamborghini.com/en-en/models/urus/urus-se | Hero slide 4 on landscape screens (full bleed), replacing the side-profile band. Phones keep the orange dust frame |
+
+| Source file (supplied by Alex) | Content | Status | Output (`site/assets/img/`) |
+|---|---|---|---|
+| `NEW IMAGES/slide 1d.jpg` (1920×1080) | Alex's own edit of img8: the yellow Revuelto shifted right, the left side darkened for the copy | **In use:** hero slide 1 on landscape screens and portrait tablets, replacing the direct img8 export. At 1920 it is drawn 1.2× from its left edge, so the wheels clear the actions (a slight upscale of the 1920 source); 4:3 tablets shift it 48 px right. Phones are unchanged | `hero-dealer-alex-{1280,1920}.webp` + `.jpg` |
+| `NEW IMAGES/personalization.webp` (1744×1000) | Revuelto interior: tan leather, carbon, steering wheel, a digital cityscape in the windscreen | See the Ad Personam entry | — |

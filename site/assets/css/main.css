@@ -659,16 +659,16 @@ address { font-style: normal; }
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
     .hero .hero__slide--bleed { --scrim-a: 0.9; }   /* outranks the per-slide values below */
 }
-/* dealer slide (img8): the sky behind the copy is near-white, so the scrim is an
-   ellipse over the copy field rather than a band down the left edge, which would
-   also dim the car's rear */
+/* dealer slide (Alex's edit of img8): the frame is drawn 1.2x from its left edge so
+   the car moves right and its wheels clear the centred action row at every
+   landscape width (the copy may overlap only the rear haunch, per Alex) */
 @media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
-    .hero__slide--dealer.hero__slide--bleed .hero__scrim {
-        background:
-            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
-            radial-gradient(ellipse 62% 58% at 16% 46%, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.84) 58%, rgb(0 0 0 / 0) 100%);
-    }
+    .hero__slide--dealer .hero__img { transform: translateX(var(--dealer-shift, 0px)) scale(var(--dealer-zoom, 1)); transform-origin: 0% 62%; }
 }
+/* per width: 1920 scales 1.2 from the left edge (nose still in frame at 1820);
+   1440 needs nothing; 4:3 tablets shift right 48 px (the frame's left edge is black) */
+@media (min-width: 1600px) { .hero { --dealer-zoom: 1.2; } }
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) { .hero { --dealer-shift: 48px; } }
 /* over photographs the secondary action carries a dark fill so its label holds
    on any frame (corporate secondary is an outline; the fill is a legibility decision) */
 .hero__slide--model .btn--secondary { background: rgb(0 0 0 / 0.64); }
@@ -687,7 +687,7 @@ address { font-style: normal; }
     .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); --hero-title-fs: var(--fs-40); --hero-title-lh: var(--lh-38); }
 }
 /* per-slide authored framing */
-.hero__slide--dealer { --d-pos: 0% 50%; --scrim-a: 0.88; }        /* img8: the car low, centre-right */
+.hero__slide--dealer { --d-pos: 0% 50%; --scrim-a: 0.5; }         /* Alex's edit of img8: the left side is already dark; a light scrim only */
 .hero__slide--temerario { --d-pos: 0% 55%; --m-pos: 50%; --scrim-a: 0.84; }  /* gallery2 cropped clear of the sign: car right, sunset sky left */
 .hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
 .hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.8; }   /* rocks at sunset: car right-centre */
@@ -714,7 +714,7 @@ address { font-style: normal; }
 /* portrait tablets: the dealer frame is shown whole across the width (its own
    1160×667 ratio), so the car ends at 86% of the field and the group centres below it */
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait) {
-    .hero__slide--dealer { --hero-scene-h: 56.25vw; --photo-k: 0.97; }   /* img8 shown whole (16:9); the car sits on its foot */
+    .hero__slide--dealer { --hero-scene-h: 56.25vw; --photo-k: 0.8; }    /* Alex's slide 1 frame shown whole (16:9); the car ends at 75% */
 }
 
 /* ---------- 2 · The range — pictured (Alex, option C) ----------
@@ -1342,15 +1342,22 @@ address { font-style: normal; }
     }
     .js .model.dv.is-driven .model__car { opacity: 1; transform: none; }
 
-    /* hero: same rise language, on load (it is above the fold) */
+    /* hero text slides in from the left on load and on every slide change (Alex,
+       30 Sep 2026). The outgoing slide's lines fade in --dur-hero-out without
+       travel; the incoming lines wait for that, then glide in top to bottom. */
     .js [data-hero-line] {
         opacity: 0;
-        transform: translate3d(0, var(--rise), 0);
-        transition: opacity var(--dur-rise) var(--ease-rise),
-                    transform var(--dur-rise) var(--ease-rise);
-        transition-delay: min(calc(var(--i, 0) * var(--rise-step)), var(--rise-cap));
+        transform: translate3d(var(--hero-in-x), 0, 0);
+        transition: opacity var(--dur-hero-out) var(--ease-out),
+                    transform 0s linear var(--dur-hero-out);
     }
-    .js.is-loaded .hero__slide.is-active [data-hero-line] { opacity: 1; transform: none; }
+    .js.is-loaded .hero__slide.is-active [data-hero-line] {
+        opacity: 1;
+        transform: none;
+        transition: opacity var(--dur-hero-in) var(--ease-drive),
+                    transform var(--dur-hero-in) var(--ease-drive);
+        transition-delay: calc(var(--dur-hero-out) + min(calc(var(--i, 0) * var(--hero-step)), var(--hero-cap)));
+    }
 
     .js .hero__media { opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
     .js.is-loaded .hero__media { opacity: 1; }
