@@ -210,6 +210,9 @@ address { font-style: normal; }
 .btn--accent { background: var(--accent); color: var(--accent-ink); }
 .btn--accent:hover { background: var(--accent-hover); color: var(--grey-0); }
 
+.btn--solid { background: var(--btn-solid-bg); color: var(--btn-solid-fg); }
+.btn--solid:hover { background: var(--btn-solid-hover); }
+
 .btn--secondary { border-color: var(--fg); color: var(--fg); }
 .btn--secondary:hover { border-color: var(--fg-3); color: var(--fg-3); }
 
@@ -775,7 +778,13 @@ address { font-style: normal; }
     text-transform: uppercase;
     white-space: nowrap;
 }
-.model__actions { display: flex; flex-wrap: wrap; gap: 0 var(--sp-32); }
+/* two solid buttons, one pair per tile, split 50/50 across the tile (Alex, 30 Sep 2026):
+   Enquire is the primary (black), Configure the solid secondary (#dcdcdc) */
+.model__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-8); padding-top: var(--sp-8); }
+.model__actions .btn { width: 100%; }
+@media (max-width: 359.98px) {
+    .model__actions { grid-template-columns: minmax(0, 1fr); }   /* 320: the pair stacks, full width (a half is 125 px, too narrow for CONFIGURE ↗) */
+}
 
 @media (min-width: 768px) {
     .models { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -783,13 +792,16 @@ address { font-style: normal; }
 /* tablets: tiles share row lines (subgrid) so a two-line name never pushes one
    tile's spec block below its neighbour's */
 @media (min-width: 768px) and (max-width: 1199.98px) {
-    .model { grid-row: span 3; grid-template-rows: subgrid; row-gap: var(--sp-16); }
+    .model { grid-row: span 4; grid-template-rows: subgrid; row-gap: var(--sp-16); }
+    .model__actions { align-self: end; }
     .model__body { display: contents; }
 }
 @media (min-width: 1200px) {
     .range { padding-block: var(--sp-88) var(--sp-88); }
     .model__name { font-size: var(--fs-56); line-height: var(--lh-52); }
-    .model__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--grid-gap); align-items: start; }
+    .model { grid-template-rows: auto 1fr; }
+    .model__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: 1fr auto; column-gap: var(--grid-gap); align-items: start; }
+    .model__actions { grid-column: 1 / -1; align-self: end; }   /* the pair sits on one line across both tiles of a row */
 }
 
 /* ---------- 3 · Inventory (dealer adaptation of the Selezione card) ---------- */

@@ -44,6 +44,10 @@
     --accent-light-press: #665100;
     --focus:              #1e90ff;
     --focus-offset:       3px;
+    /* solid secondary button, light bands only (Alex, 30 Sep 2026: Models CTAs) */
+    --btn-solid-bg:    var(--grey-2);   /* #dcdcdc, surface-2 light */
+    --btn-solid-fg:    var(--grey-11);  /* #000: 15.4:1 on the fill, 12.2:1 on hover */
+    --btn-solid-hover: var(--grey-3);   /* #c4c4c4 */
 
     /* ---- Semantic surfaces ---- */
     --surface-0-dark:  var(--grey-11);
