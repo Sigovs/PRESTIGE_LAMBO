@@ -86,6 +86,7 @@ Source: `research/LAMBORGHINI_CI_RESEARCH.md`, captured from lamborghini.com on 
 | "The quantum of driving" (Revuelto) | verified | CI §5, shot 01 |
 | Revuelto SV: 1,065 CV, limited to 1,963 units | verified | CI §5 (media.lamborghini.com press release) |
 | "Revuelto SV: Under approval, not available for sale" | verified | CI §1.9, shot 04 |
+| "Dare to live more" (Urus SE, hero slide 4 and Models tile) | verified as a corporate Urus claim (the earlier one), and used on the current dealer Urus SE page; **confirm** reuse with Lamborghini Americas | CI §5; CURRENT_SITE_CONTENT §3.2 |
 | "Urus at its peak" (Urus SE Performante) | verified as a corporate Urus claim; **confirm** that it may be reused against the SE Performante | CI §5 |
 | Urus SE: 800 CV | **now verified** on lamborghini.com/en-en/models/urus/urus-se (see the tile table). Previously dealer-stated. It comes from the current Urus SE page, which reproduces AL press copy ("first PHEV… 800 CV"). **Confirm** against lamborghini.com | `research/CURRENT_SITE_CONTENT.md` §3.2 |
 | Current range = Revuelto, Temerario, Urus SE, Urus SE Performante | verified | CI §5, shot 02 ("Configure your" tabs) |

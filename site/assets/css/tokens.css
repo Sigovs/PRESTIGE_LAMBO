@@ -124,6 +124,7 @@
     --hero-scene-h: min(74svh, 160vw);       /* portrait phones: photo field height */
     --hero-scene-h-short: min(66svh, 160vw); /* ≤600px tall phones */
     --hero-scene-h-model: min(58svh, 118vw); /* model slides on phones: whole car across the width */
+    --hero-scene-h-model-short: min(44svh, 118vw); /* ≤600px tall phones */
     --claim-measure: 10ch;  /* claim titles wrap to 2–3 lines */
     --hex: 3rem;            /* 48px hexagon arrow */
     --hex-h: 3.25rem;       /* 52px */

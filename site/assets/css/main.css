@@ -444,7 +444,7 @@ address { font-style: normal; }
     left: 50%; bottom: calc(-1 * var(--sp-32));
     width: 100vw; height: calc(100% + var(--sp-80));
     transform: translateX(-50%);
-    background: linear-gradient(0deg, rgb(0 0 0 / 0.72) 0%, rgb(0 0 0 / 0) 100%);
+    background: linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.6) 55%, rgb(0 0 0 / 0) 100%);
     z-index: -1;
     pointer-events: none;
 }
@@ -476,6 +476,7 @@ address { font-style: normal; }
 }
 .hero__dot[aria-current="true"] .hero__dot-fill { --p: var(--progress, 1); }
 .hero__toggle, .hero__arrow {
+    flex: none;
     display: grid;
     place-items: center;
     width: var(--tap);
@@ -598,6 +599,9 @@ address { font-style: normal; }
 }
 @media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
     .hero { --hero-scene-h: var(--hero-scene-h-short); }
+    /* short phones: the dealer frame is contained at the top so the car clears the copy */
+    .hero__slide--dealer .hero__img { object-fit: contain; object-position: 50% 0%; }
+    .hero__slide--model { --hero-scene-h: var(--hero-scene-h-model-short); }
 }
 
 /* Landscape tablets, laptops and desktops: the photograph returns to the scene's
@@ -657,6 +661,14 @@ address { font-style: normal; }
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
     .hero__slide--bleed { --scrim-a: 0.9; }
 }
+/* over photographs the secondary action carries a dark fill so its label holds
+   on any frame (corporate secondary is an outline; the fill is a legibility decision) */
+.hero__slide--bleed .btn--secondary { background: rgb(0 0 0 / 0.64); }
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero__slide--bleed .hero__scrim {
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 46%, rgb(0 0 0 / 0) 78%);
+    }
+}
 /* portrait tablets: clear the control row */
 @media (min-width: 768px) and (orientation: portrait) {
     .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-32) * 2); }
@@ -667,10 +679,14 @@ address { font-style: normal; }
     .hero__slide--model .hero__title--claim { max-width: none; font-size: var(--fs-40); line-height: var(--lh-46); }
     .hero__slide--model .hero__inv { display: none; }
     .hero__dots { gap: 0; }
+    .hero__controls { gap: var(--sp-4); }
 }
 @media (orientation: landscape) and (max-height: 600px) {
-    .hero__slide--model .hero__title--claim { max-width: 16ch; font-size: var(--fs-48); line-height: var(--lh-46); }
+    .hero__slide--model .hero__title--claim { max-width: 16ch; }
     .hero__slide--model .hero__inv { display: none; }
+    .hero .hero__title.t-display-xl { font-size: var(--fs-40); line-height: var(--lh-38); }
+    .hero__controls { bottom: var(--sp-8); }
+    .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-8)); }
 }
 /* per-slide authored framing */
 .hero__slide--temerario { --d-pos: 70% 50%; --m-pos: 53%; --scrim-a: 0.7; }

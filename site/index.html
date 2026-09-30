@@ -16,7 +16,7 @@
             if (n) document.documentElement.dataset.slide = n;
             document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
-                const s = n && document.querySelectorAll('[data-slide]')[n - 1];
+                const s = n && document.querySelectorAll('.hero__slide')[n - 1];
                 if (!s) return;
                 s.classList.add('is-figma-slide');
                 s.querySelectorAll('[data-srcset],[data-src]').forEach((el) => {

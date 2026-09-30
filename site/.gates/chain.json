@@ -1,10 +1,9 @@
 {
-  "checkedAt": "2026-09-30T22:09:35.793Z",
-  "seal": "5700a5649ffce34a9d40c0bcc0f26a2e529360fe16d34a6865136cf2805a4fe2",
-  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
+  "checkedAt": "2026-09-30T22:18:04.927Z",
+  "seal": "9944619baed008eed7470c32a0fc289f8be9e28ac86e859573cad289380fbf28",
+  "sourceSeal": "1864457bd61c75366e2b816724cbd0b8babb29b2deabd04c908dc597a95b4f39",
   "ok": false,
   "problems": [
-    "Gate 1 · Measurable Conformance: verdict is \"fail\"",
     "Gate 1 · delegated — the vault was read: passes on machine checks only — humanConfirmed is false",
     "Gate 2 · Structural and Authorship Conformance: verdict is \"fail\"",
     "Gate 2 · delegated — authorship preservation: verdict is \"fail\"",

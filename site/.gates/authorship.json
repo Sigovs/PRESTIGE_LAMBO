@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · delegated — authorship preservation",
-  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
+  "sourceSeal": "1864457bd61c75366e2b816724cbd0b8babb29b2deabd04c908dc597a95b4f39",
   "governingIdea": "The dealer's name over a Lamborghini in a black studio: Lamborghini's own corporate language, spoken by the Miami house, then everything a buyer or owner needs from that house in the same voice.",
   "operations": [
     {
@@ -63,5 +63,5 @@
     "dated-archive-prints: not located in the render — the operation disappeared"
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T22:08:51.069Z"
+  "finishedAt": "2026-09-30T22:17:20.596Z"
 }

@@ -1,7 +1,7 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "173fdf7de623187ade9c500c29e04a4c692ac0e6577796361eed5194658ba76e",
-  "fileCount": 334,
+  "sourceSeal": "1864457bd61c75366e2b816724cbd0b8babb29b2deabd04c908dc597a95b4f39",
+  "fileCount": 335,
   "page": "index.html",
   "measured": {
     "desktop": {
@@ -30,18 +30,18 @@
   "a1": {
     "desktop": {
       "rule": "A1 — one governing event owns the first screen, and everything else defers to it",
-      "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene.",
+      "eventStatement": "A five-slide hero: the dealer's name (slide 1) or a model's claim over the car, with its actions and the slide controls as one composed event.",
       "floor": 0.9,
       "metrics": {
         "eventCoverage": 0.949,
         "mediaCoverage": 0.591,
-        "competitionRatio": 0.079,
+        "competitionRatio": 0,
         "structuralShare": 0.761,
         "negativeSpaceShare": 0.199,
         "rankMassShare": 0.673,
         "subjectShareOfEvent": 0.701,
         "chromeShare": 0.116,
-        "declaredMasses": 3,
+        "declaredMasses": 4,
         "readsWithoutMedia": true
       },
       "envelope": {
@@ -122,6 +122,24 @@
               "h": 272
             }
           ]
+        },
+        {
+          "role": "support",
+          "selector": ".hero__controls",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.053,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 60,
+              "y": 816,
+              "w": 1320,
+              "h": 52
+            }
+          ]
         }
       ],
       "negativeSpace": [
@@ -141,23 +159,7 @@
           }
         }
       ],
-      "competitors": [
-        {
-          "name": "div.hero__controls",
-          "rect": {
-            "x": 60,
-            "y": 816,
-            "w": 1320,
-            "h": 52
-          },
-          "hasMedia": false,
-          "maxFontPx": 16,
-          "hasAction": true,
-          "area": 68640,
-          "share": 0.053,
-          "ratio": 0.079
-        }
-      ],
+      "competitors": [],
       "excluded": [
         {
           "selector": ".site-header",
@@ -175,22 +177,22 @@
       "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.854,
+        "eventCoverage": 0.905,
         "mediaCoverage": 0.739,
-        "competitionRatio": 0.053,
-        "structuralShare": 0.854,
+        "competitionRatio": 0,
+        "structuralShare": 0.905,
         "negativeSpaceShare": 0,
-        "rankMassShare": 0.868,
-        "subjectShareOfEvent": 0.833,
+        "rankMassShare": 0.914,
+        "subjectShareOfEvent": 0.787,
         "chromeShare": 0.095,
-        "declaredMasses": 3,
+        "declaredMasses": 4,
         "readsWithoutMedia": true
       },
       "envelope": {
         "x": 0,
         "y": 0,
         "w": 390,
-        "h": 768.7897338867188
+        "h": 828
       },
       "components": [
         {
@@ -246,26 +248,28 @@
               "h": 124
             }
           ]
+        },
+        {
+          "role": "support",
+          "selector": ".hero__controls",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.046,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 24,
+              "y": 784,
+              "w": 342,
+              "h": 44
+            }
+          ]
         }
       ],
       "negativeSpace": [],
-      "competitors": [
-        {
-          "name": "div.hero__controls",
-          "rect": {
-            "x": 24,
-            "y": 784,
-            "w": 342,
-            "h": 44
-          },
-          "hasMedia": false,
-          "maxFontPx": 16,
-          "hasAction": true,
-          "area": 15048,
-          "share": 0.046,
-          "ratio": 0.053
-        }
-      ],
+      "competitors": [],
       "excluded": [
         {
           "selector": ".site-header",
@@ -273,10 +277,8 @@
           "matched": 1
         }
       ],
-      "problems": [
-        "eventCoverage 85.4% is below the A1 floor of 90%"
-      ],
-      "verdict": "fail",
+      "problems": [],
+      "verdict": "pass",
       "label": "mobile",
       "evidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/a1-mobile.png"
     }
@@ -318,9 +320,7 @@
       "pass": true
     }
   ],
-  "verdict": "fail",
-  "finishedAt": "2026-09-30T22:08:41.063Z",
-  "blockers": [
-    "A1 mobile: eventCoverage 85.4% is below the A1 floor of 90%"
-  ]
+  "verdict": "pass",
+  "finishedAt": "2026-09-30T22:17:12.774Z",
+  "blockers": []
 }

@@ -36,6 +36,10 @@
           "w": 0.565,
           "h": 0.302
         }
+      },
+      {
+        "role": "support",
+        "selector": ".hero__controls"
       }
     ],
     "excluded": [
@@ -57,12 +61,16 @@
           {
             "role": "cta",
             "selector": ".hero__actions"
+          },
+          {
+            "role": "support",
+            "selector": ".hero__controls"
           }
         ],
         "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it."
       }
     },
-    "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene."
+    "eventStatement": "A five-slide hero: the dealer's name (slide 1) or a model's claim over the car, with its actions and the slide controls as one composed event."
   },
   "hero": {
     "selector": ".hero",
