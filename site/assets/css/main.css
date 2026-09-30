@@ -140,6 +140,7 @@ address { font-style: normal; }
 }
 
 .t-eyelet {
+    text-wrap: balance;
     font-size: var(--fs-18);
     line-height: var(--lh-28);
     font-weight: var(--wght-bold);
