@@ -1305,6 +1305,19 @@ address { font-style: normal; }
     .js .rv--sm { transform: translate3d(0, var(--rise-sm), 0); }
     .js .rv.is-in { opacity: 1; transform: none; }
 
+    /* model drive-in (§8, user direction): the car rolls in from the left and
+       decelerates into place. .dv is added by main.js only; the media box already
+       clips (overflow: hidden), so the travel never reaches the page width. */
+    .js .model.dv .model__car {
+        opacity: 0;
+        transform: translate3d(var(--drive-distance), 0, 0);
+        transition: opacity var(--dur-drive-fade) var(--ease-out),
+                    transform var(--dur-drive) var(--ease-drive);
+        transition-delay: var(--dv-delay, 0ms);
+        will-change: transform, opacity;
+    }
+    .js .model.dv.is-driven .model__car { opacity: 1; transform: none; }
+
     /* hero: same rise language, on load (it is above the fold) */
     .js [data-hero-line] {
         opacity: 0;

@@ -132,10 +132,10 @@
         el.classList.remove('rv', 'rv--sm', 'is-in');
         el.style.removeProperty('--rv-delay');
     }
-    function release(list, stagger) {
+    function release(list, stagger, base = 0) {
         list.forEach((el, i) => {
             if (!el.classList.contains('rv') || el.classList.contains('is-in')) return;
-            const delay = stagger ? Math.min(i * STEP, CAP) : 0;
+            const delay = base + (stagger ? Math.min(i * STEP, CAP) : 0);
             el.style.setProperty('--rv-delay', delay + 'ms');
             el.classList.add('is-in');
             setTimeout(() => settle(el), DUR + delay + 60);
@@ -154,7 +154,62 @@
             batch.forEach((el) => io.unobserve(el));
             release(batch, true);
         }, { threshold: 0.15, rootMargin: '0px 0px 8% 0px' });
-        risers.forEach((el) => io.observe(el));
+        // Text inside a model tile is released by its car (drive-in, below), not by this observer.
+        risers.forEach((el) => { if (!el.closest('.model')) io.observe(el); });
+
+        /* ---------- Model drive-in (user direction, Alex; DESIGN_SYSTEM §8) ----------
+           Each car rolls in from the left and decelerates into place as its tile
+           enters; the tile's text follows DRIVE_LAG later with the ordinary rise.
+           The image is decoded before the drive starts, so it never pops in blank. */
+        const DRIVE = 1250, DRIVE_STEP = 135, DRIVE_LAG = 200;   // mirror of --dur-drive, --drive-stagger, --drive-text-lag
+        const tiles = [...document.querySelectorAll('.model')];
+        const ready = new Map();                                  // tile -> Promise(decoded)
+        function prepare(tile) {
+            if (ready.has(tile)) return ready.get(tile);
+            const img = tile.querySelector('.model__car');
+            img.loading = 'eager';
+            const decoded = (img.complete && img.naturalWidth ? Promise.resolve() : new Promise((r) => {
+                img.addEventListener('load', r, { once: true }); img.addEventListener('error', r, { once: true });
+            })).then(() => img.decode && img.decode()).catch(() => {});
+            // never hold a car back for more than a moment
+            const p = Promise.race([decoded, new Promise((r) => setTimeout(r, 1200))]);
+            ready.set(tile, p);
+            return p;
+        }
+        function drive(tile, delay) {
+            if (tile.dataset.driven) return;
+            tile.dataset.driven = '1';
+            prepare(tile).then(() => requestAnimationFrame(() => {
+                tile.style.setProperty('--dv-delay', delay + 'ms');
+                tile.classList.add('is-driven');
+                release([...tile.querySelectorAll('.rv')], true, delay + DRIVE_LAG);
+                setTimeout(() => {                                   // hand the car back to its hover transition
+                    tile.classList.remove('dv', 'is-driven');
+                    tile.style.removeProperty('--dv-delay');
+                }, DRIVE + delay + 60);
+            }));
+        }
+        function driveRows(list) {                                   // left tile first, per row
+            list.sort((x, y) => x.getBoundingClientRect().top - y.getBoundingClientRect().top
+                              || x.getBoundingClientRect().left - y.getBoundingClientRect().left);
+            let rowTop = null, i = 0;
+            list.forEach((t) => {
+                const top = Math.round(t.getBoundingClientRect().top);
+                if (rowTop === null || Math.abs(top - rowTop) > 8) { rowTop = top; i = 0; }
+                drive(t, i++ * DRIVE_STEP);
+            });
+        }
+        tiles.forEach((t) => t.classList.add('dv'));
+        const prep = new IntersectionObserver((entries) => entries.forEach((e) => {
+            if (e.isIntersecting) { prepare(e.target.closest('.model')); prep.unobserve(e.target); }
+        }), { rootMargin: '0px 0px 60% 0px' });
+        const dio = new IntersectionObserver((entries) => {
+            const batch = entries.filter((e) => e.isIntersecting).map((e) => e.target.closest('.model'));
+            entries.forEach((e) => { if (e.isIntersecting) dio.unobserve(e.target); });
+            if (batch.length) driveRows(batch);
+        }, { threshold: 0.3 });
+        tiles.forEach((t) => { const m = t.querySelector('.model__media'); prep.observe(m); dio.observe(m); });
+        window.__drive = { tiles, drive };                       // exposed for verification scripts
 
         // Anchor jumps: everything in the destination section is released at once,
         // so a section never lands blank under the header.
@@ -163,19 +218,30 @@
             const target = a && a.getAttribute('href').length > 1 && document.querySelector(a.getAttribute('href'));
             if (!target) return;
             const scope = target.closest('section') || target;
-            release([...scope.querySelectorAll('.rv')], false);
+            release([...scope.querySelectorAll('.rv')].filter((el) => !el.closest('.model.dv')), false);
+            const inScope = tiles.filter((t) => scope.contains(t) || t.contains(scope));
+            if (inScope.length) driveRows(inScope);
         });
         // Keyboard focus never waits for choreography.
         document.addEventListener('focusin', (e) => {
+            const tile = e.target.closest('.model');
+            if (tile) drive(tile, 0);
             const el = e.target.closest('.rv') || e.target.querySelector?.('.rv');
             if (el) release([el], false);
         });
         // Safety sweep: anything already on screen that the observer missed.
-        const sweep = () => release(risers.filter((el) => {
-            if (!el.classList.contains('rv') || el.classList.contains('is-in')) return false;
-            const r = el.getBoundingClientRect();
-            return r.top < innerHeight && r.bottom > 0;
-        }), false);
+        const sweep = () => {
+            driveRows(tiles.filter((t) => {                            // same bar as the observer: 30% of the car in view, or already passed
+                if (t.dataset.driven) return false;
+                const r = t.querySelector('.model__media').getBoundingClientRect();
+                return r.bottom < 0 || Math.min(r.bottom, innerHeight) - Math.max(r.top, 0) >= 0.3 * r.height;
+            }));
+            release(risers.filter((el) => {
+                if (!el.classList.contains('rv') || el.classList.contains('is-in') || el.closest('.model.dv')) return false;
+                const r = el.getBoundingClientRect();
+                return r.top < innerHeight && r.bottom > 0;
+            }), false);
+        };
         window.addEventListener('load', () => setTimeout(sweep, 1500));
         let sweepT;
         window.addEventListener('scroll', () => { clearTimeout(sweepT); sweepT = setTimeout(sweep, 400); }, { passive: true });
