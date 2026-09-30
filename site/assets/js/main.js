@@ -114,19 +114,71 @@
         });
     });
 
-    /* ---------- Reveals: once, at 15% visible ---------- */
-    const revealed = document.querySelectorAll('[data-reveal]');
-    if ('IntersectionObserver' in window && !reduceMotion.matches) {
+    /* ---------- Text rise (user direction, Alex): every text element rises into
+       place as it enters. Text only — images, cards and grounds stay put.
+       Hidden states exist only under html.js + no reduced motion (CSS), and
+       every element is released by at least one of: the observer, an anchor
+       jump into its section, keyboard focus, or the safety sweep. ---------- */
+    const RISE_SEL = [
+        'main h2', 'main h3', 'main h4', 'main p', 'main dt', 'main dd',
+        'main figcaption', 'main address', 'main .btn',
+        '.site-footer p', '.site-footer li', '.site-footer .btn'
+    ].join(',');
+    const STEP = 70, CAP = 400, DUR = 700;           // mirror of --rise-step, --rise-cap, --dur-rise
+    const risers = [...document.querySelectorAll(RISE_SEL)].filter((el) =>
+        !el.closest('.hero') && !el.parentElement.closest(RISE_SEL));
+
+    function settle(el) {            // hand the element back to its own transitions (hover etc.)
+        el.classList.remove('rv', 'rv--sm', 'is-in');
+        el.style.removeProperty('--rv-delay');
+    }
+    function release(list, stagger) {
+        list.forEach((el, i) => {
+            if (!el.classList.contains('rv') || el.classList.contains('is-in')) return;
+            const delay = stagger ? Math.min(i * STEP, CAP) : 0;
+            el.style.setProperty('--rv-delay', delay + 'ms');
+            el.classList.add('is-in');
+            setTimeout(() => settle(el), DUR + delay + 60);
+        });
+    }
+
+    if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+        risers.forEach((el) => {
+            el.classList.add('rv');
+            if (parseFloat(getComputedStyle(el).fontSize) < 20) el.classList.add('rv--sm');
+        });
         const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('is-in');
-                io.unobserve(entry.target);
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
-        revealed.forEach((el) => io.observe(el));
-    } else {
-        revealed.forEach((el) => el.classList.add('is-in'));
+            const batch = entries.filter((e) => e.isIntersecting).map((e) => e.target)
+                .sort((x, y) => x.getBoundingClientRect().top - y.getBoundingClientRect().top
+                              || x.getBoundingClientRect().left - y.getBoundingClientRect().left);
+            batch.forEach((el) => io.unobserve(el));
+            release(batch, true);
+        }, { threshold: 0.15, rootMargin: '0px 0px 8% 0px' });
+        risers.forEach((el) => io.observe(el));
+
+        // Anchor jumps: everything in the destination section is released at once,
+        // so a section never lands blank under the header.
+        document.addEventListener('click', (e) => {
+            const a = e.target.closest('a[href^="#"]');
+            const target = a && a.getAttribute('href').length > 1 && document.querySelector(a.getAttribute('href'));
+            if (!target) return;
+            const scope = target.closest('section') || target;
+            release([...scope.querySelectorAll('.rv')], false);
+        });
+        // Keyboard focus never waits for choreography.
+        document.addEventListener('focusin', (e) => {
+            const el = e.target.closest('.rv') || e.target.querySelector?.('.rv');
+            if (el) release([el], false);
+        });
+        // Safety sweep: anything already on screen that the observer missed.
+        const sweep = () => release(risers.filter((el) => {
+            if (!el.classList.contains('rv') || el.classList.contains('is-in')) return false;
+            const r = el.getBoundingClientRect();
+            return r.top < innerHeight && r.bottom > 0;
+        }), false);
+        window.addEventListener('load', () => setTimeout(sweep, 1500));
+        let sweepT;
+        window.addEventListener('scroll', () => { clearTimeout(sweepT); sweepT = setTimeout(sweep, 400); }, { passive: true });
     }
 
     /* ---------- Hero subject box, published for the composition audit ----------

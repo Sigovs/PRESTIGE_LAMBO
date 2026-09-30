@@ -140,13 +140,17 @@
     /* ---- Motion ---- */
     --dur-fast:   200ms;
     --dur-base:   300ms;
-    --dur-reveal: 500ms;
     --dur-slow:   900ms;   /* hero image fade-in only */
     --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
     --ease-in:  cubic-bezier(0.4, 0, 1, 1);
-    --reveal-travel: 1.5rem;   /* 24px */
     --arrow-travel: 0.25rem;   /* 4px */
-    --stagger: 80ms;
+    /* text rise (user direction, Alex) — mirrored as constants in main.js */
+    --rise: 1.75rem;        /* 28px, text ≥ 20px */
+    --rise-sm: 1rem;        /* 16px, text < 20px */
+    --dur-rise: 700ms;
+    --ease-rise: cubic-bezier(0.2, 0.7, 0.2, 1);   /* = --ease-out */
+    --rise-step: 70ms;      /* sibling stagger */
+    --rise-cap: 400ms;      /* no element waits longer than this */
 
     --z-header: 1040;
     --z-menu:   1050;

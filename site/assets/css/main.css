@@ -345,6 +345,7 @@ address { font-style: normal; }
     align-items: center;
 }
 .menu__bar .site-header__menu span { display: inline; }
+.menu__bar .site-header__menu { justify-self: start; }   /* CLOSE sits exactly where MENU was */
 .menu__bull { width: var(--bull-w); }
 
 .menu__body {
@@ -1107,23 +1108,28 @@ address { font-style: normal; }
     .site-footer__top { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--grid-gap); }
 }
 
-/* ---------- Motion: reveals (DESIGN_SYSTEM.md §8) ----------
-   Hidden state exists only when JS is running AND motion is allowed. */
+/* ---------- Motion: text rise (DESIGN_SYSTEM.md §8, user direction) ----------
+   Every text element rises into place once, as it enters. Classes are added by
+   main.js only when JS runs and motion is allowed, and removed again when the
+   rise completes, so hover transitions are handed back. transform/opacity only. */
 @media (prefers-reduced-motion: no-preference) {
-    .js [data-reveal] {
+    .js .rv {
         opacity: 0;
-        transform: translateY(var(--reveal-travel));
-        transition: opacity var(--dur-reveal) var(--ease-out),
-                    transform var(--dur-reveal) var(--ease-out);
+        transform: translate3d(0, var(--rise), 0);
+        transition: opacity var(--dur-rise) var(--ease-rise),
+                    transform var(--dur-rise) var(--ease-rise);
+        transition-delay: var(--rv-delay, 0ms);
     }
-    .js [data-reveal].is-in { opacity: 1; transform: none; }
+    .js .rv--sm { transform: translate3d(0, var(--rise-sm), 0); }
+    .js .rv.is-in { opacity: 1; transform: none; }
 
+    /* hero: same rise language, on load (it is above the fold) */
     .js [data-hero-line] {
         opacity: 0;
-        transform: translateY(var(--reveal-travel));
-        transition: opacity var(--dur-reveal) var(--ease-out),
-                    transform var(--dur-reveal) var(--ease-out);
-        transition-delay: calc(var(--i, 0) * var(--stagger));
+        transform: translate3d(0, var(--rise), 0);
+        transition: opacity var(--dur-rise) var(--ease-rise),
+                    transform var(--dur-rise) var(--ease-rise);
+        transition-delay: min(calc(var(--i, 0) * var(--rise-step)), var(--rise-cap));
     }
     .js.is-loaded [data-hero-line] { opacity: 1; transform: none; }
 
