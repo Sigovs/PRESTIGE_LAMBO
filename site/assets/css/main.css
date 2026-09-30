@@ -953,115 +953,120 @@ address { font-style: normal; }
     background: var(--surface-0-dark);
     color: var(--grey-1);
     overflow: hidden;
-    scroll-margin-top: 0;          /* lands flush; the header turns to its gradient over it */
+}
+/* Pinned chapter (Alex, 30 Sep 2026): Ad Personam is exactly one screen and holds
+   while Service scrolls up over it. Pure CSS sticky, so Lenis drives it natively;
+   the wrapper bounds the pin to Ad Personam + Service. body uses overflow-x: clip,
+   which does not create a scroll container, so sticky is not broken. */
+.adp-pin { scroll-margin-top: 0; }          /* the anchor lands flush; the header is the gradient over it */
+.adp {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+}
+.adp-pin > .service { position: relative; z-index: 1; }   /* opaque #181818 band, slides over the pinned frame */
+/* as Service covers it, the frame dims a little (scroll-linked, main.js; never under reduced motion) */
+.adp::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #000;
+    opacity: calc(var(--adp-cover, 0) * 0.55);
+    pointer-events: none;
 }
 .adp__eyelet { color: var(--grey-2); }
 .adp__lead { color: var(--grey-1); }
 .adp__actions { display: grid; gap: var(--sp-16); }
 
-/* default = portrait: photograph on top (under the gradient header), copy below */
+/* Ad Personam (Alex, 30 Sep 2026): the photograph owns the upper field and the copy
+   stands as ONE group anchored to the bottom of the 100svh frame, left on the
+   container. Portrait: the frame fades to black and the group sits below it.
+   Landscape: full bleed; the group sits on the dark diffuser band, title left and
+   lead + actions right, bottom-aligned. */
 .adp__inner {
     display: grid;
     grid-template-rows: minmax(0, 1fr) auto auto;
     row-gap: var(--sp-24);
-    padding-bottom: var(--sp-32);
+    padding-top: var(--header-h);
+    padding-bottom: var(--adp-pad-b);
 }
 .adp__media {
+    /* portrait: in flow, so the frame takes exactly the height the copy group leaves */
     position: relative;
     grid-row: 1;
-    min-height: var(--adp-media-min);
-    margin-inline: calc(-1 * var(--page-gutter));
+    min-height: 0;
+    margin: calc(-1 * var(--header-h)) calc(-1 * var(--page-gutter)) 0;
+    z-index: -1;
 }
 .adp__media picture, .adp__media { display: block; }
-.hero__media, .adp__media { max-width: none; }   /* bleed past the container on portrait */
+.hero__media, .adp__media { max-width: none; }
 .adp__img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 45%;
-    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
+    object-position: var(--adp-pos-p);
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
 }
 .adp__scrim { display: none; }
 .adp__head { grid-row: 2; display: grid; gap: var(--sp-4); }
 .adp__body { grid-row: 3; display: grid; gap: var(--sp-16); }
 
 @media (max-width: 767.98px) and (max-height: 700px) {
-    .adp__inner { row-gap: var(--sp-16); padding-bottom: var(--sp-16); }
+    .adp__inner { row-gap: var(--sp-16); }
     .adp .t-banner { font-size: var(--fs-40); line-height: var(--lh-46); }
     .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
     .adp__actions { gap: var(--sp-8); }
+    .adp__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
     .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
-    .adp__media { min-height: var(--adp-media-min-short); }
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
+    /* 320×568: the lead drops to 14/22 so the frame keeps a readable share of the screen */
+    .adp__lead { font-size: var(--fs-14); line-height: var(--lh-22); }
 }
 @media (min-width: 768px) {
     .adp__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
-    .adp__inner { padding-bottom: var(--sp-56); }
 }
 
-/* short landscape (phones on their side): a split — copy on black left, the
-   photograph in flow on the right, full height */
-@media (orientation: landscape) and (max-height: 600px) {
-    .adp__inner {
-        grid-template-columns: minmax(0, 8fr) minmax(0, 3fr);
-        grid-template-rows: 1fr auto auto 1fr;
-        column-gap: var(--sp-32);
-        row-gap: var(--sp-16);
-        padding-top: calc(var(--header-h) + var(--sp-16));
-        padding-bottom: var(--sp-24);
-    }
-    .adp__media {
-        grid-column: 2; grid-row: 1 / -1;
-        margin: calc(-1 * (var(--header-h) + var(--sp-16))) calc(-1 * var(--page-gutter)) calc(-1 * var(--sp-24)) 0;
-        min-height: 0;
-    }
+/* landscape: full bleed, the copy on the diffuser band */
+@media (orientation: landscape) and (min-width: 568px) {
+    .adp__media { position: absolute; inset: 0; margin: 0; }
     .adp__img {
-        object-position: 40% 55%;
-        -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
-        mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
-    }
-    .adp__head { grid-column: 1; grid-row: 2; }
-    .adp__body { grid-column: 1; grid-row: 3; }
-    .adp .t-banner { font-size: var(--fs-48); line-height: var(--lh-46); }
-    .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
-    .adp__actions { display: flex; flex-wrap: wrap; gap: var(--sp-16); }
-    .adp__actions .btn { width: auto; min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
-}
-
-/* tall landscape (tablets on their side, laptops, desktops): the windscreen is
-   the text field — title left, lead and actions right, one band under the
-   header; the cabin owns the lower field. The scrim evens out the overhead
-   console lights the crop leaves in the band. */
-@media (orientation: landscape) and (min-width: 768px) and (min-height: 600.02px) {
-    .adp__media { position: absolute; inset: 0; margin: 0; z-index: -1; min-height: 0; }
-    .adp__img {
-        object-position: 50% 0%;
+        object-position: var(--adp-pos-l);
         -webkit-mask-image: none;
         mask-image: none;
     }
     .adp__scrim {
         display: block;
         position: absolute; inset: 0; z-index: -1;
-        background: linear-gradient(180deg, rgb(0 0 0 / 0.78) 0%, rgb(0 0 0 / 0.62) var(--adp-scrim-top), rgb(0 0 0 / 0) var(--adp-scrim-land));
+        background: linear-gradient(0deg, rgb(0 0 0 / var(--adp-scrim-a)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.6)) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-end));
     }
     .adp__inner {
         grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-        grid-template-rows: auto 1fr;
+        grid-template-rows: minmax(0, 1fr) auto;
         column-gap: var(--grid-gap);
-        align-items: start;
-        padding-top: calc(var(--header-h) + var(--sp-40));
+        align-items: end;
     }
-    .adp__head { grid-column: 1; grid-row: 1; }
-    .adp__body { grid-column: 2; grid-row: 1; gap: var(--sp-16); padding-top: var(--sp-8); }
+    .adp__head { grid-column: 1; grid-row: 2; }
+    .adp__body { grid-column: 2; grid-row: 2; gap: var(--sp-16); }
     .adp__lead { max-width: var(--measure-note); }
     .adp__actions { gap: var(--sp-16); }
-    .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); }
+    .adp__actions .btn { width: auto; min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
     .adp .t-banner { font-size: var(--fs-56); line-height: var(--lh-52); }
 }
+@media (orientation: landscape) and (max-height: 600px) {
+    .adp .t-banner { font-size: var(--fs-40); line-height: var(--lh-46); }
+    .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
+    .adp__scrim { background: linear-gradient(0deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.76) 62%, rgb(0 0 0 / 0) 100%); }
+    .adp__lead { max-width: none; }   /* three lines instead of seven, so the group stays low */
+}
 @media (orientation: landscape) and (min-width: 1200px) and (min-height: 600.02px) {
-    .adp__inner { padding-top: calc(var(--header-h) + var(--sp-56)); grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+    .adp__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
     .adp__lead { max-width: var(--measure); }
     .adp .t-banner { font-size: var(--fs-80); line-height: var(--lh-80); }
 }

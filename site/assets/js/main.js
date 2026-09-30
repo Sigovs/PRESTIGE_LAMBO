@@ -57,9 +57,22 @@
         const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - h : 0;
         // Over a full-bleed photographic chapter the header keeps the hero's
         // gradient treatment instead of an opaque bar across the photograph.
+        // A photographic chapter counts only while it is actually visible under the
+        // header: Ad Personam is pinned, so once the next section's top edge reaches
+        // the header it is covered and the header goes solid.
         const overPhoto = photoChapters.some((el) => {
             const r = el.getBoundingClientRect();
-            return r.top <= 1 && r.bottom > h + 1;
+            const next = el.nextElementSibling;
+            const coverTop = next ? next.getBoundingClientRect().top : Infinity;
+            return r.top <= 1 && r.bottom > h + 1 && coverTop > h + 1;
+        });
+        // Scroll-linked dimming of the pinned frame as Service covers it (0 -> 1).
+        if (!reduceMotion.matches) photoChapters.forEach((el) => {
+            const next = el.nextElementSibling;
+            if (!next) return;
+            const vh = window.innerHeight;
+            const p = Math.min(1, Math.max(0, (vh - next.getBoundingClientRect().top) / vh));
+            el.style.setProperty('--adp-cover', p.toFixed(3));
         });
         // Corporate (CI §1.7): the solid layer fades in on scroll. It arrives as soon
         // as any hero content (copy, buttons, controls of the active slide) comes
@@ -76,9 +89,13 @@
         const heroNear = heroTops.some((t) => Math.min(0, -shift) + t < edge);
         // Over Ad Personam the header stays transparent, except for the stretch in
         // which its copy would pass under it.
+        // Ad Personam is pinned (sticky), so its copy does not travel with the scroll
+        // while the frame is visible: the test uses where the copy is, without the
+        // prediction. With the copy at the bottom of a pinned frame it never reaches
+        // the header; this stays as a guard.
         const adpNear = adpContent.some((el) => {
             const r = el.getBoundingClientRect();
-            return Math.min(r.top, r.top - shift) < edge && Math.max(r.bottom, r.bottom - shift) > 0;
+            return r.top < edge && r.bottom > 0;
         });
         const solid = ((y >= heroEnd - 1 || heroNear) && !overPhoto) || (overPhoto && adpNear);
         // Where the content rests closer to the header than the fade can cover

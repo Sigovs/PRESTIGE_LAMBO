@@ -46,8 +46,8 @@
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=24">
-    <link rel="stylesheet" href="assets/css/main.css?v=24">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=31">
+    <link rel="stylesheet" href="assets/css/main.css?v=31">
 
     <script type="application/ld+json">
     {
@@ -346,10 +346,6 @@
                 <p class="t-eyelet section-head__eyelet">The current range</p>
                 <h2 class="t-title" id="range-title">Models</h2>
             </div>
-            <a class="btn btn--tertiary" href="https://configurator.lamborghini.com/" rel="noopener">
-                <span>Configure on lamborghini.com</span>
-                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
-            </a>
         </header>
 
         <ol class="models" role="list">
@@ -594,23 +590,28 @@
 <!-- ============================ 4 · AD PERSONAM ============================
      Copy stays inside what is verified: the programme is Lamborghini's; the
      on-site "studio" claim is unconfirmed and is not made. -->
-<section class="adp" id="ad-personam" aria-labelledby="adp-title">
-    <!-- Full-size on every screen. Two authored crops: landscape puts the copy in the
-         windscreen band; portrait centres the wheel between dark bands above and below.
-         Legibility is decided by the crop; the scrim only evens out what the crop leaves. -->
+<!-- Pinned chapter (Alex, 30 Sep 2026): Ad Personam holds (sticky) while Service
+     scrolls up over it. The wrapper bounds the pin and carries the anchor, because a
+     stuck element reports top 0 and cannot be scrolled to by its own box. -->
+<div class="adp-pin" id="ad-personam">
+<section class="adp" aria-labelledby="adp-title">
+    <!-- Full-size on every screen (100svh). The photograph owns the upper field; the
+         copy stands as one group at the bottom, on the dark diffuser band (landscape) or
+         on black below the faded frame (portrait). Legibility is decided by the crop;
+         a restrained bottom gradient only evens out the wheel and fins. -->
 
     <div class="adp__inner container">
         <picture class="adp__media">
             <source media="(orientation: portrait)" type="image/webp"
-                    srcset="assets/img/adp-cabin-p-600.webp 600w, assets/img/adp-cabin-p-900.webp 900w, assets/img/adp-cabin-p-1200.webp 1200w" sizes="100vw">
+                    srcset="assets/img/adp-rear-p-600.webp 600w, assets/img/adp-rear-p-1024.webp 1024w" sizes="100vw">
             <source media="(orientation: portrait)"
-                    srcset="assets/img/adp-cabin-p-600.jpg 600w, assets/img/adp-cabin-p-900.jpg 900w, assets/img/adp-cabin-p-1200.jpg 1200w" sizes="100vw">
+                    srcset="assets/img/adp-rear-p-600.jpg 600w, assets/img/adp-rear-p-1024.jpg 1024w" sizes="100vw">
             <source type="image/webp"
-                    srcset="assets/img/adp-cabin-l-1024.webp 1024w, assets/img/adp-cabin-l-1440.webp 1440w, assets/img/adp-cabin-l-1920.webp 1920w, assets/img/adp-cabin-l-2560.webp 2560w" sizes="100vw">
-            <img class="adp__img" src="assets/img/adp-cabin-l-1440.jpg"
-                 srcset="assets/img/adp-cabin-l-1024.jpg 1024w, assets/img/adp-cabin-l-1440.jpg 1440w, assets/img/adp-cabin-l-1920.jpg 1920w, assets/img/adp-cabin-l-2560.jpg 2560w" sizes="100vw"
-                 width="2560" height="1434" loading="lazy" decoding="async"
-                 alt="The cabin of a Lamborghini Urus SE: black Alcantara, carbon fibre and orange accent trim.">
+                    srcset="assets/img/adp-rear-l-1280.webp 1280w, assets/img/adp-rear-l-1920.webp 1920w, assets/img/adp-rear-l-2560.webp 2560w" sizes="100vw">
+            <img class="adp__img" src="assets/img/adp-rear-l-1280.jpg"
+                 srcset="assets/img/adp-rear-l-1280.jpg 1280w, assets/img/adp-rear-l-1920.jpg 1920w" sizes="100vw"
+                 width="1920" height="1080" loading="lazy" decoding="async"
+                 alt="The rear of a yellow Lamborghini Revuelto at sunset: the taillight, the sculpted haunch and the carbon diffuser.">
         </picture>
         <div class="adp__scrim" aria-hidden="true"></div>
         <header class="adp__head">
@@ -689,6 +690,7 @@
         </div>
     </div>
 </section>
+</div><!-- /.adp-pin -->
 
 <!-- ============================ 6 · THE HOUSE ============================
      Heritage uses years, never a count ("40 years" / "45 years" conflict). -->
@@ -841,6 +843,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=24" defer></script>
+<script src="assets/js/main.js?v=31" defer></script>
 </body>
 </html>

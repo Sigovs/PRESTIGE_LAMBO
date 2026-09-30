@@ -1,6 +1,6 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "e6cfff3bed1c562a71988e8d012eb316e98153016f4623ad6ec4f935b57c4ad3",
+  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
   "build": {
     "private": false
   },
@@ -903,5 +903,5 @@
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T23:01:50.980Z"
+  "finishedAt": "2026-09-30T23:20:17.746Z"
 }

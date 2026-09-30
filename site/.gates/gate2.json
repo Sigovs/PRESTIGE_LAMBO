@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "e6cfff3bed1c562a71988e8d012eb316e98153016f4623ad6ec4f935b57c4ad3",
+  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
   "detector": {
     "desktop": {
       "sections": [
@@ -130,26 +130,27 @@
           "section": "section#range.range",
           "groups": [
             {
-              "units": 4,
+              "units": 8,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45,
-                0.45,
-                0.45
+                0.222,
+                0.222,
+                0.222,
+                0.222,
+                0.222,
+                0.222,
+                0.222,
+                0.222
               ],
               "slots": {
-                "image": "upper",
-                "meta": "lower",
-                "heading": "lower",
-                "cta": "bottom"
+                "meta": "mid"
               },
               "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "li#range-temerario.model",
-              "formula": "4×equal|i:upper|h:lower|m:lower|c:bottom|align:start|cont:none|int:link",
-              "shape": "4×equal|i:upper|h:lower|m:lower|c:bottom"
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "8×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "8×equal|m:mid"
             },
             {
               "units": 4,
@@ -174,47 +175,6 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45,
-                0.45,
-                0.45
-              ],
-              "slots": {
-                "meta": "upper",
-                "heading": "top",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__body",
-              "formula": "4×equal|h:top|m:upper|c:bottom|align:start|cont:none|int:link",
-              "shape": "4×equal|h:top|m:upper|c:bottom"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.217,
-                0.217,
-                0.217,
-                0.217
-              ],
-              "slots": {
-                "meta": "top",
-                "cta": "bottom"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__meta",
-              "formula": "4×equal|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "4×equal|m:top|c:bottom"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
                 0.217,
                 0.217,
                 0.217,
@@ -226,7 +186,7 @@
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "dl.model__facts",
+              "sample": "div.model__meta",
               "formula": "4×equal|m:top|align:start|cont:none|int:static",
               "shape": "4×equal|m:top"
             },
@@ -234,10 +194,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.217,
-                0.217,
-                0.217,
-                0.217
+                0.45,
+                0.45,
+                0.45,
+                0.45
               ],
               "slots": {
                 "cta": "mid",
@@ -249,25 +209,6 @@
               "sample": "div.model__actions",
               "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
               "shape": "4×equal|m:mid|c:mid"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.078,
-                0.078,
-                0.078,
-                0.078
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "4×equal|m:mid|align:start|cont:none|int:static",
-              "shape": "4×equal|m:mid"
             },
             {
               "units": 3,
@@ -303,6 +244,64 @@
               "sample": "h3.model__name",
               "formula": "3×equal||align:start|cont:none|int:static",
               "shape": "3×equal|"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.45,
+                0.45
+              ],
+              "slots": {
+                "image": "upper",
+                "meta": "lower",
+                "heading": "lower",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "li#range-temerario.model",
+              "formula": "2×equal|i:upper|h:lower|m:lower|c:bottom|align:start|cont:none|int:link",
+              "shape": "2×equal|i:upper|h:lower|m:lower|c:bottom"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.45,
+                0.45
+              ],
+              "slots": {
+                "meta": "upper",
+                "heading": "top",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.model__body",
+              "formula": "2×equal|h:top|m:upper|c:bottom|align:start|cont:none|int:link",
+              "shape": "2×equal|h:top|m:upper|c:bottom"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.45,
+                0.45
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "top",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.model__body",
+              "formula": "2×equal|h:top|m:top|c:bottom|align:start|cont:none|int:link",
+              "shape": "2×equal|h:top|m:top|c:bottom"
             }
           ]
         },
@@ -474,7 +473,82 @@
           ]
         },
         {
-          "section": "section#ad-personam.adp",
+          "section": "div#ad-personam.adp-pin",
+          "groups": [
+            {
+              "units": 7,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.442,
+                0.442,
+                0.442,
+                0.442,
+                0.442,
+                0.442,
+                0.442
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "h2#service-title.t-banner",
+              "formula": "7×equal||align:start|cont:none|int:static",
+              "shape": "7×equal|"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.095,
+                0.095,
+                0.098,
+                0.094
+              ],
+              "slots": {},
+              "align": "right",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a",
+              "formula": "4×equal||align:right|cont:none|int:static",
+              "shape": "4×equal|"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.161,
+                0.161,
+                0.164
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "3×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "3×equal|m:mid"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.415,
+                0.415
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "p.t-lead",
+              "formula": "2×equal||align:start|cont:none|int:static",
+              "shape": "2×equal|"
+            }
+          ]
+        },
+        {
+          "section": "section.adp",
           "groups": []
         },
         {
@@ -792,7 +866,7 @@
           ]
         }
       ],
-      "bandRun": 1,
+      "bandRun": 0,
       "viewport": {
         "w": 1440,
         "h": 900
@@ -962,9 +1036,12 @@
           "section": "section#range.range",
           "groups": [
             {
-              "units": 5,
+              "units": 8,
               "widthClass": "equal",
               "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
                 0.877,
                 0.877,
                 0.877,
@@ -973,15 +1050,37 @@
               ],
               "slots": {
                 "meta": "top",
-                "heading": "upper",
-                "cta": "bottom"
+                "heading": "lower"
               },
               "align": "start",
               "container": "none",
-              "interaction": "link",
+              "interaction": "static",
               "sample": "header.section-head",
-              "formula": "5×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "5×equal|h:upper|m:top|c:bottom"
+              "formula": "8×equal|h:lower|m:top|align:start|cont:none|int:static",
+              "shape": "8×equal|h:lower|m:top"
+            },
+            {
+              "units": 8,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.428,
+                0.428,
+                0.428,
+                0.428,
+                0.428,
+                0.428,
+                0.428,
+                0.428
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "8×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "8×equal|m:mid"
             },
             {
               "units": 5,
@@ -1018,48 +1117,9 @@
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "dl.model__facts",
+              "sample": "div.model__meta",
               "formula": "4×equal|m:top|align:start|cont:none|int:static",
               "shape": "4×equal|m:top"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "cta": "mid",
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.model__actions",
-              "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
-              "shape": "4×equal|m:mid|c:mid"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.289,
-                0.289,
-                0.289,
-                0.289
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "4×equal|m:mid|align:start|cont:none|int:static",
-              "shape": "4×equal|m:mid"
             },
             {
               "units": 3,
@@ -1101,25 +1161,6 @@
               "sample": "div.model__body",
               "formula": "3×equal|h:top|m:top|c:bottom|align:start|cont:none|int:link",
               "shape": "3×equal|h:top|m:top|c:bottom"
-            },
-            {
-              "units": 3,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "meta": "mid",
-                "heading": "upper"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "div.model__id",
-              "formula": "3×equal|h:upper|m:mid|align:start|cont:none|int:static",
-              "shape": "3×equal|h:upper|m:mid"
             },
             {
               "units": 3,
@@ -1253,7 +1294,108 @@
           ]
         },
         {
-          "section": "section#ad-personam.adp",
+          "section": "div#ad-personam.adp-pin",
+          "groups": [
+            {
+              "units": 7,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "h2#adp-title.t-banner",
+              "formula": "7×equal||align:start|cont:none|int:static",
+              "shape": "7×equal|"
+            },
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "header.adp__head",
+              "formula": "5×equal|h:lower|m:top|align:start|cont:none|int:static",
+              "shape": "5×equal|h:lower|m:top"
+            },
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "upper",
+                "cta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.spec__row",
+              "formula": "5×equal|m:upper|c:mid|align:start|cont:none|int:link",
+              "shape": "5×equal|m:upper|c:mid"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.315,
+                0.315,
+                0.322
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "a",
+              "formula": "3×equal||align:start|cont:none|int:static",
+              "shape": "3×equal|"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "cta": "upper",
+                "meta": "upper"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.adp__actions",
+              "formula": "2×equal|m:upper|c:upper|align:start|cont:none|int:link",
+              "shape": "2×equal|m:upper|c:upper"
+            }
+          ]
+        },
+        {
+          "section": "section.adp",
           "groups": [
             {
               "units": 3,
@@ -1722,9 +1864,9 @@
     {
       "kind": "parallel-units",
       "section": "section#range.range",
-      "units": 4,
-      "shape": "4×equal|i:upper|h:lower|m:lower|c:bottom",
-      "formula": "4×equal|i:upper|h:lower|m:lower|c:bottom|align:start|cont:none|int:link",
+      "units": 8,
+      "shape": "8×equal|m:mid",
+      "formula": "8×equal|m:mid|align:start|cont:box|int:static",
       "disposition": null
     },
     {
@@ -1733,22 +1875,6 @@
       "units": 4,
       "shape": "4×equal|i:mid",
       "formula": "4×equal|i:mid|align:start|cont:none|int:static",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section#range.range",
-      "units": 4,
-      "shape": "4×equal|h:top|m:upper|c:bottom",
-      "formula": "4×equal|h:top|m:upper|c:bottom|align:start|cont:none|int:link",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section#range.range",
-      "units": 4,
-      "shape": "4×equal|m:top|c:bottom",
-      "formula": "4×equal|m:top|c:bottom|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -1765,14 +1891,6 @@
       "units": 4,
       "shape": "4×equal|m:mid|c:mid",
       "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section#range.range",
-      "units": 4,
-      "shape": "4×equal|m:mid",
-      "formula": "4×equal|m:mid|align:start|cont:none|int:static",
       "disposition": null
     },
     {
@@ -1813,6 +1931,14 @@
       "units": 3,
       "shape": "3×equal|m:lower",
       "formula": "3×equal|m:lower|align:start|cont:none|int:link",
+      "disposition": null
+    },
+    {
+      "kind": "parallel-units",
+      "section": "div#ad-personam.adp-pin",
+      "units": 3,
+      "shape": "3×equal|m:mid",
+      "formula": "3×equal|m:mid|align:start|cont:box|int:static",
       "disposition": null
     },
     {
@@ -1883,15 +2009,6 @@
     },
     {
       "kind": "repeated-shape",
-      "shape": "4×equal|m:mid",
-      "sections": [
-        "section.hero",
-        "section#range.range"
-      ],
-      "disposition": null
-    },
-    {
-      "kind": "repeated-shape",
       "shape": "2×equal|m:lower|c:lower",
       "sections": [
         "section#inventory.inventory",
@@ -1930,7 +2047,7 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T23:01:07.053Z",
+  "finishedAt": "2026-09-30T23:19:34.227Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 5×equal|i:lower|h:mid|m:upper|c:lower",
@@ -1938,18 +2055,16 @@
     "undisposed parallel-units: 4×equal|m:mid|c:mid",
     "undisposed parallel-units: 4×equal|m:mid",
     "undisposed parallel-units: 3×equal|h:mid|m:top|c:bottom",
-    "undisposed parallel-units: 4×equal|i:upper|h:lower|m:lower|c:bottom",
+    "undisposed parallel-units: 8×equal|m:mid",
     "undisposed parallel-units: 4×equal|i:mid",
-    "undisposed parallel-units: 4×equal|h:top|m:upper|c:bottom",
-    "undisposed parallel-units: 4×equal|m:top|c:bottom",
     "undisposed parallel-units: 4×equal|m:top",
     "undisposed parallel-units: 4×equal|m:mid|c:mid",
-    "undisposed parallel-units: 4×equal|m:mid",
     "undisposed parallel-units: 3×equal|h:upper|m:mid",
     "undisposed parallel-units: 5×equal|m:mid",
     "undisposed parallel-units: 3×equal|i:mid|h:top|m:top",
     "undisposed parallel-units: 3×equal|i:mid",
     "undisposed parallel-units: 3×equal|m:lower",
+    "undisposed parallel-units: 3×equal|m:mid",
     "undisposed parallel-units: 3×equal|i:upper|m:bottom",
     "undisposed parallel-units: 5×equal|m:mid|c:mid",
     "undisposed parallel-units: 14×equal|c:mid",
@@ -1958,7 +2073,6 @@
     "undisposed parallel-units: 4×equal|m:top|c:upper",
     "undisposed repeated-shape: 5×equal|m:mid",
     "undisposed repeated-shape: 4×equal|m:mid|c:mid",
-    "undisposed repeated-shape: 4×equal|m:mid",
     "undisposed repeated-shape: 2×equal|m:lower|c:lower",
     "undisposed repeated-shape: 14×equal|c:mid",
     "undisposed repeated-shape: 4×equal|m:top|c:upper",
