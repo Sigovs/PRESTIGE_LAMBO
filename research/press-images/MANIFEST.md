@@ -45,3 +45,13 @@ Processed web sizes live in `site/assets/img/`: `model-*-{648,960,1296}` and `he
 | `MODELS/image 4.png` (1350×390) | Revuelto | `model-art-revuelto-{600,1200}.webp`, `-600.png` |
 
 Resize and export only, via `site/_tools/process-models-alex.py`: shadows as supplied, no recolour, no re-cut, never upscaled. The `cut-*` files from `process-cutouts.py` stay on disk and are no longer referenced by the page.
+
+**Hero frames supplied by Alex, 30 Sep 2026** (`NEW IMAGES/`, webp, 2560 wide; treated as Alex-approved). Processing is done by `site/_tools/process-new-images.py`: resize and export only, and the portrait frame is a centred crop. Nothing is upscaled.
+
+| Source file (supplied by Alex) | Content (identified by eye) | Status | Output (`site/assets/img/`) |
+|---|---|---|---|
+| `NEW IMAGES/img6.webp` (2560×1440) | Revuelto, yellow, top-down aerial over a zebra crossing | **In use:** hero slide 3 on portrait screens (< 1200 portrait), cropped to the car's column (x 25–75%, full height) | `slide-revuelto-aerial-p-{800,1200}.webp`, `-800.jpg` |
+| `NEW IMAGES/img8.webp` (2560×1440) | Revuelto, yellow, side profile between factory buildings | **Exported, not in use.** Trialled on slide 3 desktop: the car sits low and wide across the frame, so the centred action row overlaps its rear roofline by about 40–70 px at 1440. The frame height is fully used (cover by height), so no crop clears it. | `slide-revuelto-yellow-{1280,1920,2560}.webp`, `-{1280,1920}.jpg` |
+| `NEW IMAGES/gallery2-desktop.webp` (2560×1463) | Temerario, green, at the "S. Agata Bolognese, città della Lamborghini" sign at sunset | **Not used in the hero.** The sign sits at x 3–13% and y 22–58% of the frame, which lies directly under the centred title at every landscape width; the frame has only about 135 px of horizontal play at 1440, so it cannot be shifted clear. It is the same frame as the earlier "Representative image" on the Temerario inventory card. | none |
+| `NEW IMAGES/gallery5-desktop.webp` (2560×1463) | Temerario hexagonal headlight detail, yellow | Not used: no role on the page yet | none |
+| `NEW IMAGES/img2.webp` (2560×1440) | Revuelto rear detail (taillight, diffuser, plate) at sunset | Not used: no role on the page yet | none |

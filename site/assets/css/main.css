@@ -680,7 +680,7 @@ address { font-style: normal; }
 }
 /* per-slide authored framing */
 .hero__slide--temerario { --d-pos: 20% 50%; --m-pos: 53%; --scrim-a: 0.84; }  /* centred copy: car pushed right, deeper scrim under the figures line */
-.hero__slide--revuelto { --d-pos: 40% 60%; --m-pos: 21%; --scrim-a: 0.82; }
+.hero__slide--revuelto { --d-pos: 40% 60%; --m-pos: 50%; --scrim-a: 0.82; }  /* landscape: green mountain-road frame; portrait: Alex's yellow aerial (img6) */
 .hero__slide--urus-se { --m-pos: 23%; }
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.78; }
 /* phones on their side: same diagonal, compressed so the copy and both actions
