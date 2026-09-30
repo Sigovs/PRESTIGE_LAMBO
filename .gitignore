@@ -1,0 +1,12 @@
+# OS / editor
+.DS_Store
+*.swp
+
+# Research image originals (~53 MB) stay local; keep the manifest and every .md
+research/images-current-site/**
+!research/images-current-site/**/
+!research/images-current-site/**/*.md
+
+# Local tooling output
+.playwright-mcp/
+node_modules/

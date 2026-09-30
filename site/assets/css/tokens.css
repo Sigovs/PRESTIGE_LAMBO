@@ -1,0 +1,158 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — DESIGN TOKENS (single source of truth)
+   Colour · type · spacing · layout · motion.
+   Linked BEFORE main.css. Every value in main.css resolves here.
+   Evidence and reasoning for each value: site/DESIGN_SYSTEM.md
+   ============================================================ */
+
+/* ---- Brand font scaffold ---------------------------------------------------
+   Lambotype is proprietary ("exclusively for Lamborghini"). It is NOT loaded.
+   When a dealer licence and files are supplied, drop them in assets/fonts/,
+   uncomment this block, set --font-brand to 'Lambotype', and remap the three
+   width tokens to Lambotype's own axis: ultra 0 · cnd 50 · normal 100.
+
+@font-face {
+    font-family: 'Lambotype';
+    src: url('../fonts/Lambotype-Variable.woff2') format('woff2-variations');
+    font-weight: 300 900;
+    font-stretch: 0% 100%;
+    font-display: swap;
+}
+------------------------------------------------------------------------------ */
+
+:root {
+    /* ---- Grey ramp (OBSERVED, Lamborghini tokens v1.5.0) ---- */
+    --grey-0:  #ffffff;
+    --grey-1:  #f5f5f5;
+    --grey-2:  #dcdcdc;
+    --grey-3:  #c4c4c4;
+    --grey-4:  #ababab;
+    --grey-5:  #969696;
+    --grey-6:  #7d7d7d;   /* strokes only — 4.31:1 on #181818, never text */
+    --grey-7:  #626262;
+    --grey-8:  #494949;
+    --grey-9:  #313131;
+    --grey-10: #181818;
+    --grey-11: #000000;
+
+    /* ---- Accent (OBSERVED) ---- */
+    --accent-dark:        #ffc000;   /* on dark surfaces */
+    --accent-dark-hover:  #997300;
+    --accent-dark-press:  #cc9a00;
+    --accent-light:       #917300;   /* on #fff only — 4.51:1 */
+    --accent-light-hover: #423500;
+    --accent-light-press: #665100;
+    --focus:              #1e90ff;
+    --focus-offset:       3px;
+
+    /* ---- Semantic surfaces ---- */
+    --surface-0-dark:  var(--grey-11);
+    --surface-1-dark:  var(--grey-10);
+    --surface-2-dark:  var(--grey-9);
+    --surface-0-light: var(--grey-0);
+
+    /* ---- Typography ---- */
+    --font-brand: 'Roboto Flex', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --wdth-ultra:  25;
+    --wdth-cnd:    60;
+    --wdth-normal: 100;
+    --wght-regular: 400;
+    --wght-bold:    700;
+
+    /* size / line-height pairs — corporate token scale, px → rem (16 base) */
+    --fs-120: 7.5rem;    --lh-110: 6.875rem;
+    --fs-80:  5rem;      --lh-80:  5rem;    --lh-70: 4.375rem;
+    --fs-56:  3.5rem;    --lh-52:  3.25rem;
+    --fs-48:  3rem;      --lh-46:  2.875rem;
+    --fs-40:  2.5rem;
+    --fs-28:  1.75rem;   --lh-38:  2.375rem;
+    --fs-27:  1.6875rem; --lh-37:  2.3125rem;
+    --fs-24:  1.5rem;    --lh-32:  2rem;    --lh-34: 2.125rem;
+    --fs-18:  1.125rem;  --lh-28:  1.75rem;
+    --fs-16:  1rem;      --lh-24:  1.5rem;  --lh-26: 1.625rem;
+    --fs-14:  0.875rem;  --lh-22:  1.375rem; /* the floor (design-dna I7) */
+
+    --track-upper: 0.08em;   /* uppercase ≤ 40px (I4) */
+    --track-display: 0;      /* uppercase display ≥ 48px (I3) */
+    --measure: 60ch;
+
+    /* ---- Spacing (OBSERVED scale + two DECISION steps) ---- */
+    --sp-4:   0.25rem;
+    --sp-8:   0.5rem;
+    --sp-16:  1rem;
+    --sp-24:  1.5rem;
+    --sp-32:  2rem;
+    --sp-40:  2.5rem;
+    --sp-48:  3rem;
+    --sp-56:  3.5rem;
+    --sp-64:  4rem;
+    --sp-72:  4.5rem;
+    --sp-80:  5rem;
+    --sp-88:  5.5rem;
+    --sp-120: 7.5rem;
+    --sp-160: 10rem;
+
+    --section-pt: var(--sp-72);
+    --section-pb: var(--sp-88);
+
+    /* ---- Layout ---- */
+    --container-max: 1320px;
+    --page-gutter:   1.5rem;      /* 24px < 768 */
+    --grid-gap:      1.5rem;      /* 24px gutter */
+    --header-h:      5rem;        /* 80px mobile */
+
+    /* ---- Components ---- */
+    --btn-h-lg: 4.5rem;   /* 72px */
+    --btn-h-md: 3.5rem;   /* 56px */
+    --btn-pad-lg: var(--sp-24);
+    --btn-pad-md: var(--sp-16);
+    --stroke-1: 1px;
+    --stroke-2: 2px;
+    --icon: 1.5rem;
+    --bull-w: 3.5625rem;  /* 57px */
+    --bull-h: 3.6875rem;  /* 59px */
+    --bull-sm: 2.5rem;    /* footer mark, 40px */
+    --tap: 2.75rem;       /* 44px minimum touch target */
+    --lockup-w: 17.5rem;  /* dealer lockup, 280px (1406px master = 5x) */
+    --prestige-w: 7.5rem; /* parent logo, 120px (318px master = 2.65x) */
+    --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */
+    --folio-col: 3rem;
+    --folio-col-lg: 4rem;
+    --adp-max-h: 56rem;
+    --measure-note: 44ch;
+    --measure-caption: 34ch;
+    --measure-legal: 80ch;
+    --measure-legal-wide: 90ch;
+    --feather-top: 22%;   /* hero image top-edge feather */
+    --feather-side: 18%;  /* Ad Personam left-edge feather */
+
+    /* ---- Motion ---- */
+    --dur-fast:   200ms;
+    --dur-base:   300ms;
+    --dur-reveal: 500ms;
+    --dur-header: 500ms;
+    --dur-slow:   900ms;   /* hero image fade-in only */
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --ease-in:  cubic-bezier(0.4, 0, 1, 1);
+    --reveal-travel: 1.5rem;   /* 24px */
+    --arrow-travel: 0.25rem;   /* 4px */
+    --stagger: 80ms;
+
+    --z-header: 1040;
+    --z-menu:   1050;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --page-gutter: 2.5rem;    /* 40px */
+        --section-pt: var(--sp-120);
+        --section-pb: var(--sp-160);
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --page-gutter: 3.75rem;   /* 60px */
+        --header-h: 6.5rem;       /* 104px */
+    }
+}

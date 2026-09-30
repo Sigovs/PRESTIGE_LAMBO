@@ -1,0 +1,164 @@
+[
+  {
+    "name": "2026 Lamborghini Temerario .",
+    "vin": "ZHWUC1ZC1TLA02400",
+    "color": "Verde Mercurius Metallic",
+    "mileage": null,
+    "price": null,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2026 Lamborghini Temerario .",
+    "vin": "ZHWUC1ZC1TLA02400",
+    "color": "Verde Mercurius Metallic",
+    "mileage": 37,
+    "price": null,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2026 Lamborghini Urus SE",
+    "vin": "ZPBUD6ZLXTLA46954",
+    "color": "Nero Noctis Metallic",
+    "mileage": null,
+    "price": null,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-urus-se-north-miami-beach-fl-id-66267994",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2026 Lamborghini Urus SE",
+    "vin": "ZPBUD6ZLXTLA46954",
+    "color": "Nero Noctis Metallic",
+    "mileage": 24,
+    "price": null,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-urus-se-north-miami-beach-fl-id-66267994",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2015 Lamborghini Huracan LP610-4",
+    "vin": "ZHWUC1ZF6FLA02875",
+    "color": "Nero Nemesis Matt",
+    "mileage": null,
+    "price": 246697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2015-lamborghini-huracan-lp610-4-north-miami-beach-fl-id-66157191",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2015 Lamborghini Huracan LP610-4",
+    "vin": "ZHWUC1ZF6FLA02875",
+    "color": "Nero Nemesis Matt",
+    "mileage": 18536,
+    "price": 246697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2015-lamborghini-huracan-lp610-4-north-miami-beach-fl-id-66157191",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2018 Lamborghini Huracan Performante Spyder",
+    "vin": "ZHWUS4ZF6JLA10746",
+    "color": "Nero Noctis",
+    "mileage": null,
+    "price": 411697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2018-lamborghini-huracan-performante-spyder-north-miami-beach-fl-id-65671487",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2018 Lamborghini Huracan Performante Spyder",
+    "vin": "ZHWUS4ZF6JLA10746",
+    "color": "Nero Noctis",
+    "mileage": 8104,
+    "price": 411697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2018-lamborghini-huracan-performante-spyder-north-miami-beach-fl-id-65671487",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2021 Lamborghini Urus .",
+    "vin": "ZPBUA1ZL7MLA15500",
+    "color": "Grigio Keres Matt",
+    "mileage": null,
+    "price": 186697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2021-lamborghini-urus---north-miami-beach-fl-id-65526016",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2021 Lamborghini Urus .",
+    "vin": "ZPBUA1ZL7MLA15500",
+    "color": "Grigio Keres Matt",
+    "mileage": 45700,
+    "price": 186697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2021-lamborghini-urus---north-miami-beach-fl-id-65526016",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2022 Lamborghini Urus .",
+    "vin": "ZPBUA1ZL8NLA17774",
+    "color": "Nero Noctis Matt",
+    "mileage": null,
+    "price": 211697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2022-lamborghini-urus---north-miami-beach-fl-id-65586654",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2022 Lamborghini Urus .",
+    "vin": "ZPBUA1ZL8NLA17774",
+    "color": "Nero Noctis Matt",
+    "mileage": 31094,
+    "price": 211697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2022-lamborghini-urus---north-miami-beach-fl-id-65586654",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2024 Lamborghini Revuelto .",
+    "vin": "ZHWUC1ZM3RLA00116",
+    "color": "Giallo Metallic",
+    "mileage": null,
+    "price": 651697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2024 Lamborghini Revuelto .",
+    "vin": "ZHWUC1ZM3RLA00116",
+    "color": "Giallo Metallic",
+    "mileage": 187,
+    "price": 651697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2024 Lamborghini Revuelto .",
+    "vin": "ZHWUC1ZM0RLA00252",
+    "color": "Grigio Acheso Matt",
+    "mileage": null,
+    "price": 741697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65607471",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2024 Lamborghini Revuelto .",
+    "vin": "ZHWUC1ZM0RLA00252",
+    "color": "Grigio Acheso Matt",
+    "mileage": 1411,
+    "price": 741697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65607471",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2025 Lamborghini Revuelto .",
+    "vin": "ZHWUC1ZM5SLA01922",
+    "color": null,
+    "mileage": null,
+    "price": 701697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2025-lamborghini-revuelto---north-miami-beach-fl-id-66046886",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  },
+  {
+    "name": "2025 Lamborghini Revuelto .",
+    "vin": "ZHWUC1ZM5SLA01922",
+    "color": null,
+    "mileage": 2090,
+    "price": 701697,
+    "url": "https://www.lamborghinimiami.com/vehicle-details/used-2025-lamborghini-revuelto---north-miami-beach-fl-id-66046886",
+    "source": "JSON-LD on VDP, curl 2026-09-30"
+  }
+]
