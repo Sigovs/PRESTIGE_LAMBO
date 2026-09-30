@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-09-30T23:20:18.081Z",
-  "seal": "381ce68a4ff4f6a7a35df3331f2c5262f88ec86936f435ab965f524ac88f7e03",
-  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
+  "checkedAt": "2026-09-30T23:36:48.130Z",
+  "seal": "165e981cb56d8ae47d97e2739de8cad01554fcd29232b8acac57fa9e79981b9c",
+  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
   "ok": false,
   "problems": [
     "Gate 1 · delegated — the vault was read: passes on machine checks only — humanConfirmed is false",
     "Gate 2 · Structural and Authorship Conformance: verdict is \"fail\"",
     "Gate 2 · delegated — authorship preservation: verdict is \"fail\"",
-    "Gate 1 · delegated — composed masses: passes on machine checks only — humanConfirmed is false",
+    "Gate 1 · delegated — composed masses: verdict is \"fail\"",
     "Gate 1/2 · delegated — rendered hero conformance: verdict is \"fail\"",
     "Gate 3 · Product Usefulness: verdict is \"fail\""
   ]

@@ -36,18 +36,18 @@
 
     <!-- Hero preload: separate desktop and mobile frames -->
     <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
-          imagesrcset="assets/img/hero-temerario-960.webp 960w, assets/img/hero-temerario-1440.webp 1440w, assets/img/hero-temerario-1920.webp 1920w"
+          imagesrcset="assets/img/hero-dealer-revuelto-1280.webp 1280w, assets/img/hero-dealer-revuelto-1920.webp 1920w, assets/img/hero-dealer-revuelto-2560.webp 2560w"
           imagesizes="100vw" fetchpriority="high">
     <link rel="preload" as="image" type="image/webp" media="(max-width: 767.98px) and (orientation: portrait)"
           imagesrcset="assets/img/hero-temerario-night-p-750.webp 750w, assets/img/hero-temerario-night-p-1000.webp 1000w, assets/img/hero-temerario-night-p-1400.webp 1400w"
           imagesizes="165vw" fetchpriority="high">
     <link rel="preload" as="image" type="image/webp" media="(min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait)"
-          imagesrcset="assets/img/hero-temerario-m-780.webp 780w, assets/img/hero-temerario-m-1160.webp 1160w"
+          imagesrcset="assets/img/hero-dealer-revuelto-1280.webp 1280w, assets/img/hero-dealer-revuelto-1920.webp 1920w"
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=31">
-    <link rel="stylesheet" href="assets/css/main.css?v=31">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=43">
+    <link rel="stylesheet" href="assets/css/main.css?v=43">
 
     <script type="application/ld+json">
     {
@@ -177,7 +177,7 @@
      from the right at ~55–60% of frame width. DESIGN_SYSTEM.md §6. -->
 <section class="hero" aria-roledescription="carousel" aria-label="Lamborghini Miami: the dealership and the current models" data-hero>
     <div class="hero__slides" data-hero-track>
-        <article class="hero__slide hero__slide--dealer is-active" data-slide aria-roledescription="slide" aria-label="1 of 5: Lamborghini Miami" id="hero-slide-1">
+        <article class="hero__slide hero__slide--dealer hero__slide--bleed is-active" data-slide aria-roledescription="slide" aria-label="1 of 5: Lamborghini Miami" id="hero-slide-1">
         <div class="hero__inner container">
             <div class="hero__group">
                 <div class="hero__copy">
@@ -205,19 +205,20 @@
                 <source media="(max-width: 767.98px) and (orientation: portrait)"
                         srcset="assets/img/hero-temerario-night-p-750.jpg 750w, assets/img/hero-temerario-night-p-1000.jpg 1000w, assets/img/hero-temerario-night-p-1400.jpg 1400w" sizes="165vw">
                 <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp"
-                        srcset="assets/img/hero-temerario-m-780.webp 780w, assets/img/hero-temerario-m-1160.webp 1160w" sizes="100vw">
+                        srcset="assets/img/hero-dealer-revuelto-1280.webp 1280w, assets/img/hero-dealer-revuelto-1920.webp 1920w" sizes="100vw">
                 <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)"
-                        srcset="assets/img/hero-temerario-m-780.jpg 780w, assets/img/hero-temerario-m-1160.jpg 1160w" sizes="100vw">
+                        srcset="assets/img/hero-dealer-revuelto-1280.jpg 1280w, assets/img/hero-dealer-revuelto-1920.jpg 1920w" sizes="100vw">
                 <source type="image/webp"
-                        srcset="assets/img/hero-temerario-960.webp 960w, assets/img/hero-temerario-1440.webp 1440w, assets/img/hero-temerario-1920.webp 1920w"
+                        srcset="assets/img/hero-dealer-revuelto-1280.webp 1280w, assets/img/hero-dealer-revuelto-1920.webp 1920w, assets/img/hero-dealer-revuelto-2560.webp 2560w"
                         sizes="100vw">
-                <img class="hero__img" src="assets/img/hero-temerario-1440.jpg"
-                     srcset="assets/img/hero-temerario-960.jpg 960w, assets/img/hero-temerario-1440.jpg 1440w, assets/img/hero-temerario-1920.jpg 1920w"
+                <img class="hero__img" src="assets/img/hero-dealer-revuelto-1920.jpg"
+                     srcset="assets/img/hero-dealer-revuelto-1280.jpg 1280w, assets/img/hero-dealer-revuelto-1920.jpg 1920w"
                      sizes="100vw"
-                     width="1920" height="707" fetchpriority="high" decoding="async"
-                     data-subject-wide="0.455,0.12,0.51,0.68" data-subject-tall="0.08,0.1,0.86,0.76" data-subject-night="0.227,0.277,0.546,0.27"
-                     alt="A Lamborghini Temerario, front three-quarter view: blue in a dark studio on larger screens, yellow on a night circuit on phones.">
+                     width="1920" height="1080" fetchpriority="high" decoding="async"
+                     data-subject-wide="0.2,0.78,0.56,0.18" data-subject-tall="0.2,0.78,0.56,0.18" data-subject-night="0.227,0.277,0.546,0.27"
+                     alt="A yellow Lamborghini Revuelto in side profile between factory buildings on larger screens; a yellow Temerario on a night circuit on phones.">
             </picture>
+            <div class="hero__scrim" aria-hidden="true"></div>
         </div>
         </article>
         <article class="hero__slide hero__slide--model hero__slide--temerario hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="2 of 5: Temerario" id="hero-slide-2">
@@ -234,10 +235,10 @@
                     </div>
                 </div>
                 <picture class="hero__media">
-                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-temerario-960.webp 960w, assets/img/slide-temerario-1280.webp 1280w, assets/img/slide-temerario-1744.webp 1744w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-temerario-960.jpg 960w, assets/img/slide-temerario-1280.jpg 1280w, assets/img/slide-temerario-1744.jpg 1744w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source type="image/webp" data-srcset="assets/img/slide-temerario-1744.webp 1744w, assets/img/slide-temerario-1280.webp 1280w, assets/img/slide-temerario-960.webp 960w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-temerario-1280.jpg" data-srcset="assets/img/slide-temerario-1744.jpg 1744w, assets/img/slide-temerario-1280.jpg 1280w, assets/img/slide-temerario-960.jpg 960w" sizes="100vw" width="1744" height="1000" decoding="async" alt="A dark Lamborghini Temerario, front three-quarter, with airflow lines tracing its nose and hexagonal lights.">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-temerario-sagata-p-800.webp 800w, assets/img/slide-temerario-sagata-p-950.webp 950w" sizes="100vw">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-temerario-sagata-p-800.jpg 800w" sizes="100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-temerario-sagata-1920.webp 1920w, assets/img/slide-temerario-sagata-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-temerario-sagata-1920.jpg" data-srcset="assets/img/slide-temerario-sagata-1920.jpg 1920w, assets/img/slide-temerario-sagata-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A green Lamborghini Temerario at sunset beside the road sign for Sant’Agata Bolognese, città della Lamborghini.">
                 </picture>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
@@ -258,13 +259,13 @@
                 <picture class="hero__media">
                     <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-revuelto-aerial-p-800.webp 800w, assets/img/slide-revuelto-aerial-p-1200.webp 1200w" sizes="100vw">
                     <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-revuelto-aerial-p-800.jpg 800w" sizes="100vw">
-                    <source type="image/webp" data-srcset="assets/img/slide-revuelto-2400.webp 2400w, assets/img/slide-revuelto-1920.webp 1920w, assets/img/slide-revuelto-1440.webp 1440w, assets/img/slide-revuelto-960.webp 960w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-revuelto-1920.jpg" data-srcset="assets/img/slide-revuelto-2400.jpg 2400w, assets/img/slide-revuelto-1920.jpg 1920w, assets/img/slide-revuelto-1440.jpg 1440w, assets/img/slide-revuelto-960.jpg 960w" sizes="100vw" width="2400" height="1350" decoding="async" alt="A Lamborghini Revuelto: green on a mountain road on larger screens, yellow and seen from directly above on phones.">
+                    <source type="image/webp" data-srcset="assets/img/slide-revuelto-aerial-2560.webp 2560w, assets/img/slide-revuelto-aerial-1920.webp 1920w, assets/img/slide-revuelto-aerial-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-revuelto-aerial-1920.jpg" data-srcset="assets/img/slide-revuelto-aerial-1920.jpg 1920w, assets/img/slide-revuelto-aerial-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A yellow Lamborghini Revuelto seen from directly above, beside a zebra crossing.">
                 </picture>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--urus-se" data-slide aria-roledescription="slide" aria-label="4 of 5: Urus SE" id="hero-slide-4">
+        <article class="hero__slide hero__slide--model hero__slide--urus-se hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="4 of 5: Urus SE" id="hero-slide-4">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -278,10 +279,10 @@
                     </div>
                 </div>
                 <picture class="hero__media">
-                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-urus-se-m-960.webp 960w, assets/img/slide-urus-se-m-1280.webp 1280w, assets/img/slide-urus-se-m-1920.webp 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-urus-se-m-960.jpg 960w, assets/img/slide-urus-se-m-1280.jpg 1280w, assets/img/slide-urus-se-m-1920.jpg 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-2160.webp 2160w, assets/img/slide-urus-se-1440.webp 1440w, assets/img/slide-urus-se-960.webp 960w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-urus-se-1440.jpg" data-srcset="assets/img/slide-urus-se-2160.jpg 2160w, assets/img/slide-urus-se-1440.jpg 1440w, assets/img/slide-urus-se-960.jpg 960w" sizes="100vw" width="2160" height="533" decoding="async" alt="An orange Lamborghini Urus SE: in side profile on larger screens, driving through dust on phones.">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-urus-se-m-960.webp 960w, assets/img/slide-urus-se-m-1280.webp 1280w, assets/img/slide-urus-se-m-1920.webp 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-urus-se-m-960.jpg 960w, assets/img/slide-urus-se-m-1280.jpg 1280w, assets/img/slide-urus-se-m-1920.jpg 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-rocks-2560.webp 2560w, assets/img/slide-urus-se-rocks-1920.webp 1920w, assets/img/slide-urus-se-rocks-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-urus-se-rocks-1920.jpg" data-srcset="assets/img/slide-urus-se-rocks-1920.jpg 1920w, assets/img/slide-urus-se-rocks-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="An orange Lamborghini Urus SE: on red coastal rocks at sunset on larger screens, driving through dust on phones.">
                 </picture>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
@@ -843,6 +844,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=31" defer></script>
+<script src="assets/js/main.js?v=43" defer></script>
 </body>
 </html>

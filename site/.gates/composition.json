@@ -1,6 +1,6 @@
 {
   "gate": "Gate 1 · delegated — composed masses",
-  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
+  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
   "viewports": {
     "desktop": {
       "viewport": {
@@ -82,10 +82,10 @@
           "tag": "Temerario (photograph)",
           "isSubject": true,
           "extent": [
-            0.455,
-            0.965
+            0.222,
+            0.844
           ],
-          "centre": 0.71,
+          "centre": 0.533,
           "sample": ""
         }
       ],
@@ -93,12 +93,17 @@
         "hero__line",
         "Temerario (photograph)"
       ],
-      "gutter": 0.054,
+      "gutter": -0.179,
       "deadAir": {
         "left": 0.042,
-        "right": 0.035
+        "right": 0.156
       },
-      "findings": [],
+      "findings": [
+        {
+          "id": "dominant-unplaced",
+          "detail": "the dominant's optical centre sits at 53% — on the centre line — while 16% of the frame is empty at an edge. Two masses sharing a frame separate; one centred mass beside a void is a subject that was never placed (C5)."
+        }
+      ],
       "declared": [],
       "unmeasured": false
     },
@@ -204,8 +209,16 @@
     }
   },
   "humanConfirmed": false,
-  "verdict": "pass",
-  "finishedAt": "2026-09-30T23:19:45.439Z",
-  "findings": [],
-  "blockers": []
+  "verdict": "fail",
+  "finishedAt": "2026-09-30T23:36:13.339Z",
+  "findings": [
+    {
+      "id": "dominant-unplaced",
+      "detail": "the dominant's optical centre sits at 53% — on the centre line — while 16% of the frame is empty at an edge. Two masses sharing a frame separate; one centred mass beside a void is a subject that was never placed (C5).",
+      "viewport": "desktop"
+    }
+  ],
+  "blockers": [
+    "desktop: dominant-unplaced — the dominant's optical centre sits at 53% — on the centre line — while 16% of the frame is empty at an edge. Two masses sharing a frame separate; one centred mass beside a void is a subject that was never placed (C5)."
+  ]
 }

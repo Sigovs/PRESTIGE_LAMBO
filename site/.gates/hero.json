@@ -1,11 +1,14 @@
 {
   "gate": "Gate 1/2 · delegated — rendered hero conformance",
-  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
+  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
   "viewports": [
     {
       "label": "desktop",
-      "verdict": "pass",
-      "problems": [],
+      "verdict": "fail",
+      "problems": [
+        "subject clipped at right (worst sample t=0)",
+        "object-fit: cover declared without coverProof — C22 requires rendered proof"
+      ],
       "geometry": {
         "hero": {
           "x": 0,
@@ -15,37 +18,39 @@
         },
         "media": {
           "x": 0,
-          "y": 370,
+          "y": 0,
           "w": 1440,
-          "h": 530
+          "h": 900
         },
-        "fit": "fill",
+        "fit": "cover",
         "position": {
-          "x": 0.5,
-          "y": 1
+          "x": 0,
+          "y": 0.5
         },
         "natural": {
           "w": 1440,
-          "h": 530
+          "h": 810
         }
       },
       "samples": [
         {
           "t": 0,
           "rect": {
-            "x": 655.2,
-            "y": 433.6,
-            "w": 734.4,
-            "h": 360.40000000000003
+            "x": 728,
+            "y": 108,
+            "w": 816,
+            "h": 612
           },
-          "clipped": [],
+          "clipped": [
+            "right"
+          ],
           "clearance": {
-            "left": 655.2,
-            "top": 433.6,
-            "right": 50.40000000000009,
-            "bottom": 106
+            "left": 728,
+            "top": 108,
+            "right": -104,
+            "bottom": 180
           },
-          "subjectShare": 0.204,
+          "subjectShare": 0.385,
           "navOverlap": 0,
           "textSafeOverlap": 0,
           "copyOverlap": 0
@@ -54,19 +59,21 @@
       "worst": {
         "t": 0,
         "rect": {
-          "x": 655.2,
-          "y": 433.6,
-          "w": 734.4,
-          "h": 360.40000000000003
+          "x": 728,
+          "y": 108,
+          "w": 816,
+          "h": 612
         },
-        "clipped": [],
+        "clipped": [
+          "right"
+        ],
         "clearance": {
-          "left": 655.2,
-          "top": 433.6,
-          "right": 50.40000000000009,
-          "bottom": 106
+          "left": 728,
+          "top": 108,
+          "right": -104,
+          "bottom": 180
         },
-        "subjectShare": 0.204,
+        "subjectShare": 0.385,
         "navOverlap": 0,
         "textSafeOverlap": 0,
         "copyOverlap": 0
@@ -149,9 +156,11 @@
   ],
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T23:19:52.360Z",
+  "finishedAt": "2026-09-30T23:36:20.430Z",
   "sourceEvidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/hero-source-declared.png",
   "blockers": [
+    "desktop: subject clipped at right (worst sample t=0)",
+    "desktop: object-fit: cover declared without coverProof — C22 requires rendered proof",
     "humanConfirmed is false — the annotated source frame must be checked by a person: a wrongly declared subjectBox cannot produce a pass"
   ]
 }

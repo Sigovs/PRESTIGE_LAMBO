@@ -656,13 +656,18 @@ address { font-style: normal; }
             linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) 34%, rgb(0 0 0 / 0) 62%);
     }
 }
-/* Urus SE on desktop: the side-profile band sits lower-right, clear of the copy column
-   (its own black left edge runs into the page black) */
-@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
-    .hero__slide--urus-se .hero__media { left: auto; right: 0; bottom: 0; width: var(--band-w); }
-}
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
     .hero .hero__slide--bleed { --scrim-a: 0.9; }   /* outranks the per-slide values below */
+}
+/* dealer slide (img8): the sky behind the copy is near-white, so the scrim is an
+   ellipse over the copy field rather than a band down the left edge, which would
+   also dim the car's rear */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--dealer.hero__slide--bleed .hero__scrim {
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
+            radial-gradient(ellipse 62% 58% at 16% 46%, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.84) 58%, rgb(0 0 0 / 0) 100%);
+    }
 }
 /* over photographs the secondary action carries a dark fill so its label holds
    on any frame (corporate secondary is an outline; the fill is a legibility decision) */
@@ -682,9 +687,10 @@ address { font-style: normal; }
     .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); --hero-title-fs: var(--fs-40); --hero-title-lh: var(--lh-38); }
 }
 /* per-slide authored framing */
-.hero__slide--temerario { --d-pos: 20% 50%; --m-pos: 53%; --scrim-a: 0.84; }  /* centred copy: car pushed right, deeper scrim under the figures line */
-.hero__slide--revuelto { --d-pos: 40% 60%; --m-pos: 50%; --scrim-a: 0.82; }  /* landscape: green mountain-road frame; portrait: Alex's yellow aerial (img6) */
-.hero__slide--urus-se { --m-pos: 23%; }
+.hero__slide--dealer { --d-pos: 0% 50%; --scrim-a: 0.88; }        /* img8: the car low, centre-right */
+.hero__slide--temerario { --d-pos: 0% 55%; --m-pos: 50%; --scrim-a: 0.84; }  /* gallery2 cropped clear of the sign: car right, sunset sky left */
+.hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
+.hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.8; }   /* rocks at sunset: car right-centre */
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.78; }
 /* phones on their side: same diagonal, compressed so the copy and both actions
    fit above the fold and clear the car */
@@ -708,11 +714,7 @@ address { font-style: normal; }
 /* portrait tablets: the dealer frame is shown whole across the width (its own
    1160×667 ratio), so the car ends at 86% of the field and the group centres below it */
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait) {
-    .hero__slide--dealer { --hero-scene-h: 57.5vw; --photo-k: 0.88; }
-}
-/* phones on their side: the Urus SE band narrows so the centred actions clear the car */
-@media (orientation: landscape) and (max-height: 600px) {
-    .hero__slide--urus-se .hero__media { width: 50%; }
+    .hero__slide--dealer { --hero-scene-h: 56.25vw; --photo-k: 0.97; }   /* img8 shown whole (16:9); the car sits on its foot */
 }
 
 /* ---------- 2 · The range — pictured (Alex, option C) ----------

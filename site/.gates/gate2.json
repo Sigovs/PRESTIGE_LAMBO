@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
+  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
   "detector": {
     "desktop": {
       "sections": [
@@ -21,14 +21,14 @@
                 "meta": "upper",
                 "heading": "mid",
                 "cta": "lower",
-                "image": "lower"
+                "image": "mid"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "div.hero__inner",
-              "formula": "5×equal|i:lower|h:mid|m:upper|c:lower|align:start|cont:none|int:link",
-              "shape": "5×equal|i:lower|h:mid|m:upper|c:lower"
+              "formula": "5×equal|i:mid|h:mid|m:upper|c:lower|align:start|cont:none|int:link",
+              "shape": "5×equal|i:mid|h:mid|m:upper|c:lower"
             },
             {
               "units": 5,
@@ -1825,8 +1825,8 @@
       "kind": "parallel-units",
       "section": "section.hero",
       "units": 5,
-      "shape": "5×equal|i:lower|h:mid|m:upper|c:lower",
-      "formula": "5×equal|i:lower|h:mid|m:upper|c:lower|align:start|cont:none|int:link",
+      "shape": "5×equal|i:mid|h:mid|m:upper|c:lower",
+      "formula": "5×equal|i:mid|h:mid|m:upper|c:lower|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -2047,10 +2047,10 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T23:19:34.227Z",
+  "finishedAt": "2026-09-30T23:36:02.197Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
-    "undisposed parallel-units: 5×equal|i:lower|h:mid|m:upper|c:lower",
+    "undisposed parallel-units: 5×equal|i:mid|h:mid|m:upper|c:lower",
     "undisposed parallel-units: 5×equal|m:mid",
     "undisposed parallel-units: 4×equal|m:mid|c:mid",
     "undisposed parallel-units: 4×equal|m:mid",

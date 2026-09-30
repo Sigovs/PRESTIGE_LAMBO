@@ -1,14 +1,14 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "953bcc6df298cb589e4e66951faf294445fbe52233d22789b113c951ae49ca45",
-  "fileCount": 418,
+  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
+  "fileCount": 442,
   "page": "index.html",
   "measured": {
     "desktop": {
       "pageHeightPx": 8740,
       "screens": 9.71,
       "mediaTotal": 24,
-      "fullBleedMedia": 5,
+      "fullBleedMedia": 6,
       "largestTypePx": 120,
       "smallestTypePx": 14,
       "typeScaleRatio": 8.57,
@@ -33,22 +33,22 @@
       "eventStatement": "A five-slide hero: the dealer's name (slide 1) or a model's claim over the car, with its actions and the slide controls as one composed event.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.908,
-        "mediaCoverage": 0.591,
+        "eventCoverage": 1,
+        "mediaCoverage": 1,
         "competitionRatio": 0,
-        "structuralShare": 0.719,
-        "negativeSpaceShare": 0.208,
-        "rankMassShare": 0.636,
-        "subjectShareOfEvent": 0.733,
+        "structuralShare": 1,
+        "negativeSpaceShare": 0,
+        "rankMassShare": 0.22,
+        "subjectShareOfEvent": 1,
         "chromeShare": 0.116,
-        "declaredMasses": 4,
+        "declaredMasses": 3,
         "readsWithoutMedia": true
       },
       "envelope": {
         "x": 0,
-        "y": 251.5,
+        "y": 0,
         "w": 1440,
-        "h": 648.5
+        "h": 900
       },
       "components": [
         {
@@ -58,14 +58,14 @@
           "matched": 1,
           "inDocument": 5,
           "hasMedia": true,
-          "share": 0.589,
-          "isWrapper": false,
+          "share": 1,
+          "isWrapper": true,
           "rects": [
             {
               "x": 0,
-              "y": 370,
+              "y": 0,
               "w": 1440,
-              "h": 530
+              "h": 900
             }
           ]
         },
@@ -106,24 +106,6 @@
           ]
         },
         {
-          "role": "negative-space",
-          "selector": null,
-          "function": "directional air",
-          "matched": 1,
-          "inDocument": 1,
-          "hasMedia": false,
-          "share": 0.171,
-          "isWrapper": false,
-          "rects": [
-            {
-              "x": 583,
-              "y": 104,
-              "w": 814,
-              "h": 272
-            }
-          ]
-        },
-        {
           "role": "support",
           "selector": ".hero__controls",
           "function": null,
@@ -140,25 +122,27 @@
               "h": 52
             }
           ]
-        }
-      ],
-      "negativeSpace": [
+        },
         {
-          "function": "directional air",
-          "counted": true,
-          "boundedBy": [
-            "bottom",
-            "left"
-          ],
-          "why": null,
-          "rect": {
-            "x": 583.2,
-            "y": 104.4,
-            "w": 813.5999999999999,
-            "h": 271.8
-          }
+          "role": "subject",
+          "selector": ".hero__slide.is-active .hero__scrim",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 1,
+          "isWrapper": true,
+          "rects": [
+            {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 900
+            }
+          ]
         }
       ],
+      "negativeSpace": [],
       "competitors": [],
       "excluded": [
         {
@@ -177,14 +161,14 @@
       "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.946,
+        "eventCoverage": 0.951,
         "mediaCoverage": 0.739,
-        "competitionRatio": 0,
-        "structuralShare": 0.894,
-        "negativeSpaceShare": 0.055,
+        "competitionRatio": 0.105,
+        "structuralShare": 0.904,
+        "negativeSpaceShare": 0.05,
         "rankMassShare": 0.904,
-        "subjectShareOfEvent": 0.753,
-        "chromeShare": 0.095,
+        "subjectShareOfEvent": 0.777,
+        "chromeShare": 0,
         "declaredMasses": 4,
         "readsWithoutMedia": true
       },
@@ -303,14 +287,24 @@
           }
         }
       ],
-      "competitors": [],
-      "excluded": [
+      "competitors": [
         {
-          "selector": ".site-header",
-          "why": null,
-          "matched": 1
+          "name": "header.site-header",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 80
+          },
+          "hasMedia": true,
+          "maxFontPx": 18,
+          "hasAction": true,
+          "area": 31200,
+          "share": 0.095,
+          "ratio": 0.105
         }
       ],
+      "excluded": [],
       "problems": [],
       "verdict": "pass",
       "label": "mobile",
@@ -355,6 +349,6 @@
     }
   ],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T23:19:26.335Z",
+  "finishedAt": "2026-09-30T23:35:54.273Z",
   "blockers": []
 }

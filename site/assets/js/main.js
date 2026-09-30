@@ -443,7 +443,7 @@
             r = { left: r.left + (r.width - w) * pos[0], top: r.top + (r.height - hgt) * pos[1], width: w, height: hgt };
         }
         window.__subject = {
-            label: 'Temerario (photograph)',
+            label: /night-p/.test(src) ? 'Temerario (photograph)' : 'Revuelto (photograph)',
             left: r.left + f[0] * r.width, top: r.top + f[1] * r.height,
             right: r.left + (f[0] + f[2]) * r.width, bottom: r.top + (f[1] + f[3]) * r.height
         };

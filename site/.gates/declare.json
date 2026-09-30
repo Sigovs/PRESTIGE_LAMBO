@@ -28,18 +28,13 @@
         "selector": ".hero__actions"
       },
       {
-        "role": "negative-space",
-        "function": "directional air",
-        "rect": {
-          "x": 0.405,
-          "y": 0.116,
-          "w": 0.565,
-          "h": 0.302
-        }
-      },
-      {
         "role": "support",
         "selector": ".hero__controls"
+      },
+      {
+        "role": "subject",
+        "selector": ".hero__slide.is-active .hero__scrim",
+        "note": "the scrim is part of the photographic field (full-bleed img8), not a second event"
       }
     ],
     "excluded": [
@@ -78,7 +73,8 @@
             "note": "the centring air between the copy group and the control row (hero-gap, 30 Sep 2026)"
           }
         ],
-        "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it."
+        "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
+        "excluded": []
       }
     },
     "eventStatement": "A five-slide hero: the dealer's name (slide 1) or a model's claim over the car, with its actions and the slide controls as one composed event."
