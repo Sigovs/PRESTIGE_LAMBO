@@ -57,28 +57,9 @@
           {
             "role": "cta",
             "selector": ".hero__actions"
-          },
-          {
-            "role": "negative-space",
-            "function": "visual pause inside the event",
-            "rect": {
-              "x": 0.0,
-              "y": 0.431,
-              "w": 1.0,
-              "h": 0.029
-            }
-          },
-          {
-            "role": "negative-space",
-            "function": "visual pause inside the event",
-            "rect": {
-              "x": 0.0,
-              "y": 0.744,
-              "w": 1.0,
-              "h": 0.029
-            }
           }
-        ]
+        ],
+        "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it."
       }
     },
     "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene."
@@ -113,21 +94,22 @@
       "mobile": {
         "textSafe": {
           "x": 0.06,
-          "y": 0.12,
+          "y": 0.49,
           "w": 0.88,
-          "h": 0.33
+          "h": 0.3
         },
         "samples": [
           {
             "t": 0,
             "box": {
-              "x": 0.08,
-              "y": 0.1,
-              "w": 0.86,
-              "h": 0.76
+              "x": 0.227,
+              "y": 0.277,
+              "w": 0.546,
+              "h": 0.27
             }
           }
-        ]
+        ],
+        "coverProof": "Rendered and measured 30 Sep 2026 (site/_shots/*-00-first-screen.png): drawn car box 13\u2013362 of 375 at 390x844, 42\u2013318 of 360 at 375x667, 48\u2013257 of 305 at 320x568, 15\u2013400 of 415 at 430x932 \u2014 never clipped; object-position 50% 0% keeps the car in the upper field."
       }
     }
   },
@@ -195,8 +177,8 @@
       "governs": "hero"
     },
     {
-      "id": "typographic-range-index",
-      "reference": "corp shots 02/04 (giant claim type on white)",
+      "id": "pictured-range",
+      "reference": "corporate homepage model carousel (car pictured behind the claim, shots 02/04) + official lamborghini.com side profiles (research/press-images/MANIFEST.md)",
       "governs": "range"
     },
     {

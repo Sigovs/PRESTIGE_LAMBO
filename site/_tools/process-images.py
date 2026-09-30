@@ -6,6 +6,7 @@ import os
 from PIL import Image
 R = 'research/images-current-site/'
 S = 'research/inventory-capture-2026-09-30/photos/'
+P = 'research/press-images/'
 OUT = 'site/assets/img/'
 JOBS = [
   # hero: Temerario front 3/4, dark studio (no watermark)
@@ -15,6 +16,13 @@ JOBS = [
   # landscape keeps the whole windscreen band as the text field; portrait centres the wheel with dark bands above and below.
   (R+'models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg', (0, 0, 5000, 2800), 'adp-cabin-l', [2560, 1920, 1440, 1024]),
   (R+'models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg', (800, 600, 2800, 3333), 'adp-cabin-p', [1200, 900, 600]),
+  # Models band: official lamborghini.com side profiles (all face left, full length) — one image system
+  (P+'revuelto_side-profile-orange_2160x533.jpg', None, 'model-revuelto', [1296, 960, 648]),
+  (P+'temerario_side-profile-blue_2160x533.jpg', None, 'model-temerario', [1296, 960, 648]),
+  (P+'urus-se_side-profile-orange_2160x533.jpg', None, 'model-urus-se', [1296, 960, 648]),
+  (P+'urus-se-performante_side-profile-lime_1440x355.jpg', None, 'model-urus-se-performante', [1296, 960, 648]),
+  # Mobile hero: yellow Temerario, night track — portrait phones only; crop centred on the car (x 950-2450)
+  (P+'temerario_front-3q-yellow-night-track_2560x1463.jpg', (950, 0, 2450, 1463), 'hero-temerario-night-p', [1400, 1000, 750]),
   # Service: dealer workshop; crop drops watermark
   (R+'service/service_workshop-white-bays-technician_1697x2121.jpg', (170, 0, 1626, 1820), 'service-workshop', [1200, 800, 560]),
   # Showroom aerial at night; crop drops watermark
@@ -27,8 +35,7 @@ JOBS = [
   (S+'urus-se-2026.jpg', (0, 24, 1024, 600), 'inv-2026-urus-se', [1024, 640]),
   (S+'revuelto-2024-giallo.jpg', (0, 24, 1024, 600), 'inv-2024-revuelto-giallo', [1024, 640]),
   (S+'revuelto-2024-acheso.jpg', (0, 24, 1024, 600), 'inv-2024-revuelto-acheso', [1024, 640]),
-  (S+'huracan-perf-spyder-2018.jpg', (0, 24, 1024, 600), 'inv-2018-huracan-performante-spyder', [1024, 640]),
-  (S+'urus-2022.jpg', (0, 24, 1024, 600), 'inv-2022-urus', [1024, 640]),
+  (S+'huracan-2015.jpg', (0, 24, 1024, 600), 'inv-2015-huracan-lp610-4', [1024, 640]),
 ]
 os.makedirs(OUT, exist_ok=True)
 for src, box, stem, widths in JOBS:

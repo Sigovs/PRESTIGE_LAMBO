@@ -134,16 +134,19 @@
     function publishSubject() {
         const img = document.querySelector('.hero__img');
         if (!img) return;
-        const tall = /-m-\d+\./.test(img.currentSrc || '');
-        const f = (img.dataset[tall ? 'subjectTall' : 'subjectWide'] || '').split(',').map(Number);
+        const src = img.currentSrc || '';
+        const key = /night-p/.test(src) ? 'subjectNight' : /-m-\d+\./.test(src) ? 'subjectTall' : 'subjectWide';
+        const f = (img.dataset[key] || '').split(',').map(Number);
         if (f.length !== 4) return;
         let r = img.getBoundingClientRect();
-        // with object-fit: contain (portrait layouts) measure the drawn picture,
-        // not the letterboxed element box; object-position is 50% 100%
-        if (getComputedStyle(img).objectFit === 'contain' && img.naturalWidth) {
-            const k = Math.min(r.width / img.naturalWidth, r.height / img.naturalHeight);
+        // measure the drawn picture, not the element box, for contain and cover
+        const fit = getComputedStyle(img).objectFit;
+        if ((fit === 'contain' || fit === 'cover') && img.naturalWidth) {
+            const pick = fit === 'contain' ? Math.min : Math.max;
+            const k = pick(r.width / img.naturalWidth, r.height / img.naturalHeight);
             const w = img.naturalWidth * k, hgt = img.naturalHeight * k;
-            r = { left: r.left + (r.width - w) / 2, top: r.bottom - hgt, width: w, height: hgt };
+            const pos = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+            r = { left: r.left + (r.width - w) * pos[0], top: r.top + (r.height - hgt) * pos[1], width: w, height: hgt };
         }
         window.__subject = {
             label: 'Temerario (photograph)',

@@ -118,7 +118,6 @@ address { font-style: normal; }
 
 /* ---------- Type roles (DESIGN_SYSTEM.md §1.2) ---------- */
 .t-display-xl,
-.t-display-l,
 .t-banner {
     font-weight: var(--wght-bold);
     font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
@@ -127,7 +126,6 @@ address { font-style: normal; }
     text-wrap: balance;
 }
 .t-display-xl { font-size: min(var(--fs-80), var(--display-xl-fluid)); line-height: var(--lh-display-ratio); }
-.t-display-l  { font-size: min(var(--fs-56), var(--display-l-fluid)); line-height: var(--lh-display-l-ratio); }
 .t-banner     { font-size: var(--fs-48); line-height: var(--lh-46); }
 
 .t-title {
@@ -166,14 +164,12 @@ address { font-style: normal; }
 }
 
 @media (min-width: 768px) {
-    .t-display-l { font-size: var(--fs-80); line-height: var(--lh-80); }
     .t-banner    { font-size: var(--fs-80); line-height: var(--lh-80); }
     .t-title     { font-size: var(--fs-40); line-height: var(--lh-46); }
     .t-eyelet.hero__eyelet { font-size: var(--fs-24); line-height: var(--lh-34); }
 }
 @media (min-width: 1200px) {
     .t-display-xl { font-size: var(--fs-120); line-height: var(--lh-110); }
-    .t-display-l  { font-size: var(--fs-120); line-height: var(--lh-110); }
     .t-eyelet.hero__eyelet { font-size: var(--fs-27); line-height: var(--lh-37); }
 }
 
@@ -464,6 +460,42 @@ address { font-style: normal; }
     .hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); justify-self: start; }
 }
 
+/* Portrait phones: a full-width night scene. The yellow Temerario (official
+   lamborghini.com gallery frame) is authored for this format: the car sits in the
+   upper field at ~90% of the width on tall phones, the copy and the actions stand
+   in the dark asphalt below it. One primary action per view; Enquire becomes a
+   text link. */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .hero__media {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: var(--hero-scene-h);
+        margin: 0;
+        z-index: -1;
+    }
+    .hero__img {
+        object-fit: cover;
+        object-position: 50% 0%;
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+    }
+    .hero__inner { grid-template-rows: 1fr auto auto; align-content: end; row-gap: var(--sp-24); }
+    .hero__copy { grid-row: 2; }
+    .hero__actions { grid-row: 3; gap: var(--sp-8); }
+    .hero__actions .btn--secondary {
+        width: auto;
+        justify-self: start;
+        min-height: var(--tap);
+        padding-inline: 0;
+        gap: var(--sp-16);
+        border-width: 0 0 var(--stroke-1);
+        border-color: var(--grey-0);
+    }
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
+    .hero { --hero-scene-h: var(--hero-scene-h-short); }
+}
+
 /* Landscape tablets, laptops and desktops: the photograph returns to the scene's
    ground, anchored bottom-right; the copy and actions form one mass upper-left
    (actions follow the copy at 32px) and the car owns the lower-right diagonal.
@@ -506,78 +538,80 @@ address { font-style: normal; }
     .hero__media { width: var(--hero-media-short); }
 }
 
-/* ---------- 2 · The range ---------- */
-.range__list { border-top: var(--stroke-1) solid var(--stroke); }
-.range-row {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: var(--sp-16);
-    row-gap: var(--sp-24);
-    padding-block: var(--sp-40) var(--sp-48);
-    border-bottom: var(--stroke-1) solid var(--stroke);
+/* ---------- 2 · The range — pictured (Alex, option C) ----------
+   Four parallel models, equal in rank, so a 2×2 grid is argued rather than
+   defaulted (DNA9). One image system: official full-length side profiles, all
+   facing left, 4:1. Tighter band than the page's default section rhythm. */
+.range { padding-block: var(--sp-72) var(--sp-80); }
+.range .section-head { margin-bottom: var(--sp-40); }
+.models { display: grid; gap: var(--sp-40) var(--grid-gap); }
+.model { display: grid; gap: var(--sp-16); align-content: start; }
+.model__media {
+    aspect-ratio: 4 / 1;
+    overflow: hidden;
+    background: var(--grey-1);
+    margin-inline: calc(-1 * var(--page-gutter));
 }
-.range-row__folio {
+.model__media img { width: 100%; height: 100%; object-fit: cover; }
+.model__body { display: grid; gap: var(--sp-16); }
+.model__id { display: grid; grid-template-columns: auto 1fr; column-gap: var(--sp-16); align-items: baseline; }
+.model__folio {
     font-size: var(--fs-14);
     line-height: var(--lh-22);
     color: var(--fg-4);
     font-variant-numeric: tabular-nums;
     letter-spacing: var(--track-upper);
-    padding-top: var(--sp-8);
 }
-.range-row__name {
+.model__name {
+    font-size: min(var(--fs-48), var(--model-name-fluid));
+    line-height: var(--lh-46);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-display);
     color: var(--fg);
     transition: color var(--dur-base) var(--ease-out);
 }
-.range-row:hover .range-row__name,
-.range-row:focus-within .range-row__name { color: var(--accent); }
-.range-row__detail {
+.model:hover .model__name, .model:focus-within .model__name { color: var(--accent); }
+.model__claim {
     grid-column: 2;
-    display: grid;
-    gap: var(--sp-16);
-    align-content: start;
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-2);
+    text-wrap: balance;
 }
-.range-row__claim { color: var(--fg); }
-.range-row__facts { display: grid; gap: var(--sp-8); }
-.range-row__facts div {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--sp-16);
-    padding-bottom: var(--sp-8);
+.model__meta { display: grid; gap: var(--sp-8); align-content: start; }
+.model__facts { display: grid; }
+.model__facts div {
+    display: flex; justify-content: space-between; gap: var(--sp-16);
+    padding-block: var(--sp-4);
     border-bottom: var(--stroke-1) solid var(--stroke);
 }
-.range-row__facts dt { color: var(--fg-3); }
-.range-row__facts dd {
+.model__facts dt { color: var(--fg-3); }
+.model__facts dd {
     font-weight: var(--wght-bold);
     font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
     font-variant-numeric: tabular-nums;
     text-transform: uppercase;
     white-space: nowrap;
 }
-.range-row__note { color: var(--fg-3); max-width: var(--measure-note); }
-.range-row__note strong {
-    color: var(--fg);
-    font-weight: var(--wght-bold);
-    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
-}
-.range-row__actions { display: flex; flex-wrap: wrap; gap: 0 var(--sp-32); }
+.model__note { color: var(--fg-3); }
+.model__note strong { color: var(--fg); font-weight: var(--wght-bold); font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold); }
+.model__actions { display: flex; flex-wrap: wrap; gap: 0 var(--sp-32); }
 .range__source { margin-top: var(--sp-32); }
 
 @media (min-width: 768px) {
-    .range-row { grid-template-columns: var(--folio-col) minmax(0, 1fr); column-gap: var(--grid-gap); }
-    .range-row__detail { max-width: var(--measure-detail); }
-}
-@media (min-width: 1024px) {
-    .range-row__detail { max-width: none; }
-    .range-row {
-        grid-template-columns: var(--folio-col) minmax(0, 7fr) minmax(0, 5fr);
-        column-gap: var(--grid-gap);
-        align-items: start;
-        padding-block: var(--sp-48) var(--sp-56);
-    }
-    .range-row__detail { grid-column: 3; padding-top: var(--sp-8); }
+    .models { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .model__media { margin-inline: 0; }
 }
 @media (min-width: 1200px) {
-    .range-row { grid-template-columns: var(--folio-col-lg) minmax(0, 7fr) minmax(0, 4fr); }
+    .range { padding-block: var(--sp-88) var(--sp-88); }
+    .model__name { font-size: var(--fs-56); line-height: var(--lh-52); }
+    .model__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--grid-gap); align-items: start; }
 }
 
 /* ---------- 3 · Inventory (dealer adaptation of the Selezione card) ---------- */

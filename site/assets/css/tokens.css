@@ -75,8 +75,7 @@
     --lh-display-ratio: 0.875;  /* 70/80, corporate mobile hero */
     --display-xl-fluid: 21vw;  /* keeps LAMBORGHINI on one line down to 320px */
     --display-xl-short: 15vw;  /* short phones: 48px at 320 */
-    --display-l-fluid: 15vw;   /* keeps PERFORMANTE inside its column down to 320px */
-    --lh-display-l-ratio: 0.93; /* 52/56 */
+    --model-name-fluid: 13.5vw; /* keeps PERFORMANTE in a 272px column at 320 */
     --track-upper: 0.08em;   /* uppercase ≤ 40px (I4) */
     --track-display: 0;      /* uppercase display ≥ 48px (I3) */
     --measure: 60ch;
@@ -121,7 +120,9 @@
     --tap-pad: 0.75rem;   /* 12px: grows a 21px text link to a 45px target */
     --adp-media-min: 12rem; /* portrait: the cabin never shrinks below 192px */
     --adp-media-min-short: 7.5rem; /* short phones: 120px */
-    --hero-media-short: 78%;  /* landscape phones: car pulled right, clear of the copy */
+    --hero-media-short: 78%;
+    --hero-scene-h: min(74svh, 160vw);       /* portrait phones: photo field height */
+    --hero-scene-h-short: min(66svh, 160vw); /* ≤600px tall phones */  /* landscape phones: car pulled right, clear of the copy */
     --lockup-w: 17.5rem;  /* dealer lockup, 280px (1406px master = 5x) */
     --prestige-w: 7.5rem; /* parent logo, 120px (318px master = 2.65x) */
     --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */

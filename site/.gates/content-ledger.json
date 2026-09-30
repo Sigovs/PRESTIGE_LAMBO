@@ -1,13 +1,13 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
+  "sourceSeal": "457df47d76d791d74a4d5867db7c9a91e4f87df681accf13fb6f14ab340b61ac",
   "build": {
     "private": false
   },
   "claims": [
     {
       "id": "inv-prices",
-      "claim": "$651,697 $741,697",
+      "claim": "$651,697 $741,697 $246,697",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghinimiami.com VDP JSON-LD (offers.price), curl 30 Sep 2026; research/inventory-capture-2026-09-30/vdp-jsonld.json",
@@ -18,7 +18,7 @@
     },
     {
       "id": "inv-odometer",
-      "claim": "24 mi 37 mi 187 mi 1,411 mi",
+      "claim": "24 mi 37 mi 187 mi 1,411 mi 18,536 mi",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghinimiami.com VDP JSON-LD mileageFromOdometer, 30 Sep 2026",
@@ -29,7 +29,7 @@
     },
     {
       "id": "inv-identity",
-      "claim": "2026 Urus SE 2026 Temerario 2024 Revuelto Stock 10918 10914 86180 CJ2602 VINs ZPBUD6ZLXTLA46954 ZHWUC1ZC1TLA02400 ZHWUC1ZM3RLA00116 ZHWUC1ZM0RLA00252",
+      "claim": "2026 Urus SE 2026 Temerario 2024 Revuelto Stock 10918 10914 86180 CJ2602 VINs ZPBUD6ZLXTLA46954 ZHWUC1ZC1TLA02400 ZHWUC1ZM3RLA00116 ZHWUC1ZM0RLA00252 2015 Huracán LP610-4 Stock 10881A ZHWUC1ZF6FLA02875",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghinimiami.com SRP and VDP JSON-LD, 30 Sep 2026",
@@ -55,13 +55,13 @@
     },
     {
       "id": "temerario-figures",
-      "claim": "920 CV 343 km/h 2.7 s",
+      "claim": "920 CV 343 km/h 2.7 s 0–100 km/h",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
       "source": "lamborghini.com/en-en/models/temerario, captured 30 Sep 2026 (research/LAMBORGHINI_CI_RESEARCH.md §1.9)",
       "sourceType": "public-record",
       "appearsAt": [
-        ".range-row__facts"
+        ".model__facts"
       ]
     },
     {
@@ -71,8 +71,8 @@
       "source": "media.lamborghini.com Revuelto SV release; lamborghini.com homepage disclaimer (CI §1.9, §5)",
       "sourceType": "public-record",
       "appearsAt": [
-        ".range-row__note",
-        ".range__source"
+        ".model__note",
+        ".site-footer__legal"
       ]
     },
     {
@@ -82,7 +82,7 @@
       "source": "Current Urus SE page on lamborghinimiami.com reproducing Automobili Lamborghini press copy (CURRENT_SITE_CONTENT §3.2) — client to confirm against lamborghini.com",
       "sourceType": "client-data",
       "appearsAt": [
-        ".range-row__facts"
+        ".model__facts"
       ]
     },
     {
@@ -145,7 +145,7 @@
     },
     {
       "id": "model-years-in-links",
-      "claim": "2024 2025 2026",
+      "claim": "2015 2024 2025 2026",
       "status": "verified",
       "source": "inventory capture 30 Sep 2026",
       "sourceType": "live-system",
@@ -194,49 +194,49 @@
       "class": "bare-count",
       "text": "920",
       "context": "920 CV",
-      "where": "li#range-temerario > div.range-row__detail > dl.range-row__facts > div > dd"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd"
     },
     {
       "class": "bare-count",
       "text": "343",
       "context": "343 km/h",
-      "where": "li#range-temerario > div.range-row__detail > dl.range-row__facts > div > dd"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd"
     },
     {
       "class": "bare-count",
       "text": "100",
       "context": "0–100 km/h",
-      "where": "li#range-temerario > div.range-row__detail > dl.range-row__facts > div > dt"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dt"
     },
     {
       "class": "grouped-number",
       "text": "1,065",
       "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.range-row__detail > p.range-row__note"
+      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
     },
     {
       "class": "grouped-number",
       "text": "1,963",
       "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.range-row__detail > p.range-row__note"
+      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
     },
     {
       "class": "bare-count",
       "text": "065",
       "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.range-row__detail > p.range-row__note"
+      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
     },
     {
       "class": "bare-count",
       "text": "963",
       "context": "— 1,065 CV, limited to 1,963 units. Under approval, not available for sale.",
-      "where": "li#range-revuelto > div.range-row__detail > p.range-row__note"
+      "where": "li#range-revuelto > div.model__body > div.model__meta > p.model__note"
     },
     {
       "class": "bare-count",
       "text": "800",
       "context": "800 CV",
-      "where": "li#range-urus-se > div.range-row__detail > dl.range-row__facts > div > dd"
+      "where": "li#range-urus-se > div.model__body > div.model__meta > dl.model__facts > div > dd"
     },
     {
       "class": "bare-count",
@@ -440,6 +440,66 @@
       "class": "year",
       "text": "2024",
       "context": ": 2024 Revuelto, Grigio Acheso Matt",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "bare-count",
+      "text": "2015",
+      "context": "2015 Huracán LP610-4",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "year",
+      "text": "2015",
+      "context": "2015 Huracán LP610-4",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "grouped-number",
+      "text": "18,536",
+      "context": "18,536 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+    },
+    {
+      "class": "bare-count",
+      "text": "536",
+      "context": "18,536 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd"
+    },
+    {
+      "class": "currency",
+      "text": "$246,697",
+      "context": "$246,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "grouped-number",
+      "text": "246,697",
+      "context": "$246,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "246",
+      "context": "$246,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "697",
+      "context": "$246,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "2015",
+      "context": ": 2015 Huracán LP610-4",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "year",
+      "text": "2015",
+      "context": ": 2015 Huracán LP610-4",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
     },
     {
@@ -760,7 +820,7 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 98,
+      "hits": 108,
       "entries": 14,
       "uncovered": 0
     }
@@ -768,5 +828,5 @@
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T20:36:12.609Z"
+  "finishedAt": "2026-09-30T21:01:17.124Z"
 }

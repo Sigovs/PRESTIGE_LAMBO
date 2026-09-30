@@ -27,6 +27,7 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 | 2026 Temerario, New | ZHWUC1ZC1TLA02400 | 10914 | Verde Mercurius Metallic | 37 mi | none listed, shown as "Price on request" | https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290 |
 | 2024 Revuelto, Pre-owned | ZHWUC1ZM3RLA00116 | 86180 | Giallo Metallic | 187 mi | $651,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655 |
 | 2024 Revuelto, Pre-owned | ZHWUC1ZM0RLA00252 | CJ2602 | Grigio Acheso Matt | 1,411 mi | $741,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65607471 |
+| 2015 Huracán LP610-4, Pre-owned (added 30 Sep at Alex's request; the photo shows a matt black car with bronze wheels, consistent with the listing) | ZHWUC1ZF6FLA02875 | 10881A | Nero Nemesis Matt | 18,536 | $246,697 (data-layer sellingPrice $244,950 + $1,746.50 in fees) | https://www.lamborghinimiami.com/vehicle-details/used-2015-lamborghini-huracan-lp610-4-north-miami-beach-fl-id-66157191 |
 
 ### Listing endpoints
 
@@ -38,7 +39,7 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 - **2018 Huracán Performante Spyder, ZHWUS4ZF6JLA10746, removed in the 30 Sep critic pass.** It is listed as Nero Noctis, but its photo shows a mid-grey car.
 - **2022 Urus, ZPBUA1ZL8NLA17774, removed in the 30 Sep critic pass.** It is listed as Nero Noctis Matt, but its photo reads as gloss.
 - Both follow the same rule as the 2021 Urus: when the listing and its photo disagree, the car is not shown. The page no longer claims that photographs show the listed vehicle.
-- A consistent candidate if a third pre-owned card is wanted: the 2015 Huracán LP610-4, ZHWUC1ZF6FLA02875, Nero Nemesis Matt, 18,536 mi, $246,697. Its photo shows a matt black car. It is not added, because the inventory layout is waiting on Alex's decision (K3).
+- The 2015 Huracán LP610-4 was added as the third pre-owned card on Alex's decision. Its listing and its photo agree.
 
 - **2021 Urus, ZPBUA1ZL7MLA15500.** It is listed as "Grigio Keres Matt", but its photo shows a dark green car. The listing contradicts itself, so it is not shown.
 - **Three Revuelto VINs.** Their listings have no photos. Showing the two photographed Revueltos is enough; the rest are behind "View all inventory".
@@ -109,6 +110,8 @@ Source: `research/LAMBORGHINI_CI_RESEARCH.md`, captured from lamborghini.com on 
 - Staff names: no titles are published anywhere.
 
 ## Imagery
+
+**Models band and phone hero:** these use official lamborghini.com images. `research/press-images/MANIFEST.md` lists each file with its source URL, alt text, retrieval date and the by-eye model check. The media centre (media.lamborghini.com) redirects to the homepage and cannot be reached.
 
 | File(s) in `assets/img/` | Source original | Treatment |
 |---|---|---|

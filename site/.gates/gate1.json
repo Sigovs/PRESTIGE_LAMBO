@@ -1,13 +1,13 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
-  "fileCount": 170,
+  "sourceSeal": "457df47d76d791d74a4d5867db7c9a91e4f87df681accf13fb6f14ab340b61ac",
+  "fileCount": 224,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 8988,
-      "screens": 9.99,
-      "mediaTotal": 14,
+      "pageHeightPx": 9042,
+      "screens": 10.05,
+      "mediaTotal": 19,
       "fullBleedMedia": 2,
       "largestTypePx": 120,
       "smallestTypePx": 14,
@@ -16,10 +16,10 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 12544,
-      "screens": 14.86,
-      "mediaTotal": 14,
-      "fullBleedMedia": 2,
+      "pageHeightPx": 13044,
+      "screens": 15.45,
+      "mediaTotal": 19,
+      "fullBleedMedia": 6,
       "largestTypePx": 80,
       "smallestTypePx": 14,
       "typeScaleRatio": 5.71,
@@ -156,25 +156,25 @@
     },
     "mobile": {
       "rule": "A1 — one governing event owns the first screen, and everything else defers to it",
-      "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene.",
+      "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.804,
-        "mediaCoverage": 0.323,
+        "eventCoverage": 0.898,
+        "mediaCoverage": 0.739,
         "competitionRatio": 0,
-        "structuralShare": 0.772,
-        "negativeSpaceShare": 0.04,
-        "rankMassShare": 0.699,
-        "subjectShareOfEvent": 0.43,
+        "structuralShare": 0.898,
+        "negativeSpaceShare": 0,
+        "rankMassShare": 0.908,
+        "subjectShareOfEvent": 0.792,
         "chromeShare": 0.095,
         "declaredMasses": 3,
         "readsWithoutMedia": true
       },
       "envelope": {
         "x": 0,
-        "y": 120,
+        "y": 0,
         "w": 390,
-        "h": 692.0469970703125
+        "h": 812.0839233398438
       },
       "components": [
         {
@@ -184,14 +184,14 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": true,
-          "share": 0.313,
+          "share": 0.739,
           "isWrapper": false,
           "rects": [
             {
               "x": 0,
-              "y": 364,
+              "y": 0,
               "w": 390,
-              "h": 264
+              "h": 624
             }
           ]
         },
@@ -207,7 +207,7 @@
           "rects": [
             {
               "x": 24,
-              "y": 120,
+              "y": 444,
               "w": 329,
               "h": 220
             }
@@ -220,86 +220,19 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": false,
-          "share": 0.166,
+          "share": 0.129,
           "isWrapper": false,
           "rects": [
             {
               "x": 24,
-              "y": 652,
+              "y": 688,
               "w": 342,
-              "h": 160
-            }
-          ]
-        },
-        {
-          "role": "negative-space",
-          "selector": null,
-          "function": "visual pause inside the event",
-          "matched": 1,
-          "inDocument": 1,
-          "hasMedia": false,
-          "share": 0.029,
-          "isWrapper": false,
-          "rects": [
-            {
-              "x": 0,
-              "y": 364,
-              "w": 390,
-              "h": 24
-            }
-          ]
-        },
-        {
-          "role": "negative-space",
-          "selector": null,
-          "function": "visual pause inside the event",
-          "matched": 1,
-          "inDocument": 1,
-          "hasMedia": false,
-          "share": 0.029,
-          "isWrapper": false,
-          "rects": [
-            {
-              "x": 0,
-              "y": 628,
-              "w": 390,
-              "h": 24
+              "h": 124
             }
           ]
         }
       ],
-      "negativeSpace": [
-        {
-          "function": "visual pause inside the event",
-          "counted": true,
-          "boundedBy": [
-            "bottom",
-            "top"
-          ],
-          "why": null,
-          "rect": {
-            "x": 0,
-            "y": 363.764,
-            "w": 390,
-            "h": 24.476000000000003
-          }
-        },
-        {
-          "function": "visual pause inside the event",
-          "counted": true,
-          "boundedBy": [
-            "top",
-            "bottom"
-          ],
-          "why": null,
-          "rect": {
-            "x": 0,
-            "y": 627.936,
-            "w": 390,
-            "h": 24.476000000000003
-          }
-        }
-      ],
+      "negativeSpace": [],
       "competitors": [],
       "excluded": [
         {
@@ -309,7 +242,7 @@
         }
       ],
       "problems": [
-        "eventCoverage 80.4% is below the A1 floor of 90%"
+        "eventCoverage 89.8% is below the A1 floor of 90%"
       ],
       "verdict": "fail",
       "label": "mobile",
@@ -354,8 +287,8 @@
     }
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T20:35:21.467Z",
+  "finishedAt": "2026-09-30T21:00:20.913Z",
   "blockers": [
-    "A1 mobile: eventCoverage 80.4% is below the A1 floor of 90%"
+    "A1 mobile: eventCoverage 89.8% is below the A1 floor of 90%"
   ]
 }

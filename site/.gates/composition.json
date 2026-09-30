@@ -1,6 +1,6 @@
 {
   "gate": "Gate 1 · delegated — composed masses",
-  "sourceSeal": "e4dad2575ab57b4e31e5316095c86838ae8ec4ac81bb4b7227d77fb8ebc634e3",
+  "sourceSeal": "457df47d76d791d74a4d5867db7c9a91e4f87df681accf13fb6f14ab340b61ac",
   "viewports": {
     "desktop": {
       "viewport": {
@@ -169,34 +169,24 @@
           "sample": "View inventory"
         },
         {
-          "tag": "span",
-          "isSubject": false,
-          "extent": [
-            0.126,
-            0.312
-          ],
-          "centre": 0.219,
-          "sample": "Enquire"
-        },
-        {
           "tag": "Temerario (photograph)",
           "isSubject": true,
           "extent": [
-            0.08,
-            0.94
+            0.053,
+            0.947
           ],
-          "centre": 0.51,
+          "centre": 0.5,
           "sample": ""
         }
       ],
       "principal": [
-        "hero__line",
-        "Temerario (photograph)"
+        "Temerario (photograph)",
+        "hero__line"
       ],
-      "gutter": -0.824,
+      "gutter": -0.886,
       "deadAir": {
-        "left": 0.062,
-        "right": 0.06
+        "left": 0.053,
+        "right": 0.053
       },
       "findings": [],
       "declared": [],
@@ -205,7 +195,7 @@
   },
   "humanConfirmed": false,
   "verdict": "pass",
-  "finishedAt": "2026-09-30T20:35:40.244Z",
+  "finishedAt": "2026-09-30T21:00:40.588Z",
   "findings": [],
   "blockers": []
 }
