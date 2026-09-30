@@ -55,8 +55,31 @@
             return r.top <= 1 && r.bottom > h + 1;
         });
         header.classList.toggle('is-solid', y >= heroEnd - 1 && !overPhoto);
+        fadeControls(h);
+    }
+    /* Slider controls leave with the hero: their opacity follows their distance
+       above the header's bottom edge, reaching 0 CTRL_GAP px before they touch it,
+       so they never show through the transparent header (header unchanged).
+       Under reduced motion it is a plain hide, no fade. Faded = inert, no pointer
+       events. (Controls rest >= 330 px down at every tested size, so they always
+       load at full opacity.) */
+    const fading = [...document.querySelectorAll('.hero__controls')];
+    const CTRL_GAP = 8, CTRL_FADE = 96;          // mirror of --ctrl-gap, --ctrl-fade
+    const fadeState = new Map();
+    function fadeControls(h) {
+        fading.forEach((el) => {
+            const top = el.getBoundingClientRect().top - (h + CTRL_GAP);
+            let o = reduceMotion.matches ? (top > 0 ? 1 : 0) : Math.min(1, Math.max(0, top / CTRL_FADE));
+            o = Math.round(o * 100) / 100;
+            if (fadeState.get(el) === o) return;
+            fadeState.set(el, o);
+            el.style.opacity = o === 1 ? '' : String(o);
+            el.style.pointerEvents = o < 0.5 ? 'none' : '';
+            el.inert = o === 0;
+        });
     }
     window.addEventListener('scroll', () => {
+        fadeControls(header ? header.offsetHeight : 0);   // same frame as the scroll, never one behind
         if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
     }, { passive: true });
     window.addEventListener('resize', updateHeader, { passive: true });

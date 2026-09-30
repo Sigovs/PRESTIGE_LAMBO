@@ -170,6 +170,8 @@
     --drive-text-lag: 200ms;  /* the tile's text starts this long after its car */
     /* hero slider (user direction, Alex) */
     --dur-slide: 800ms;     /* crossfade */
+    --ctrl-gap: 8px;        /* slider controls reach opacity 0 this far below the header (mirrored in main.js) */
+    --ctrl-fade: 96px;      /* scroll distance over which they fade (mirrored in main.js) */
     --slide-hold: 6500ms;   /* autoplay dwell per slide — mirrored in main.js */
 
     --z-header: 1040;
