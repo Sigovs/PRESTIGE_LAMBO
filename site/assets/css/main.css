@@ -265,7 +265,7 @@ address { font-style: normal; }
 .site-header::after {
     background: var(--surface-1-dark);
     opacity: 0;
-    transition: opacity var(--dur-base) var(--ease-out);
+    transition: opacity var(--hdr-fade, var(--dur-base)) var(--ease-out);   /* --hdr-fade: set by main.js only where the copy rests tight to the header */
 }
 .site-header.is-solid::after { opacity: 1; }
 
@@ -388,6 +388,14 @@ address { font-style: normal; }
 }
 
 /* ---------- 1 · Hero ---------- */
+/* layout variables (see the copy-group note below); breakpoints override them */
+.hero {
+    --ctrl-b: var(--sp-16);
+    --ctrl-h: var(--tap);
+    --hero-gap: var(--sp-24);
+    --hero-title-fs: min(4rem, calc((100vw - 2 * var(--page-gutter)) / 4.3));
+    --hero-title-lh: var(--lh-display-ratio);
+}
 .hero {
     position: relative;
     isolation: isolate;
@@ -422,16 +430,12 @@ address { font-style: normal; }
 .figma[data-slide] .hero__slide { display: none; }
 .figma[data-slide] .hero__slide.is-figma-slide { display: flex; }
 .hero__scrim { display: none; }
-.hero__title--claim { max-width: var(--claim-measure); }
-.hero__inv { color: var(--grey-0); border-bottom-color: var(--grey-0); justify-self: start; order: 3; }
-/* "In our inventory" drops to its own line, inside the copy zone rather than over the car */
-.hero__actions:has(.hero__inv)::before { content: ""; order: 2; flex-basis: 100%; height: 0; }
 
 /* controls: numbered progress, pause/play, hexagon arrows (corporate btn-icon-special) */
 .hero__controls {
     display: none;
     position: absolute;
-    left: 0; right: 0; bottom: var(--sp-16);
+    left: 0; right: 0; bottom: var(--ctrl-b);
     z-index: 2;
     align-items: center;
     gap: var(--sp-8);
@@ -491,7 +495,8 @@ address { font-style: normal; }
 .hero__arrow-icon { width: var(--icon-sm); height: var(--icon-sm); }
 .hero__arrow--prev .hero__arrow-icon { transform: scaleX(-1); }
 @media (min-width: 768px) {
-    .hero__controls { bottom: var(--sp-32); gap: var(--sp-16); }
+    .hero { --ctrl-b: var(--sp-32); --ctrl-h: var(--hex-h); --hero-title-fs: var(--fs-80); --hero-title-lh: var(--lh-display-ratio); }
+    .hero__controls { gap: var(--sp-16); }
     .hero__arrows { display: flex; }
     .hero__dot { min-width: var(--dot-w); }
 }
@@ -500,19 +505,30 @@ address { font-style: normal; }
 /* Portrait formats (phones, portrait tablets): the photograph is IN FLOW, as the
    middle row between the copy and the actions, so it can never run under either.
    object-fit: contain lets it shrink on short screens instead of overlapping. */
+@media (min-width: 1200px) {
+    .hero { --hero-title-fs: var(--fs-120); --hero-title-lh: var(--lh-110); }
+}
+/* One copy group per slide (Alex, 30 Sep 2026): eyelet, a two-line title, one
+   supporting line and two actions, centred vertically in the free field —
+   between the header and the control row on landscape screens, between the
+   photo field and the control row on portrait ones. The group moves; nothing
+   is pinned to a fixed top. --ctrl-b / --ctrl-h are the control row's own
+   offset and height, so the field ends exactly where the controls begin. */
 .hero__inner {
     display: grid;
-    grid-template-rows: auto minmax(0, 1fr) auto;
-    gap: var(--sp-24);
-    padding-top: calc(var(--header-h) + var(--sp-40));
-    padding-bottom: var(--sp-32);
+    grid-template-rows: auto;
+    align-content: center;
+    padding-top: calc(var(--hero-top) + var(--hero-gap));
+    padding-bottom: calc(var(--ctrl-b) + var(--ctrl-h) + var(--hero-gap));
+    --hero-top: var(--header-h);
 }
+.hero__group { display: grid; gap: var(--sp-32); justify-self: start; align-content: start; }
 .hero__copy { display: grid; gap: var(--sp-16); justify-self: start; }
+.hero .hero__title.t-display-xl { font-size: var(--hero-title-fs); line-height: var(--hero-title-lh); }
 .hero__media {
-    position: relative;
-    grid-row: 2;
-    min-height: 0;
-    margin-inline: calc(-1 * var(--page-gutter));
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: var(--hero-scene-h);
     z-index: -1;
 }
 .hero__img {
@@ -532,15 +548,16 @@ address { font-style: normal; }
     .t-eyelet.hero__eyelet { font-size: var(--fs-16); line-height: var(--lh-24); }
 }
 .hero__title { color: var(--grey-0); }
-.hero__line { display: block; }
+.hero__line { display: block; white-space: nowrap; }   /* two authored lines on every slide */
 .nowrap { white-space: nowrap; }
 .hero__place {
     color: var(--grey-3);
     font-size: var(--fs-16);
     line-height: var(--lh-24);
 }
+/* over photographs the key-figures line takes the eyelet's lighter grey, so it holds 4.5:1 on the worst pixel */
+.hero__figures { color: var(--grey-1); }
 .hero__actions {
-    grid-row: 3;
     display: grid;
     gap: var(--sp-16);
 }
@@ -548,10 +565,10 @@ address { font-style: normal; }
 /* Short phones (e.g. 320×568, 375×667): a tighter stack — smaller display size,
    medium buttons — so copy, car and both actions share one screen. */
 @media (max-width: 767.98px) and (max-height: 700px) {
-    .hero__inner { gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-16)); padding-bottom: var(--sp-16); }
+    .hero { --hero-gap: var(--sp-16); --hero-title-fs: min(3rem, calc((100vw - 2 * var(--page-gutter)) / 4.3)); }
+    .hero__group { gap: var(--sp-16); }
     .hero__copy { gap: var(--sp-8); }
     .t-eyelet.hero__eyelet, .hero__place { font-size: var(--fs-14); line-height: var(--lh-22); }
-    .hero__title.t-display-xl { font-size: min(var(--fs-56), var(--display-xl-short)); }
     .hero__actions { gap: var(--sp-8); }
     .hero__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
 }
@@ -565,28 +582,20 @@ address { font-style: normal; }
    upper field at ~90% of the width on tall phones, the copy and the actions stand
    in the dark asphalt below it. One primary action per view; Enquire becomes a
    text link. */
-@media (max-width: 767.98px) and (orientation: portrait) {
-    .hero__media {
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: var(--hero-scene-h);
-        margin: 0;
-        z-index: -1;
-    }
+@media (max-width: 1199.98px) and (orientation: portrait) {
+    .hero__inner { --hero-top: calc(var(--hero-scene-h) * var(--photo-k)); }
     .hero__img {
         object-fit: cover;
         object-position: 50% 0%;
         -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
         mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
     }
-    .hero__inner { grid-template-rows: 1fr auto auto; align-content: end; row-gap: var(--sp-24); }
-    .js .hero__inner { padding-bottom: calc(var(--tap) + var(--sp-16) * 2); }
-    .hero__copy { grid-row: 2; }
-    /* model slides on phones: a shorter photo field sized so the whole car fits the width */
-    .hero__slide--model { --hero-scene-h: var(--hero-scene-h-model); }
+    /* model slides: a shorter photo field sized so the whole car fits the width */
+    .hero__slide--model { --hero-scene-h: var(--hero-scene-h-model); --photo-k: var(--photo-k-model); }
     .hero__slide--model .hero__img { object-position: var(--m-pos, 50%) 50%; }
-    .hero__slide--model .hero__title--claim { font-size: min(var(--fs-56), var(--display-xl-short)); line-height: var(--lh-52); }
-    .hero__actions { grid-row: 3; gap: var(--sp-8); }
+}
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .hero__actions { gap: var(--sp-8); }
     .hero__actions .btn--secondary {
         width: auto;
         justify-self: start;
@@ -610,11 +619,12 @@ address { font-style: normal; }
    The lower-left black is the photograph's own studio field, not page void. */
 @media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
     .hero__media {
-        position: absolute;
+        top: auto;
+        left: auto;
         right: 0;
         bottom: 0;
         width: 100%;
-        margin: 0;
+        height: auto;
     }
     .hero__img {
         position: static;
@@ -623,17 +633,8 @@ address { font-style: normal; }
         -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top));
         mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top));
     }
-    .hero__inner {
-        grid-template-columns: max-content 1fr;
-        grid-template-rows: auto auto 1fr;
-        row-gap: var(--sp-32);
-        align-content: start;
-    }
-    .hero__copy { grid-column: 1; grid-row: 1; }
-    .hero__actions { grid-column: 1; grid-row: 2; }
-}
-@media (min-width: 1200px) {
-    .hero__inner { padding-top: calc(var(--header-h) + var(--sp-56)); }
+    .hero__inner { grid-template-columns: max-content 1fr; }
+    .hero__group { grid-column: 1; }
 }
 @media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
     .hero__slide--bleed .hero__media { top: 0; height: 100%; }
@@ -651,7 +652,6 @@ address { font-style: normal; }
             linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
             linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) 34%, rgb(0 0 0 / 0) 62%);
     }
-    .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-32) * 2); }
 }
 /* Urus SE on desktop: the side-profile band sits lower-right, clear of the copy column
    (its own black left edge runs into the page black) */
@@ -659,49 +659,57 @@ address { font-style: normal; }
     .hero__slide--urus-se .hero__media { left: auto; right: 0; bottom: 0; width: var(--band-w); }
 }
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
-    .hero__slide--bleed { --scrim-a: 0.9; }
+    .hero .hero__slide--bleed { --scrim-a: 0.9; }   /* outranks the per-slide values below */
 }
 /* over photographs the secondary action carries a dark fill so its label holds
    on any frame (corporate secondary is an outline; the fill is a legibility decision) */
-.hero__slide--bleed .btn--secondary { background: rgb(0 0 0 / 0.64); }
+.hero__slide--model .btn--secondary { background: rgb(0 0 0 / 0.64); }
 @media (orientation: landscape) and (max-height: 600px) {
     .hero__slide--bleed .hero__scrim {
         background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 46%, rgb(0 0 0 / 0) 78%);
     }
 }
-/* portrait tablets: clear the control row */
-@media (min-width: 768px) and (orientation: portrait) {
-    .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-32) * 2); }
-}
 /* short screens: compact claim, one row of actions; "In our inventory" stays in the
    Models tiles and the header rather than crowding the slide */
 @media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
-    .hero__slide--model .hero__title--claim { max-width: none; font-size: var(--fs-40); line-height: var(--lh-46); }
-    .hero__slide--model .hero__inv { display: none; }
     .hero__dots { gap: 0; }
     .hero__controls { gap: var(--sp-4); }
 }
 @media (orientation: landscape) and (max-height: 600px) {
-    .hero__slide--model .hero__title--claim { max-width: 16ch; }
-    .hero__slide--model .hero__inv { display: none; }
-    .hero .hero__title.t-display-xl { font-size: var(--fs-40); line-height: var(--lh-38); }
-    .hero__controls { bottom: var(--sp-8); }
-    .js .hero__inner { padding-bottom: calc(var(--hex-h) + var(--sp-8)); }
+    .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); --hero-title-fs: var(--fs-40); --hero-title-lh: var(--lh-38); }
 }
 /* per-slide authored framing */
-.hero__slide--temerario { --d-pos: 70% 50%; --m-pos: 53%; --scrim-a: 0.7; }
+.hero__slide--temerario { --d-pos: 20% 50%; --m-pos: 53%; --scrim-a: 0.84; }  /* centred copy: car pushed right, deeper scrim under the figures line */
 .hero__slide--revuelto { --d-pos: 40% 60%; --m-pos: 21%; --scrim-a: 0.82; }
 .hero__slide--urus-se { --m-pos: 23%; }
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.78; }
 /* phones on their side: same diagonal, compressed so the copy and both actions
    fit above the fold and clear the car */
 @media (orientation: landscape) and (max-height: 600px) {
-    .hero__inner { row-gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-16)); padding-bottom: var(--sp-16); }
+    .hero__group { gap: var(--sp-16); }
     .hero__copy { gap: var(--sp-8); }
     .t-eyelet.hero__eyelet, .hero__place { font-size: var(--fs-14); line-height: var(--lh-22); }
-    .hero__title.t-display-xl { font-size: var(--fs-56); line-height: var(--lh-52); }
     .hero__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); }
     .hero__media { width: var(--hero-media-short); }
+}
+
+/* centred-group follow-ups (Alex, 30 Sep 2026) */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .hero__group { justify-self: stretch; }            /* the primary action is one width on every slide */
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
+    .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); }
+    .hero__slide--dealer { --photo-k: 0.5; }
+    .hero__slide--model { --photo-k: 0.72; }
+}
+/* portrait tablets: the dealer frame is shown whole across the width (its own
+   1160×667 ratio), so the car ends at 86% of the field and the group centres below it */
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait) {
+    .hero__slide--dealer { --hero-scene-h: 57.5vw; --photo-k: 0.88; }
+}
+/* phones on their side: the Urus SE band narrows so the centred actions clear the car */
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero__slide--urus-se .hero__media { width: 50%; }
 }
 
 /* ---------- 2 · The range — pictured (Alex, option C) ----------
@@ -717,13 +725,10 @@ address { font-style: normal; }
     overflow: hidden;
 }
 .model__media picture, .model__car { width: 100%; height: 100%; }
-.model__car {
-    object-fit: contain;
-    transition: transform var(--dur-base) var(--ease-out);
-}
-@media (hover: hover) {
-    .model:hover .model__car, .model:focus-within .model__car { transform: translateX(var(--car-travel)); }
-}
+/* No hover travel on the car: during a scroll the tiles pass under a resting
+   cursor, and the 6px move fired on and off — the cars twitched (Alex, 30 Sep).
+   The name's accent colour carries the hover state instead. */
+.model__car { object-fit: contain; }
 .model__body { display: grid; gap: var(--sp-16); }
 .model__id { display: grid; grid-template-columns: auto 1fr; column-gap: var(--sp-16); align-items: baseline; }
 .model__folio {

@@ -1,12 +1,12 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "1864457bd61c75366e2b816724cbd0b8babb29b2deabd04c908dc597a95b4f39",
-  "fileCount": 335,
+  "sourceSeal": "e6cfff3bed1c562a71988e8d012eb316e98153016f4623ad6ec4f935b57c4ad3",
+  "fileCount": 382,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 8668,
-      "screens": 9.63,
+      "pageHeightPx": 8679,
+      "screens": 9.64,
       "mediaTotal": 24,
       "fullBleedMedia": 5,
       "largestTypePx": 120,
@@ -16,13 +16,13 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 13020,
-      "screens": 15.43,
+      "pageHeightPx": 13031,
+      "screens": 15.44,
       "mediaTotal": 24,
       "fullBleedMedia": 6,
-      "largestTypePx": 80,
+      "largestTypePx": 64,
       "smallestTypePx": 14,
-      "typeScaleRatio": 5.71,
+      "typeScaleRatio": 4.57,
       "horizontalOverflow": false,
       "errors": []
     }
@@ -33,22 +33,22 @@
       "eventStatement": "A five-slide hero: the dealer's name (slide 1) or a model's claim over the car, with its actions and the slide controls as one composed event.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.949,
+        "eventCoverage": 0.908,
         "mediaCoverage": 0.591,
         "competitionRatio": 0,
-        "structuralShare": 0.761,
-        "negativeSpaceShare": 0.199,
-        "rankMassShare": 0.673,
-        "subjectShareOfEvent": 0.701,
+        "structuralShare": 0.719,
+        "negativeSpaceShare": 0.208,
+        "rankMassShare": 0.636,
+        "subjectShareOfEvent": 0.733,
         "chromeShare": 0.116,
         "declaredMasses": 4,
         "readsWithoutMedia": true
       },
       "envelope": {
         "x": 0,
-        "y": 160,
+        "y": 251.5,
         "w": 1440,
-        "h": 740
+        "h": 648.5
       },
       "components": [
         {
@@ -71,19 +71,19 @@
         },
         {
           "role": "identity",
-          "selector": ".hero__copy",
+          "selector": ".hero__group",
           "function": null,
           "matched": 1,
           "inDocument": 5,
           "hasMedia": false,
-          "share": 0.125,
+          "share": 0.167,
           "isWrapper": false,
           "rects": [
             {
               "x": 60,
-              "y": 160,
+              "y": 252,
               "w": 518,
-              "h": 313
+              "h": 417
             }
           ]
         },
@@ -99,7 +99,7 @@
           "rects": [
             {
               "x": 60,
-              "y": 506,
+              "y": 597,
               "w": 434,
               "h": 72
             }
@@ -177,13 +177,13 @@
       "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.905,
+        "eventCoverage": 0.946,
         "mediaCoverage": 0.739,
         "competitionRatio": 0,
-        "structuralShare": 0.905,
-        "negativeSpaceShare": 0,
-        "rankMassShare": 0.914,
-        "subjectShareOfEvent": 0.787,
+        "structuralShare": 0.894,
+        "negativeSpaceShare": 0.055,
+        "rankMassShare": 0.904,
+        "subjectShareOfEvent": 0.753,
         "chromeShare": 0.095,
         "declaredMasses": 4,
         "readsWithoutMedia": true
@@ -215,19 +215,19 @@
         },
         {
           "role": "identity",
-          "selector": ".hero__copy",
+          "selector": ".hero__group",
           "function": null,
           "matched": 1,
           "inDocument": 5,
           "hasMedia": false,
-          "share": 0.22,
+          "share": 0.362,
           "isWrapper": false,
           "rects": [
             {
               "x": 24,
-              "y": 400,
-              "w": 329,
-              "h": 220
+              "y": 390,
+              "w": 342,
+              "h": 348
             }
           ]
         },
@@ -243,7 +243,7 @@
           "rects": [
             {
               "x": 24,
-              "y": 645,
+              "y": 614,
               "w": 342,
               "h": 124
             }
@@ -266,9 +266,43 @@
               "h": 44
             }
           ]
+        },
+        {
+          "role": "negative-space",
+          "selector": null,
+          "function": "visual pause inside the event",
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.048,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 24,
+              "y": 738,
+              "w": 342,
+              "h": 46
+            }
+          ]
         }
       ],
-      "negativeSpace": [],
+      "negativeSpace": [
+        {
+          "function": "visual pause inside the event",
+          "counted": true,
+          "boundedBy": [
+            "top",
+            "bottom"
+          ],
+          "why": null,
+          "rect": {
+            "x": 23.985,
+            "y": 737.656,
+            "w": 342.03,
+            "h": 46.42
+          }
+        }
+      ],
       "competitors": [],
       "excluded": [
         {
@@ -321,6 +355,6 @@
     }
   ],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T22:17:12.774Z",
+  "finishedAt": "2026-09-30T23:00:59.189Z",
   "blockers": []
 }

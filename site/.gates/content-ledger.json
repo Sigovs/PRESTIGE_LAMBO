@@ -1,6 +1,6 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "1864457bd61c75366e2b816724cbd0b8babb29b2deabd04c908dc597a95b4f39",
+  "sourceSeal": "e6cfff3bed1c562a71988e8d012eb316e98153016f4623ad6ec4f935b57c4ad3",
   "build": {
     "private": false
   },
@@ -167,13 +167,91 @@
       "class": "bare-count",
       "text": "14780",
       "context": "14780 Biscayne Boulevard,",
-      "where": "article#hero-slide-1 > div.hero__inner > div.hero__copy > p.hero__place"
+      "where": "article#hero-slide-1 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "920",
+      "context": "920 CV · 343 km/h · 0–100 km/h 2.7 s",
+      "where": "article#hero-slide-2 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "343",
+      "context": "920 CV · 343 km/h · 0–100 km/h 2.7 s",
+      "where": "article#hero-slide-2 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "100",
+      "context": "920 CV · 343 km/h · 0–100 km/h 2.7 s",
+      "where": "article#hero-slide-2 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "grouped-number",
+      "text": "1,015",
+      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
+      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "015",
+      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
+      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "350",
+      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
+      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "100",
+      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
+      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "800",
+      "context": "800 CV · 312 km/h · 0–100 km/h 3.4 s",
+      "where": "article#hero-slide-4 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "312",
+      "context": "800 CV · 312 km/h · 0–100 km/h 3.4 s",
+      "where": "article#hero-slide-4 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "100",
+      "context": "800 CV · 312 km/h · 0–100 km/h 3.4 s",
+      "where": "article#hero-slide-4 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "812",
+      "context": "812 CV · 312 km/h · 0–100 km/h 3.3 s",
+      "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "312",
+      "context": "812 CV · 312 km/h · 0–100 km/h 3.3 s",
+      "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+    },
+    {
+      "class": "bare-count",
+      "text": "100",
+      "context": "812 CV · 312 km/h · 0–100 km/h 3.3 s",
+      "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
     },
     {
       "class": "bare-count",
       "text": "920",
       "context": "920 CV",
-      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
       "class": "bare-count",
@@ -215,7 +293,7 @@
       "class": "bare-count",
       "text": "800",
       "context": "800 CV",
-      "where": "li#range-urus-se > div.model__body > div.model__meta > dl.model__facts > div > dd"
+      "where": "li#range-urus-se > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
       "class": "bare-count",
@@ -233,7 +311,7 @@
       "class": "bare-count",
       "text": "812",
       "context": "812 CV",
-      "where": "li#range-urus-se-performante > div.model__body > div.model__meta > dl.model__facts > div > dd"
+      "where": "li#range-urus-se-performante > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
     },
     {
       "class": "bare-count",
@@ -817,7 +895,7 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 111,
+      "hits": 124,
       "entries": 12,
       "uncovered": 0
     }
@@ -825,5 +903,5 @@
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T22:18:04.591Z"
+  "finishedAt": "2026-09-30T23:01:50.980Z"
 }

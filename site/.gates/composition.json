@@ -1,6 +1,6 @@
 {
   "gate": "Gate 1 · delegated — composed masses",
-  "sourceSeal": "1864457bd61c75366e2b816724cbd0b8babb29b2deabd04c908dc597a95b4f39",
+  "sourceSeal": "e6cfff3bed1c562a71988e8d012eb316e98153016f4623ad6ec4f935b57c4ad3",
   "viewports": {
     "desktop": {
       "viewport": {
@@ -205,7 +205,7 @@
   },
   "humanConfirmed": false,
   "verdict": "pass",
-  "finishedAt": "2026-09-30T22:17:31.844Z",
+  "finishedAt": "2026-09-30T23:01:18.589Z",
   "findings": [],
   "blockers": []
 }

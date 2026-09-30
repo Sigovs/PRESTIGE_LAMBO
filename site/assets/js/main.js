@@ -40,6 +40,13 @@
     let ticking = false;
 
     const photoChapters = [...document.querySelectorAll('.adp')];
+    const HDR_GAP = 8;                                  // mirror of --ctrl-gap
+    const HDR_TIGHT = 64;                               // px: closer than this, the layer is not faded in
+    const HDR_LEAD = 350;                               // ms of travel to anticipate: the 300 ms fade + a frame
+    let settleT;
+    let scrollV = 0, lastY = window.scrollY, lastT = performance.now();   // px/ms, signed (down > 0)
+    const heroContent = () => hero ? [...hero.querySelectorAll('.hero__slide.is-active .hero__copy, .hero__slide.is-active .hero__actions, .hero__controls')] : [];
+    const adpContent = [...document.querySelectorAll('.adp__head, .adp__lead, .adp__actions')];
     function updateHeader() {
         ticking = false;
         if (!header) return;
@@ -54,7 +61,35 @@
             const r = el.getBoundingClientRect();
             return r.top <= 1 && r.bottom > h + 1;
         });
-        header.classList.toggle('is-solid', y >= heroEnd - 1 && !overPhoto);
+        // Corporate (CI §1.7): the solid layer fades in on scroll. It arrives as soon
+        // as any hero content (copy, buttons, controls of the active slide) comes
+        // within HDR_GAP px of the header's bottom edge, so text never passes under
+        // a transparent header. At rest the hero keeps the transparent header.
+        // The layer takes --dur-base (300 ms) to fade in, so the test runs against
+        // where the content is heading, not only where it is: Lenis' target for a
+        // wheel glide, the measured velocity for a native/touch fling. The swept
+        // span (now -> then) is tested, so a fast pass cannot skip the band.
+        const edge = h + HDR_GAP;
+        const ahead = lenis ? lenis.targetScroll - y : 0;
+        const shift = Math.abs(ahead) > Math.abs(scrollV * HDR_LEAD) ? ahead : scrollV * HDR_LEAD;
+        const heroTops = heroContent().map((el) => el.getBoundingClientRect().top);
+        const heroNear = heroTops.some((t) => Math.min(0, -shift) + t < edge);
+        // Over Ad Personam the header stays transparent, except for the stretch in
+        // which its copy would pass under it.
+        const adpNear = adpContent.some((el) => {
+            const r = el.getBoundingClientRect();
+            return Math.min(r.top, r.top - shift) < edge && Math.max(r.bottom, r.bottom - shift) > 0;
+        });
+        const solid = ((y >= heroEnd - 1 || heroNear) && !overPhoto) || (overPhoto && adpNear);
+        // Where the content rests closer to the header than the fade can cover
+        // (landscape phones: ~21 px), the solid layer arrives at once instead of
+        // over 300 ms, so no frame shows text under a half-transparent header.
+        if (solid && !header.classList.contains('is-solid')) {
+            const gap = Math.min(Infinity, ...heroTops.filter((t) => t > 0)) - edge;
+            if (gap < HDR_TIGHT) header.style.setProperty('--hdr-fade', '0ms');
+            else header.style.removeProperty('--hdr-fade');
+        } else if (!solid) header.style.removeProperty('--hdr-fade');
+        header.classList.toggle('is-solid', solid);
         fadeControls(h);
     }
     /* Slider controls leave with the hero: their opacity follows their distance
@@ -79,10 +114,19 @@
         });
     }
     window.addEventListener('scroll', () => {
+        const now = performance.now(), yy = window.scrollY, dt = now - lastT;
+        if (dt > 0) scrollV = dt > 100 ? 0 : scrollV * 0.5 + ((yy - lastY) / dt) * 0.5;
+        lastY = yy; lastT = now;
+        clearTimeout(settleT); settleT = setTimeout(() => { scrollV = 0; updateHeader(); }, 120);
         fadeControls(header ? header.offsetHeight : 0);   // same frame as the scroll, never one behind
         if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
     }, { passive: true });
     window.addEventListener('resize', updateHeader, { passive: true });
+    // A wheel or touch gesture moves Lenis' target before the first scroll event
+    // fires; re-test on the gesture itself so the header leads the first frame.
+    ['wheel', 'touchmove'].forEach((t) => window.addEventListener(t, () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
+    }, { passive: true }));
     updateHeader();
 
     /* ---------- Menu overlay ---------- */
