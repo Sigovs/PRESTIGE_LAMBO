@@ -103,7 +103,7 @@ Source: `research/LAMBORGHINI_CI_RESEARCH.md`, captured from lamborghini.com on 
 | File(s) in `assets/img/` | Source original | Treatment |
 |---|---|---|
 | `hero-temerario-*` | `hero/hero_temerario-blue-front-3q-dark_1920x707.jpg` (official AL; no watermark) | Desktop uses the full frame. Mobile is cropped to x 760–1920 |
-| `adp-urus-se-cabin-*` | `models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg` (official AL; shield watermark) | Cropped to remove the watermark. Mobile has a separate 4:5 crop |
+| `adp-cabin-l-*`, `adp-cabin-p-*` | `models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg` (official AL; shield watermark) | Two authored crops, both clear of the watermark: landscape 5000×2800 and portrait 2000×2733 |
 | `service-workshop-*` | `service/service_workshop-white-bays-technician_1697x2121.jpg` (dealer-shot) | Cropped to remove the watermark |
 | `showroom-aerial-night-*` | `showroom-facility/facility_lamborghini-miami-showroom-aerial-night_1980x1114.png` (dealer-shot) | Cropped to remove the watermark |
 | `archive-1980/1983/1986-*` | `showroom-facility/history-under-1600/…_640x427.jpg` (dealer archive) | Native size, shown at 320 CSS px or less |

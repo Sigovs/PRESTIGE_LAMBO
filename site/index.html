@@ -15,16 +15,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
 
     <!-- Hero preload: separate desktop and mobile frames -->
-    <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)"
+    <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
           imagesrcset="assets/img/hero-temerario-960.webp 960w, assets/img/hero-temerario-1440.webp 1440w, assets/img/hero-temerario-1920.webp 1920w"
-          imagesizes="(min-width: 1200px) 108vw, 120vw" fetchpriority="high">
-    <link rel="preload" as="image" type="image/webp" media="(max-width: 767.98px)"
+          imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)"
           imagesrcset="assets/img/hero-temerario-m-780.webp 780w, assets/img/hero-temerario-m-1160.webp 1160w"
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=1">
-    <link rel="stylesheet" href="assets/css/main.css?v=1">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=2">
+    <link rel="stylesheet" href="assets/css/main.css?v=2">
 
     <script type="application/ld+json">
     {
@@ -151,18 +151,19 @@
      Scene, not object: the black field is the text-safe zone; the car enters
      from the right at ~55–60% of frame width. DESIGN_SYSTEM.md §6. -->
 <section class="hero" aria-labelledby="hero-title">
-    <picture class="hero__media">
-        <source media="(max-width: 767.98px)" type="image/webp"
+    <picture class="hero__media" data-mass="stage">
+        <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp"
                 srcset="assets/img/hero-temerario-m-780.webp 780w, assets/img/hero-temerario-m-1160.webp 1160w" sizes="100vw">
-        <source media="(max-width: 767.98px)"
+        <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)"
                 srcset="assets/img/hero-temerario-m-780.jpg 780w, assets/img/hero-temerario-m-1160.jpg 1160w" sizes="100vw">
         <source type="image/webp"
                 srcset="assets/img/hero-temerario-960.webp 960w, assets/img/hero-temerario-1440.webp 1440w, assets/img/hero-temerario-1920.webp 1920w"
-                sizes="(min-width: 1200px) 108vw, 120vw">
+                sizes="100vw">
         <img class="hero__img" src="assets/img/hero-temerario-1440.jpg"
              srcset="assets/img/hero-temerario-960.jpg 960w, assets/img/hero-temerario-1440.jpg 1440w, assets/img/hero-temerario-1920.jpg 1920w"
-             sizes="(min-width: 1200px) 108vw, 120vw"
+             sizes="100vw"
              width="1920" height="707" fetchpriority="high" decoding="async"
+             data-subject-wide="0.455,0.12,0.51,0.68" data-subject-tall="0.08,0.1,0.86,0.76"
              alt="A blue Lamborghini Temerario, front three-quarter view, in a dark studio.">
     </picture>
 
@@ -185,10 +186,7 @@
                 <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
         </div>
-        <p class="hero__caption" data-hero-line style="--i:5">
-            <span class="hero__caption-label">Pictured</span>
-            <a class="hero__caption-link" href="#range-temerario">Temerario</a>
-        </p>
+        <!-- No "Pictured" caption: the Temerario carries its own name plate in frame, and the caption failed AA over the lit blue floor (1.47:1). -->
     </div>
 </section>
 
@@ -296,9 +294,8 @@
             <h3 class="inv-group__label t-eyelet">New</h3>
             <ul class="inv-grid" role="list">
                 <li class="vcard" data-reveal>
-                    <p class="vcard__chips"><span class="vcard__chip">New</span><span class="vcard__chip">Stock 10918</span></p>
                     <h4 class="vcard__title">2026 Urus SE</h4>
-                    <p class="vcard__colour">Nero Noctis Metallic</p>
+                    <p class="vcard__colour">Nero Noctis Metallic<span class="vcard__stock">Stock 10918</span></p>
                     <figure class="vcard__media">
                         <picture>
                             <source type="image/webp" srcset="assets/img/inv-2026-urus-se-640.webp 640w, assets/img/inv-2026-urus-se-1024.webp 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw">
@@ -316,9 +313,8 @@
                 </li>
 
                 <li class="vcard" data-reveal>
-                    <p class="vcard__chips"><span class="vcard__chip">New</span><span class="vcard__chip">Stock 10914</span></p>
                     <h4 class="vcard__title">2026 Temerario</h4>
-                    <p class="vcard__colour">Verde Mercurius Metallic</p>
+                    <p class="vcard__colour">Verde Mercurius Metallic<span class="vcard__stock">Stock 10914</span></p>
                     <figure class="vcard__media vcard__media--plate">
                         <div class="vcard__plate" aria-hidden="true">Temerario</div>
                         <figcaption class="vcard__plate-note">Photography in preparation</figcaption>
@@ -339,9 +335,8 @@
             <h3 class="inv-group__label t-eyelet">Pre-owned</h3>
             <ul class="inv-grid" role="list">
                 <li class="vcard" data-reveal>
-                    <p class="vcard__chips"><span class="vcard__chip">Pre-owned</span><span class="vcard__chip">Stock 86180</span></p>
                     <h4 class="vcard__title">2024 Revuelto</h4>
-                    <p class="vcard__colour">Giallo Metallic</p>
+                    <p class="vcard__colour">Giallo Metallic<span class="vcard__stock">Stock 86180</span></p>
                     <figure class="vcard__media">
                         <picture>
                             <source type="image/webp" srcset="assets/img/inv-2024-revuelto-giallo-640.webp 640w, assets/img/inv-2024-revuelto-giallo-1024.webp 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw">
@@ -359,9 +354,8 @@
                 </li>
 
                 <li class="vcard" data-reveal>
-                    <p class="vcard__chips"><span class="vcard__chip">Pre-owned</span><span class="vcard__chip">Stock CJ2602</span></p>
                     <h4 class="vcard__title">2024 Revuelto</h4>
-                    <p class="vcard__colour">Grigio Acheso Matt</p>
+                    <p class="vcard__colour">Grigio Acheso Matt<span class="vcard__stock">Stock CJ2602</span></p>
                     <figure class="vcard__media">
                         <picture>
                             <source type="image/webp" srcset="assets/img/inv-2024-revuelto-acheso-640.webp 640w, assets/img/inv-2024-revuelto-acheso-1024.webp 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw">
@@ -379,9 +373,8 @@
                 </li>
 
                 <li class="vcard" data-reveal>
-                    <p class="vcard__chips"><span class="vcard__chip">Pre-owned</span><span class="vcard__chip">Stock CJ2607</span></p>
                     <h4 class="vcard__title">2018 Huracán Performante Spyder</h4>
-                    <p class="vcard__colour">Nero Noctis</p>
+                    <p class="vcard__colour">Nero Noctis<span class="vcard__stock">Stock CJ2607</span></p>
                     <figure class="vcard__media">
                         <picture>
                             <source type="image/webp" srcset="assets/img/inv-2018-huracan-performante-spyder-640.webp 640w, assets/img/inv-2018-huracan-performante-spyder-1024.webp 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw">
@@ -399,9 +392,8 @@
                 </li>
 
                 <li class="vcard" data-reveal>
-                    <p class="vcard__chips"><span class="vcard__chip">Pre-owned</span><span class="vcard__chip">Stock 86168X</span></p>
                     <h4 class="vcard__title">2022 Urus</h4>
-                    <p class="vcard__colour">Nero Noctis Matt</p>
+                    <p class="vcard__colour">Nero Noctis Matt<span class="vcard__stock">Stock 86168X</span></p>
                     <figure class="vcard__media">
                         <picture>
                             <source type="image/webp" srcset="assets/img/inv-2022-urus-640.webp 640w, assets/img/inv-2022-urus-1024.webp 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw">
@@ -433,12 +425,31 @@
 <!-- ============================ 4 · AD PERSONAM ============================
      Copy stays inside what is verified: the programme is Lamborghini's; the
      on-site "studio" claim is unconfirmed and is not made. -->
-<section class="adp band band--black" id="ad-personam" aria-labelledby="adp-title">
-    <div class="adp__grid">
-        <div class="adp__copy container-inset" data-reveal>
+<section class="adp" id="ad-personam" aria-labelledby="adp-title">
+    <!-- Full-size on every screen. Two authored crops: landscape puts the copy in the
+         windscreen band; portrait centres the wheel between dark bands above and below.
+         Legibility is decided by the crop; the scrim only evens out what the crop leaves. -->
+    <picture class="adp__media">
+        <source media="(orientation: portrait)" type="image/webp"
+                srcset="assets/img/adp-cabin-p-600.webp 600w, assets/img/adp-cabin-p-900.webp 900w, assets/img/adp-cabin-p-1200.webp 1200w" sizes="100vw">
+        <source media="(orientation: portrait)"
+                srcset="assets/img/adp-cabin-p-600.jpg 600w, assets/img/adp-cabin-p-900.jpg 900w, assets/img/adp-cabin-p-1200.jpg 1200w" sizes="100vw">
+        <source type="image/webp"
+                srcset="assets/img/adp-cabin-l-1024.webp 1024w, assets/img/adp-cabin-l-1440.webp 1440w, assets/img/adp-cabin-l-1920.webp 1920w, assets/img/adp-cabin-l-2560.webp 2560w" sizes="100vw">
+        <img class="adp__img" src="assets/img/adp-cabin-l-1440.jpg"
+             srcset="assets/img/adp-cabin-l-1024.jpg 1024w, assets/img/adp-cabin-l-1440.jpg 1440w, assets/img/adp-cabin-l-1920.jpg 1920w, assets/img/adp-cabin-l-2560.jpg 2560w" sizes="100vw"
+             width="2560" height="1434" loading="lazy" decoding="async"
+             alt="The cabin of a Lamborghini Urus SE: black Alcantara, carbon fibre and orange accent trim.">
+    </picture>
+    <div class="adp__scrim" aria-hidden="true"></div>
+
+    <div class="adp__inner container">
+        <header class="adp__head" data-reveal>
             <p class="t-eyelet adp__eyelet">Personalization</p>
             <h2 class="t-banner" id="adp-title">Ad Personam</h2>
-            <p class="t-lead adp__lead">Lamborghini’s personalization programme: exterior colours, interior materials and details specified around the way you drive. Begin the conversation with our sales team in Miami, and carry it into the Lamborghini configurator.</p>
+        </header>
+        <div class="adp__body" data-reveal>
+            <p class="t-lead adp__lead">Lamborghini’s personalization programme: colours, materials and details specified around you. Begin with our sales team in Miami; continue in the Lamborghini configurator.</p>
             <div class="adp__actions">
                 <a class="btn btn--accent" href="https://configurator.lamborghini.com/" rel="noopener">
                     <span>Start configuration</span>
@@ -449,16 +460,8 @@
                     <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
                 </a>
             </div>
+            <p class="adp__caption">Pictured: Urus SE cabin</p>
         </div>
-        <figure class="adp__media">
-            <picture>
-                <source media="(max-width: 767.98px)" type="image/webp" srcset="assets/img/adp-urus-se-cabin-m-720.webp 720w, assets/img/adp-urus-se-cabin-m-1000.webp 1000w" sizes="100vw">
-                <source media="(max-width: 767.98px)" srcset="assets/img/adp-urus-se-cabin-m-720.jpg 720w, assets/img/adp-urus-se-cabin-m-1000.jpg 1000w" sizes="100vw">
-                <source type="image/webp" srcset="assets/img/adp-urus-se-cabin-1000.webp 1000w, assets/img/adp-urus-se-cabin-1600.webp 1600w, assets/img/adp-urus-se-cabin-2400.webp 2400w" sizes="(min-width: 1200px) 1600px, 100vw">
-                <img src="assets/img/adp-urus-se-cabin-1600.jpg" srcset="assets/img/adp-urus-se-cabin-1000.jpg 1000w, assets/img/adp-urus-se-cabin-1600.jpg 1600w, assets/img/adp-urus-se-cabin-2400.jpg 2400w" sizes="(min-width: 1200px) 1600px, 100vw" width="2400" height="1350" loading="lazy" decoding="async" alt="The cabin of a Lamborghini Urus SE, black with orange accent trim.">
-            </picture>
-            <figcaption class="adp__caption t-legal">Pictured: Urus SE cabin</figcaption>
-        </figure>
     </div>
 </section>
 
@@ -669,6 +672,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=1" defer></script>
+<script src="assets/js/main.js?v=2" defer></script>
 </body>
 </html>

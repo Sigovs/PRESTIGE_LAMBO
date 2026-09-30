@@ -1,0 +1,64 @@
+{
+  "gate": "Gate 1 · delegated — the vault was read",
+  "queriedTags": [
+    "luxury-automotive",
+    "performance-automotive",
+    "inventory-integration",
+    "editorial-inventory",
+    "curated-inventory",
+    "model-presentation"
+  ],
+  "considered": 6,
+  "taken": [
+    {
+      "id": "semlerpremium-dk-showroom",
+      "what": "Solves inventory-inside-a-premium-frame by giving familiar SRP elements better hierarchy and handing the photograph most of the card; here that means the Selezione card keeps odometer and price but loses its condition/dealer chips, since the group label already states New or Pre-owned.",
+      "rating": 3,
+      "resolved": true,
+      "problems": []
+    },
+    {
+      "id": "semlerpremium-dk",
+      "what": "Its recorded weakness is a homepage that tries to hold every part of the business; here that means no specials, finance, reviews, marine or other-brand blocks, and each lower chapter is a different kind of mass (image chapter, spec rows, archive, data) rather than another offer.",
+      "rating": 2,
+      "resolved": true,
+      "problems": []
+    },
+    {
+      "id": "polestar-com-us",
+      "what": "Recorded weakness: discounts and offers placed early turn aspiration transactional; here the first two chapters carry no price at all, and prices appear only inside the inventory cards where the buyer is already comparing.",
+      "rating": 2,
+      "resolved": true,
+      "problems": []
+    }
+  ],
+  "rejected": [
+    {
+      "id": "porsche-com-usa",
+      "why": "Its model cards are rounded gradient-overlay tiles, a pattern the entry itself flags as generic; the range here is a typographic index because two of four models have no honest image.",
+      "rating": 2,
+      "resolved": true,
+      "problems": []
+    },
+    {
+      "id": "mclaren-com-cars-gl-en",
+      "why": "Numbered hero carousel with several campaign worlds; its own weakness is fragmentation at the top, and this page has one governing event, not a carousel.",
+      "rating": 2,
+      "resolved": true,
+      "problems": []
+    },
+    {
+      "id": "rolls-roycemotorcars-com-en-us-home-html",
+      "why": "Frosted glass and circular buttons are Rolls-Royce's language; Lamborghini's observed system is square-cornered, opaque and condensed, so nothing transfers at the surface level.",
+      "rating": 3,
+      "resolved": true,
+      "problems": []
+    }
+  ],
+  "nothingApplied": null,
+  "verdict": "pass",
+  "blockers": [],
+  "finishedAt": "2026-09-30T20:11:32.733Z",
+  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "humanConfirmed": false
+}

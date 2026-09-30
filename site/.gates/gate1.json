@@ -1,0 +1,361 @@
+{
+  "gate": "Gate 1 · Measurable Conformance",
+  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "fileCount": 109,
+  "page": "index.html",
+  "measured": {
+    "desktop": {
+      "pageHeightPx": 9603,
+      "screens": 10.67,
+      "mediaTotal": 17,
+      "fullBleedMedia": 2,
+      "largestTypePx": 120,
+      "smallestTypePx": 14,
+      "typeScaleRatio": 8.57,
+      "horizontalOverflow": false,
+      "errors": []
+    },
+    "mobile": {
+      "pageHeightPx": 13681,
+      "screens": 16.21,
+      "mediaTotal": 17,
+      "fullBleedMedia": 2,
+      "largestTypePx": 80,
+      "smallestTypePx": 14,
+      "typeScaleRatio": 5.71,
+      "horizontalOverflow": false,
+      "errors": []
+    }
+  },
+  "a1": {
+    "desktop": {
+      "rule": "A1 — one governing event owns the first screen, and everything else defers to it",
+      "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene.",
+      "floor": 0.9,
+      "metrics": {
+        "eventCoverage": 0.949,
+        "mediaCoverage": 0.591,
+        "competitionRatio": 0,
+        "structuralShare": 0.761,
+        "negativeSpaceShare": 0.199,
+        "rankMassShare": 0.673,
+        "subjectShareOfEvent": 0.701,
+        "chromeShare": 0.116,
+        "declaredMasses": 3,
+        "readsWithoutMedia": true
+      },
+      "envelope": {
+        "x": 0,
+        "y": 160,
+        "w": 1440,
+        "h": 740
+      },
+      "components": [
+        {
+          "role": "subject",
+          "selector": ".hero__img",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": true,
+          "share": 0.589,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 0,
+              "y": 370,
+              "w": 1440,
+              "h": 530
+            }
+          ]
+        },
+        {
+          "role": "identity",
+          "selector": ".hero__copy",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.125,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 60,
+              "y": 160,
+              "w": 518,
+              "h": 313
+            }
+          ]
+        },
+        {
+          "role": "cta",
+          "selector": ".hero__actions",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.024,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 60,
+              "y": 756,
+              "w": 434,
+              "h": 72
+            }
+          ]
+        },
+        {
+          "role": "negative-space",
+          "selector": null,
+          "function": "directional air",
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.171,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 583,
+              "y": 104,
+              "w": 814,
+              "h": 272
+            }
+          ]
+        }
+      ],
+      "negativeSpace": [
+        {
+          "function": "directional air",
+          "counted": true,
+          "boundedBy": [
+            "bottom",
+            "left"
+          ],
+          "why": null,
+          "rect": {
+            "x": 583.2,
+            "y": 104.4,
+            "w": 813.5999999999999,
+            "h": 271.8
+          }
+        }
+      ],
+      "competitors": [],
+      "excluded": [
+        {
+          "selector": ".site-header",
+          "why": null,
+          "matched": 1
+        }
+      ],
+      "problems": [],
+      "verdict": "pass",
+      "label": "desktop",
+      "evidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/a1-desktop.png"
+    },
+    "mobile": {
+      "rule": "A1 — one governing event owns the first screen, and everything else defers to it",
+      "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene.",
+      "floor": 0.9,
+      "metrics": {
+        "eventCoverage": 0.78,
+        "mediaCoverage": 0.276,
+        "competitionRatio": 0,
+        "structuralShare": 0.719,
+        "negativeSpaceShare": 0.078,
+        "rankMassShare": 0.651,
+        "subjectShareOfEvent": 0.376,
+        "chromeShare": 0.095,
+        "declaredMasses": 3,
+        "readsWithoutMedia": true
+      },
+      "envelope": {
+        "x": 0,
+        "y": 128,
+        "w": 390,
+        "h": 684.083984375
+      },
+      "components": [
+        {
+          "role": "subject",
+          "selector": ".hero__img",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": true,
+          "share": 0.265,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 0,
+              "y": 404,
+              "w": 390,
+              "h": 224
+            }
+          ]
+        },
+        {
+          "role": "identity",
+          "selector": ".hero__copy",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.22,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 24,
+              "y": 128,
+              "w": 329,
+              "h": 220
+            }
+          ]
+        },
+        {
+          "role": "cta",
+          "selector": ".hero__actions",
+          "function": null,
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.166,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 24,
+              "y": 652,
+              "w": 342,
+              "h": 160
+            }
+          ]
+        },
+        {
+          "role": "negative-space",
+          "selector": null,
+          "function": "visual pause inside the event",
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.041,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 24,
+              "y": 372,
+              "w": 327,
+              "h": 41
+            }
+          ]
+        },
+        {
+          "role": "negative-space",
+          "selector": null,
+          "function": "visual pause inside the event",
+          "matched": 1,
+          "inDocument": 1,
+          "hasMedia": false,
+          "share": 0.023,
+          "isWrapper": false,
+          "rects": [
+            {
+              "x": 24,
+              "y": 628,
+              "w": 327,
+              "h": 24
+            }
+          ]
+        }
+      ],
+      "negativeSpace": [
+        {
+          "function": "visual pause inside the event",
+          "counted": true,
+          "boundedBy": [
+            "bottom",
+            "top"
+          ],
+          "why": null,
+          "rect": {
+            "x": 24.18,
+            "y": 372.204,
+            "w": 326.82,
+            "h": 41.356
+          }
+        },
+        {
+          "function": "visual pause inside the event",
+          "counted": true,
+          "boundedBy": [
+            "top",
+            "bottom"
+          ],
+          "why": null,
+          "rect": {
+            "x": 24.18,
+            "y": 627.936,
+            "w": 326.82,
+            "h": 23.632
+          }
+        }
+      ],
+      "competitors": [],
+      "excluded": [
+        {
+          "selector": ".site-header",
+          "why": null,
+          "matched": 1
+        }
+      ],
+      "problems": [
+        "eventCoverage 78.0% is below the A1 floor of 90%"
+      ],
+      "verdict": "fail",
+      "label": "mobile",
+      "evidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/a1-mobile.png"
+    }
+  },
+  "commitments": [
+    {
+      "metric": "horizontalOverflow",
+      "equals": false,
+      "viewport": "desktop",
+      "actual": false,
+      "pass": true
+    },
+    {
+      "metric": "horizontalOverflow",
+      "equals": false,
+      "viewport": "mobile",
+      "actual": false,
+      "pass": true
+    },
+    {
+      "metric": "smallestTypePx",
+      "min": 14,
+      "viewport": "desktop",
+      "actual": 14,
+      "pass": true
+    },
+    {
+      "metric": "smallestTypePx",
+      "min": 14,
+      "viewport": "mobile",
+      "actual": 14,
+      "pass": true
+    },
+    {
+      "metric": "typeScaleRatio",
+      "min": 6,
+      "viewport": "desktop",
+      "actual": 8.57,
+      "pass": true
+    }
+  ],
+  "verdict": "fail",
+  "finishedAt": "2026-09-30T20:11:32.727Z",
+  "blockers": [
+    "A1 mobile: eventCoverage 78.0% is below the A1 floor of 90%"
+  ]
+}

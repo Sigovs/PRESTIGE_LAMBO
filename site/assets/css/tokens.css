@@ -72,6 +72,10 @@
     --fs-16:  1rem;      --lh-24:  1.5rem;  --lh-26: 1.625rem;
     --fs-14:  0.875rem;  --lh-22:  1.375rem; /* the floor (design-dna I7) */
 
+    --lh-display-ratio: 0.875;  /* 70/80, corporate mobile hero */
+    --display-xl-fluid: 21vw;  /* keeps LAMBORGHINI on one line down to 320px */
+    --display-l-fluid: 15vw;   /* keeps PERFORMANTE inside its column down to 320px */
+    --lh-display-l-ratio: 0.93; /* 52/56 */
     --track-upper: 0.08em;   /* uppercase ≤ 40px (I4) */
     --track-display: 0;      /* uppercase display ≥ 48px (I3) */
     --measure: 60ch;
@@ -118,19 +122,21 @@
     --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */
     --folio-col: 3rem;
     --folio-col-lg: 4rem;
-    --adp-max-h: 56rem;
     --measure-note: 44ch;
+    --measure-detail: 32rem;
     --measure-caption: 34ch;
     --measure-legal: 80ch;
     --measure-legal-wide: 90ch;
     --feather-top: 22%;   /* hero image top-edge feather */
-    --feather-side: 18%;  /* Ad Personam left-edge feather */
+    --adp-scrim-top: 26%;     /* portrait: top band behind the title */
+    --adp-scrim-mid: 22%;     /* portrait: dense floor under the lead */
+    --adp-scrim-bottom: 48%;  /* portrait: where the lower scrim ends */
+    --adp-scrim-land: 52%;    /* landscape: windscreen band scrim ends */
 
     /* ---- Motion ---- */
     --dur-fast:   200ms;
     --dur-base:   300ms;
     --dur-reveal: 500ms;
-    --dur-header: 500ms;
     --dur-slow:   900ms;   /* hero image fade-in only */
     --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
     --ease-in:  cubic-bezier(0.4, 0, 1, 1);

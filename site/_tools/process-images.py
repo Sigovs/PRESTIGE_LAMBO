@@ -11,9 +11,10 @@ JOBS = [
   # hero: Temerario front 3/4, dark studio (no watermark)
   (R+'hero/hero_temerario-blue-front-3q-dark_1920x707.jpg', None, 'hero-temerario', [1920, 1440, 960]),
   (R+'hero/hero_temerario-blue-front-3q-dark_1920x707.jpg', (760, 40, 1920, 707), 'hero-temerario-m', [1160, 780]),
-  # Ad Personam: Urus SE cabin; crop drops the bottom-right shield watermark
-  (R+'models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg', (0, 280, 4400, 2755), 'adp-urus-se-cabin', [2400, 1600, 1000]),
-  (R+'models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg', (700, 0, 3300, 3250), 'adp-urus-se-cabin-m', [1000, 720]),
+  # Ad Personam, full-bleed peak. Two authored crops, both clear of the bottom-right shield watermark:
+  # landscape keeps the whole windscreen band as the text field; portrait centres the wheel with dark bands above and below.
+  (R+'models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg', (0, 0, 5000, 2800), 'adp-cabin-l', [2560, 1920, 1440, 1024]),
+  (R+'models/urus-se/urus-se_interior-dashboard-orange_5000x3333.jpg', (800, 600, 2800, 3333), 'adp-cabin-p', [1200, 900, 600]),
   # Service: dealer workshop; crop drops watermark
   (R+'service/service_workshop-white-bays-technician_1697x2121.jpg', (170, 0, 1626, 1820), 'service-workshop', [1200, 800, 560]),
   # Showroom aerial at night; crop drops watermark

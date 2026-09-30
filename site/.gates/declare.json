@@ -1,0 +1,260 @@
+{
+  "viewports": [
+    {
+      "label": "desktop",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "label": "mobile",
+      "w": 390,
+      "h": 844
+    }
+  ],
+  "primaryViewport": "desktop",
+  "governingIdea": "The dealer's name over a Lamborghini in a black studio: Lamborghini's own corporate language, spoken by the Miami house, then everything a buyer or owner needs from that house in the same voice.",
+  "a1": {
+    "components": [
+      {
+        "role": "subject",
+        "selector": ".hero__img"
+      },
+      {
+        "role": "identity",
+        "selector": ".hero__copy"
+      },
+      {
+        "role": "cta",
+        "selector": ".hero__actions"
+      },
+      {
+        "role": "negative-space",
+        "function": "directional air",
+        "rect": {
+          "x": 0.405,
+          "y": 0.116,
+          "w": 0.565,
+          "h": 0.302
+        }
+      }
+    ],
+    "excluded": [
+      {
+        "selector": ".site-header"
+      }
+    ],
+    "perViewport": {
+      "mobile": {
+        "components": [
+          {
+            "role": "subject",
+            "selector": ".hero__img"
+          },
+          {
+            "role": "identity",
+            "selector": ".hero__copy"
+          },
+          {
+            "role": "cta",
+            "selector": ".hero__actions"
+          },
+          {
+            "role": "negative-space",
+            "function": "visual pause inside the event",
+            "rect": {
+              "x": 0.062,
+              "y": 0.441,
+              "w": 0.838,
+              "h": 0.049
+            }
+          },
+          {
+            "role": "negative-space",
+            "function": "visual pause inside the event",
+            "rect": {
+              "x": 0.062,
+              "y": 0.744,
+              "w": 0.838,
+              "h": 0.028
+            }
+          }
+        ]
+      }
+    },
+    "eventStatement": "The dealer's name, upper-left, answers a Temerario entering the black studio from the lower-right; the air between them is the scene."
+  },
+  "hero": {
+    "selector": ".hero",
+    "mediaSelector": ".hero__img",
+    "navSelector": ".site-header",
+    "copySelector": ".hero__copy",
+    "textSafe": {
+      "x": 0.04,
+      "y": 0.12,
+      "w": 0.36,
+      "h": 0.42
+    },
+    "samples": [
+      {
+        "t": 0,
+        "box": {
+          "x": 0.455,
+          "y": 0.12,
+          "w": 0.51,
+          "h": 0.68
+        }
+      }
+    ],
+    "focal": {
+      "x": 0.35,
+      "y": 0.6
+    },
+    "perViewport": {
+      "mobile": {
+        "textSafe": {
+          "x": 0.06,
+          "y": 0.12,
+          "w": 0.88,
+          "h": 0.33
+        },
+        "samples": [
+          {
+            "t": 0,
+            "box": {
+              "x": 0.08,
+              "y": 0.1,
+              "w": 0.86,
+              "h": 0.76
+            }
+          }
+        ]
+      }
+    }
+  },
+  "commitments": [
+    {
+      "metric": "horizontalOverflow",
+      "equals": false,
+      "viewport": "desktop"
+    },
+    {
+      "metric": "horizontalOverflow",
+      "equals": false,
+      "viewport": "mobile"
+    },
+    {
+      "metric": "smallestTypePx",
+      "min": 14,
+      "viewport": "desktop"
+    },
+    {
+      "metric": "smallestTypePx",
+      "min": 14,
+      "viewport": "mobile"
+    },
+    {
+      "metric": "typeScaleRatio",
+      "min": 6,
+      "viewport": "desktop"
+    }
+  ],
+  "means": [
+    {
+      "name": "view all inventory",
+      "selector": "a[href*='lamborghini-miami-fl']"
+    },
+    {
+      "name": "vehicle detail pages",
+      "selector": ".vcard a[href*='vehicle-details']"
+    },
+    {
+      "name": "call sales",
+      "selector": "a[href='tel:+18332905147']"
+    },
+    {
+      "name": "schedule service",
+      "selector": "a[href*='schedule-service']"
+    },
+    {
+      "name": "contact / enquire",
+      "selector": "a[href*='contact-us']"
+    },
+    {
+      "name": "directions",
+      "selector": "a[href*='maps.google.com']"
+    },
+    {
+      "name": "parent portal link",
+      "selector": "a[href*='prestigeimports.com']"
+    }
+  ],
+  "operations": [
+    {
+      "id": "dealer-over-scene",
+      "reference": "corp shot 01 (hero title over dark film still)",
+      "governs": "hero"
+    },
+    {
+      "id": "typographic-range-index",
+      "reference": "corp shots 02/04 (giant claim type on white)",
+      "governs": "range"
+    },
+    {
+      "id": "selezione-card",
+      "reference": "preowned.lamborghini.com search card (Playwright capture 30 Sep 2026)",
+      "governs": "inventory"
+    },
+    {
+      "id": "services-as-spec-rows",
+      "reference": "corp shot 07 (technical specifications rows)",
+      "governs": "service, visit"
+    },
+    {
+      "id": "dated-archive-prints",
+      "reference": "dealer /our-story captions",
+      "governs": "house"
+    }
+  ],
+  "build": {
+    "private": false
+  },
+  "vaultRead": {
+    "queriedTags": [
+      "luxury-automotive",
+      "performance-automotive",
+      "inventory-integration",
+      "editorial-inventory",
+      "curated-inventory",
+      "model-presentation"
+    ],
+    "considered": 6,
+    "taken": [
+      {
+        "id": "semlerpremium-dk-showroom",
+        "what": "Solves inventory-inside-a-premium-frame by giving familiar SRP elements better hierarchy and handing the photograph most of the card; here that means the Selezione card keeps odometer and price but loses its condition/dealer chips, since the group label already states New or Pre-owned."
+      },
+      {
+        "id": "semlerpremium-dk",
+        "what": "Its recorded weakness is a homepage that tries to hold every part of the business; here that means no specials, finance, reviews, marine or other-brand blocks, and each lower chapter is a different kind of mass (image chapter, spec rows, archive, data) rather than another offer."
+      },
+      {
+        "id": "polestar-com-us",
+        "what": "Recorded weakness: discounts and offers placed early turn aspiration transactional; here the first two chapters carry no price at all, and prices appear only inside the inventory cards where the buyer is already comparing."
+      }
+    ],
+    "rejected": [
+      {
+        "id": "porsche-com-usa",
+        "why": "Its model cards are rounded gradient-overlay tiles, a pattern the entry itself flags as generic; the range here is a typographic index because two of four models have no honest image."
+      },
+      {
+        "id": "mclaren-com-cars-gl-en",
+        "why": "Numbered hero carousel with several campaign worlds; its own weakness is fragmentation at the top, and this page has one governing event, not a carousel."
+      },
+      {
+        "id": "rolls-roycemotorcars-com-en-us-home-html",
+        "why": "Frosted glass and circular buttons are Rolls-Royce's language; Lamborghini's observed system is square-cornered, opaque and condensed, so nothing transfers at the surface level."
+      }
+    ]
+  }
+}

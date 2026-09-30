@@ -1,0 +1,74 @@
+{
+  "gate": "Gate 3 · Product Usefulness",
+  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "answers": {
+    "businessIdentifiableInFiveSeconds": null,
+    "primaryActionIdentifiableInFiveSeconds": null,
+    "primaryPathProminentAndUnderstandable": null,
+    "itemsScannableAndComparable": null,
+    "detailAffordancesVisibleWithoutInstruction": null,
+    "secondaryConversionsDiscoverable": null,
+    "mobilePreservesThePrimaryTask": null,
+    "noInteractionRequiresExplanatoryCopy": null,
+    "atLeastAsUsableAsTheIncumbent": null
+  },
+  "means": [
+    {
+      "name": "view all inventory",
+      "selector": "a[href*='lamborghini-miami-fl']",
+      "present": true,
+      "count": 3
+    },
+    {
+      "name": "vehicle detail pages",
+      "selector": ".vcard a[href*='vehicle-details']",
+      "present": true,
+      "count": 6
+    },
+    {
+      "name": "call sales",
+      "selector": "a[href='tel:+18332905147']",
+      "present": true,
+      "count": 4
+    },
+    {
+      "name": "schedule service",
+      "selector": "a[href*='schedule-service']",
+      "present": true,
+      "count": 3
+    },
+    {
+      "name": "contact / enquire",
+      "selector": "a[href*='contact-us']",
+      "present": true,
+      "count": 7
+    },
+    {
+      "name": "directions",
+      "selector": "a[href*='maps.google.com']",
+      "present": true,
+      "count": 1
+    },
+    {
+      "name": "parent portal link",
+      "selector": "a[href*='prestigeimports.com']",
+      "present": true,
+      "count": 1
+    }
+  ],
+  "humanConfirmed": false,
+  "note": "Generic usability is necessary and insufficient. This gate cannot pass a build on its own — Gate 2 and authorship are conjunctive with it.",
+  "blockers": [
+    "unanswered: businessIdentifiableInFiveSeconds",
+    "unanswered: primaryActionIdentifiableInFiveSeconds",
+    "unanswered: primaryPathProminentAndUnderstandable",
+    "unanswered: itemsScannableAndComparable",
+    "unanswered: detailAffordancesVisibleWithoutInstruction",
+    "unanswered: secondaryConversionsDiscoverable",
+    "unanswered: mobilePreservesThePrimaryTask",
+    "unanswered: noInteractionRequiresExplanatoryCopy",
+    "unanswered: atLeastAsUsableAsTheIncumbent"
+  ],
+  "verdict": "fail",
+  "finishedAt": "2026-09-30T20:12:23.527Z"
+}

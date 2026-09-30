@@ -113,7 +113,8 @@ address { font-style: normal; }
     --btn-hover: var(--grey-8);
 }
 
-section[id], div[id] { scroll-margin-top: var(--header-h); }
+/* the header is persistent, so every in-page target clears it (Lenis reads scroll-margin too) */
+:where(main [id]) { scroll-margin-top: var(--header-h); }
 
 /* ---------- Type roles (DESIGN_SYSTEM.md §1.2) ---------- */
 .t-display-xl,
@@ -125,8 +126,8 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     letter-spacing: var(--track-display);
     text-wrap: balance;
 }
-.t-display-xl { font-size: var(--fs-80); line-height: var(--lh-70); }
-.t-display-l  { font-size: var(--fs-56); line-height: var(--lh-52); }
+.t-display-xl { font-size: min(var(--fs-80), var(--display-xl-fluid)); line-height: var(--lh-display-ratio); }
+.t-display-l  { font-size: min(var(--fs-56), var(--display-l-fluid)); line-height: var(--lh-display-l-ratio); }
 .t-banner     { font-size: var(--fs-48); line-height: var(--lh-46); }
 
 .t-title {
@@ -248,7 +249,6 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     z-index: var(--z-header);
     height: var(--header-h);
     color: var(--grey-0);
-    transition: transform var(--dur-header) var(--ease-out);
 }
 /* over the hero: corporate gradient #181818 → transparent */
 .site-header::before,
@@ -266,7 +266,6 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     transition: opacity var(--dur-base) var(--ease-out);
 }
 .site-header.is-solid::after { opacity: 1; }
-.site-header.is-hidden { transform: translateY(-100%); }
 
 .site-header__bar {
     height: 100%;
@@ -415,9 +414,9 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     gap: var(--sp-32);
     padding-top: calc(var(--header-h) + var(--sp-48));
     padding-bottom: var(--sp-32);
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: auto 1fr auto;
 }
-.hero__copy { display: grid; gap: var(--sp-16); }
+.hero__copy { display: grid; gap: var(--sp-16); justify-self: start; }
 .hero__eyelet { color: var(--grey-1); }
 @media (max-width: 767.98px) {
     .t-eyelet.hero__eyelet { font-size: var(--fs-16); line-height: var(--lh-24); }
@@ -435,63 +434,49 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     display: grid;
     gap: var(--sp-16);
 }
-.hero__caption {
-    grid-row: 4;
-    display: flex;
-    align-items: center;
-    gap: var(--sp-16);
-    font-size: var(--fs-14);
-    line-height: var(--lh-22);
-    color: var(--grey-3);
-}
-.hero__caption-label { text-transform: uppercase; letter-spacing: var(--track-upper); }
-.hero__caption-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: var(--tap);
-    color: var(--grey-0);
-    font-weight: var(--wght-bold);
-    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
-    text-transform: uppercase;
-    letter-spacing: var(--track-upper);
-    border-bottom: var(--stroke-1) solid var(--grey-0);
-    min-height: 0;
-    padding-bottom: var(--sp-4);
-    transition: border-color var(--dur-fast) var(--ease-out);
-}
-.hero__caption-link:hover { border-bottom-color: var(--accent-dark); }
 
-/* mobile: headline top, car in the lower-middle field, actions at the foot */
-@media (max-width: 767.98px) {
-    .hero__media { bottom: calc(var(--btn-h-lg) * 2 + var(--sp-16) + var(--sp-32) + var(--sp-40)); }
-    .hero__img {
-        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 88%, transparent 100%);
-        mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 88%, transparent 100%);
-    }
-    .hero__caption { display: none; }
-    .hero__inner { padding-bottom: var(--sp-32); }
+/* Portrait formats (phones, portrait tablets): headline at the top, the car in
+   the lower field, the action cluster at the foot. The image sits above the
+   foot by the foot's own height (--hero-foot). */
+.hero { --hero-foot: calc(var(--btn-h-lg) * 2 + var(--sp-16) + var(--sp-32)); }
+.hero__media { bottom: calc(var(--hero-foot) + var(--sp-24)); }
+.hero__img {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top), #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top), #000 88%, transparent 100%);
 }
 
 @media (min-width: 768px) {
-    .hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
-    .hero__media { width: 120%; }
+    .hero { --hero-foot: calc(var(--btn-h-lg) + var(--tap) + var(--sp-32) * 2); }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); justify-self: start; }
 }
 
-/* ≥1200: corporate composition — identity mass lower-left, car lower-right,
-   the black studio field above as the scene's air */
+/* Landscape tablets and small laptops: actions follow the copy, the car owns
+   the lower-right field and runs to the bottom edge. */
+@media (min-width: 768px) and (orientation: landscape) {
+    .hero__media { bottom: 0; width: 100%; }
+    .hero__img {
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top));
+        mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top));
+    }
+    .hero__inner { grid-template-rows: auto auto 1fr auto; }
+    .hero__actions { grid-row: 2; }
+}
+
+/* ≥1200: a diagonal scene. The frame's light runs from lower-left to upper-right,
+   so the identity mass takes the upper-left, the car the lower-right, and the
+   air between them is bounded by both. CTAs sit in the photograph's own black
+   field at lower-left; the caption answers them at lower-right. */
 @media (min-width: 1200px) {
-    .hero__media { width: 100%; right: 0; }
+    .hero__media { width: 100%; right: 0; bottom: 0; }
     .hero__inner {
-        align-content: end;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto auto;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: auto 1fr auto;
         column-gap: var(--grid-gap);
-        row-gap: var(--sp-40);
+        padding-top: calc(var(--header-h) + var(--sp-56));
         padding-bottom: var(--sp-72);
     }
     .hero__copy { grid-column: 1; grid-row: 1; }
-    .hero__actions { grid-column: 1; grid-row: 2; }
-    .hero__caption { grid-column: 2; grid-row: 2; align-self: end; }
+    .hero__actions { grid-column: 1; grid-row: 3; }
 }
 
 /* ---------- 2 · The range ---------- */
@@ -551,6 +536,11 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
 .range__source { margin-top: var(--sp-32); }
 
 @media (min-width: 768px) {
+    .range-row { grid-template-columns: var(--folio-col) minmax(0, 1fr); column-gap: var(--grid-gap); }
+    .range-row__detail { max-width: var(--measure-detail); }
+}
+@media (min-width: 1024px) {
+    .range-row__detail { max-width: none; }
     .range-row {
         grid-template-columns: var(--folio-col) minmax(0, 7fr) minmax(0, 5fr);
         column-gap: var(--grid-gap);
@@ -580,19 +570,6 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     background: var(--surface-0-dark);
     padding: var(--sp-24);
 }
-.vcard__chips { display: flex; flex-wrap: wrap; gap: var(--sp-8); margin-bottom: var(--sp-16); }
-.vcard__chip {
-    padding: var(--sp-4) var(--sp-8);
-    background: var(--grey-3);
-    color: var(--grey-11);
-    font-size: var(--fs-14);
-    line-height: var(--lh-22);
-    font-weight: var(--wght-bold);
-    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
-    text-transform: uppercase;
-    letter-spacing: var(--track-upper);
-    font-variant-numeric: tabular-nums;
-}
 .vcard__title {
     font-size: var(--fs-24);
     line-height: var(--lh-32);
@@ -603,12 +580,17 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
 }
 .vcard__colour {
     margin-top: var(--sp-4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 var(--sp-16);
     font-size: var(--fs-14);
     line-height: var(--lh-22);
     color: var(--grey-3);
     text-transform: uppercase;
     letter-spacing: var(--track-upper);
 }
+.vcard__stock { color: var(--grey-5); font-variant-numeric: tabular-nums; }
 .vcard__media {
     margin-block: var(--sp-24);
     aspect-ratio: 16 / 9;
@@ -707,53 +689,80 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     .inventory__foot { padding-left: calc((100% - 11 * var(--grid-gap)) / 12 * 3 + 3 * var(--grid-gap)); }
 }
 
-/* ---------- 4 · Ad Personam ---------- */
-.adp { padding-block: 0; }
-.adp__grid { display: grid; }
-.adp__copy {
-    padding: var(--section-pt) var(--page-gutter) var(--section-pb);
+/* ---------- 4 · Ad Personam — full-size on every screen ----------
+   The page's one full-bleed chapter after the hero. min-height is the viewport,
+   with svh so mobile browser chrome cannot crop it; content is kept clear of the
+   persistent header. Portrait and landscape use separately authored crops. */
+.adp {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    background: var(--surface-0-dark);
+    color: var(--grey-1);
+    overflow: hidden;
+    scroll-margin-top: 0;          /* a full-size chapter lands flush; its content clears the header itself */
+}
+.adp__media, .adp__scrim { position: absolute; inset: 0; z-index: -1; }
+.adp__img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+
+/* portrait (phones, portrait tablets): title in the dark band above the wheel,
+   the lead and actions in the dark footwell below it */
+.adp__scrim {
+    background:
+        linear-gradient(180deg, rgb(0 0 0 / 0.72) 0%, rgb(0 0 0 / 0) var(--adp-scrim-top)),
+        linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.6) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-bottom));
+}
+.adp__inner {
     display: grid;
-    align-content: center;
-    gap: var(--sp-24);
+    grid-template-rows: auto 1fr auto;
+    padding-top: calc(var(--header-h) + var(--sp-16));
+    padding-bottom: var(--sp-32);
 }
-.adp__eyelet { color: var(--fg-3); }
-.adp__lead { color: var(--grey-2); }
-.adp__actions { display: grid; gap: var(--sp-16); margin-top: var(--sp-16); }
-.adp__media { position: relative; order: -1; }
-.adp__media img { width: 100%; height: auto; }
-.adp__caption {
-    position: absolute;
-    right: var(--page-gutter);
-    bottom: var(--sp-16);
-    color: var(--grey-3);
-}
+.adp__head { grid-row: 1; display: grid; gap: var(--sp-4); }
+.adp__eyelet { color: var(--grey-2); }
+.adp__body { grid-row: 3; display: grid; gap: var(--sp-24); }
+.adp__lead { color: var(--grey-1); }
+.adp__actions { display: grid; gap: var(--sp-16); }
+.adp__caption { display: none; font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-3); }
 
 @media (min-width: 768px) {
     .adp__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
 }
-@media (min-width: 1200px) {
-    .adp__grid {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-        min-height: min(100vh, var(--adp-max-h));
-        align-items: center;
+
+/* portrait tablets: the whole block sits in the lower band */
+@media (min-width: 768px) and (orientation: portrait) {
+    .adp__inner { grid-template-rows: 1fr auto; padding-bottom: var(--sp-56); }
+    .adp__head { grid-row: 2; margin-bottom: var(--sp-24); }
+    .adp__body { grid-row: 3; }
+    .adp__scrim { background: linear-gradient(0deg, rgb(0 0 0 / 0.88) 0%, rgb(0 0 0 / 0.62) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-bottom)); }
+}
+
+/* landscape: the windscreen is the text field. Title left, lead and actions
+   right, one horizontal band under the header; the cabin owns the lower field. */
+@media (orientation: landscape) and (min-width: 768px) {
+    .adp__img { object-position: 50% 0%; }
+    .adp__scrim { background: linear-gradient(180deg, rgb(0 0 0 / 0.62) 0%, rgb(0 0 0 / 0.35) var(--adp-scrim-top), rgb(0 0 0 / 0) var(--adp-scrim-land)); }
+    .adp__inner {
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        grid-template-rows: auto 1fr;
+        column-gap: var(--grid-gap);
+        align-items: start;
+        padding-top: calc(var(--header-h) + var(--sp-40));
     }
-    .adp__copy {
-        padding-left: max(var(--page-gutter), calc((100vw - var(--container-max)) / 2));
-        padding-right: var(--sp-48);
-    }
-    .adp__media { order: 0; align-self: stretch; }
-    .adp__media picture, .adp__media img { height: 100%; }
-    .adp__media img { object-fit: cover; object-position: 30% 50%; }
-    /* the cabin sits in black; its left edge dissolves into the copy field */
-    .adp__media::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: var(--feather-side);
-        background: linear-gradient(90deg, var(--surface-0-dark) 0%, rgb(0 0 0 / 0) 100%);
-        z-index: 1;
-        pointer-events: none;
-    }
+    .adp__head { grid-column: 1; grid-row: 1; }
+    .adp__body { grid-column: 2; grid-row: 1; gap: var(--sp-16); padding-top: var(--sp-8); }
+    .adp__lead { max-width: var(--measure-note); }
+    .adp__actions { gap: var(--sp-16); }
+    .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); }
+    .adp .t-banner { font-size: var(--fs-56); line-height: var(--lh-52); }
+}
+@media (orientation: landscape) and (min-width: 1200px) {
+    .adp__inner { padding-top: calc(var(--header-h) + var(--sp-56)); grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+    .adp .t-banner { font-size: var(--fs-80); line-height: var(--lh-80); }
+    .adp__lead { max-width: var(--measure); }
+    .adp__caption { display: block; }
 }
 
 /* ---------- 5 · Service & ownership ---------- */
@@ -815,6 +824,10 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
     .spec__label, .spec__value { font-size: var(--fs-18); line-height: var(--lh-28); }
     .spec__value { text-align: right; }
     .service__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
+    .service__media img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 60%; }
+}
+@media (min-width: 1024px) {
+    .service__media img { aspect-ratio: auto; }
     .service__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: start; }
 }
 @media (min-width: 1200px) {
@@ -997,8 +1010,6 @@ section[id], div[id] { scroll-margin-top: var(--header-h); }
         animation-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    /* header stays put rather than hiding */
-    .site-header.is-hidden { transform: none; }
     /* arrows signal by colour instead of travel */
     .btn:hover .btn__icon, .btn:focus-visible .btn__icon { transform: none; color: var(--accent); }
     .btn--primary:hover .btn__icon, .btn--accent:hover .btn__icon { color: inherit; }

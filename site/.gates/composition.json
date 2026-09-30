@@ -1,0 +1,211 @@
+{
+  "gate": "Gate 1 · delegated — composed masses",
+  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "viewports": {
+    "desktop": {
+      "viewport": {
+        "vw": 1440,
+        "vh": 900
+      },
+      "masses": [
+        {
+          "tag": "hero__eyelet",
+          "isSubject": false,
+          "extent": [
+            0.042,
+            0.401
+          ],
+          "centre": 0.222,
+          "sample": "Authorized Lamborghini Dealer"
+        },
+        {
+          "tag": "hero__line",
+          "isSubject": false,
+          "extent": [
+            0.042,
+            0.401
+          ],
+          "centre": 0.222,
+          "sample": "Lamborghini"
+        },
+        {
+          "tag": "hero__line",
+          "isSubject": false,
+          "extent": [
+            0.042,
+            0.401
+          ],
+          "centre": 0.222,
+          "sample": "Miami"
+        },
+        {
+          "tag": "hero__place",
+          "isSubject": false,
+          "extent": [
+            0.042,
+            0.401
+          ],
+          "centre": 0.222,
+          "sample": "14780 Biscayne Boulevard,"
+        },
+        {
+          "tag": "nowrap",
+          "isSubject": false,
+          "extent": [
+            0.176,
+            0.27
+          ],
+          "centre": 0.223,
+          "sample": "North Miami Beach"
+        },
+        {
+          "tag": "span",
+          "isSubject": false,
+          "extent": [
+            0.059,
+            0.157
+          ],
+          "centre": 0.108,
+          "sample": "View inventory"
+        },
+        {
+          "tag": "span",
+          "isSubject": false,
+          "extent": [
+            0.242,
+            0.292
+          ],
+          "centre": 0.267,
+          "sample": "Enquire"
+        },
+        {
+          "tag": "Temerario (photograph)",
+          "isSubject": true,
+          "extent": [
+            0.455,
+            0.965
+          ],
+          "centre": 0.71,
+          "sample": ""
+        }
+      ],
+      "principal": [
+        "hero__line",
+        "Temerario (photograph)"
+      ],
+      "gutter": 0.054,
+      "deadAir": {
+        "left": 0.042,
+        "right": 0.035
+      },
+      "findings": [],
+      "declared": [],
+      "unmeasured": false
+    },
+    "mobile": {
+      "viewport": {
+        "vw": 390,
+        "vh": 844
+      },
+      "masses": [
+        {
+          "tag": "hero__eyelet",
+          "isSubject": false,
+          "extent": [
+            0.062,
+            0.904
+          ],
+          "centre": 0.483,
+          "sample": "Authorized Lamborghini Dealer"
+        },
+        {
+          "tag": "hero__line",
+          "isSubject": false,
+          "extent": [
+            0.062,
+            0.904
+          ],
+          "centre": 0.483,
+          "sample": "Lamborghini"
+        },
+        {
+          "tag": "hero__line",
+          "isSubject": false,
+          "extent": [
+            0.062,
+            0.904
+          ],
+          "centre": 0.483,
+          "sample": "Miami"
+        },
+        {
+          "tag": "hero__place",
+          "isSubject": false,
+          "extent": [
+            0.062,
+            0.904
+          ],
+          "centre": 0.483,
+          "sample": "14780 Biscayne Boulevard,"
+        },
+        {
+          "tag": "nowrap",
+          "isSubject": false,
+          "extent": [
+            0.557,
+            0.904
+          ],
+          "centre": 0.731,
+          "sample": "North Miami Beach"
+        },
+        {
+          "tag": "span",
+          "isSubject": false,
+          "extent": [
+            0.126,
+            0.487
+          ],
+          "centre": 0.306,
+          "sample": "View inventory"
+        },
+        {
+          "tag": "span",
+          "isSubject": false,
+          "extent": [
+            0.126,
+            0.312
+          ],
+          "centre": 0.219,
+          "sample": "Enquire"
+        },
+        {
+          "tag": "Temerario (photograph)",
+          "isSubject": true,
+          "extent": [
+            0.08,
+            0.94
+          ],
+          "centre": 0.51,
+          "sample": ""
+        }
+      ],
+      "principal": [
+        "hero__line",
+        "Temerario (photograph)"
+      ],
+      "gutter": -0.824,
+      "deadAir": {
+        "left": 0.062,
+        "right": 0.06
+      },
+      "findings": [],
+      "declared": [],
+      "unmeasured": false
+    }
+  },
+  "humanConfirmed": false,
+  "verdict": "pass",
+  "finishedAt": "2026-09-30T20:11:51.193Z",
+  "findings": [],
+  "blockers": []
+}

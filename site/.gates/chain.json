@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-30T20:12:26.991Z",
+  "seal": "cad9ece3a9eb8d59593b1fb3d58d14d6b35a86e6a975ebb1d0ef93f095a9687a",
+  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "ok": false,
+  "problems": [
+    "Gate 1 · Measurable Conformance: verdict is \"fail\"",
+    "Gate 1 · delegated — the vault was read: passes on machine checks only — humanConfirmed is false",
+    "Gate 2 · Structural and Authorship Conformance: verdict is \"fail\"",
+    "Gate 2 · delegated — authorship preservation: verdict is \"fail\"",
+    "Gate 1 · delegated — composed masses: passes on machine checks only — humanConfirmed is false",
+    "Gate 1/2 · delegated — rendered hero conformance: verdict is \"fail\"",
+    "Gate 3 · Product Usefulness: verdict is \"fail\""
+  ]
+}

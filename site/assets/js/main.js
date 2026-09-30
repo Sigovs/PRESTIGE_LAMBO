@@ -16,55 +16,41 @@
         if (lenis || reduceMotion.matches || typeof window.Lenis !== 'function') return;
         lenis = new window.Lenis({
             autoRaf: true,              // no GSAP on this page, so Lenis owns its loop
-            anchors: true,
+            anchors: true,             // honours each target's scroll-margin-top (= header height)
             allowNestedScroll: true,
             stopInertiaOnNavigate: true
         });
+        window.__lenis = lenis;          // exposed for verification scripts (DNA90)
     }
     function stopLenis() {
         if (!lenis) return;
         lenis.destroy();
         lenis = null;
+        window.__lenis = null;
     }
     startLenis();
     reduceMotion.addEventListener('change', () => (reduceMotion.matches ? stopLenis() : startLenis()));
 
-    /* ---------- Header: solid after the hero, hide on scroll-down ---------- */
+    /* ---------- Header: persistent; goes solid once it has left the hero ----------
+       User direction: the header never hides (DESIGN_SYSTEM.md §4 overrides the
+       corporate .to-hide pattern). Only its ground changes. */
     const header = document.querySelector('[data-header]');
     const hero = document.querySelector('.hero');
-    let lastY = window.scrollY;
     let ticking = false;
-    let menuOpen = false;
 
     function updateHeader() {
         ticking = false;
         if (!header) return;
-        const y = window.scrollY;
-        const h = header.offsetHeight;
-        const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - h : 0;
-
-        // Solid only once the header has left the hero — an opaque bar never
+        const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - header.offsetHeight : 0;
+        // Solid only once the header has left the hero, so an opaque bar never
         // cuts across the hero's live scene.
-        header.classList.toggle('is-solid', y > heroEnd);
-
-        // Hide on scroll-down past the first screen; reveal on any scroll-up.
-        if (!menuOpen && !reduceMotion.matches) {
-            const delta = y - lastY;
-            if (y > h * 2 && delta > 4) header.classList.add('is-hidden');
-            else if (delta < -4 || y <= h) header.classList.remove('is-hidden');
-        } else {
-            header.classList.remove('is-hidden');
-        }
-        lastY = y;
+        header.classList.toggle('is-solid', window.scrollY > heroEnd);
     }
     window.addEventListener('scroll', () => {
         if (!ticking) { ticking = true; requestAnimationFrame(updateHeader); }
     }, { passive: true });
     window.addEventListener('resize', updateHeader, { passive: true });
     updateHeader();
-
-    // Keyboard focus inside a hidden header brings it back.
-    header?.addEventListener('focusin', () => header.classList.remove('is-hidden'));
 
     /* ---------- Menu overlay ---------- */
     const menu = document.querySelector('[data-menu]');
@@ -76,7 +62,6 @@
     }
     function openMenu() {
         if (!menu) return;
-        menuOpen = true;
         menu.hidden = false;
         requestAnimationFrame(() => menu.classList.add('is-open'));
         openBtn.setAttribute('aria-expanded', 'true');
@@ -86,7 +71,6 @@
     }
     function closeMenu(returnFocus = true) {
         if (!menu || menu.hidden) return;
-        menuOpen = false;
         menu.classList.remove('is-open');
         openBtn.setAttribute('aria-expanded', 'false');
         root.style.overflow = '';
@@ -134,6 +118,25 @@
     } else {
         revealed.forEach((el) => el.classList.add('is-in'));
     }
+
+    /* ---------- Hero subject box, published for the composition audit ----------
+       The car's box inside the rendered photograph, as fractions of the image
+       (DESIGN_SYSTEM.md §6). Read-only; nothing on the page depends on it. */
+    function publishSubject() {
+        const img = document.querySelector('.hero__img');
+        if (!img) return;
+        const tall = /-m-\d+\./.test(img.currentSrc || '');
+        const f = (img.dataset[tall ? 'subjectTall' : 'subjectWide'] || '').split(',').map(Number);
+        if (f.length !== 4) return;
+        const r = img.getBoundingClientRect();
+        window.__subject = {
+            label: 'Temerario (photograph)',
+            left: r.left + f[0] * r.width, top: r.top + f[1] * r.height,
+            right: r.left + (f[0] + f[2]) * r.width, bottom: r.top + (f[1] + f[3]) * r.height
+        };
+    }
+    window.addEventListener('load', publishSubject);
+    window.addEventListener('resize', publishSubject, { passive: true });
 
     /* ---------- Hero entrance: after the face is ready, so lines never re-set ---------- */
     const heroImg = document.querySelector('.hero__img');

@@ -1,0 +1,67 @@
+{
+  "gate": "Gate 2 · delegated — authorship preservation",
+  "sourceSeal": "aa419af578c877133b14372b4b4a56281f9beb54f3ff7cc49ce59e9eecd9523c",
+  "governingIdea": "The dealer's name over a Lamborghini in a black studio: Lamborghini's own corporate language, spoken by the Miami house, then everything a buyer or owner needs from that house in the same voice.",
+  "operations": [
+    {
+      "id": "dealer-over-scene",
+      "reference": "corp shot 01 (hero title over dark film still)",
+      "governs": "hero",
+      "implementedBy": null,
+      "visibleAt": null,
+      "workItDoes": null,
+      "survivesRemoval": null,
+      "locatedInRender": null
+    },
+    {
+      "id": "typographic-range-index",
+      "reference": "corp shots 02/04 (giant claim type on white)",
+      "governs": "range",
+      "implementedBy": null,
+      "visibleAt": null,
+      "workItDoes": null,
+      "survivesRemoval": null,
+      "locatedInRender": null
+    },
+    {
+      "id": "selezione-card",
+      "reference": "preowned.lamborghini.com search card (Playwright capture 30 Sep 2026)",
+      "governs": "inventory",
+      "implementedBy": null,
+      "visibleAt": null,
+      "workItDoes": null,
+      "survivesRemoval": null,
+      "locatedInRender": null
+    },
+    {
+      "id": "services-as-spec-rows",
+      "reference": "corp shot 07 (technical specifications rows)",
+      "governs": "service, visit",
+      "implementedBy": null,
+      "visibleAt": null,
+      "workItDoes": null,
+      "survivesRemoval": null,
+      "locatedInRender": null
+    },
+    {
+      "id": "dated-archive-prints",
+      "reference": "dealer /our-story captions",
+      "governs": "house",
+      "implementedBy": null,
+      "visibleAt": null,
+      "workItDoes": null,
+      "survivesRemoval": null,
+      "locatedInRender": null
+    }
+  ],
+  "humanConfirmed": false,
+  "blockers": [
+    "dealer-over-scene: not located in the render — the operation disappeared",
+    "typographic-range-index: not located in the render — the operation disappeared",
+    "selezione-card: not located in the render — the operation disappeared",
+    "services-as-spec-rows: not located in the render — the operation disappeared",
+    "dated-archive-prints: not located in the render — the operation disappeared"
+  ],
+  "verdict": "fail",
+  "finishedAt": "2026-09-30T20:11:39.690Z"
+}
