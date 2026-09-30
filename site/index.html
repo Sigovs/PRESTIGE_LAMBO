@@ -46,8 +46,8 @@
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=57">
-    <link rel="stylesheet" href="assets/css/main.css?v=57">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=61">
+    <link rel="stylesheet" href="assets/css/main.css?v=61">
 
     <script type="application/ld+json">
     {
@@ -106,8 +106,9 @@
             </nav>
         </div>
 
-        <a class="site-header__brand" href="./" aria-label="Lamborghini Miami, home">
-            <img src="assets/img/bull.svg" width="57" height="59" alt="">
+        <a class="site-header__brand dealer-mark" href="./" aria-label="Lamborghini Miami — home">
+            <img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
+            <span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span>
         </a>
 
         <div class="site-header__end">
@@ -127,7 +128,7 @@
             <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
             <span>Close</span>
         </button>
-        <img class="menu__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
+        <a class="menu__brand dealer-mark" href="./" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
         <span class="menu__spacer" aria-hidden="true"></span>
     </div>
     <div class="menu__body container">
@@ -701,7 +702,7 @@
         <div class="house__grid">
             <div class="house__intro">
                 <!-- STAND-IN lockup: 2024 bull (unaltered mark, shown via mask) + dealer name set in type, until Lamborghini supplies the official 2024 "LAMBORGHINI MIAMI" lockup. -->
-                <p class="lockup" aria-label="Lamborghini Miami"><span class="lockup__bull" aria-hidden="true"></span><span class="lockup__name" aria-hidden="true">Lamborghini Miami</span></p>
+                <p class="lockup" aria-label="Lamborghini Miami"><span class="lockup__bull" aria-hidden="true"></span><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></p>
                 <h2 class="t-banner house__title" id="house-title">Since 1977</h2>
                 <div class="house__text">
                     <p>Lamborghini Miami is part of Prestige Imports, the family dealership Irv David founded in Miami in 1977. It began at a gas station he owned, grew into a dealership for European cars, and in 1986 opened its own showroom on Biscayne Boulevard.</p>
@@ -845,6 +846,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=57" defer></script>
+<script src="assets/js/main.js?v=61" defer></script>
 </body>
 </html>

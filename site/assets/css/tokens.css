@@ -118,6 +118,12 @@
     --stroke-2: 2px;
     --icon: 1.5rem;
     --bull-w: 3.5625rem;  /* 57px */
+    /* dealer lockup (header, menu bar): bull + LAMBORGHINI MIAMI beneath */
+    --lockup-bull-h: 1.875rem;   /* 30px on phones */
+    --lockup-fs: 0.75rem;        /* 12px on phones: logo lockup, exempt from the 14px text floor */
+    --lockup-gap: 0.375rem;      /* 6px */
+    --wdth-lockup: 112;          /* Roboto Flex, slightly wide */
+    --track-lockup: 0.2em;
     --bull-h: 3.6875rem;  /* 59px */
     --bull-sm: 2.5rem;    /* footer mark, 40px */
     --tap: 2.75rem;       /* 44px minimum touch target */
@@ -208,5 +214,8 @@
     :root {
         --page-gutter: 3.75rem;   /* 60px */
         --header-h: 6.5rem;       /* 104px */
+        --lockup-bull-h: 2.625rem;   /* 42px */
+        --lockup-fs: 0.875rem;       /* 14px */
+        --lockup-gap: 0.4375rem;     /* 7px */
     }
 }
