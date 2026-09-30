@@ -722,28 +722,21 @@ address { font-style: normal; }
     gap: var(--sp-32);
 }
 
+/* Group headings sit inline above their grids at every width (no left rail),
+   so the cards take the full 12 columns. Rows always fill: New (2 cars) as a
+   pair, Pre-owned (3 cars) as a trio from 1024; below that Pre-owned stacks
+   rather than orphan a card. One card image ratio (16:9) throughout. */
 @media (min-width: 768px) {
-    .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .vcard { padding: var(--sp-24) var(--sp-24) var(--sp-24); }
+    .inv-group--new .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .inventory__foot { grid-template-columns: 1fr auto; align-items: end; }
+}
+@media (min-width: 1024px) {
+    .inv-group--pre .inv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 1200px) {
     .inventory .section-head__cta { display: inline-flex; }
     .inventory__all { display: none; }
     .inventory__foot { grid-template-columns: 1fr; }
-    .inv-group {
-        display: grid;
-        grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
-        column-gap: var(--grid-gap);
-    }
-    .inv-group__label {
-        border-bottom: 0;
-        border-top: var(--stroke-1) solid var(--stroke);
-        padding-top: var(--sp-16);
-        margin: 0;
-        align-self: start;
-    }
-    .inventory__foot { padding-left: calc((100% - 11 * var(--grid-gap)) / 12 * 3 + 3 * var(--grid-gap)); }
 }
 
 /* ---------- 4 · Ad Personam — full-size on every screen (user direction) ----------

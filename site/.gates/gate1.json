@@ -1,12 +1,12 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "457df47d76d791d74a4d5867db7c9a91e4f87df681accf13fb6f14ab340b61ac",
-  "fileCount": 224,
+  "sourceSeal": "0a986738597d8fc5fe6af0a295a52c0ae6ea9dee28c1b6a83ba931a1fec1ac92",
+  "fileCount": 244,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 9042,
-      "screens": 10.05,
+      "pageHeightPx": 8588,
+      "screens": 9.54,
       "mediaTotal": 19,
       "fullBleedMedia": 2,
       "largestTypePx": 120,
@@ -16,8 +16,8 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 13044,
-      "screens": 15.45,
+      "pageHeightPx": 12839,
+      "screens": 15.21,
       "mediaTotal": 19,
       "fullBleedMedia": 6,
       "largestTypePx": 80,
@@ -174,7 +174,7 @@
         "x": 0,
         "y": 0,
         "w": 390,
-        "h": 812.0839233398438
+        "h": 812.0838012695312
       },
       "components": [
         {
@@ -287,7 +287,7 @@
     }
   ],
   "verdict": "fail",
-  "finishedAt": "2026-09-30T21:00:20.913Z",
+  "finishedAt": "2026-09-30T21:06:13.381Z",
   "blockers": [
     "A1 mobile: eventCoverage 89.8% is below the A1 floor of 90%"
   ]

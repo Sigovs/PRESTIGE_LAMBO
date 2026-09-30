@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-09-30T21:01:17.383Z",
-  "seal": "bf6b12458d5458f05b37a580ebd6d1faf144a852c0b589ea575dd65e7ecd8afc",
-  "sourceSeal": "457df47d76d791d74a4d5867db7c9a91e4f87df681accf13fb6f14ab340b61ac",
+  "checkedAt": "2026-09-30T21:07:03.147Z",
+  "seal": "ac98ab418d6ebc9ba8d8a3519485d08e222dd9fae9faf43b143fd8caab0bace5",
+  "sourceSeal": "0a986738597d8fc5fe6af0a295a52c0ae6ea9dee28c1b6a83ba931a1fec1ac92",
   "ok": false,
   "problems": [
     "Gate 1 · Measurable Conformance: verdict is \"fail\"",
