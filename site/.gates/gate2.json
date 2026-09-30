@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
+  "sourceSeal": "7a6347052034f6cd8f5ac78c7ce156b78e1851d8d791222d7fc5d27a68d25dfc",
   "detector": {
     "desktop": {
       "sections": [
@@ -99,15 +99,15 @@
               ],
               "slots": {
                 "meta": "top",
-                "heading": "mid",
+                "heading": "upper",
                 "cta": "bottom"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "div.hero__group",
-              "formula": "3×equal|h:mid|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "3×equal|h:mid|m:top|c:bottom"
+              "formula": "3×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
+              "shape": "3×equal|h:upper|m:top|c:bottom"
             },
             {
               "units": 2,
@@ -1003,15 +1003,15 @@
                 0.671
               ],
               "slots": {
-                "meta": "upper",
-                "heading": "lower"
+                "meta": "top",
+                "heading": "mid"
               },
               "align": "start",
               "container": "none",
               "interaction": "static",
               "sample": "div.hero__copy",
-              "formula": "2×equal|h:lower|m:upper|align:start|cont:none|int:static",
-              "shape": "2×equal|h:lower|m:upper"
+              "formula": "2×equal|h:mid|m:top|align:start|cont:none|int:static",
+              "shape": "2×equal|h:mid|m:top"
             },
             {
               "units": 2,
@@ -1857,8 +1857,8 @@
       "kind": "parallel-units",
       "section": "section.hero",
       "units": 3,
-      "shape": "3×equal|h:mid|m:top|c:bottom",
-      "formula": "3×equal|h:mid|m:top|c:bottom|align:start|cont:none|int:link",
+      "shape": "3×equal|h:upper|m:top|c:bottom",
+      "formula": "3×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -2047,14 +2047,14 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T23:36:02.197Z",
+  "finishedAt": "2026-09-30T23:50:36.417Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 5×equal|i:mid|h:mid|m:upper|c:lower",
     "undisposed parallel-units: 5×equal|m:mid",
     "undisposed parallel-units: 4×equal|m:mid|c:mid",
     "undisposed parallel-units: 4×equal|m:mid",
-    "undisposed parallel-units: 3×equal|h:mid|m:top|c:bottom",
+    "undisposed parallel-units: 3×equal|h:upper|m:top|c:bottom",
     "undisposed parallel-units: 8×equal|m:mid",
     "undisposed parallel-units: 4×equal|i:mid",
     "undisposed parallel-units: 4×equal|m:top",

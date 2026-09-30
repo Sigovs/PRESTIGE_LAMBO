@@ -1,6 +1,6 @@
 {
   "gate": "Gate 1/2 · delegated — rendered hero conformance",
-  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
+  "sourceSeal": "7a6347052034f6cd8f5ac78c7ce156b78e1851d8d791222d7fc5d27a68d25dfc",
   "viewports": [
     {
       "label": "desktop",
@@ -156,7 +156,7 @@
   ],
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T23:36:20.430Z",
+  "finishedAt": "2026-09-30T23:50:54.774Z",
   "sourceEvidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/hero-source-declared.png",
   "blockers": [
     "desktop: subject clipped at right (worst sample t=0)",

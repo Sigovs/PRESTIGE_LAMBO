@@ -145,13 +145,12 @@
     --measure-legal: 80ch;
     --measure-legal-wide: 90ch;
     --feather-top: 22%;   /* hero image top-edge feather */
-    /* Ad Personam (img2, Revuelto rear at sunset) */
-    --adp-pos-p: 50% 30%;         /* portrait crop: taillight and haunch */
-    --adp-pos-l: 100% 50%;        /* landscape: the wheel pushed left, the diffuser under the lead */
-    --adp-pad-b: var(--sp-40);    /* bottom spacing of the copy group: 40 mobile */
-    --adp-scrim-a: 0.78;          /* landscape bottom gradient: density at the foot */
-    --adp-scrim-mid: 30%;
-    --adp-scrim-end: 58%;
+    /* Ad Personam (personalization.webp, Revuelto cabin; Alex) */
+    --adp-pos-p: 50% 50%;         /* portrait crop: steering wheel + centre console */
+    --adp-pos-l: 50% 50%;         /* landscape: the whole cabin */
+    --adp-pad-b: 30svh;           /* foot of the copy at entry: ~30% of the height above the bottom (Alex) */
+    --adp-back-a: 0.8;            /* the backing that travels with the copy: density behind the text */
+    --adp-back-y: 6rem;           /* its soft fade above and below the group */
 
     /* ---- Motion ---- */
     --dur-fast:   200ms;
@@ -196,11 +195,13 @@
         --page-gutter: 2.5rem;    /* 40px */
         --section-pt: var(--sp-120);
         --section-pb: var(--sp-160);
-        --adp-pad-b: var(--sp-64);    /* 64 from tablet up */
     }
 }
+@media (orientation: portrait) and (max-height: 600px) {
+    :root { --adp-pad-b: 20svh; }   /* 320x568: the copy's top must clear the header at entry */
+}
 @media (orientation: landscape) and (max-height: 600px) {
-    :root { --adp-pad-b: var(--sp-24); }   /* phones on their side: the frame is 390 px tall */
+    :root { --adp-pad-b: 16svh; }   /* phones on their side: as high as a 390 px frame allows */
 }
 
 @media (min-width: 1200px) {

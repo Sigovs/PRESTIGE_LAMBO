@@ -46,8 +46,8 @@
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=52">
-    <link rel="stylesheet" href="assets/css/main.css?v=52">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=56">
+    <link rel="stylesheet" href="assets/css/main.css?v=56">
 
     <script type="application/ld+json">
     {
@@ -595,26 +595,27 @@
      scrolls up over it. The wrapper bounds the pin and carries the anchor, because a
      stuck element reports top 0 and cannot be scrolled to by its own box. -->
 <div class="adp-pin" id="ad-personam">
-<section class="adp" aria-labelledby="adp-title">
-    <!-- Full-size on every screen (100svh). The photograph owns the upper field; the
-         copy stands as one group at the bottom, on the dark diffuser band (landscape) or
-         on black below the faded frame (portrait). Legibility is decided by the crop;
-         a restrained bottom gradient only evens out the wheel and fins. -->
-
-    <div class="adp__inner container">
+<div class="adp__stage">
         <picture class="adp__media">
             <source media="(orientation: portrait)" type="image/webp"
-                    srcset="assets/img/adp-rear-p-600.webp 600w, assets/img/adp-rear-p-1024.webp 1024w" sizes="100vw">
+                    srcset="assets/img/adp-cabin-rv-p-600.webp 600w, assets/img/adp-cabin-rv-p-802.webp 802w" sizes="100vw">
             <source media="(orientation: portrait)"
-                    srcset="assets/img/adp-rear-p-600.jpg 600w, assets/img/adp-rear-p-1024.jpg 1024w" sizes="100vw">
+                    srcset="assets/img/adp-cabin-rv-p-600.jpg 600w, assets/img/adp-cabin-rv-p-802.jpg 802w" sizes="100vw">
             <source type="image/webp"
-                    srcset="assets/img/adp-rear-l-1280.webp 1280w, assets/img/adp-rear-l-1920.webp 1920w, assets/img/adp-rear-l-2560.webp 2560w" sizes="100vw">
-            <img class="adp__img" src="assets/img/adp-rear-l-1280.jpg"
-                 srcset="assets/img/adp-rear-l-1280.jpg 1280w, assets/img/adp-rear-l-1920.jpg 1920w" sizes="100vw"
-                 width="1920" height="1080" loading="lazy" decoding="async"
-                 alt="The rear of a yellow Lamborghini Revuelto at sunset: the taillight, the sculpted haunch and the carbon diffuser.">
+                    srcset="assets/img/adp-cabin-rv-l-1280.webp 1280w, assets/img/adp-cabin-rv-l-1744.webp 1744w" sizes="100vw">
+            <img class="adp__img" src="assets/img/adp-cabin-rv-l-1280.jpg"
+                 srcset="assets/img/adp-cabin-rv-l-1280.jpg 1280w, assets/img/adp-cabin-rv-l-1744.jpg 1744w" sizes="100vw"
+                 width="1744" height="1000" loading="lazy" decoding="async"
+                 alt="The cabin of a Lamborghini Revuelto: tan leather, carbon fibre and the steering wheel, with a digital cityscape in the windscreen.">
         </picture>
         <div class="adp__scrim" aria-hidden="true"></div>
+    </div>
+    <section class="adp" aria-labelledby="adp-title">
+    <!-- The photograph is pinned (.adp__stage, sticky) for the whole of .adp-pin; the copy
+         is in normal flow: it enters in the lower-middle of the frame and scrolls up at
+         scroll speed, with Service following below it and sliding over the still photo.
+         A soft dark backing travels with the copy group (.adp__inner::before). -->
+    <div class="adp__inner container">
         <header class="adp__head">
             <p class="t-eyelet adp__eyelet">Personalization</p>
             <h2 class="t-banner" id="adp-title">Ad Personam</h2>
@@ -844,6 +845,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=52" defer></script>
+<script src="assets/js/main.js?v=56" defer></script>
 </body>
 </html>

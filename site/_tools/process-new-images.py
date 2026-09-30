@@ -51,3 +51,10 @@ export(im, 'slide-urus-se-rocks', [2560, 1920, 1280], jpg_widths=(1920, 1280))
 # Slide 1 (dealer), landscape: Alex's own edit of img8 ("slide 1d.jpg", 1920x1080): car shifted right, left side darkened
 im = Image.open(SRC + 'slide 1d.jpg').convert('RGB')
 export(im, 'hero-dealer-alex', [1920, 1280], jpg_widths=(1920, 1280))
+
+# Ad Personam (30 Sep 2026, Alex): personalization.webp (1744x1000), Revuelto interior.
+# Landscape: the whole frame. Portrait: the steering wheel + centre console column (x 12-58%).
+im = Image.open(SRC + 'personalization.webp').convert('RGB')
+export(im, 'adp-cabin-rv-l', [1744, 1280], jpg_widths=(1744, 1280))
+W, H = im.size
+export(im.crop((round(W * 0.12), 0, round(W * 0.58), H)), 'adp-cabin-rv-p', [802, 600], jpg_widths=(802, 600))

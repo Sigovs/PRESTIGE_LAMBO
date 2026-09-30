@@ -39,7 +39,9 @@
     const hero = document.querySelector('.hero');
     let ticking = false;
 
-    const photoChapters = [...document.querySelectorAll('.adp')];
+    const photoChapters = [...document.querySelectorAll('.adp__stage')];   // the pinned Ad Personam photograph
+    // the section that slides over a pinned photograph (Ad Personam: Service)
+    const coverOf = (el) => (el.parentElement && el.parentElement.querySelector(':scope > .service')) || el.nextElementSibling;
     const HDR_GAP = 8;                                  // mirror of --ctrl-gap
     const HDR_TIGHT = 64;                               // px: closer than this, the layer is not faded in
     const HDR_LEAD = 350;                               // ms of travel to anticipate: the 300 ms fade + a frame
@@ -62,13 +64,13 @@
         // the header it is covered and the header goes solid.
         const overPhoto = photoChapters.some((el) => {
             const r = el.getBoundingClientRect();
-            const next = el.nextElementSibling;
+            const next = coverOf(el);
             const coverTop = next ? next.getBoundingClientRect().top : Infinity;
             return r.top <= 1 && r.bottom > h + 1 && coverTop > h + 1;
         });
         // Scroll-linked dimming of the pinned frame as Service covers it (0 -> 1).
         if (!reduceMotion.matches) photoChapters.forEach((el) => {
-            const next = el.nextElementSibling;
+            const next = coverOf(el);
             if (!next) return;
             const vh = window.innerHeight;
             const p = Math.min(1, Math.max(0, (vh - next.getBoundingClientRect().top) / vh));
@@ -89,20 +91,20 @@
         const heroNear = heroTops.some((t) => Math.min(0, -shift) + t < edge);
         // Over Ad Personam the header stays transparent, except for the stretch in
         // which its copy would pass under it.
-        // Ad Personam is pinned (sticky), so its copy does not travel with the scroll
-        // while the frame is visible: the test uses where the copy is, without the
-        // prediction. With the copy at the bottom of a pinned frame it never reaches
-        // the header; this stays as a guard.
+        // Over the pinned Ad Personam photograph the header stays transparent, except
+        // when the copy (which scrolls up over the still photo) is about to pass under
+        // it: the same prediction as the hero (target / velocity, swept span).
         const adpNear = adpContent.some((el) => {
             const r = el.getBoundingClientRect();
-            return r.top < edge && r.bottom > 0;
+            return Math.min(r.top, r.top - shift) < edge && Math.max(r.bottom, r.bottom - shift) > 0;
         });
         const solid = ((y >= heroEnd - 1 || heroNear) && !overPhoto) || (overPhoto && adpNear);
         // Where the content rests closer to the header than the fade can cover
         // (landscape phones: ~21 px), the solid layer arrives at once instead of
         // over 300 ms, so no frame shows text under a half-transparent header.
         if (solid && !header.classList.contains('is-solid')) {
-            const gap = Math.min(Infinity, ...heroTops.filter((t) => t > 0)) - edge;
+            const tops = heroTops.concat(adpContent.map((el) => el.getBoundingClientRect().top));
+            const gap = Math.min(Infinity, ...tops.filter((t) => t > 0)) - edge;
             if (gap < HDR_TIGHT) header.style.setProperty('--hdr-fade', '0ms');
             else header.style.removeProperty('--hdr-fade');
         } else if (!solid) header.style.removeProperty('--hdr-fade');

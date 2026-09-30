@@ -1,7 +1,7 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "f90e8bdd05cd191edb9c5bd6f1df5b98684be45a87d34c398ce7c59978d194d2",
-  "fileCount": 442,
+  "sourceSeal": "7a6347052034f6cd8f5ac78c7ce156b78e1851d8d791222d7fc5d27a68d25dfc",
+  "fileCount": 492,
   "page": "index.html",
   "measured": {
     "desktop": {
@@ -98,7 +98,7 @@
           "isWrapper": false,
           "rects": [
             {
-              "x": 60,
+              "x": 51,
               "y": 597,
               "w": 434,
               "h": 72
@@ -161,13 +161,13 @@
       "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.951,
+        "eventCoverage": 0.954,
         "mediaCoverage": 0.739,
         "competitionRatio": 0.105,
-        "structuralShare": 0.904,
+        "structuralShare": 0.906,
         "negativeSpaceShare": 0.05,
-        "rankMassShare": 0.904,
-        "subjectShareOfEvent": 0.777,
+        "rankMassShare": 0.906,
+        "subjectShareOfEvent": 0.775,
         "chromeShare": 0,
         "declaredMasses": 4,
         "readsWithoutMedia": true
@@ -226,7 +226,7 @@
           "isWrapper": false,
           "rects": [
             {
-              "x": 24,
+              "x": 15,
               "y": 614,
               "w": 342,
               "h": 124
@@ -349,6 +349,6 @@
     }
   ],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T23:35:54.273Z",
+  "finishedAt": "2026-09-30T23:50:28.407Z",
   "blockers": []
 }
