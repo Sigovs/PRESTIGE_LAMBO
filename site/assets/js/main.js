@@ -43,8 +43,8 @@
     // the section that slides over a pinned photograph (Ad Personam: Service)
     const coverOf = (el) => (el.parentElement && el.parentElement.querySelector(':scope > .service')) || el.nextElementSibling;
     const HDR_GAP = 8;                                  // mirror of --ctrl-gap
-    const HDR_TIGHT = 64;                               // px: closer than this, the layer is not faded in
-    const HDR_LEAD = 350;                               // ms of travel to anticipate: the 300 ms fade + a frame
+    const HDR_TIGHT = 128;                              // px: closer than this, the layer is not faded in
+    const HDR_LEAD = 450;                               // ms of travel to anticipate: the 300 ms fade + a frame
     let settleT;
     let scrollV = 0, lastY = window.scrollY, lastT = performance.now();   // px/ms, signed (down > 0)
     const heroContent = () => hero ? [...hero.querySelectorAll('.hero__slide.is-active .hero__copy, .hero__slide.is-active .hero__actions, .hero__controls')] : [];
