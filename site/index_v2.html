@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lamborghini Miami | Authorized Lamborghini Dealer, North Miami Beach, FL</title>
+    <meta name="description" content="Lamborghini Miami is an authorized Lamborghini dealer on Biscayne Boulevard, North Miami Beach. New and pre-owned Lamborghini, Ad Personam, service, parts and certified collision and paint.">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="assets/img/bull.svg" type="image/svg+xml">
+    <script>
+        /* ?figma = static capture mode for html.to.design import: no reveals, no Lenis, every image eager. */
+        if (/[?&]figma\b/.test(location.search)) {
+            document.documentElement.classList.add('figma');
+            /* ?figma&slide=N (1–5) shows hero slide N alone, with its images loaded; default is slide 1 */
+            const n = (location.search.match(/[?&]slide=(\d)/) || [])[1];
+            if (n) document.documentElement.dataset.slide = n;
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+                const s = n && document.querySelectorAll('.hero__slide')[n - 1];
+                if (!s) return;
+                s.classList.add('is-figma-slide');
+                s.querySelectorAll('[data-srcset],[data-src]').forEach((el) => {
+                    if (el.dataset.srcset) el.srcset = el.dataset.srcset;
+                    if (el.dataset.src) el.src = el.dataset.src;
+                });
+            });
+        } else {
+            document.documentElement.classList.add('js');
+        }
+    </script>
+
+    <!-- Stand-in brand face: Roboto Flex (wdth 25–151, wght 100–1000). See DESIGN_SYSTEM.md §1.1 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
+
+    <!-- Hero preload: separate desktop and mobile frames -->
+    <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
+          imagesrcset="assets/img/hero-dealer-alex-1280.webp 1280w, assets/img/hero-dealer-alex-1920.webp 1920w"
+          imagesizes="100vw" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" media="(max-width: 767.98px) and (orientation: portrait)"
+          imagesrcset="assets/img/hero-temerario-night-p-750.webp 750w, assets/img/hero-temerario-night-p-1000.webp 1000w, assets/img/hero-temerario-night-p-1400.webp 1400w"
+          imagesizes="165vw" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" media="(min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait)"
+          imagesrcset="assets/img/hero-dealer-alex-1280.webp 1280w, assets/img/hero-dealer-alex-1920.webp 1920w"
+          imagesizes="100vw" fetchpriority="high">
+
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=87">
+    <link rel="stylesheet" href="assets/css/main.css?v=87">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoDealer",
+        "name": "Lamborghini Miami",
+        "brand": { "@type": "Brand", "name": "Lamborghini" },
+        "parentOrganization": { "@type": "Organization", "name": "Prestige Imports" },
+        "telephone": "+1-833-290-5147",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14780 Biscayne Boulevard",
+            "addressLocality": "North Miami Beach",
+            "addressRegion": "FL",
+            "postalCode": "33181",
+            "addressCountry": "US"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 25.913485, "longitude": -80.15750349 },
+        "department": [
+            { "@type": "AutoDealer", "name": "Lamborghini Miami Sales", "telephone": "+1-833-290-5147",
+              "openingHours": ["Mo-Fr 09:00-19:00", "Sa 10:00-18:00"] },
+            { "@type": "AutoRepair", "name": "Lamborghini Miami Service", "telephone": "+1-833-290-5148",
+              "openingHours": ["Mo-Fr 08:00-17:30"] },
+            { "@type": "AutoPartsStore", "name": "Lamborghini Miami Parts", "telephone": "+1-833-290-5149" }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+<!-- Icon set: one family, 24px box, 1.5 stroke, square caps. DESIGN_SYSTEM.md §5 -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" data-header>
+    <div class="site-header__bar container">
+        <div class="site-header__start">
+            <button class="site-header__menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+                <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+                <span>Menu</span>
+            </button>
+            <nav class="site-header__nav" aria-label="Primary">
+                <a class="site-header__link" href="#new">New</a>
+                <a class="site-header__link" href="#pre-owned">Pre-owned</a>
+                <a class="site-header__link" href="#service">Service</a>
+            </nav>
+        </div>
+
+        <a class="site-header__brand dealer-mark" href="./" aria-label="Lamborghini Miami — home">
+            <img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
+            <span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span>
+        </a>
+
+        <div class="site-header__end">
+            <a class="site-header__phone" href="tel:+18332905147" aria-label="Call sales, (833) 290-5147">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                <span class="site-header__phone-num">(833) 290-5147</span>
+            </a>
+            <a class="site-header__link site-header__contact" href="#visit">Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- ============================ MENU (overlay) ============================ -->
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu data-lenis-prevent>
+  <div class="menu__panel">
+    <div class="menu__bar container">
+        <button class="site-header__menu" type="button" data-menu-close>
+            <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="menu-icon__l1" d="M3 7h18"/><path class="menu-icon__l2" d="M3 12h18"/><path class="menu-icon__l3" d="M3 17h18"/></svg>
+            <span>Close</span>
+        </button>
+        <a class="menu__brand dealer-mark" href="./" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
+        <span class="menu__spacer" aria-hidden="true"></span>
+    </div>
+    <div class="menu__body container">
+        <nav class="menu__cols" aria-label="Site">
+            <div class="menu__col">
+                <p class="menu__head">Vehicles</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="#range" data-menu-link>Models</a></li>
+                    <li><a class="menu__link" href="#new" data-menu-link>New inventory</a></li>
+                    <li><a class="menu__link" href="#pre-owned" data-menu-link>Pre-owned inventory</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/lamborghini-miami-fl">All Lamborghini inventory</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Ownership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="#ad-personam" data-menu-link>Ad Personam</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/schedule-service">Schedule service</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/order-parts">Order parts</a></li>
+                    <li><a class="menu__link" href="#collision" data-menu-link>Collision center</a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Dealership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="#house" data-menu-link>Our story</a></li>
+                    <li><a class="menu__link" href="#visit" data-menu-link>Visit &amp; hours</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/careers">Careers</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/contact-us">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <dl class="menu__contact">
+            <div><dt>Sales</dt><dd><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+            <div><dt>Service</dt><dd><a href="tel:+18332905148">(833) 290-5148</a></dd></div>
+            <div><dt>Parts</dt><dd><a href="tel:+18332905149">(833) 290-5149</a></dd></div>
+        </dl>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================ 1 · HERO ============================
+     Governing event: the dealer's name over a Temerario in a black studio.
+     Scene, not object: the black field is the text-safe zone; the car enters
+     from the right at ~55–60% of frame width. DESIGN_SYSTEM.md §6. -->
+<section class="hero" aria-roledescription="carousel" aria-label="Lamborghini Miami: the dealership" data-hero>
+    <div class="hero__slides" data-hero-track>
+        <article class="hero__slide hero__slide--dealer hero__slide--bleed is-active" data-slide aria-roledescription="slide" aria-label="1 of 5: Lamborghini Miami" id="hero-slide-1">
+        <div class="hero__inner container">
+            <div class="hero__group">
+                <div class="hero__copy">
+                    <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Authorized Lamborghini Dealer</p>
+                    <h1 class="hero__title t-display-xl" id="hero-title">
+                        <span class="hero__line" data-hero-line style="--i:1">Lamborghini</span>
+                        <span class="hero__line" data-hero-line style="--i:2">Miami</span>
+                    </h1>
+                    <p class="hero__place" data-hero-line style="--i:3">14780 Biscayne Boulevard, <span class="nowrap">North Miami Beach</span></p>
+                </div>
+                <div class="hero__actions" data-hero-line style="--i:4">
+                    <a class="btn btn--primary" href="#inventory">
+                        <span>View inventory</span>
+                        <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                    </a>
+                    <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/contact-us">
+                        <span>Enquire</span>
+                        <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                    </a>
+                </div>
+            </div>
+            <picture class="hero__media" data-mass="stage">
+                <source media="(max-width: 767.98px) and (orientation: portrait)" type="image/webp"
+                        srcset="assets/img/hero-temerario-night-p-750.webp 750w, assets/img/hero-temerario-night-p-1000.webp 1000w, assets/img/hero-temerario-night-p-1400.webp 1400w" sizes="165vw">
+                <source media="(max-width: 767.98px) and (orientation: portrait)"
+                        srcset="assets/img/hero-temerario-night-p-750.jpg 750w, assets/img/hero-temerario-night-p-1000.jpg 1000w, assets/img/hero-temerario-night-p-1400.jpg 1400w" sizes="165vw">
+                <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp"
+                        srcset="assets/img/hero-dealer-alex-1280.webp 1280w, assets/img/hero-dealer-alex-1920.webp 1920w" sizes="100vw">
+                <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)"
+                        srcset="assets/img/hero-dealer-alex-1280.jpg 1280w, assets/img/hero-dealer-alex-1920.jpg 1920w" sizes="100vw">
+                <source type="image/webp"
+                        srcset="assets/img/hero-dealer-alex-1280.webp 1280w, assets/img/hero-dealer-alex-1920.webp 1920w"
+                        sizes="100vw">
+                <img class="hero__img" src="assets/img/hero-dealer-alex-1920.jpg"
+                     srcset="assets/img/hero-dealer-alex-1280.jpg 1280w, assets/img/hero-dealer-alex-1920.jpg 1920w"
+                     sizes="100vw"
+                     width="1920" height="1080" fetchpriority="high" decoding="async"
+                     data-subject-wide="0.3,0.54,0.48,0.21" data-subject-tall="0.3,0.54,0.48,0.21" data-subject-night="0.227,0.277,0.546,0.27"
+                     alt="A yellow Lamborghini Revuelto in side profile between factory buildings on larger screens; a yellow Temerario on a night circuit on phones.">
+            </picture>
+            <div class="hero__scrim" aria-hidden="true"></div>
+        </div>
+        </article>
+        <article class="hero__slide hero__slide--model hero__slide--temerario hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="2 of 5: Temerario" id="hero-slide-2">
+            <div class="hero__inner container">
+                <div class="hero__group">
+                    <div class="hero__copy">
+                        <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Temerario</p>
+                        <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">You can’t hide</span> <span class="hero__line" data-hero-line style="--i:2">who you are</span></h2>
+                        <p class="hero__place hero__figures" data-hero-line style="--i:3">920 CV · 343 km/h · 0–100 km/h 2.7 s</p>
+                    </div>
+                    <div class="hero__actions" data-hero-line style="--i:4">
+                        <a class="btn btn--primary" href="https://www.lamborghini.com/en-en/models/temerario" rel="noopener"><span>Explore the model</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                        <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/contact-us"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                    </div>
+                </div>
+                <picture class="hero__media">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-temerario-sagata-p-800.webp 800w, assets/img/slide-temerario-sagata-p-950.webp 950w" sizes="100vw">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-temerario-sagata-p-800.jpg 800w" sizes="100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-temerario-sagata-1920.webp 1920w, assets/img/slide-temerario-sagata-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-temerario-sagata-1920.jpg" data-srcset="assets/img/slide-temerario-sagata-1920.jpg 1920w, assets/img/slide-temerario-sagata-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A green Lamborghini Temerario at sunset beside the road sign for Sant’Agata Bolognese, città della Lamborghini.">
+                </picture>
+                <div class="hero__scrim" aria-hidden="true"></div>
+            </div>
+        </article>
+        <article class="hero__slide hero__slide--model hero__slide--revuelto hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="3 of 5: In the showroom" id="hero-slide-3">
+            <div class="hero__inner container">
+                <div class="hero__group">
+                    <div class="hero__copy">
+                        <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">New &amp; pre-owned</p>
+                        <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">In the</span> <span class="hero__line" data-hero-line style="--i:2">showroom</span></h2>
+                        <p class="hero__place hero__figures" data-hero-line style="--i:3">New and pre-owned Lamborghini, on Biscayne Boulevard.</p>
+                    </div>
+                    <div class="hero__actions" data-hero-line style="--i:4">
+                        <a class="btn btn--primary" href="#inventory"><span>View inventory</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--secondary" href="#pre-owned"><span>Pre-owned</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                    </div>
+                </div>
+                <picture class="hero__media">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-revuelto-aerial-p-800.webp 800w, assets/img/slide-revuelto-aerial-p-1200.webp 1200w" sizes="100vw">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-revuelto-aerial-p-800.jpg 800w" sizes="100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-revuelto-aerial-2560.webp 2560w, assets/img/slide-revuelto-aerial-1920.webp 1920w, assets/img/slide-revuelto-aerial-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-revuelto-aerial-1920.jpg" data-srcset="assets/img/slide-revuelto-aerial-1920.jpg 1920w, assets/img/slide-revuelto-aerial-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A yellow Lamborghini Revuelto seen from directly above, beside a zebra crossing.">
+                </picture>
+                <div class="hero__scrim" aria-hidden="true"></div>
+            </div>
+        </article>
+        <article class="hero__slide hero__slide--model hero__slide--urus-se hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="4 of 5: Service and parts" id="hero-slide-4">
+            <div class="hero__inner container">
+                <div class="hero__group">
+                    <div class="hero__copy">
+                        <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Service &amp; parts</p>
+                        <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">Care for</span> <span class="hero__line" data-hero-line style="--i:2">every mile</span></h2>
+                        <p class="hero__place hero__figures" data-hero-line style="--i:3">Scheduled service, genuine parts, Lamborghini-certified collision and paint.</p>
+                    </div>
+                    <div class="hero__actions" data-hero-line style="--i:4">
+                        <a class="btn btn--primary" href="https://www.lamborghinimiami.com/schedule-service"><span>Schedule service</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/order-parts"><span>Order parts</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                    </div>
+                </div>
+                <picture class="hero__media">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-urus-se-m-960.webp 960w, assets/img/slide-urus-se-m-1280.webp 1280w, assets/img/slide-urus-se-m-1920.webp 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-urus-se-m-960.jpg 960w, assets/img/slide-urus-se-m-1280.jpg 1280w, assets/img/slide-urus-se-m-1920.jpg 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-rocks-2560.webp 2560w, assets/img/slide-urus-se-rocks-1920.webp 1920w, assets/img/slide-urus-se-rocks-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-urus-se-rocks-1920.jpg" data-srcset="assets/img/slide-urus-se-rocks-1920.jpg 1920w, assets/img/slide-urus-se-rocks-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="An orange Lamborghini Urus SE: on red coastal rocks at sunset on larger screens, driving through dust on phones.">
+                </picture>
+                <div class="hero__scrim" aria-hidden="true"></div>
+            </div>
+        </article>
+        <article class="hero__slide hero__slide--model hero__slide--urus-se-performante hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="5 of 5: Prestige Imports" id="hero-slide-5">
+            <div class="hero__inner container">
+                <div class="hero__group">
+                    <div class="hero__copy">
+                        <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Part of Prestige Imports</p>
+                        <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">A family house</span> <span class="hero__line" data-hero-line style="--i:2">since 1977</span></h2>
+                        <p class="hero__place hero__figures" data-hero-line style="--i:3">Prestige Imports, founded in Miami by Irv David in 1977.</p>
+                    </div>
+                    <div class="hero__actions" data-hero-line style="--i:4">
+                        <a class="btn btn--primary" href="#house"><span>Our story</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--secondary" href="#visit"><span>Visit us</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                    </div>
+                </div>
+                <picture class="hero__media">
+                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-urus-se-performante-960.webp 960w, assets/img/slide-urus-se-performante-1440.webp 1440w, assets/img/slide-urus-se-performante-1920.webp 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
+                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-urus-se-performante-960.jpg 960w, assets/img/slide-urus-se-performante-1440.jpg 1440w, assets/img/slide-urus-se-performante-1920.jpg 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-performante-2400.webp 2400w, assets/img/slide-urus-se-performante-1920.webp 1920w, assets/img/slide-urus-se-performante-1440.webp 1440w, assets/img/slide-urus-se-performante-960.webp 960w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-urus-se-performante-1920.jpg" data-srcset="assets/img/slide-urus-se-performante-2400.jpg 2400w, assets/img/slide-urus-se-performante-1920.jpg 1920w, assets/img/slide-urus-se-performante-1440.jpg 1440w, assets/img/slide-urus-se-performante-960.jpg 960w" sizes="100vw" width="2400" height="1350" decoding="async" alt="A lime Lamborghini Urus SE Performante with a carbon bonnet, seen from above at night.">
+                </picture>
+                <div class="hero__scrim" aria-hidden="true"></div>
+            </div>
+        </article>
+    </div>
+
+    <div class="hero__controls container" data-hero-controls>
+        <ol class="hero__dots" role="list">
+                <li><button class="hero__dot" type="button" data-go="0" aria-label="Slide 1 of 5: Lamborghini Miami" aria-current="true"><span class="hero__dot-num">01</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="1" aria-label="Slide 2 of 5: Temerario"><span class="hero__dot-num">02</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="2" aria-label="Slide 3 of 5: In the showroom"><span class="hero__dot-num">03</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="3" aria-label="Slide 4 of 5: Service and parts"><span class="hero__dot-num">04</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="4" aria-label="Slide 5 of 5: Prestige Imports"><span class="hero__dot-num">05</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+        </ol>
+        <button class="hero__toggle" type="button" data-toggle aria-label="Pause slideshow">
+            <svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg>
+        </button>
+        <div class="hero__arrows">
+            <button class="hero__arrow hero__arrow--prev" type="button" data-prev aria-label="Previous slide">
+                    <svg class="hero__hex" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 1.5 45.5 14v24L24 50.5 2.5 38V14Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    <svg class="icon hero__arrow-icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </button>
+            <button class="hero__arrow hero__arrow--next" type="button" data-next aria-label="Next slide">
+                    <svg class="hero__hex" viewBox="0 0 48 52" aria-hidden="true"><path d="M24 1.5 45.5 14v24L24 50.5 2.5 38V14Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                    <svg class="icon hero__arrow-icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </button>
+        </div>
+    </div>
+    <p class="visually-hidden" data-hero-live aria-live="off" aria-atomic="true"></p>
+</section>
+
+<!-- ============================ 2 · THE RANGE ============================
+     Alex's option C: the four current models, pictured with official
+     lamborghini.com side profiles (research/press-images/MANIFEST.md) —
+     one image system: full length, facing left. 2×2 on desktop. -->
+<section class="range band band--light" id="range" aria-labelledby="range-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">The current range</p>
+                <h2 class="t-title" id="range-title">Models</h2>
+            </div>
+        </header>
+
+        <ol class="models" role="list">
+            <li class="model" id="range-temerario">
+                <figure class="model__media">
+                    <picture>
+                        <source type="image/webp" srcset="assets/img/model-art-temerario-600.webp 600w, assets/img/model-art-temerario-1200.webp 1200w" sizes="(min-width: 1200px) 640px, (min-width: 768px) 48vw, 100vw">
+                        <img class="model__car" src="assets/img/model-art-temerario-600.png" width="600" height="215" loading="lazy" decoding="async" alt="Lamborghini Temerario in dark blue, side profile.">
+                    </picture>
+                </figure>
+                <div class="model__body">
+                    <div class="model__id">
+                        <span class="model__folio" aria-hidden="true">01</span>
+                        <h3 class="model__name">Temerario</h3>
+                        <p class="model__claim">You can’t hide who you are</p>
+                    </div>
+                    <div class="model__meta">
+                        <dl class="model__facts">
+                            <div><dt>Max power (combined ICE+EE)</dt><dd>920 CV</dd></div>
+                            <div><dt>Top speed</dt><dd>343 km/h</dd></div>
+                            <div><dt>0–100 km/h</dt><dd>2.7 s</dd></div>
+                        </dl>
+                    </div>
+                    <div class="model__actions">
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/contact-us"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--solid btn--md" href="https://configurator.lamborghini.com/" rel="noopener"><span>Configure</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    </div>
+                </div>
+            </li>
+            <li class="model" id="range-revuelto">
+                <figure class="model__media">
+                    <picture>
+                        <source type="image/webp" srcset="assets/img/model-art-revuelto-600.webp 600w, assets/img/model-art-revuelto-1200.webp 1200w" sizes="(min-width: 1200px) 640px, (min-width: 768px) 48vw, 100vw">
+                        <img class="model__car" src="assets/img/model-art-revuelto-600.png" width="600" height="215" loading="lazy" decoding="async" alt="Lamborghini Revuelto in orange, side profile.">
+                    </picture>
+                </figure>
+                <div class="model__body">
+                    <div class="model__id">
+                        <span class="model__folio" aria-hidden="true">02</span>
+                        <h3 class="model__name">Revuelto</h3>
+                        <p class="model__claim">The quantum of driving</p>
+                    </div>
+                    <div class="model__meta">
+                        <dl class="model__facts">
+                            <div><dt>Max power (combined ICE+EE)</dt><dd>1,015 CV</dd></div>
+                            <div><dt>Top speed</dt><dd>&gt;350 km/h</dd></div>
+                            <div><dt>0–100 km/h</dt><dd>2.5 s</dd></div>
+                        </dl>
+                    </div>
+                    <div class="model__actions">
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/contact-us"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--solid btn--md" href="https://configurator.lamborghini.com/" rel="noopener"><span>Configure</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    </div>
+                </div>
+            </li>
+            <li class="model" id="range-urus-se">
+                <figure class="model__media">
+                    <picture>
+                        <source type="image/webp" srcset="assets/img/model-art-urus-se-600.webp 600w, assets/img/model-art-urus-se-1200.webp 1200w" sizes="(min-width: 1200px) 640px, (min-width: 768px) 48vw, 100vw">
+                        <img class="model__car" src="assets/img/model-art-urus-se-600.png" width="600" height="215" loading="lazy" decoding="async" alt="Lamborghini Urus SE in orange, side profile.">
+                    </picture>
+                </figure>
+                <div class="model__body">
+                    <div class="model__id">
+                        <span class="model__folio" aria-hidden="true">03</span>
+                        <h3 class="model__name">Urus SE</h3>
+                        <p class="model__claim">Dare to live more</p>
+                    </div>
+                    <div class="model__meta">
+                        <dl class="model__facts">
+                            <div><dt>Max power (combined ICE+EE)</dt><dd>800 CV</dd></div>
+                            <div><dt>Top speed</dt><dd>312 km/h</dd></div>
+                            <div><dt>0–100 km/h</dt><dd>3.4 s</dd></div>
+                        </dl>
+                    </div>
+                    <div class="model__actions">
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/contact-us"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--solid btn--md" href="https://configurator.lamborghini.com/" rel="noopener"><span>Configure</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    </div>
+                </div>
+            </li>
+            <li class="model" id="range-urus-se-performante">
+                <figure class="model__media">
+                    <picture>
+                        <source type="image/webp" srcset="assets/img/model-art-urus-se-performante-600.webp 600w, assets/img/model-art-urus-se-performante-1200.webp 1200w" sizes="(min-width: 1200px) 640px, (min-width: 768px) 48vw, 100vw">
+                        <img class="model__car" src="assets/img/model-art-urus-se-performante-600.png" width="600" height="215" loading="lazy" decoding="async" alt="Lamborghini Urus SE Performante in yellow-green, side profile.">
+                    </picture>
+                </figure>
+                <div class="model__body">
+                    <div class="model__id">
+                        <span class="model__folio" aria-hidden="true">04</span>
+                        <h3 class="model__name">Urus SE Performante</h3>
+                        <p class="model__claim">Urus at its peak</p>
+                    </div>
+                    <div class="model__meta">
+                        <dl class="model__facts">
+                            <div><dt>Max power (combined ICE+EE)</dt><dd>812 CV</dd></div>
+                            <div><dt>Top speed</dt><dd>312 km/h</dd></div>
+                            <div><dt>0–100 km/h</dt><dd>3.3 s</dd></div>
+                        </dl>
+                    </div>
+                    <div class="model__actions">
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/contact-us"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--solid btn--md" href="https://configurator.lamborghini.com/" rel="noopener"><span>Configure</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ============================ 3 · INVENTORY ============================
+     Lamborghini only, one card per VIN (the source lists every car twice).
+     Card = dealer adaptation of the Selezione search card. DATA_SOURCES.md. -->
+<section class="inventory band band--dark" id="inventory" aria-labelledby="inventory-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">Lamborghini Miami inventory</p>
+                <h2 class="t-banner" id="inventory-title">In the showroom</h2>
+                <p class="section-head__lead t-lead">A selection of Lamborghinis from our inventory, as listed on 30 Sep 2026.</p>
+            </div>
+            <a class="btn btn--primary section-head__cta" href="https://www.lamborghinimiami.com/lamborghini-miami-fl">
+                <span>View all inventory</span>
+                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+        </header>
+
+        <div class="inv-group inv-group--new" id="new">
+            <h3 class="inv-group__label t-eyelet">New</h3>
+            <ul class="inv-grid" role="list">
+                <li class="vcard">
+                    <h4 class="vcard__title">2026 Urus SE</h4>
+                    <p class="vcard__colour">Nero Noctis Metallic<span class="vcard__stock">Stock 10918</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2026-urus-se-640.webp 640w, assets/img/inv-2026-urus-se-1024.webp 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw">
+                            <img src="assets/img/inv-2026-urus-se-640.jpg" srcset="assets/img/inv-2026-urus-se-640.jpg 640w, assets/img/inv-2026-urus-se-1024.jpg 1024w" sizes="(min-width: 1200px) 480px, (min-width: 768px) 45vw, 100vw" width="1024" height="576" loading="lazy" decoding="async" alt="2026 Lamborghini Urus SE in Nero Noctis Metallic on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>24 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price vcard__price--none">Price on request</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-urus-se-north-miami-beach-fl-id-66267994"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2026 Urus SE</span></a>
+                    </div>
+                </li>
+
+                <li class="vcard">
+                    <h4 class="vcard__title">2026 Temerario</h4>
+                    <p class="vcard__colour">Verde Mercurius Metallic<span class="vcard__stock">Stock 10914</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2026-temerario-640.webp 640w, assets/img/inv-2026-temerario-1024.webp 1024w" sizes="(min-width: 1200px) 620px, (min-width: 768px) 45vw, 100vw">
+                            <img src="assets/img/inv-2026-temerario-640.jpg" srcset="assets/img/inv-2026-temerario-640.jpg 640w, assets/img/inv-2026-temerario-1024.jpg 1024w" sizes="(min-width: 1200px) 620px, (min-width: 768px) 45vw, 100vw" width="1024" height="576" loading="lazy" decoding="async" alt="2026 Lamborghini Temerario in Verde Mercurius Metallic on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>37 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price vcard__price--none">Price on request</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2026 Temerario</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="inv-group inv-group--pre" id="pre-owned">
+            <h3 class="inv-group__label t-eyelet">Pre-owned</h3>
+            <ul class="inv-grid inv-grid--rail" role="list" aria-label="Pre-owned Lamborghinis">
+                <li class="vcard">
+                    <h4 class="vcard__title">2024 Revuelto</h4>
+                    <p class="vcard__colour">Grigio Acheso Matt<span class="vcard__stock">Stock CJ2602</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2024-revuelto-acheso-640.webp 640w, assets/img/inv-2024-revuelto-acheso-1024.webp 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw">
+                            <img src="assets/img/inv-2024-revuelto-acheso-640.jpg" srcset="assets/img/inv-2024-revuelto-acheso-640.jpg 640w, assets/img/inv-2024-revuelto-acheso-1024.jpg 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw" width="1024" height="576" loading="lazy" decoding="async" alt="2024 Lamborghini Revuelto in Grigio Acheso Matt, doors raised, on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>1,411 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price"><span class="visually-hidden">Listed price </span>$741,697</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65607471"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2024 Revuelto, Grigio Acheso Matt</span></a>
+                    </div>
+                </li>
+
+                <li class="vcard">
+                    <h4 class="vcard__title">2024 Revuelto</h4>
+                    <p class="vcard__colour">Giallo Metallic<span class="vcard__stock">Stock 86180</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2024-revuelto-giallo-640.webp 640w, assets/img/inv-2024-revuelto-giallo-1024.webp 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw">
+                            <img src="assets/img/inv-2024-revuelto-giallo-640.jpg" srcset="assets/img/inv-2024-revuelto-giallo-640.jpg 640w, assets/img/inv-2024-revuelto-giallo-1024.jpg 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw" width="1024" height="576" loading="lazy" decoding="async" alt="2024 Lamborghini Revuelto in Giallo Metallic, doors raised, on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>187 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price"><span class="visually-hidden">Listed price </span>$651,697</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2024 Revuelto, Giallo Metallic</span></a>
+                    </div>
+                </li>
+
+                <li class="vcard">
+                    <h4 class="vcard__title">2024 Urus S</h4>
+                    <p class="vcard__colour">Oro Elios Metallic<span class="vcard__stock">Stock CJ2630</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2024-urus-s-oro-elios-640.webp 640w, assets/img/inv-2024-urus-s-oro-elios-1024.webp 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw">
+                            <img src="assets/img/inv-2024-urus-s-oro-elios-640.jpg" srcset="assets/img/inv-2024-urus-s-oro-elios-640.jpg 640w, assets/img/inv-2024-urus-s-oro-elios-1024.jpg 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw" width="1024" height="576" loading="lazy" decoding="async" alt="2024 Lamborghini Urus S in Oro Elios Metallic on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>537 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price"><span class="visually-hidden">Listed price </span>$286,697</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-urus-s-north-miami-beach-fl-id-66092572"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2024 Urus S, Oro Elios Metallic</span></a>
+                    </div>
+                </li>
+
+                <li class="vcard">
+                    <h4 class="vcard__title">2023 Urus Performante</h4>
+                    <p class="vcard__colour">Rosso Mars Metallic<span class="vcard__stock">Stock CD2536</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2023-urus-performante-rosso-mars-640.webp 640w, assets/img/inv-2023-urus-performante-rosso-mars-1024.webp 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw">
+                            <img src="assets/img/inv-2023-urus-performante-rosso-mars-640.jpg" srcset="assets/img/inv-2023-urus-performante-rosso-mars-640.jpg 640w, assets/img/inv-2023-urus-performante-rosso-mars-1024.jpg 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw" width="1024" height="576" loading="lazy" decoding="async" alt="2023 Lamborghini Urus Performante in Rosso Mars Metallic on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>8,794 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price"><span class="visually-hidden">Listed price </span>$291,697</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/used-2023-lamborghini-urus-performante-north-miami-beach-fl-id-64609499"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2023 Urus Performante, Rosso Mars Metallic</span></a>
+                    </div>
+                </li>
+
+                <li class="vcard">
+                    <h4 class="vcard__title">2020 Urus</h4>
+                    <p class="vcard__colour">Blu Astraeus Metallic<span class="vcard__stock">Stock 85991Z</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2020-urus-blu-astraeus-640.webp 640w, assets/img/inv-2020-urus-blu-astraeus-1024.webp 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw">
+                            <img src="assets/img/inv-2020-urus-blu-astraeus-640.jpg" srcset="assets/img/inv-2020-urus-blu-astraeus-640.jpg 640w, assets/img/inv-2020-urus-blu-astraeus-1024.jpg 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw" width="1024" height="576" loading="lazy" decoding="async" alt="2020 Lamborghini Urus in Blu Astraeus Metallic on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>4,872 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price"><span class="visually-hidden">Listed price </span>$210,697</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/used-2020-lamborghini-urus---north-miami-beach-fl-id-65769445"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2020 Urus, Blu Astraeus Metallic</span></a>
+                    </div>
+                </li>
+
+                <li class="vcard">
+                    <h4 class="vcard__title">2015 Huracán LP610-4</h4>
+                    <p class="vcard__colour">Nero Nemesis Matt<span class="vcard__stock">Stock 10881A</span></p>
+                    <figure class="vcard__media">
+                        <picture>
+                            <source type="image/webp" srcset="assets/img/inv-2015-huracan-lp610-4-640.webp 640w, assets/img/inv-2015-huracan-lp610-4-1024.webp 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw">
+                            <img src="assets/img/inv-2015-huracan-lp610-4-640.jpg" srcset="assets/img/inv-2015-huracan-lp610-4-640.jpg 640w, assets/img/inv-2015-huracan-lp610-4-1024.jpg 1024w" sizes="(min-width: 1200px) 400px, (min-width: 1024px) 30vw, (min-width: 768px) 44vw, 84vw" width="1024" height="576" loading="lazy" decoding="async" alt="2015 Lamborghini Huracán LP610-4 in Nero Nemesis Matt with bronze wheels, on the Lamborghini Miami turntable.">
+                        </picture>
+                    </figure>
+                    <dl class="vcard__rows">
+                        <div><dt>Odometer</dt><dd>18,536 mi</dd></div>
+                    </dl>
+                    <div class="vcard__foot">
+                        <p class="vcard__price"><span class="visually-hidden">Listed price </span>$246,697</p>
+                        <a class="btn btn--primary btn--md" href="https://www.lamborghinimiami.com/vehicle-details/used-2015-lamborghini-huracan-lp610-4-north-miami-beach-fl-id-66157191"><span>View vehicle</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg><span class="visually-hidden">: 2015 Huracán LP610-4</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="inventory__foot">
+            <p class="t-legal inventory__note">Listings and prices as published on lamborghinimiami.com on 30 Sep 2026. As stated on the listing: price includes dealer fee of $1,447.50 and $299 electronic filing fee; tax, tag, title and registration fees are not included and are calculated at time of purchase. Price and availability subject to change.</p>
+            <a class="btn btn--primary inventory__all" href="https://www.lamborghinimiami.com/lamborghini-miami-fl">
+                <span>View all inventory</span>
+                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 4 · AD PERSONAM ============================
+     Copy stays inside what is verified: the programme is Lamborghini's; the
+     on-site "studio" claim is unconfirmed and is not made. -->
+<!-- Pinned chapter (Alex, 30 Sep 2026): Ad Personam holds (sticky) while Service
+     scrolls up over it. The wrapper bounds the pin and carries the anchor, because a
+     stuck element reports top 0 and cannot be scrolled to by its own box. -->
+<div class="adp-pin" id="ad-personam">
+<div class="adp__stage">
+        <picture class="adp__media">
+            <source media="(orientation: portrait)" type="image/webp"
+                    srcset="assets/img/adp-cabin-rv-p-600.webp 600w, assets/img/adp-cabin-rv-p-802.webp 802w" sizes="100vw">
+            <source media="(orientation: portrait)"
+                    srcset="assets/img/adp-cabin-rv-p-600.jpg 600w, assets/img/adp-cabin-rv-p-802.jpg 802w" sizes="100vw">
+            <source type="image/webp"
+                    srcset="assets/img/adp-cabin-rv-l-1280.webp 1280w, assets/img/adp-cabin-rv-l-1744.webp 1744w" sizes="100vw">
+            <img class="adp__img" src="assets/img/adp-cabin-rv-l-1280.jpg"
+                 srcset="assets/img/adp-cabin-rv-l-1280.jpg 1280w, assets/img/adp-cabin-rv-l-1744.jpg 1744w" sizes="100vw"
+                 width="1744" height="1000" loading="lazy" decoding="async"
+                 alt="The cabin of a Lamborghini Revuelto: tan leather, carbon fibre and the steering wheel, with a digital cityscape in the windscreen.">
+        </picture>
+        <div class="adp__scrim" aria-hidden="true"></div>
+    </div>
+    <section class="adp" aria-labelledby="adp-title">
+    <!-- The photograph is pinned (.adp__stage, sticky) for the whole of .adp-pin; the copy
+         is in normal flow: it enters in the lower-middle of the frame and scrolls up at
+         scroll speed, with Service following below it and sliding over the still photo.
+         A soft dark backing travels with the copy group (.adp__inner::before). -->
+    <div class="adp__inner container">
+        <header class="adp__head">
+            <p class="t-eyelet adp__eyelet">Personalization</p>
+            <h2 class="t-banner" id="adp-title">Ad Personam</h2>
+        </header>
+        <div class="adp__body">
+            <p class="t-lead adp__lead">Lamborghini’s personalization programme: colours, materials and details specified around you. Begin with our sales team in Miami; continue in the Lamborghini configurator.</p>
+            <div class="adp__actions">
+                <a class="btn btn--accent" href="https://configurator.lamborghini.com/" rel="noopener">
+                    <span>Start configuration</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                </a>
+                <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/contact-us">
+                    <span>Talk to our team</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 5 · SERVICE & OWNERSHIP ============================
+     Departments set as corporate technical-specification rows (shot 07).
+     "Largest service department" and "only factory-certified" are NOT used. -->
+<section class="service band band--dark" id="service" aria-labelledby="service-title">
+    <div class="container service__grid">
+        <figure class="service__media">
+            <picture>
+                <source type="image/webp" srcset="assets/img/service-workshop-560.webp 560w, assets/img/service-workshop-800.webp 800w, assets/img/service-workshop-1200.webp 1200w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 40vw, 100vw">
+                <img src="assets/img/service-workshop-800.jpg" srcset="assets/img/service-workshop-560.jpg 560w, assets/img/service-workshop-800.jpg 800w, assets/img/service-workshop-1200.jpg 1200w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 40vw, 100vw" width="1200" height="1500" loading="lazy" decoding="async" alt="A technician walking through the Lamborghini Miami workshop, past cars on the service bays.">
+            </picture>
+            <figcaption class="t-legal service__caption">The Lamborghini Miami workshop, Biscayne Boulevard</figcaption>
+        </figure>
+
+        <div class="service__body">
+            <header>
+                <p class="t-eyelet section-head__eyelet">Ownership</p>
+                <h2 class="t-banner" id="service-title">Service &amp; parts</h2>
+                <p class="t-lead service__lead">Scheduled maintenance, repair, genuine Lamborghini parts, and Lamborghini-certified collision and paint repair, all at our workshop on Biscayne Boulevard.</p>
+            </header>
+
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Service</dt>
+                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri, 8:00 am – 5:30 pm</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Parts</dt>
+                    <dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a><span class="spec__sub">Genuine Lamborghini parts</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Collision &amp; paint</dt>
+                    <dd class="spec__value">Lamborghini-certified<span class="spec__sub"><a class="spec__link" href="https://www.lamborghinimiami.com/ccrc">Collision center and paint shop</a></span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Roadside assistance</dt>
+                    <dd class="spec__value"><a href="tel:+18884646040">1-888-464-6040</a><span class="spec__sub">24 hours</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Certified pre-owned</dt>
+                    <dd class="spec__value">Selezione Lamborghini<span class="spec__sub"><a class="spec__link" href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">About the programme</a></span></dd>
+                </div>
+            </dl>
+
+            <div class="service__actions">
+                <a class="btn btn--accent" href="https://www.lamborghinimiami.com/schedule-service">
+                    <span>Schedule service</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+                <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/order-parts">
+                    <span>Order parts</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+</div><!-- /.adp-pin -->
+
+<!-- ============================ 5b · CERTIFIED COLLISION CENTER ============================
+     Lamborghini-certified collision repair and paint shop (lamborghini.com dealer page:
+     certCollisionCenter, certPaintShop). Services as listed on the dealer's /ccrc page.
+     Not used: "South Florida's only factory-certified collision center", the TÜV claim.
+     Text left, image right (the mirror of Service); from 1200 the photograph is exactly
+     the height of the text block and opens upward on scroll (data-reveal, main.js). -->
+<section class="collision band band--black" id="collision" aria-labelledby="collision-title">
+    <div class="container collision__grid">
+        <div class="collision__body">
+            <header class="collision__head">
+                <p class="t-eyelet section-head__eyelet">Lamborghini-certified</p>
+                <h2 class="t-banner" id="collision-title"><span class="collision__line">Collision</span> <span class="collision__line">&amp; paint center</span></h2>
+                <p class="t-lead collision__lead">A Lamborghini-certified collision repair center and paint shop. Repairs follow Lamborghini-approved procedures, with original Lamborghini parts.</p>
+            </header>
+
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Collision repair</dt>
+                    <dd class="spec__value">Lamborghini-certified<span class="spec__sub">Approved repair procedures</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Paintwork</dt>
+                    <dd class="spec__value">Certified paint shop<span class="spec__sub">Polishing, refinishing, spot repair</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Liveries</dt>
+                    <dd class="spec__value">Painted and adhesive<span class="spec__sub">For special-edition Lamborghinis</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Structural repair</dt>
+                    <dd class="spec__value">Steel and aluminium<span class="spec__sub">Re-installation of components</span></dd>
+                </div>
+            </dl>
+
+            <div class="collision__actions">
+                <a class="btn btn--primary" href="https://www.lamborghinimiami.com/ccrc" rel="noopener"><span>Collision center</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                <a class="btn btn--secondary" href="tel:+18332905148"><span>Call (833) 290-5148</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+        </div>
+
+        <figure class="collision__media" data-reveal>
+            <picture>
+                <source type="image/webp" srcset="assets/img/collision-paint-booth-560.webp 560w, assets/img/collision-paint-booth-802.webp 802w" sizes="(min-width: 1200px) 820px, (min-width: 768px) 500px, 100vw">
+                <img src="assets/img/collision-paint-booth-560.jpg" srcset="assets/img/collision-paint-booth-560.jpg 560w, assets/img/collision-paint-booth-802.jpg 802w" sizes="(min-width: 1200px) 820px, (min-width: 768px) 500px, 100vw" width="802" height="802" loading="lazy" decoding="async" alt="Painter refinishing a blue body panel in a paint booth.">
+            </picture>
+        </figure>
+    </div>
+</section>
+
+<!-- ============================ 6 · THE HOUSE ============================
+     Heritage uses years, never a count ("40 years" / "45 years" conflict). -->
+<section class="house band band--light" id="house" aria-labelledby="house-title">
+    <div class="container">
+        <div class="house__grid">
+            <div class="house__intro">
+                <!-- STAND-IN lockup: 2024 bull (unaltered mark, shown via mask) + dealer name set in type, until Lamborghini supplies the official 2024 "LAMBORGHINI MIAMI" lockup. -->
+                <p class="lockup" aria-label="Lamborghini Miami"><span class="lockup__bull" aria-hidden="true"></span><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></p>
+                <h2 class="t-banner house__title" id="house-title">Since 1977</h2>
+                <div class="house__text">
+                    <p>Lamborghini Miami is part of Prestige Imports, the family dealership Irv David founded in Miami in 1977. It began at a gas station he owned, grew into a dealership for European cars, and in 1986 opened its own showroom on Biscayne Boulevard.</p>
+                    <p>Since 2007 the house has been led by his son, Brett David. In 2011 Brett and his sister, Brooke, created the Ride2Revive Foundation.</p>
+                </div>
+                <a class="btn btn--tertiary" href="https://www.lamborghinimiami.com/our-story"><span>Read our story</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+
+            <figure class="house__media">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/showroom-aerial-night-800.webp 800w, assets/img/showroom-aerial-night-1200.webp 1200w, assets/img/showroom-aerial-night-1760.webp 1760w" sizes="(min-width: 1200px) 760px, (min-width: 768px) 56vw, 100vw">
+                    <img src="assets/img/showroom-aerial-night-1200.jpg" srcset="assets/img/showroom-aerial-night-800.jpg 800w, assets/img/showroom-aerial-night-1200.jpg 1200w, assets/img/showroom-aerial-night-1760.jpg 1760w" sizes="(min-width: 1200px) 760px, (min-width: 768px) 56vw, 100vw" width="1760" height="990" loading="lazy" decoding="async" alt="Aerial view of the Lamborghini Miami showroom at night, with cars on the forecourt between palm trees.">
+                </picture>
+                <figcaption class="t-legal house__caption">Lamborghini Miami, 14780 Biscayne Boulevard. The showroom was completed in 2020.</figcaption>
+            </figure>
+        </div>
+
+        <ol class="archive" aria-label="From the Prestige Imports archive">
+            <li class="archive__item">
+                <img src="assets/img/archive-1980-640.jpg" width="640" height="427" loading="lazy" decoding="async" alt="Irv David smiling in front of the original Prestige Motor Car Imports sign.">
+                <p class="archive__year">1980</p>
+                <p class="archive__text">Irv David outside the original Prestige Imports on West Dixie Highway.</p>
+            </li>
+            <li class="archive__item">
+                <img src="assets/img/archive-1983-640.jpg" width="640" height="427" loading="lazy" decoding="async" alt="A sign on an empty lot reading Future New Home of Prestige Motorcar Imports.">
+                <p class="archive__year">1983</p>
+                <p class="archive__text">The land on Biscayne Boulevard, with a trailer as the first sales office.</p>
+            </li>
+            <li class="archive__item">
+                <img src="assets/img/archive-1986-640.jpg" width="640" height="427" loading="lazy" decoding="async" alt="Night-time grand opening of the Prestige Imports showroom, with guests and cars outside.">
+                <p class="archive__year">1986</p>
+                <p class="archive__text">The grand opening of the Prestige Imports showroom on Biscayne Boulevard.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ============================ 7 · VISIT ============================ -->
+<section class="visit band band--black" id="visit" aria-labelledby="visit-title">
+    <div class="container visit__grid">
+        <div class="visit__intro">
+            <p class="t-eyelet section-head__eyelet">Lamborghini Miami</p>
+            <h2 class="t-banner" id="visit-title">Visit</h2>
+            <address class="visit__address">
+                14780 Biscayne Boulevard<br>
+                North Miami Beach, FL 33181
+            </address>
+            <div class="visit__actions">
+                <a class="btn btn--accent" href="tel:+18332905147">
+                    <span>Call sales</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                </a>
+                <a class="btn btn--secondary" href="https://maps.google.com/maps?q=Lamborghini+Miami,+14780+Biscayne+Boulevard+North,+North+Miami+Beach,+FL+33181" rel="noopener">
+                    <span>Get directions</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="visit__data">
+            <h3 class="t-eyelet visit__head">Departments</h3>
+            <dl class="spec">
+                <div class="spec__row"><dt class="spec__label">Sales</dt><dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+                <div class="spec__row"><dt class="spec__label">Service</dt><dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a></dd></div>
+                <div class="spec__row"><dt class="spec__label">Parts</dt><dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a></dd></div>
+            </dl>
+
+            <h3 class="t-eyelet visit__head">Hours</h3>
+            <dl class="spec spec--hours">
+                <div class="spec__row"><dt class="spec__label">Sales</dt><dd class="spec__value">Mon–Fri 9:00 am – 7:00 pm<span class="spec__sub">Sat 10:00 am – 6:00 pm · Sun closed</span></dd></div>
+                <div class="spec__row"><dt class="spec__label">Service</dt><dd class="spec__value">Mon–Fri 8:00 am – 5:30 pm</dd></div>
+            </dl>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer band band--black" aria-labelledby="footer-title">
+    <div class="container">
+        <div class="site-footer__top">
+            <div class="site-footer__brand">
+                <img src="assets/img/bull.svg" width="57" height="59" alt="" class="site-footer__bull">
+                <p class="site-footer__name" id="footer-title">Lamborghini Miami</p>
+                <p class="site-footer__sub">Authorized Lamborghini Dealer</p>
+            </div>
+
+            <nav class="site-footer__nav" aria-label="Footer">
+                <div>
+                    <p class="site-footer__head">Vehicles</p>
+                    <ul>
+                        <li><a href="#range">Models</a></li>
+                        <li><a href="#new">New inventory</a></li>
+                        <li><a href="#pre-owned">Pre-owned inventory</a></li>
+                        <li><a href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Ownership</p>
+                    <ul>
+                        <li><a href="#ad-personam">Ad Personam</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/schedule-service">Schedule service</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/order-parts">Parts</a></li>
+                        <li><a href="#collision">Collision center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Dealership</p>
+                    <ul>
+                        <li><a href="https://www.lamborghinimiami.com/our-story">Our story</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/careers">Careers</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/contact-us">Contact</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Follow</p>
+                    <ul>
+                        <li><a href="https://www.instagram.com/lamborghinimiami/" rel="noopener">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/lamborghinimiami.prestigeimports" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@lamborghiniofmiami" rel="noopener">YouTube</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="site-footer__parent">
+            <img src="assets/img/logo-prestige-imports-white.png" width="318" height="146" loading="lazy" alt="Prestige Imports, established 1977" class="site-footer__prestige">
+            <p class="site-footer__parent-text">Lamborghini Miami is a division of Prestige Imports.</p>
+            <a class="btn btn--tertiary" href="https://www.prestigeimports.com/" rel="noopener"><span>Visit Prestige Imports</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+        </div>
+
+        <div class="site-footer__legal t-legal">
+            <p>Revuelto SV: Under approval, not available for sale. Performance figures are manufacturer data published by Automobili Lamborghini S.p.A. and are shown for reference.</p>
+            <p>Inventory listings, prices and mileage as published on lamborghinimiami.com on 30 Sep 2026, and subject to change. Please confirm price, availability and applicable fees with our sales team.</p>
+            <p>Lamborghini, the Bull logo, model names and related marks are trademarks of Automobili Lamborghini S.p.A.</p>
+            <div class="site-footer__baseline">
+                <p>© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181</p>
+                <p class="site-footer__powered">Powered by <a href="https://www.allautonetwork.com/" target="_blank" rel="noopener">All Auto Network<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="assets/js/main.js?v=87" defer></script>
+</body>
+</html>
