@@ -46,8 +46,8 @@
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=69">
-    <link rel="stylesheet" href="assets/css/main.css?v=69">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=70">
+    <link rel="stylesheet" href="assets/css/main.css?v=70">
 
     <script type="application/ld+json">
     {
@@ -149,7 +149,7 @@
                     <li><a class="menu__link" href="#ad-personam" data-menu-link>Ad Personam</a></li>
                     <li><a class="menu__link" href="https://www.lamborghinimiami.com/schedule-service">Schedule service</a></li>
                     <li><a class="menu__link" href="https://www.lamborghinimiami.com/order-parts">Order parts</a></li>
-                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/ccrc">Collision &amp; paint</a></li>
+                    <li><a class="menu__link" href="#collision" data-menu-link>Collision center</a></li>
                 </ul>
             </div>
             <div class="menu__col">
@@ -695,6 +695,55 @@
 </section>
 </div><!-- /.adp-pin -->
 
+<!-- ============================ 5b · CERTIFIED COLLISION CENTER ============================
+     Lamborghini-certified collision repair and paint shop (lamborghini.com dealer page:
+     certCollisionCenter, certPaintShop). Services as listed on the dealer's /ccrc page.
+     Not used: "South Florida's only factory-certified collision center", the TÜV claim.
+     Text left, image right: the mirror of Service, so the two chapters read as a pair. -->
+<section class="collision band band--black" id="collision" aria-labelledby="collision-title">
+    <div class="container collision__grid">
+        <div class="collision__body">
+            <header class="collision__head">
+                <p class="t-eyelet section-head__eyelet">Lamborghini-certified</p>
+                <h2 class="t-banner" id="collision-title"><span class="collision__line">Collision</span> <span class="collision__line">&amp; paint center</span></h2>
+                <p class="t-lead collision__lead">A Lamborghini-certified collision repair center and paint shop. Repairs follow Lamborghini-approved procedures, with original Lamborghini parts.</p>
+            </header>
+
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Collision repair</dt>
+                    <dd class="spec__value">Lamborghini-certified<span class="spec__sub">Approved repair procedures</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Paintwork</dt>
+                    <dd class="spec__value">Certified paint shop<span class="spec__sub">Polishing, refinishing, spot repair</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Liveries</dt>
+                    <dd class="spec__value">Painted and adhesive<span class="spec__sub">For special-edition Lamborghinis</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Structural repair</dt>
+                    <dd class="spec__value">Steel and aluminium<span class="spec__sub">Re-installation of components</span></dd>
+                </div>
+            </dl>
+
+            <div class="collision__actions">
+                <a class="btn btn--primary" href="https://www.lamborghinimiami.com/ccrc" rel="noopener"><span>Collision center</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+                <a class="btn btn--secondary" href="tel:+18332905148"><span>Call (833) 290-5148</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+        </div>
+
+        <figure class="collision__media">
+            <picture>
+                <source type="image/webp" srcset="assets/img/collision-paint-booth-560.webp 560w, assets/img/collision-paint-booth-802.webp 802w" sizes="(min-width: 1200px) 480px, (min-width: 1024px) 38vw, (min-width: 768px) 60vw, 100vw">
+                <img src="assets/img/collision-paint-booth-560.jpg" srcset="assets/img/collision-paint-booth-560.jpg 560w, assets/img/collision-paint-booth-802.jpg 802w" sizes="(min-width: 1200px) 480px, (min-width: 1024px) 38vw, (min-width: 768px) 60vw, 100vw" width="802" height="802" loading="lazy" decoding="async" alt="A painter in a respirator spraying a blue body panel in a paint booth.">
+            </picture>
+            <figcaption class="t-legal collision__caption">Paint booth, Prestige Imports group</figcaption>
+        </figure>
+    </div>
+</section>
+
 <!-- ============================ 6 · THE HOUSE ============================
      Heritage uses years, never a count ("40 years" / "45 years" conflict). -->
 <section class="house band band--light" id="house" aria-labelledby="house-title">
@@ -807,7 +856,7 @@
                         <li><a href="#ad-personam">Ad Personam</a></li>
                         <li><a href="https://www.lamborghinimiami.com/schedule-service">Schedule service</a></li>
                         <li><a href="https://www.lamborghinimiami.com/order-parts">Parts</a></li>
-                        <li><a href="https://www.lamborghinimiami.com/ccrc">Collision &amp; paint</a></li>
+                        <li><a href="#collision">Collision center</a></li>
                     </ul>
                 </div>
                 <div>
@@ -846,6 +895,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=69" defer></script>
+<script src="assets/js/main.js?v=70" defer></script>
 </body>
 </html>

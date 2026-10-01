@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-01T00:25:16.335Z",
-  "seal": "e76b65e155e683203713790fef22e162ce06ccda047300b5b2fabe3b5abd2dd8",
-  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
+  "checkedAt": "2026-10-01T00:29:08.719Z",
+  "seal": "b2458f722988b7e8b1378357918072dc6f507ca226b0d88255403e7f96c88fd0",
+  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
   "ok": false,
   "problems": [
     "Gate 1 · delegated — the vault was read: passes on machine checks only — humanConfirmed is false",

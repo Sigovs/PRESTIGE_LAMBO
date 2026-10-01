@@ -159,3 +159,19 @@ Each claim on the hero slides, and its source. There are no superlatives, and no
 | 4 | "Scheduled service, genuine parts, Lamborghini-certified collision and paint." | Service section sources: lamborghini.com dealer page `certCollisionCenter: true`, `certPaintShop: true`; dealer service and parts pages |
 | 4 | "Care for every mile" (title) | A tagline, not a factual claim |
 | 5 | "A family house since 1977" / "Prestige Imports, founded in Miami by Irv David in 1977." | Dealer-stated: `/our-story` (founded by Irv David), `/careers` ("second-generation family-owned … since 1977"), footer "A division of the Prestige Imports family" |
+
+
+## Certified collision center section (30 Sep 2026)
+
+| Claim on the page | Status | Source |
+|---|---|---|
+| "Lamborghini-certified collision repair center and paint shop"; "Certified paint shop" | verified | lamborghini.com Lamborghini Miami dealer page: `certCollisionCenter: true`, `certPaintShop: true` (CI §3.1) |
+| "Repairs follow Lamborghini-approved procedures, with original Lamborghini parts" | dealer-stated | `/ccrc`, "The Certified Difference": Original Lamborghini Parts · Lamborghini approved repair procedures |
+| Paintwork: polishing, refinishing, spot repair; liveries, painted and adhesive, for special-edition Lamborghinis; steel and aluminium repair; re-installation of components | dealer-stated | `/ccrc`, "PAINTWORK REPAIRS" and "STEEL AND ALUMINUM REPAIRS" |
+| Phone (833) 290-5148 | dealer-stated | The service number (JSON-LD, service page). The site lists no separate collision number |
+
+**Not used:**
+- "South Florida's only Factory-Certified Collision Center" (an unverified superlative)
+- The TÜV certification of the paint shop. It appears on `/ccrc` as the dealer's own claim, is unverified, and is left off the page.
+
+The image is the Prestige Imports group paint-booth photograph (see MANIFEST). It is captioned "Paint booth, Prestige Imports group", not as the Lamborghini Miami body shop. `collision_hero_sept26.jpg` was rejected: it shows a Lotus, and this page excludes other brands.

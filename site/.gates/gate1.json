@@ -1,13 +1,13 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
-  "fileCount": 504,
+  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
+  "fileCount": 510,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 8740,
-      "screens": 9.71,
-      "mediaTotal": 24,
+      "pageHeightPx": 9806,
+      "screens": 10.9,
+      "mediaTotal": 25,
       "fullBleedMedia": 6,
       "largestTypePx": 120,
       "smallestTypePx": 14,
@@ -16,9 +16,9 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 13010,
-      "screens": 15.41,
-      "mediaTotal": 24,
+      "pageHeightPx": 14556,
+      "screens": 17.25,
+      "mediaTotal": 25,
       "fullBleedMedia": 6,
       "largestTypePx": 64,
       "smallestTypePx": 14,
@@ -349,6 +349,6 @@
     }
   ],
   "verdict": "pass",
-  "finishedAt": "2026-10-01T00:24:23.691Z",
+  "finishedAt": "2026-10-01T00:28:14.884Z",
   "blockers": []
 }

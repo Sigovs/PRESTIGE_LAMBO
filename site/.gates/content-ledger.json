@@ -1,6 +1,6 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
+  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
   "build": {
     "private": false
   },
@@ -639,6 +639,24 @@
     },
     {
       "class": "bare-count",
+      "text": "833",
+      "context": "Call (833) 290-5148",
+      "where": "section#collision > div.container > div.collision__body > div.collision__actions > a.btn > span"
+    },
+    {
+      "class": "bare-count",
+      "text": "290",
+      "context": "Call (833) 290-5148",
+      "where": "section#collision > div.container > div.collision__body > div.collision__actions > a.btn > span"
+    },
+    {
+      "class": "bare-count",
+      "text": "5148",
+      "context": "Call (833) 290-5148",
+      "where": "section#collision > div.container > div.collision__body > div.collision__actions > a.btn > span"
+    },
+    {
+      "class": "bare-count",
       "text": "1977",
       "context": "Since 1977",
       "where": "h2#house-title"
@@ -859,7 +877,7 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 118,
+      "hits": 121,
       "entries": 12,
       "uncovered": 0
     }
@@ -867,5 +885,5 @@
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-10-01T00:25:15.970Z"
+  "finishedAt": "2026-10-01T00:29:08.349Z"
 }

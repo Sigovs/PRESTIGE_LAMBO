@@ -1,6 +1,6 @@
 {
   "gate": "Gate 3 · Product Usefulness",
-  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
+  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
   "answers": {
     "businessIdentifiableInFiveSeconds": null,
     "primaryActionIdentifiableInFiveSeconds": null,
@@ -70,5 +70,5 @@
     "unanswered: atLeastAsUsableAsTheIncumbent"
   ],
   "verdict": "fail",
-  "finishedAt": "2026-10-01T00:25:12.786Z"
+  "finishedAt": "2026-10-01T00:29:05.081Z"
 }

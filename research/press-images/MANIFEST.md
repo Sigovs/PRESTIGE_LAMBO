@@ -66,3 +66,11 @@ Resize and export only, via `site/_tools/process-models-alex.py`: shadows as sup
 |---|---|---|---|
 | `NEW IMAGES/slide 1d.jpg` (1920×1080) | Alex's own edit of img8: the yellow Revuelto shifted right, the left side darkened for the copy | **In use:** hero slide 1 on landscape screens and portrait tablets, replacing the direct img8 export. At 1920 it is drawn 1.2× from its left edge, so the wheels clear the actions (a slight upscale of the 1920 source); 4:3 tablets shift it 48 px right. Phones are unchanged | `hero-dealer-alex-{1280,1920}.webp` + `.jpg` |
 | `NEW IMAGES/personalization.webp` (1744×1000) | Revuelto interior: tan leather, carbon, steering wheel, a digital cityscape in the windscreen | **In use:** Ad Personam (pinned photograph). Landscape shows the whole frame; portrait crops to the steering wheel and centre console (x 12–58%). It replaces img2 | `adp-cabin-rv-l-{1280,1744}.webp` + `.jpg`; `adp-cabin-rv-p-{600,802}.webp` + `.jpg` |
+
+**Collision center image (30 Sep 2026)**
+
+| File | Dimensions | Content | Source | Used for |
+|---|---|---|---|---|
+| `research/images-prestige-group/prestige_paint-booth-painter-blue-panel_802x802.jpg` | 802×802 | A painter in a respirator spraying a blue panel in a paint booth | The Prestige Imports group site update (`_______PRESTIGE TO PREVIEW/prestige-final/UPDATES SEPTEMBER 2026/Collision Paint & Concours Restoration.jpg`); same dealer group | The Certified Collision Center section, at most 500 px wide (never full bleed). Outputs `collision-paint-booth-{560,802}.webp` + `.jpg` |
+
+Rejected: `prestige-final/assets/images/collision_hero_sept26.jpg` (2560×1275), which shows a Lotus. No other brands on this page.

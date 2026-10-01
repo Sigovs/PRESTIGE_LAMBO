@@ -1163,6 +1163,28 @@ address { font-style: normal; }
     .service__media { position: sticky; top: calc(var(--header-h) + var(--sp-24)); }
 }
 
+/* ---------- 5b · Certified collision center (Alex, 30 Sep 2026) ----------
+   Black, after Service's #181818, with a hairline between them; text left and the
+   photograph right (the mirror of Service). The photo is 802 px square at source,
+   so it is never stretched past that and never full bleed. */
+.collision { border-top: var(--stroke-1) solid var(--grey-8); }
+.collision__grid { display: grid; gap: var(--sp-48); }
+.collision__body { display: grid; gap: var(--sp-48); align-content: start; }
+.collision__line { display: block; }
+.collision__lead { margin-top: var(--sp-24); max-width: var(--measure); }
+.collision__actions { display: grid; gap: var(--sp-16); }
+.collision__media { max-width: 31.25rem; }            /* 500 px: the 802 px source holds at 1.6x */
+.collision__media img { width: 100%; height: auto; }
+.collision__caption { margin-top: var(--sp-16); }
+@media (min-width: 768px) {
+    .collision__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
+}
+@media (min-width: 1024px) {
+    .collision__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr); align-items: start; }
+    .collision__body { grid-column: 1; }
+    .collision__media { grid-column: 3; justify-self: end; width: 100%; position: sticky; top: calc(var(--header-h) + var(--sp-24)); }
+}
+
 /* ---------- 6 · The house ---------- */
 .house__grid { display: grid; gap: var(--sp-48); }
 .house__intro { display: grid; gap: var(--sp-32); align-content: start; justify-items: start; }

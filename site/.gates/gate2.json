@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
+  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
   "detector": {
     "desktop": {
       "sections": [
@@ -553,6 +553,31 @@
           ]
         },
         {
+          "section": "section#collision.collision",
+          "groups": [
+            {
+              "units": 7,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "span.collision__line",
+              "formula": "7×equal||align:start|cont:none|int:static",
+              "shape": "7×equal|"
+            }
+          ]
+        },
+        {
           "section": "section#house.house",
           "groups": [
             {
@@ -606,15 +631,15 @@
                 0.442
               ],
               "slots": {
-                "meta": "mid",
-                "cta": "mid"
+                "meta": "lower",
+                "cta": "lower"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "div.spec__row",
-              "formula": "5×equal|m:mid|c:mid|align:start|cont:none|int:link",
-              "shape": "5×equal|m:mid|c:mid"
+              "formula": "5×equal|m:lower|c:lower|align:start|cont:none|int:link",
+              "shape": "5×equal|m:lower|c:lower"
             },
             {
               "units": 3,
@@ -1479,6 +1504,67 @@
           ]
         },
         {
+          "section": "section#collision.collision",
+          "groups": [
+            {
+              "units": 6,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "span.collision__line",
+              "formula": "6×equal||align:start|cont:none|int:static",
+              "shape": "6×equal|"
+            },
+            {
+              "units": 5,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "upper"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "h2#collision-title.t-banner",
+              "formula": "5×equal|m:upper|align:start|cont:none|int:static",
+              "shape": "5×equal|m:upper"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "2×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "2×equal|m:mid"
+            }
+          ]
+        },
+        {
           "section": "section#house.house",
           "groups": [
             {
@@ -1594,9 +1680,10 @@
           "section": "footer.site-footer",
           "groups": [
             {
-              "units": 11,
+              "units": 12,
               "widthClass": "equal",
               "widthRatios": [
+                0.408,
                 0.408,
                 0.408,
                 0.408,
@@ -1616,14 +1703,13 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "11×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "11×equal|c:mid"
+              "formula": "12×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "12×equal|c:mid"
             },
             {
-              "units": 4,
+              "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.408,
                 0.408,
                 0.408,
                 0.408
@@ -1635,14 +1721,13 @@
               "container": "none",
               "interaction": "link",
               "sample": "ul",
-              "formula": "4×equal|c:top|align:start|cont:none|int:link",
-              "shape": "4×equal|c:top"
+              "formula": "3×equal|c:top|align:start|cont:none|int:link",
+              "shape": "3×equal|c:top"
             },
             {
-              "units": 4,
+              "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.408,
                 0.408,
                 0.408,
                 0.408
@@ -1654,8 +1739,8 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "4×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "4×equal|c:mid"
+              "formula": "3×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "3×equal|c:mid"
             },
             {
               "units": 2,
@@ -1696,9 +1781,10 @@
           "section": "div.container",
           "groups": [
             {
-              "units": 11,
+              "units": 12,
               "widthClass": "equal",
               "widthRatios": [
+                0.465,
                 0.465,
                 0.465,
                 0.465,
@@ -1718,14 +1804,13 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "11×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "11×equal|c:mid"
+              "formula": "12×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "12×equal|c:mid"
             },
             {
-              "units": 4,
+              "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.465,
                 0.465,
                 0.465,
                 0.465
@@ -1737,14 +1822,13 @@
               "container": "none",
               "interaction": "link",
               "sample": "ul",
-              "formula": "4×equal|c:top|align:start|cont:none|int:link",
-              "shape": "4×equal|c:top"
+              "formula": "3×equal|c:top|align:start|cont:none|int:link",
+              "shape": "3×equal|c:top"
             },
             {
-              "units": 4,
+              "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.465,
                 0.465,
                 0.465,
                 0.465
@@ -1756,8 +1840,8 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "4×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "4×equal|c:mid"
+              "formula": "3×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "3×equal|c:mid"
             },
             {
               "units": 2,
@@ -1911,8 +1995,8 @@
       "kind": "parallel-units",
       "section": "section#visit.visit",
       "units": 5,
-      "shape": "5×equal|m:mid|c:mid",
-      "formula": "5×equal|m:mid|c:mid|align:start|cont:none|int:link",
+      "shape": "5×equal|m:lower|c:lower",
+      "formula": "5×equal|m:lower|c:lower|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -1996,7 +2080,7 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-10-01T00:24:31.849Z",
+  "finishedAt": "2026-10-01T00:28:23.312Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 5×equal|i:mid|h:mid|m:upper|c:lower",
@@ -2012,7 +2096,7 @@
     "undisposed parallel-units: 3×equal|m:lower",
     "undisposed parallel-units: 3×equal|m:mid",
     "undisposed parallel-units: 3×equal|i:upper|m:bottom",
-    "undisposed parallel-units: 5×equal|m:mid|c:mid",
+    "undisposed parallel-units: 5×equal|m:lower|c:lower",
     "undisposed parallel-units: 14×equal|c:mid",
     "undisposed parallel-units: 4×equal|m:top|c:upper",
     "undisposed parallel-units: 14×equal|c:mid",
