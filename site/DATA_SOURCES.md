@@ -191,3 +191,5 @@ The image is the Prestige Imports group paint-booth photograph (see MANIFEST). T
   - `https://www.lamborghini.com/en-en/models/urus/urus-se-performante`: 200.
   - The shorter `/models/urus-se` forms return 404 and are not used.
 - "View inventory" goes to `#inventory`. The brief said `#showroom`, but no such anchor exists on the page, and the inventory section is `#inventory`.
+- Pre-owned on v2 (Alex, 1 Oct 2026): one row of three cars: the 2024 Revuelto in Grigio Acheso Matt, the 2024 Revuelto in Giallo Metallic and the 2024 Urus S in Oro Elios Metallic. **Not on homepage v2:** the 2023 Urus Performante, the 2020 Urus and the 2015 Huracán LP610-4. Their data and images stay on disk, and they are still on v1.
+- "View all inventory" (one button, under the pre-owned row) links to the Lamborghini-only SRP `https://www.lamborghinimiami.com/lamborghini-miami-fl`. The dealer's used SRP (`/used-vehicles-miami-fl`, captured in `research/inventory-capture-live/raw/`) also lists Aston Martin, Audi, BMW, Bentley and other makes, which this page never shows.

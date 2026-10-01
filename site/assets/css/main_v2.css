@@ -1066,7 +1066,6 @@ address { font-style: normal; }
     .showcase__label { padding-bottom: var(--sp-4); }
     .showcase__ctrl { margin-bottom: var(--sp-8); }
 }
-}
 
 /* ---------- 3 · Inventory (dealer adaptation of the Selezione card) ---------- */
 .inventory .section-head__cta { display: none; }
@@ -1180,6 +1179,10 @@ address { font-style: normal; }
     color: var(--accent-dark);
 }
 .vcard__price--none { color: var(--grey-3); }
+/* the one "View all inventory", under the pre-owned row (Alex, 1 Oct 2026): on the
+   grid's left edge with the section's 48 px step above it; full width below 1024 */
+.inv-group__more { margin-top: var(--sp-48); }
+@media (max-width: 1023.98px) { .inv-group__all { width: 100%; } }
 .inventory__foot {
     margin-top: var(--sp-48);
     display: grid;
@@ -1192,7 +1195,7 @@ address { font-style: normal; }
    rather than orphan a card. One card image ratio (16:9) throughout. */
 @media (min-width: 768px) {
     .inv-group--new .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .inventory__foot { grid-template-columns: 1fr auto; align-items: end; }
+    .inventory__foot { grid-template-columns: 1fr; }
 }
 @media (min-width: 1024px) {
     .inv-group--pre .inv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1221,9 +1224,7 @@ address { font-style: normal; }
     .inv-group--pre { min-width: 0; }   /* the rail's min-content width must not size its ancestors */
 }
 @media (min-width: 1200px) {
-    .inventory .section-head__cta { display: inline-flex; }
-    .inventory__all { display: none; }
-    .inventory__foot { grid-template-columns: 1fr; }
+    .inventory__foot { grid-template-columns: 1fr; }   /* v2: the header CTA stays hidden; the button under the pre-owned row is the only one */
 }
 
 /* ---------- 4 · Ad Personam (Alex, 30 Sep 2026) ----------
