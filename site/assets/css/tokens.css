@@ -170,6 +170,7 @@
     --ease-in:  cubic-bezier(0.4, 0, 1, 1);
     --arrow-travel: 0.25rem;   /* 4px */
     /* text rise (user direction, Alex) — mirrored as constants in main.js */
+    /* rise tokens: now used by the menu items only; page text uses the hero tokens */
     --rise: 1.75rem;        /* 28px, text ≥ 20px */
     --rise-sm: 1rem;        /* 16px, text < 20px */
     --dur-rise: 700ms;
@@ -192,6 +193,7 @@
     --dur-hero-out: 250ms;  /* the outgoing lines fade first, no travel */
     --hero-step: 80ms;      /* top-to-bottom stagger */
     --hero-cap: 400ms;
+    --rv-cap: 640ms;          /* page text staircase: up to ~8 siblings visibly cascade (mirrored in main.js) */
     --rail-card: 84%;           /* pre-owned rail on phones: one card and a peek of the next */
     --collision-pos: 60% 40%;   /* the painter, spray gun and blue panel stay in the portrait slice */
     /* menu overlay (Alex): reveal from the top, items rise in after it */

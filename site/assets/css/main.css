@@ -994,7 +994,7 @@ address { font-style: normal; }
 }
 /* Pre-owned below 1024 (Alex, 30 Sep 2026): six stacked cards are too long on a
    phone, so they run as a horizontal rail with scroll-snap and a visible peek of
-   the next card. Native horizontal swipe; Lenis leaves it alone (data-lenis-prevent).
+   the next card. Native horizontal swipe; vertical wheel stays with Lenis (no data-lenis-prevent).
    The rail bleeds to the screen edges but never widens the page. New stays stacked. */
 @media (max-width: 1023.98px) {
     .inv-grid--rail {
@@ -1279,6 +1279,8 @@ address { font-style: normal; }
     grid-auto-columns: min(var(--archive-col), 72%);
     gap: var(--grid-gap);
     overflow-x: auto;
+    overscroll-behavior-x: contain;   /* horizontal swipes stay in the strip; vertical wheel goes to Lenis and the page */
+    contain: paint;
     scroll-snap-type: x mandatory;
     padding-bottom: var(--sp-16);
     border-top: var(--stroke-1) solid var(--stroke);
@@ -1397,6 +1399,24 @@ address { font-style: normal; }
 
 .site-footer__legal { margin-top: var(--sp-40); display: grid; gap: var(--sp-8); max-width: none; }
 .site-footer__legal p { max-width: var(--measure-legal-wide); }
+/* the baseline row: copyright left, "Powered by All Auto Network" right from 768;
+   stacked on phones. Same legal type and colour; the link is a 44 px target. */
+.site-footer__baseline { display: grid; gap: 0; }
+.site-footer__powered { white-space: nowrap; }
+.site-footer__powered a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: var(--stroke-1);
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.site-footer__powered a:hover { color: var(--grey-1); }
+@media (min-width: 768px) {
+    .site-footer__baseline { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-24); }
+}
 
 @media (min-width: 768px) {
     .site-footer__nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -1406,19 +1426,26 @@ address { font-style: normal; }
     .site-footer__top { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--grid-gap); }
 }
 
+/* the page text enters from the left (-48 px): sections clip their own horizontal
+   overflow (clip, not hidden: no scroll container, so the sticky Ad Personam
+   photograph, the sticky Service image and the Models drive keep working) */
+main section { overflow-x: clip; }
+
 /* ---------- Motion: text rise (DESIGN_SYSTEM.md §8, user direction) ----------
    Every text element rises into place once, as it enters. Classes are added by
    main.js only when JS runs and motion is allowed, and removed again when the
    rise completes, so hover transitions are handed back. transform/opacity only. */
 @media (prefers-reduced-motion: no-preference) {
+    /* page text enters like the hero (Alex, 30 Sep 2026): from the left, in a
+       staircase, on the hero's tokens (--hero-in-x, --dur-hero-in, --ease-drive,
+       --hero-step; --rv-cap lets a block of ~8 lines visibly cascade) */
     .js .rv {
         opacity: 0;
-        transform: translate3d(0, var(--rise), 0);
-        transition: opacity var(--dur-rise) var(--ease-rise),
-                    transform var(--dur-rise) var(--ease-rise);
+        transform: translate3d(var(--hero-in-x), 0, 0);
+        transition: opacity var(--dur-hero-in) var(--ease-drive),
+                    transform var(--dur-hero-in) var(--ease-drive);
         transition-delay: var(--rv-delay, 0ms);
     }
-    .js .rv--sm { transform: translate3d(0, var(--rise-sm), 0); }
     .js .rv.is-in { opacity: 1; transform: none; }
 
     /* model drive-in (§8, user direction): the car rolls in from the left and

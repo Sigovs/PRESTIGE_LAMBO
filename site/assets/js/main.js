@@ -237,7 +237,7 @@
         'main figcaption', 'main address', 'main .btn',
         '.site-footer p', '.site-footer li', '.site-footer .btn'
     ].join(',');
-    const STEP = 70, CAP = 400, DUR = 700;           // mirror of --rise-step, --rise-cap, --dur-rise
+    const STEP = 80, CAP = 640, DUR = 750;           // mirror of --hero-step, --rv-cap, --dur-hero-in (text enters like the hero)
     const risers = [...document.querySelectorAll(RISE_SEL)].filter((el) =>
         !el.closest('.hero') && !el.parentElement.closest(RISE_SEL));
 
@@ -266,7 +266,7 @@
                               || x.getBoundingClientRect().left - y.getBoundingClientRect().left);
             batch.forEach((el) => io.unobserve(el));
             release(batch, true);
-        }, { threshold: 0.15, rootMargin: '0px 0px 8% 0px' });
+        }, { threshold: 0.2, rootMargin: '0px 0px -5% 0px' });   // a little later, so the cascade is seen on screen
         // Text inside a model tile is released by its car (drive-in, below), not by this observer.
         risers.forEach((el) => { if (!el.closest('.model')) io.observe(el); });
 
