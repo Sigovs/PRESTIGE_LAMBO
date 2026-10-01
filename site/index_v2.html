@@ -46,8 +46,8 @@
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens_v2.css?v=100">
-    <link rel="stylesheet" href="assets/css/main_v2.css?v=100">
+    <link rel="stylesheet" href="assets/css/tokens_v2.css?v=101">
+    <link rel="stylesheet" href="assets/css/main_v2.css?v=101">
 
     <script type="application/ld+json">
     {
@@ -346,7 +346,8 @@
      front three-quarter car (MODELS/NEW MODELS, _tools/process-showcase.py), its name as
      a pale watermark behind it, and a thumbnail switcher. One screen tall (100svh).
      Without JS: model 1 stands alone and the thumbnails link to lamborghini.com. -->
-<section class="showcase" id="range" aria-labelledby="range-title" data-showcase>
+<div class="showcase-pin" id="range" data-showcase-pin>
+<section class="showcase" aria-labelledby="range-title" data-showcase>
     <div class="container showcase__inner">
         <h2 class="t-eyelet showcase__eyelet" id="range-title">The Lamborghini range</h2>
         <div class="showcase__stage" data-showcase-stage>
@@ -478,6 +479,7 @@
         <p class="visually-hidden" data-showcase-live aria-live="polite" aria-atomic="true"></p>
     </div>
 </section>
+</div>
 
 <!-- ============================ 3 · INVENTORY ============================
      Lamborghini only, one card per VIN (the source lists every car twice).
@@ -969,6 +971,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main_v2.js?v=100" defer></script>
+<script src="assets/js/main_v2.js?v=101" defer></script>
 </body>
 </html>

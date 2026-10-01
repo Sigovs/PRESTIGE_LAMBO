@@ -797,6 +797,11 @@ address { font-style: normal; }
     color: var(--fg);
     isolation: isolate;
 }
+/* the pin (Alex, 1 Oct 2026): one step of scroll per model, the section sticky inside.
+   JS-only: without JS (and in ?figma) the wrapper is just the section. */
+.showcase-pin { scroll-margin-top: 0; }          /* #range lands on the pin's start, model 1 */
+.js .showcase-pin { height: calc(100svh + 4 * var(--sc-step)); }
+.js .showcase-pin > .showcase { position: sticky; top: 0; }
 .showcase__inner {
     position: relative;
     z-index: 1;

@@ -556,15 +556,54 @@
             }
             if (focus) t.focus({ preventScroll: true });
         }
-        tabs.forEach((t, i) => t.addEventListener('click', (e) => { e.preventDefault(); go(i, false); }));
+        /* Pin (Alex, 1 Oct 2026): the section is sticky inside .showcase-pin, which is one
+           step of scroll per model taller than the screen. Scroll progress through the pin
+           picks the model (with hysteresis, so a boundary never flickers); scrolling back
+           up steps backwards. Thumbs / arrows / keys / swipe scroll to that model's step,
+           so the scroll position and the model shown never disagree. */
+        const pin = sc.closest('[data-showcase-pin]');
+        const STEP_HYST = 0.12;                           // of a step, past a boundary, before the model changes
+        let lockTo = -1, lockT = 0;
+        const pinGeo = () => {
+            const top = pin.getBoundingClientRect().top + window.scrollY;
+            const dist = Math.max(1, pin.offsetHeight - window.innerHeight);
+            return { top, dist, step: dist / panels.length };
+        };
+        const pinned = () => pin && getComputedStyle(sc).position === 'sticky' && pin.offsetHeight > window.innerHeight * 1.5;
+        function stepFromScroll() {
+            if (!pinned() || lockTo >= 0) return;
+            const g = pinGeo();
+            const f = Math.min(panels.length - 0.001, Math.max(0, (window.scrollY - g.top) / g.step));
+            if (f > idx + 1 + STEP_HYST || f < idx - STEP_HYST) go(Math.floor(f), false);
+        }
+        function scrollToY(y, done) {
+            if (lenis) lenis.scrollTo(y, { duration: 1.1, force: true, onComplete: done });
+            else { window.scrollTo({ top: y, behavior: 'auto' }); requestAnimationFrame(() => done && done()); }
+        }
+        function request(n, focus) {
+            if (!pinned()) { go(n, focus); return; }
+            const g = pinGeo();
+            if (n >= panels.length) { scrollToY(g.top + g.dist + window.innerHeight); return; }   // past the last: on to the next section
+            if (n < 0) { scrollToY(Math.max(0, g.top - window.innerHeight)); return; }
+            clearTimeout(lockT);
+            lockTo = n;
+            go(n, focus);
+            const release = () => { clearTimeout(lockT); lockTo = -1; stepFromScroll(); };
+            scrollToY(n === 0 ? g.top : g.top + g.step * (n + 0.5), release);
+            lockT = setTimeout(release, 2000);              // safety: never stay locked
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(stepFromScroll), { passive: true });
+        window.addEventListener('load', stepFromScroll);
+
+        tabs.forEach((t, i) => t.addEventListener('click', (e) => { e.preventDefault(); request(i, false); }));
         tablist.addEventListener('keydown', (e) => {
             const k = { ArrowRight: idx + 1, ArrowLeft: idx - 1, Home: 0, End: panels.length - 1 }[e.key];
             if (k === undefined) return;
             e.preventDefault();
-            go(k, true);
+            request(Math.max(0, Math.min(panels.length - 1, k)), true);
         });
-        sc.querySelector('[data-sc-prev]').addEventListener('click', () => go(idx - 1, false));
-        sc.querySelector('[data-sc-next]').addEventListener('click', () => go(idx + 1, false));
+        sc.querySelector('[data-sc-prev]').addEventListener('click', () => (pinned() ? request(idx - 1) : go(idx - 1, false)));
+        sc.querySelector('[data-sc-next]').addEventListener('click', () => (pinned() ? request(idx + 1) : go(idx + 1, false)));
         // swipe on the car area: horizontal only, vertical stays with the page
         let sx = 0, sy = 0, swiping = false;
         stage.style.touchAction = 'pan-y';
@@ -572,13 +611,16 @@
         stage.addEventListener('pointerup', (e) => {
             if (!swiping) return; swiping = false;
             const dx = e.clientX - sx, dy = e.clientY - sy;
-            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(idx + (dx < 0 ? 1 : -1), false);
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+                const n = idx + (dx < 0 ? 1 : -1);
+                if (pinned()) { if (n >= 0 && n < panels.length) request(n); } else go(n, false);
+            }
         });
         stage.addEventListener('pointercancel', () => { swiping = false; });
         // anchor landing and keyboard focus show everything at once
         document.addEventListener('click', (e) => {
             const a = e.target.closest('a[href^="#"]');
-            if (a && a.getAttribute('href') === '#' + sc.id) instant();
+            if (a && pin && a.getAttribute('href') === '#' + pin.id) instant();
         });
         sc.addEventListener('focusin', () => { if (!sc.classList.contains('is-in')) instant(); });
         // preload the other three cars once the section is near and the browser is idle
@@ -600,8 +642,10 @@
             let m = null;
             const measureSc = () => {
                 const y = window.scrollY;
+                // the section is sticky, so measure from the pin (its natural position), never mid-pin
+                const secTop = (pin || sc).getBoundingClientRect().top + y;
                 const media = panels[idx].querySelector('.showcase__media').getBoundingClientRect();
-                m = { mediaTop: media.top + y, secTop: sc.getBoundingClientRect().top + y };
+                m = { mediaTop: secTop + (media.top - sc.getBoundingClientRect().top), secTop };
             };
             const driveSc = () => {
                 if (!m) return;
@@ -619,9 +663,9 @@
             window.addEventListener('resize', () => { measureSc(); driveSc(); }, { passive: true });
             if ('ResizeObserver' in window) new ResizeObserver(() => { measureSc(); driveSc(); }).observe(document.body);
             window.addEventListener('scroll', () => requestAnimationFrame(driveSc), { passive: true });
-            window.__showcase = { go: (n) => go(n, false), get index() { return idx; }, measure: measureSc, drive: driveSc };
+            window.__showcase = { go: (n) => go(n, false), request: (n) => request(n), get index() { return idx; }, measure: measureSc, drive: driveSc, pinGeo };
         }
-        if (!window.__showcase) window.__showcase = { go: (n) => go(n, false), get index() { return idx; } };
+        if (!window.__showcase) window.__showcase = { go: (n) => go(n, false), request: (n) => request(n), get index() { return idx; }, pinGeo };
     }
 
     /* ---------- Hero subject box, published for the composition audit ----------
