@@ -46,8 +46,8 @@
           imagesizes="100vw" fetchpriority="high">
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=73">
-    <link rel="stylesheet" href="assets/css/main.css?v=73">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=75">
+    <link rel="stylesheet" href="assets/css/main.css?v=75">
 
     <script type="application/ld+json">
     {
@@ -701,7 +701,8 @@
      Lamborghini-certified collision repair and paint shop (lamborghini.com dealer page:
      certCollisionCenter, certPaintShop). Services as listed on the dealer's /ccrc page.
      Not used: "South Florida's only factory-certified collision center", the TÜV claim.
-     Text left, image right: the mirror of Service, so the two chapters read as a pair. -->
+     Text left, image right (the mirror of Service); from 1200 the photograph is exactly
+     the height of the text block and opens upward on scroll (data-reveal, main.js). -->
 <section class="collision band band--black" id="collision" aria-labelledby="collision-title">
     <div class="container collision__grid">
         <div class="collision__body">
@@ -736,12 +737,11 @@
             </div>
         </div>
 
-        <figure class="collision__media">
+        <figure class="collision__media" data-reveal>
             <picture>
-                <source type="image/webp" srcset="assets/img/collision-paint-booth-560.webp 560w, assets/img/collision-paint-booth-802.webp 802w" sizes="(min-width: 1200px) 480px, (min-width: 1024px) 38vw, (min-width: 768px) 60vw, 100vw">
-                <img src="assets/img/collision-paint-booth-560.jpg" srcset="assets/img/collision-paint-booth-560.jpg 560w, assets/img/collision-paint-booth-802.jpg 802w" sizes="(min-width: 1200px) 480px, (min-width: 1024px) 38vw, (min-width: 768px) 60vw, 100vw" width="802" height="802" loading="lazy" decoding="async" alt="A painter in a respirator spraying a blue body panel in a paint booth.">
+                <source type="image/webp" srcset="assets/img/collision-paint-booth-560.webp 560w, assets/img/collision-paint-booth-802.webp 802w" sizes="(min-width: 1200px) 820px, (min-width: 768px) 500px, 100vw">
+                <img src="assets/img/collision-paint-booth-560.jpg" srcset="assets/img/collision-paint-booth-560.jpg 560w, assets/img/collision-paint-booth-802.jpg 802w" sizes="(min-width: 1200px) 820px, (min-width: 768px) 500px, 100vw" width="802" height="802" loading="lazy" decoding="async" alt="Painter refinishing a blue body panel in a paint booth.">
             </picture>
-            <figcaption class="t-legal collision__caption">Paint booth, Prestige Imports group</figcaption>
         </figure>
     </div>
 </section>
@@ -897,6 +897,6 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main.js?v=73" defer></script>
+<script src="assets/js/main.js?v=75" defer></script>
 </body>
 </html>

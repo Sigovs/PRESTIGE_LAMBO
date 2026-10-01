@@ -174,4 +174,4 @@ Each claim on the hero slides, and its source. There are no superlatives, and no
 - "South Florida's only Factory-Certified Collision Center" (an unverified superlative)
 - The TÜV certification of the paint shop. It appears on `/ccrc` as the dealer's own claim, is unverified, and is left off the page.
 
-The image is the Prestige Imports group paint-booth photograph (see MANIFEST). It is captioned "Paint booth, Prestige Imports group", not as the Lamborghini Miami body shop. `collision_hero_sept26.jpg` was rejected: it shows a Lotus, and this page excludes other brands.
+The image is the Prestige Imports group paint-booth photograph (see MANIFEST). The page carries no caption (Alex); the alt text describes the scene only, and the image is not presented as the Lamborghini Miami body shop. `collision_hero_sept26.jpg` was rejected: it shows a Lotus, and this page excludes other brands.

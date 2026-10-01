@@ -1192,24 +1192,35 @@ address { font-style: normal; }
 
 /* ---------- 5b · Certified collision center (Alex, 30 Sep 2026) ----------
    Black, after Service's #181818, with a hairline between them; text left and the
-   photograph right (the mirror of Service). The photo is 802 px square at source,
-   so it is never stretched past that and never full bleed. */
+   photograph right (the mirror of Service). From 1200 the photograph is exactly the
+   height of the text block (top on the eyelet, bottom on the buttons): a portrait
+   slice of the 802 px square, never upscaled at the measured heights (≤ 802 px).
+   Below 1200 it stacks after the text, square, at its natural size or smaller. */
 .collision { border-top: var(--stroke-1) solid var(--grey-8); }
 .collision__grid { display: grid; gap: var(--sp-48); }
 .collision__body { display: grid; gap: var(--sp-48); align-content: start; }
 .collision__line { display: block; }
 .collision__lead { margin-top: var(--sp-24); max-width: var(--measure); }
 .collision__actions { display: grid; gap: var(--sp-16); }
-.collision__media { max-width: 31.25rem; }            /* 500 px: the 802 px source holds at 1.6x */
-.collision__media img { width: 100%; height: auto; }
-.collision__caption { margin-top: var(--sp-16); }
+.collision__media { position: relative; overflow: hidden; max-width: 31.25rem; aspect-ratio: 1 / 1; }
+.collision__media picture { position: absolute; inset: 0; display: block; }
+.collision__media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--collision-pos); }
 @media (min-width: 768px) {
     .collision__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
 }
-@media (min-width: 1024px) {
-    .collision__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr); align-items: start; }
+@media (min-width: 1200px) {
+    .collision__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr); align-items: stretch; }
     .collision__body { grid-column: 1; }
-    .collision__media { grid-column: 3; justify-self: end; width: 100%; position: sticky; top: calc(var(--header-h) + var(--sp-24)); }
+    .collision__media { grid-column: 3; max-width: none; aspect-ratio: auto; align-self: stretch; }
+}
+/* the unveil (Alex): the photograph opens upward as it enters, scrubbed to scroll
+   (main.js sets --reveal 0 → 1 from the cell's top at 85% to 35% of the viewport)
+   and settles from 1.12 to 1. Only with JS and motion allowed; static otherwise. */
+@media (prefers-reduced-motion: no-preference) {
+    .js .collision__media[data-reveal] { clip-path: inset(calc((1 - var(--reveal, 0)) * 100%) 0 0 0); }
+    .js .collision__media[data-reveal] img { transform: scale(calc(1.12 - 0.12 * var(--reveal, 0))); transform-origin: 50% 100%; }
+    .js .collision__media.is-revealing { will-change: clip-path; }
+    .js .collision__media.is-revealing img { will-change: transform; }
 }
 
 /* ---------- 6 · The house ---------- */

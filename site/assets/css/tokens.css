@@ -192,6 +192,7 @@
     --dur-hero-out: 250ms;  /* the outgoing lines fade first, no travel */
     --hero-step: 80ms;      /* top-to-bottom stagger */
     --hero-cap: 400ms;
+    --collision-pos: 60% 40%;   /* the painter, spray gun and blue panel stay in the portrait slice */
     /* menu overlay (Alex): reveal from the top, items rise in after it */
     --dur-menu: 650ms;          /* panel reveal, on --ease-drive */
     --dur-menu-close: 400ms;    /* faster retract, on --ease-in */

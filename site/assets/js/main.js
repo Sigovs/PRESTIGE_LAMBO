@@ -132,7 +132,24 @@
             el.inert = o === 0;
         });
     }
+    /* Scroll-linked unveils ([data-reveal], e.g. the collision photograph): --reveal
+       runs 0 → 1 while the element's top travels from 85% to 35% of the viewport.
+       Not under reduced motion (the CSS hidden state needs motion allowed anyway). */
+    const reveals = [...document.querySelectorAll('[data-reveal]')];
+    function updateReveals() {
+        if (reduceMotion.matches || !reveals.length) return;
+        const vh = window.innerHeight;
+        reveals.forEach((el) => {
+            const top = el.getBoundingClientRect().top;
+            const p = Math.min(1, Math.max(0, (0.85 * vh - top) / (0.5 * vh)));
+            el.style.setProperty('--reveal', p.toFixed(4));
+            el.classList.toggle('is-revealing', p > 0 && p < 1);
+        });
+    }
+    updateReveals();
+    window.addEventListener('resize', updateReveals, { passive: true });
     window.addEventListener('scroll', () => {
+        requestAnimationFrame(updateReveals);
         const now = performance.now(), yy = window.scrollY, dt = now - lastT;
         if (dt > 0) scrollV = dt > 100 ? 0 : scrollV * 0.5 + ((yy - lastY) / dt) * 0.5;
         lastY = yy; lastT = now;
