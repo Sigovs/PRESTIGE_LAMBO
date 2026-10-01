@@ -460,5 +460,8 @@
         : Promise.resolve();
     const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
     const timeout = new Promise((r) => setTimeout(r, 1200));
-    Promise.race([Promise.all([fontsReady, imgReady]), timeout]).then(() => root.classList.add('is-loaded'));
+    // Two frames after readiness, so the hidden state is always painted first: with a warm
+    // cache everything can be ready before the first paint, and the lines would appear
+    // without their slide-in.
+    Promise.race([Promise.all([fontsReady, imgReady]), timeout]).then(() => requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-loaded'))));
 })();
