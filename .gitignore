@@ -13,3 +13,4 @@ node_modules/
 
 # Screenshots are regenerated per round and stay local
 site/_shots/
+*.zip
