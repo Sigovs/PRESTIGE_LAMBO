@@ -183,6 +183,10 @@
     --drive-end: 0.55;        /* progress reaches 1 when the image's centre is at 55% of the viewport */
     --drive-lag: 0.08;        /* right-column tiles start 8% of the viewport later */
     --drive-fade: 0.3;        /* opacity 0 -> 1 over the first 30% of progress */
+    /* shared entrance ease — hero text, page text staircase and the menu all run on it.
+       It was retired with the old time-based drive tokens on 30 Sep and every
+       transition using it went invalid (instant cuts). Do not remove. */
+    --ease-drive: cubic-bezier(0.16, 1, 0.3, 1);
     /* hero slider (user direction, Alex) */
     --dur-slide: 800ms;     /* crossfade */
     /* hero text entrance (Alex): from the left, on load and on every slide change */
@@ -204,6 +208,16 @@
     --ctrl-gap: 8px;        /* slider controls reach opacity 0 this far below the header (mirrored in main.js) */
     --ctrl-fade: 96px;      /* scroll distance over which they fade (mirrored in main.js) */
     --slide-hold: 6500ms;   /* autoplay dwell per slide — mirrored in main.js */
+    /* reduced motion (Alex, 30 Sep 2026): no travel anywhere, but nothing pops either —
+       every entrance becomes a short opacity fade. Mirrored in main.js where JS times it. */
+    --dur-rm-text: 400ms;     /* page text and incoming hero lines, on the 80 ms staircase */
+    --dur-rm-out: 200ms;      /* outgoing hero lines */
+    --dur-rm-slide: 600ms;    /* hero image crossfade */
+    --dur-rm-car: 500ms;      /* model cars fade in place */
+    --rm-car-step: 150ms;     /* left tile first */
+    --dur-rm-menu: 250ms;     /* menu panel and backdrop */
+    --dur-rm-item: 200ms;     /* menu items, together */
+    --dur-rm-media: 400ms;    /* collision photograph */
 
     --z-header: 1040;
     --z-menu:   1050;

@@ -179,6 +179,7 @@
         el.style.setProperty('--mi', i);
     });
     const MENU_CLOSE = 400;            // mirror of --dur-menu-close
+    const MENU_CLOSE_RM = 250;         // mirror of --dur-rm-menu (reduced motion: a fade, not a cut)
     let menuTimer = 0;
     function openMenu() {
         if (!menu) return;
@@ -199,7 +200,7 @@
         lenis?.start();
         clearTimeout(menuTimer);
         const done = () => { if (!menu.classList.contains('is-open')) menu.hidden = true; };
-        if (reduceMotion.matches) done(); else menuTimer = setTimeout(done, MENU_CLOSE);
+        menuTimer = setTimeout(done, reduceMotion.matches ? MENU_CLOSE_RM : MENU_CLOSE);
         if (returnFocus) openBtn.focus();
     }
     openBtn?.addEventListener('click', openMenu);
@@ -237,17 +238,21 @@
         'main figcaption', 'main address', 'main .btn',
         '.site-footer p', '.site-footer li', '.site-footer .btn'
     ].join(',');
-    const STEP = 80, CAP = 640, DUR = 750;           // mirror of --hero-step, --rv-cap, --dur-hero-in (text enters like the hero)
+    // Reduced motion keeps every entrance but as an opacity fade with no travel (CSS);
+    // the staircase is the same, only shorter. Read once at load, like the CSS path.
+    const RM = reduceMotion.matches;
+    const STEP = 80, CAP = 640, DUR = RM ? 400 : 750;   // mirror of --hero-step, --rv-cap, --dur-hero-in / --dur-rm-text
     const risers = [...document.querySelectorAll(RISE_SEL)].filter((el) =>
         !el.closest('.hero') && !el.parentElement.closest(RISE_SEL));
 
     function settle(el) {            // hand the element back to its own transitions (hover etc.)
-        el.classList.remove('rv', 'rv--sm', 'is-in');
+        el.classList.remove('rv', 'rv--sm', 'is-in', 'rv-now');
         el.style.removeProperty('--rv-delay');
     }
-    function release(list, stagger, base = 0) {
+    function release(list, stagger, base = 0, now = false) {
         list.forEach((el, i) => {
             if (!el.classList.contains('rv') || el.classList.contains('is-in')) return;
+            if (now) { el.classList.add('rv-now', 'is-in'); settle(el); return; }   // reduced motion: anchor/focus, at once
             const delay = base + (stagger ? Math.min(i * STEP, CAP) : 0);
             el.style.setProperty('--rv-delay', delay + 'ms');
             el.classList.add('is-in');
@@ -255,7 +260,7 @@
         });
     }
 
-    if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window) {
         risers.forEach((el) => {
             el.classList.add('rv');
             if (parseFloat(getComputedStyle(el).fontSize) < 20) el.classList.add('rv--sm');
@@ -309,13 +314,46 @@
                 if (p >= TEXT_AT) releaseTileText(t);
             });
         }
-        tiles.forEach((t) => t.setAttribute('data-drive', ''));
-        measureTiles(); updateDrive();
-        window.addEventListener('load', () => { measureTiles(); updateDrive(); });
-        window.addEventListener('resize', () => { measureTiles(); updateDrive(); }, { passive: true });
-        if ('ResizeObserver' in window) new ResizeObserver(() => { measureTiles(); updateDrive(); }).observe(document.body);
-        window.addEventListener('scroll', () => requestAnimationFrame(updateDrive), { passive: true });
+        /* Reduced motion: no scroll travel. Each car fades in place (--dur-rm-car) as
+           its tile enters, left tile first (--rm-car-step); its text follows on the
+           staircase. Anchor landings and focus show it at once. */
+        const CAR_STEP = 150, CAR_TEXT = 200;            // mirror of --rm-car-step; text starts 200 ms after its car
+        function showTile(t, delay = 0, now = false) {
+            if (t.classList.contains('is-shown')) return;
+            if (now) t.classList.add('is-now');
+            t.style.setProperty('--car-delay', delay + 'ms');
+            t.classList.add('is-shown');
+            t.dataset.textIn = '1';
+            release([...t.querySelectorAll('.rv')], !now, delay + CAR_TEXT, now);
+        }
+        if (RM) {
+            tiles.forEach((t) => t.setAttribute('data-fade', ''));
+            const tio = new IntersectionObserver((entries) => {
+                entries.filter((e) => e.isIntersecting).map((e) => e.target)
+                    .sort((x, y) => x.getBoundingClientRect().top - y.getBoundingClientRect().top
+                                  || x.getBoundingClientRect().left - y.getBoundingClientRect().left)
+                    .forEach((t, i) => { tio.unobserve(t); showTile(t, i * CAR_STEP); });
+            }, { threshold: 0.2, rootMargin: '0px 0px -5% 0px' });
+            tiles.forEach((t) => tio.observe(t));
+        } else {
+            tiles.forEach((t) => t.setAttribute('data-drive', ''));
+            measureTiles(); updateDrive();
+            window.addEventListener('load', () => { measureTiles(); updateDrive(); });
+            window.addEventListener('resize', () => { measureTiles(); updateDrive(); }, { passive: true });
+            if ('ResizeObserver' in window) new ResizeObserver(() => { measureTiles(); updateDrive(); }).observe(document.body);
+            window.addEventListener('scroll', () => requestAnimationFrame(updateDrive), { passive: true });
+        }
         window.__drive = { tiles, measureTiles, updateDrive };   // exposed for verification scripts
+
+        // Reduced motion: the collision photograph fades in once (--dur-rm-media) instead of the scrubbed unveil.
+        const fades = RM ? [...document.querySelectorAll('[data-reveal]')] : [];
+        const showFade = (el, now = false) => { if (now) el.classList.add('is-now'); el.classList.add('is-shown'); };
+        if (fades.length) {
+            const fio = new IntersectionObserver((entries) => entries.forEach((e) => {
+                if (e.isIntersecting) { fio.unobserve(e.target); showFade(e.target); }
+            }), { threshold: 0.2 });
+            fades.forEach((el) => fio.observe(el));
+        }
 
         // Anchor jumps: everything in the destination section is released at once,
         // so a section never lands blank under the header (the cars follow the landing position).
@@ -324,19 +362,28 @@
             const target = a && a.getAttribute('href').length > 1 && document.querySelector(a.getAttribute('href'));
             if (!target) return;
             const scope = target.closest('section') || target;
+            if (RM) {
+                tiles.filter((t) => scope.contains(t)).forEach((t) => showTile(t, 0, true));
+                fades.filter((el) => scope.contains(el)).forEach((el) => showFade(el, true));
+            }
             tiles.filter((t) => scope.contains(t)).forEach((t) => { t.dataset.textIn = '1'; });
-            release([...scope.querySelectorAll('.rv')], false);
+            release([...scope.querySelectorAll('.rv')], false, 0, RM);
         });
         // Keyboard focus never waits for choreography.
         document.addEventListener('focusin', (e) => {
             const tile = e.target.closest('.model');
-            if (tile) releaseTileText(tile);
+            if (tile && RM) showTile(tile, 0, true);
+            else if (tile) releaseTileText(tile);
             const el = e.target.closest('.rv') || e.target.querySelector?.('.rv');
-            if (el) release([el], false);
+            if (el) release([el], false, 0, RM);
         });
         // Safety sweep: anything already on screen that the observer missed (tile text waits for its car).
         const sweep = () => {
-            updateDrive();
+            if (RM) {
+                const onScreen = (el) => { const r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; };
+                tiles.filter(onScreen).forEach((t, i) => showTile(t, i * CAR_STEP));
+                fades.filter(onScreen).forEach((el) => showFade(el));
+            } else updateDrive();
             release(risers.filter((el) => {
                 if (!el.classList.contains('rv') || el.classList.contains('is-in')) return false;
                 const tile = el.closest('.model');

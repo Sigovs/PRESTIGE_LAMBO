@@ -1485,9 +1485,52 @@ main section { overflow-x: clip; }
         animation-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    /* the menu opens and closes at once: no reveal, no stagger, no item travel */
-    .menu.is-open [data-menu-item] { transition-delay: 0s; }
-    .menu [data-menu-item] { transform: none; }
+    /* Soft, opacity-only entrances (Alex, 30 Sep 2026): reduced motion removes all
+       travel, scrubbing and autoplay, but nothing cuts in. Each rule below outranks
+       the blanket above by specificity (both !important). */
+
+    /* page text: 400 ms fade on the same 80 ms staircase, no translate */
+    .js .rv {
+        opacity: 0;
+        transition: opacity var(--dur-rm-text) var(--ease-out) !important;
+        transition-delay: var(--rv-delay, 0ms) !important;
+    }
+    .js .rv.is-in { opacity: 1; }
+    .js .rv.rv-now { transition: none !important; }      /* anchor landing and focus: at once */
+
+    /* hero: outgoing lines fade 200 ms, incoming fade 400 ms on the staircase after
+       them; the photographs crossfade over 600 ms */
+    .js [data-hero-line] {
+        opacity: 0;
+        transition: opacity var(--dur-rm-out) var(--ease-out) !important;
+    }
+    .js.is-loaded .hero__slide.is-active [data-hero-line] {
+        opacity: 1;
+        transition: opacity var(--dur-rm-text) var(--ease-out) !important;
+        transition-delay: calc(var(--dur-rm-out) + min(calc(var(--i, 0) * var(--hero-step)), var(--hero-cap))) !important;
+    }
+    .js .hero__slide { transition: opacity var(--dur-rm-slide) var(--ease-out), visibility 0s linear var(--dur-rm-slide) !important; }
+    .js .hero__slide.is-active { transition: opacity var(--dur-rm-slide) var(--ease-out), visibility 0s !important; }
+
+    /* model cars: no scroll travel; each fades in place as its tile enters, left first */
+    .js .model[data-fade] .model__car {
+        opacity: 0;
+        transition: opacity var(--dur-rm-car) var(--ease-out) !important;
+        transition-delay: var(--car-delay, 0ms) !important;
+    }
+    .js .model[data-fade].is-shown .model__car { opacity: 1; }
+    .js .model[data-fade].is-now .model__car { transition: none !important; }
+
+    /* collision photograph: no clip or scale scrub; a 400 ms fade */
+    .js .collision__media[data-reveal] { opacity: 0; transition: opacity var(--dur-rm-media) var(--ease-out) !important; }
+    .js .collision__media[data-reveal].is-shown { opacity: 1; }
+    .js .collision__media[data-reveal].is-now { transition: none !important; }
+
+    /* menu: panel and backdrop fade 250 ms (no reveal), items fade 200 ms together, no travel */
+    .menu, .menu.is-open { transition: background-color var(--dur-rm-menu) var(--ease-out) !important; }
+    .menu__panel { clip-path: none; opacity: 0; transition: opacity var(--dur-rm-menu) var(--ease-out) !important; }
+    .menu.is-open .menu__panel { clip-path: none; opacity: 1; }
+    .menu [data-menu-item] { transform: none; transition: opacity var(--dur-rm-item) var(--ease-out) !important; transition-delay: 0s !important; }
     /* arrows signal by colour instead of travel */
     .btn:hover .btn__icon, .btn:focus-visible .btn__icon { transform: none; color: var(--accent); }
     .btn--primary:hover .btn__icon, .btn--accent:hover .btn__icon { color: inherit; }
