@@ -154,9 +154,13 @@
     /* Ad Personam (personalization.webp, Revuelto cabin; Alex) */
     --adp-pos-p: 50% 50%;         /* portrait crop: steering wheel + centre console */
     --adp-pos-l: 50% 50%;         /* landscape: the whole cabin */
-    --adp-pad-b: 30svh;           /* foot of the copy at entry: ~30% of the height above the bottom (Alex) */
-    --adp-back-a: 0.8;            /* the backing that travels with the copy: density behind the text */
-    --adp-back-y: 6rem;           /* its soft fade above and below the group */
+    --adp-photo-p: 38svh;         /* portrait phones: the photo above the column, sized so the chapter fits one screen at entry */
+    --adp-pad-b: 30svh;           /* landscape: foot of the column at entry, ~30% above the bottom (Alex) */
+    --adp-measure: 40ch;          /* paragraph measure, as on a hero slide */
+    --adp-scrim-a: 0.85;          /* landscape left gradient, hero-style: density at the left edge */
+    --adp-scrim-k: 0.9;           /* density kept at the mid stop */
+    --adp-scrim-mid: 36%;
+    --adp-scrim-end: 62%;         /* clean from here: console, leather, windscreen */
 
     /* ---- Motion ---- */
     --dur-fast:   200ms;
@@ -203,11 +207,17 @@
         --section-pb: var(--sp-160);
     }
 }
+@media (orientation: portrait) and (max-height: 700px) {
+    :root { --adp-photo-p: 30svh; }   /* 375x667 */
+}
 @media (orientation: portrait) and (max-height: 600px) {
-    :root { --adp-pad-b: 20svh; }   /* 320x568: the copy's top must clear the header at entry */
+    :root { --adp-photo-p: 24svh; }   /* 320x568 */
+}
+@media (orientation: portrait) and (min-width: 768px) {
+    :root { --adp-photo-p: 56svh; }   /* portrait tablets */
 }
 @media (orientation: landscape) and (max-height: 600px) {
-    :root { --adp-pad-b: 16svh; }   /* phones on their side: as high as a 390 px frame allows */
+    :root { --adp-pad-b: 6svh; }    /* phones on their side: the column needs almost the whole frame */
 }
 
 @media (min-width: 1200px) {

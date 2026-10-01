@@ -969,20 +969,18 @@ address { font-style: normal; }
 }
 
 /* ---------- 4 · Ad Personam (Alex, 30 Sep 2026) ----------
-   The PHOTOGRAPH is pinned: .adp__stage is sticky (top 0, one screen) for the whole
-   of .adp-pin, so it holds still while Service slides over it. The COPY is in normal
-   flow: at entry it sits in the lower-middle of the frame (its foot at
-   --adp-pad-b from the bottom) and scrolls up at scroll speed, Service following
-   directly below it, so the copy is never covered. A soft dark backing travels with
-   the copy group for legibility along its whole path. Pure CSS sticky (Lenis drives
-   it natively); body uses overflow-x: clip, which does not break sticky. */
-.adp-pin { position: relative; scroll-margin-top: 0; }   /* the anchor lands flush on the frame */
+   Laid out like a hero slide: ONE left-aligned column (eyelet, title, paragraph,
+   two actions). Landscape: the PHOTOGRAPH is pinned (.adp__stage, sticky for the
+   whole of .adp-pin) with a hero-style left gradient fixed to it; the column is in
+   normal flow, enters in the lower-middle and rises at scroll speed over the dark
+   left zone, with Service (#181818, clean edge) directly below it. Portrait: a
+   plain chapter like the hero on phones: the photo above, fading to black, the
+   column below it (a pinned photo there would put the rising column over the
+   bright cabin). Pure CSS sticky; body uses overflow-x: clip, which keeps it working. */
+.adp-pin { position: relative; scroll-margin-top: 0; }
 .adp__stage {
-    position: sticky;
-    top: 0;
-    z-index: 0;
-    height: 100vh;
-    height: 100svh;
+    position: relative;
+    height: var(--adp-photo-p);
     overflow: hidden;
     background: var(--surface-0-dark);
 }
@@ -996,98 +994,88 @@ address { font-style: normal; }
 }
 .adp__scrim {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%);   /* under the header only */
+    /* portrait: header gradient on top, the frame fading to black at its foot */
+    background:
+        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(180deg, rgb(0 0 0 / 0) 55%, var(--surface-0-dark) 100%);
 }
-/* as Service covers it, the frame dims a little (scroll-linked in main.js; never under reduced motion) */
 .adp__stage::after {
     content: "";
     position: absolute;
     inset: 0;
     background: #000;
-    opacity: calc(var(--adp-cover, 0) * 0.55);
+    opacity: calc(var(--adp-cover, 0) * 0.55);   /* dims as Service covers it (main.js; not under reduced motion) */
     pointer-events: none;
 }
 .adp {
     position: relative;
     z-index: 1;
-    margin-top: -100vh;
-    margin-top: -100svh;          /* the copy overlays the pinned frame from its first screen */
-    min-height: 100vh;
-    min-height: 100svh;
     display: grid;
-    align-content: end;
-    padding-bottom: var(--adp-pad-b);   /* foot of the copy at entry; Service starts below this */
+    align-content: start;
+    padding-block: var(--sp-24) var(--sp-56);
+    background: var(--surface-0-dark);
     color: var(--grey-1);
-    overflow-x: clip;             /* the full-bleed backing (100vw) never widens the page */
 }
-.adp-pin > .service { position: relative; z-index: 2; }   /* opaque #181818 band, slides over the still frame */
+.adp-pin > .service { position: relative; z-index: 2; }   /* opaque #181818, clean top edge */
 .adp__eyelet { color: var(--grey-2); }
-.adp__lead { color: var(--grey-1); }
+.adp__lead { color: var(--grey-1); max-width: var(--adp-measure); }
 .adp__actions { display: grid; gap: var(--sp-16); }
 
-.adp__inner {
-    position: relative;
-    display: grid;
-    row-gap: var(--sp-24);
-}
-/* the backing: a soft dark band that belongs to the copy group and travels with it,
-   full width, dense behind the copy and fading out --adp-back-y above and below it
-   (a gradient field, not a box) */
-.adp__inner::before {
-    content: "";
-    position: absolute;
-    top: calc(-1 * var(--adp-back-y));
-    bottom: calc(-1 * var(--adp-back-y));
-    left: calc(50% - 50vw);
-    right: calc(50% - 50vw);
-    z-index: -1;
-    background: linear-gradient(180deg,
-        rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / var(--adp-back-a)) var(--adp-back-y),
-        rgb(0 0 0 / var(--adp-back-a)) calc(100% - var(--adp-back-y)),
-        rgb(0 0 0 / 0) 100%);
-    pointer-events: none;
-}
-.adp__head { display: grid; gap: var(--sp-4); }
-.adp__body { display: grid; gap: var(--sp-16); }
+/* one column, the hero's rhythm: copy, then the actions 32 px below */
+.adp__inner { display: grid; justify-items: start; row-gap: var(--sp-32); }
+.adp__head { display: grid; gap: var(--sp-8); }
+.adp__body { display: grid; gap: var(--sp-32); justify-items: start; }
+.adp__actions { justify-self: stretch; }
 
 @media (max-width: 767.98px) and (max-height: 700px) {
-    .adp__inner { row-gap: var(--sp-16); }
+    .adp__inner, .adp__body { row-gap: var(--sp-16); }
     .adp .t-banner { font-size: var(--fs-40); line-height: var(--lh-46); }
     .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
     .adp__actions { gap: var(--sp-8); }
     .adp__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
     .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
 }
-@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
-    .adp__lead { font-size: var(--fs-14); line-height: var(--lh-22); }
-}
 @media (min-width: 768px) {
-    .adp__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
+    .adp__actions { display: flex; flex-wrap: wrap; gap: var(--sp-16); justify-self: start; }
+    .adp__actions .btn { width: auto; }
 }
 
-/* landscape: title left, lead + actions right, bottom-aligned */
+/* landscape: the pinned photograph, the column rising over its dark left zone */
 @media (orientation: landscape) and (min-width: 568px) {
-    .adp__img { object-position: var(--adp-pos-l); }
-    .adp__inner {
-        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-        column-gap: var(--grid-gap);
-        align-items: end;
+    .adp__stage {
+        position: sticky;
+        top: 0;
+        z-index: 0;
+        height: 100vh;
+        height: 100svh;
     }
-    .adp__head { grid-column: 1; }
-    .adp__body { grid-column: 2; gap: var(--sp-16); }
-    .adp__lead { max-width: var(--measure-note); }
-    .adp__actions { gap: var(--sp-16); }
-    .adp__actions .btn { width: auto; min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
+    .adp__img { object-position: var(--adp-pos-l); }
+    .adp__scrim {
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+            linear-gradient(90deg, rgb(0 0 0 / var(--adp-scrim-a)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * var(--adp-scrim-k))) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-end));
+    }
+    .adp {
+        margin-top: -100vh;
+        margin-top: -100svh;          /* the column overlays the pinned photo from its first screen */
+        min-height: 100vh;
+        min-height: 100svh;
+        align-content: end;
+        padding-block: 0 var(--adp-pad-b);   /* the column's foot at entry; Service follows below */
+        background: none;
+    }
+    .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
     .adp .t-banner { font-size: var(--fs-56); line-height: var(--lh-52); }
 }
 @media (orientation: landscape) and (max-height: 600px) {
+    .adp-pin { --adp-scrim-a: 0.92; --adp-scrim-k: 0.92; --adp-scrim-mid: 52%; --adp-scrim-end: 86%; --adp-measure: 60ch; }
+    .adp__inner, .adp__body { row-gap: var(--sp-16); }
+    .adp__head { gap: var(--sp-4); }
     .adp .t-banner { font-size: var(--fs-40); line-height: var(--lh-46); }
-    .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); max-width: none; }
+    .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
+    .adp__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
 }
 @media (orientation: landscape) and (min-width: 1200px) and (min-height: 600.02px) {
-    .adp__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
-    .adp__lead { max-width: var(--measure); }
     .adp .t-banner { font-size: var(--fs-80); line-height: var(--lh-80); }
 }
 
