@@ -1,0 +1,1785 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — main.css
+   Every value resolves to tokens.css. BEM: block__element--modifier.
+   Order: base · layout · type roles · buttons · header · menu · hero ·
+          range · inventory · ad personam · service/spec · house ·
+          visit · footer · motion · reduced motion
+   ============================================================ */
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background: var(--surface-0-dark);
+    scrollbar-gutter: stable;     /* locking the page under the menu never shifts the layout */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-brand);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-regular);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-regular);
+    color: var(--grey-1);
+    background: var(--surface-0-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+}
+
+img, picture, svg { display: block; max-width: 100%; }
+img { height: auto; }
+figure, p, h1, h2, h3, h4, dl, dd, ol, ul { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+address { font-style: normal; }
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0);
+    white-space: nowrap; border: 0;
+}
+
+:focus { outline: none; }
+:focus-visible {
+    outline: var(--stroke-2) solid var(--focus);
+    outline-offset: var(--focus-offset);
+}
+
+.skip-link {
+    position: fixed;
+    left: var(--sp-16);
+    top: var(--sp-16);
+    z-index: calc(var(--z-menu) + 1);
+    padding: var(--sp-16) var(--sp-24);
+    background: var(--grey-0);
+    color: var(--grey-11);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; }
+
+.icon { width: var(--icon); height: var(--icon); flex: none; }
+.icon--sm { width: var(--fs-18); height: var(--fs-18); display: inline-block; vertical-align: -0.15em; }
+
+/* ---------- Layout ---------- */
+.container {
+    width: min(var(--container-max), calc(100% - 2 * var(--page-gutter)));
+    margin-inline: auto;
+}
+
+/* Theme variables: dark by default (header, hero, menu); light bands override.
+   Corporate switches whole token sets with .dark / .light (CI §1.1). */
+:root {
+    --fg: var(--grey-1);
+    --fg-2: var(--grey-2);
+    --fg-3: var(--grey-3);
+    --fg-4: var(--grey-5);
+    --stroke: var(--grey-7);
+    --accent: var(--accent-dark);
+    --accent-hover: var(--accent-dark-hover);
+    --accent-ink: var(--grey-11);
+    --btn-bg: var(--grey-0);
+    --btn-fg: var(--grey-11);
+    --btn-hover: var(--grey-3);
+}
+.band {
+    padding-block: var(--section-pt) var(--section-pb);
+    color: var(--fg);
+}
+.band--black { background: var(--surface-0-dark); }
+.band--dark  { background: var(--surface-1-dark); }
+.band--light {
+    background: var(--surface-0-light);
+    --fg: var(--grey-10);
+    --fg-2: var(--grey-9);
+    --fg-3: var(--grey-8);
+    --fg-4: var(--grey-7);
+    --stroke: var(--grey-3);
+    --accent: var(--accent-light);
+    --accent-hover: var(--accent-light-hover);
+    --accent-ink: var(--grey-0);
+    --btn-bg: var(--grey-11);
+    --btn-fg: var(--grey-0);
+    --btn-hover: var(--grey-8);
+}
+
+/* the header is persistent, so every in-page target clears it (Lenis reads scroll-margin too) */
+:where(main [id]) { scroll-margin-top: var(--header-h); }
+
+/* ---------- Type roles (DESIGN_SYSTEM.md §1.2) ---------- */
+.t-display-xl,
+.t-banner {
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-display);
+    text-wrap: balance;
+}
+.t-display-xl { font-size: min(var(--fs-80), var(--display-xl-fluid)); line-height: var(--lh-display-ratio); }
+.t-banner     { font-size: var(--fs-48); line-height: var(--lh-46); }
+
+.t-title {
+    font-size: var(--fs-28);
+    line-height: var(--lh-38);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+
+.t-eyelet {
+    text-wrap: balance;
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+
+.t-lead {
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    max-width: var(--measure);
+    text-wrap: pretty;
+    color: var(--fg-2);
+}
+
+.t-legal {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    color: var(--fg-4);
+    max-width: var(--measure-legal);
+    text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+    .t-banner    { font-size: var(--fs-80); line-height: var(--lh-80); }
+    .t-title     { font-size: var(--fs-40); line-height: var(--lh-46); }
+    .t-eyelet.hero__eyelet { font-size: var(--fs-24); line-height: var(--lh-34); }
+}
+@media (min-width: 1200px) {
+    .t-display-xl { font-size: var(--fs-120); line-height: var(--lh-110); }
+    .t-eyelet.hero__eyelet { font-size: var(--fs-27); line-height: var(--lh-37); }
+}
+
+/* ---------- Buttons (CI §1.5) ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-24);
+    min-height: var(--btn-h-lg);
+    padding-inline: var(--btn-pad-lg);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    border: var(--stroke-1) solid transparent;
+    border-radius: 0;
+    transition: background-color var(--dur-fast) var(--ease-out),
+                color var(--dur-fast) var(--ease-out),
+                border-color var(--dur-fast) var(--ease-out);
+}
+.btn--md { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
+.btn:not(.btn--tertiary) > span:not(.visually-hidden) { white-space: nowrap; }
+@media (max-width: 359.98px) {
+    /* below 360px a full-width label may take two balanced lines rather than overflow */
+    .btn:not(.btn--tertiary) > span:not(.visually-hidden) { white-space: normal; text-wrap: balance; }
+}
+
+.btn__icon { transition: transform var(--dur-base) var(--ease-out); }
+.btn:hover .btn__icon,
+.btn:focus-visible .btn__icon { transform: translateX(var(--arrow-travel)); }
+
+.btn--primary { background: var(--btn-bg); color: var(--btn-fg); }
+.btn--primary:hover { background: var(--btn-hover); }
+
+.btn--accent { background: var(--accent); color: var(--accent-ink); }
+.btn--accent:hover { background: var(--accent-hover); color: var(--grey-0); }
+
+.btn--solid { background: var(--btn-solid-bg); color: var(--btn-solid-fg); }
+.btn--solid:hover { background: var(--btn-solid-hover); }
+
+.btn--secondary { border-color: var(--fg); color: var(--fg); }
+.btn--secondary:hover { border-color: var(--fg-3); color: var(--fg-3); }
+
+.btn--tertiary {
+    min-height: var(--btn-h-md);
+    padding-inline: 0;
+    gap: var(--sp-16);
+    justify-content: flex-start;
+    border-width: 0 0 var(--stroke-1);
+    border-bottom-color: var(--fg);
+    color: var(--fg);
+}
+.btn--tertiary:hover { border-bottom-color: var(--accent); color: var(--fg-3); }
+
+@media (max-width: 767.98px) {
+    .btn:not(.btn--tertiary) { width: 100%; }
+}
+
+/* ---------- Section head ---------- */
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-32) var(--sp-48);
+    margin-bottom: var(--sp-64);
+}
+.section-head__eyelet { color: var(--fg-3); margin-bottom: var(--sp-16); }
+.section-head__lead { margin-top: var(--sp-24); }
+
+@media (min-width: 768px) {
+    .section-head { margin-bottom: var(--sp-80); }
+}
+
+/* ---------- Header (CI §1.7) ---------- */
+.site-header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: var(--z-header);
+    height: var(--header-h);
+    color: var(--grey-0);
+}
+/* over the hero: corporate gradient #181818 → transparent */
+.site-header::before,
+.site-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+.site-header::before { background: linear-gradient(180deg, var(--grey-10) 0%, rgb(24 24 24 / 0) 100%); }
+/* phones and tablets: the dealer mark's name line sits low in the 80 px bar, over the
+   brightest part of the portrait frames, so the gradient holds its density further down */
+@media (max-width: 1199.98px) {
+    .site-header::before { background: linear-gradient(180deg, rgb(24 24 24 / 0.92) 0%, rgb(24 24 24 / 0.8) 72%, rgb(24 24 24 / 0) 100%); }
+}
+.site-header::after {
+    background: var(--surface-1-dark);
+    opacity: 0;
+    transition: opacity var(--hdr-fade, var(--dur-base)) var(--ease-out);   /* --hdr-fade: set by main.js only where the copy rests tight to the header */
+}
+.site-header.is-solid::after { opacity: 1; }
+
+.site-header__bar {
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(var(--tap), 1fr) auto minmax(var(--tap), 1fr);
+    align-items: center;
+    gap: var(--sp-8);             /* phones: the dealer mark needs the width (320: 44 + 8 + 166 + 8 + 44) */
+}
+@media (min-width: 768px) { .site-header__bar { gap: var(--sp-24); } }
+.site-header__start,
+.site-header__end { display: flex; align-items: center; gap: var(--sp-32); }
+.site-header__end { justify-content: flex-end; }
+
+.site-header__menu,
+.site-header__link,
+.site-header__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-8);
+    min-height: var(--tap);
+    min-width: var(--tap);
+    justify-content: center;
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.site-header__phone { font-variant-numeric: tabular-nums; }
+.site-header__link:hover,
+.site-header__phone:hover,
+.site-header__menu:hover { color: var(--grey-3); }
+
+.site-header__nav { display: none; gap: var(--sp-32); }
+.site-header__phone-num,
+.site-header__contact { display: none; }
+.site-header__phone { min-width: var(--tap); justify-content: center; }
+
+/* Dealer lockup (stand-in until the official 2024 dealer lockup SVG arrives): the bull
+   without shield, "LAMBORGHINI MIAMI" set centred beneath it (the pattern every
+   benchmark dealer site uses). The name is part of the logo mark, not functional
+   text, so it may sit below the 14 px floor on phones (DESIGN_SYSTEM §3). */
+.dealer-mark {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: var(--lockup-gap);
+    color: var(--grey-0);
+}
+.dealer-mark__bull { width: auto; height: var(--lockup-bull-h); }
+.dealer-mark__name {
+    font-size: var(--lockup-fs);
+    line-height: 1;
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-lockup), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-lockup);
+    margin-right: calc(-1 * var(--track-lockup));   /* the trailing tracking must not push the name off centre */
+    white-space: nowrap;
+}
+
+.site-header__menu span { display: none; }
+
+@media (min-width: 768px) {
+    .site-header__menu span { display: inline; }
+}
+@media (min-width: 1200px) {
+    .site-header__nav { display: flex; }
+    .site-header__phone-num,
+    .site-header__contact { display: inline; }
+    .site-header__contact { display: inline-flex; }
+    .site-header__phone { min-width: 0; }
+}
+
+/* ---------- Menu overlay (CI §1.7) ---------- */
+.menu {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-menu);
+    color: var(--grey-1);
+    background: rgb(0 0 0 / 0);
+    transition: background-color var(--dur-menu-close) var(--ease-in);
+}
+.menu[hidden] { display: none; }
+.menu.is-open { background: rgb(0 0 0 / 0.6); transition: background-color var(--dur-menu-backdrop) var(--ease-out); }
+
+/* Designed open and close (Alex, 30 Sep 2026): the panel is revealed from the top,
+   its items rise in after it with the page's rise language, and the MENU lines turn
+   into a cross. Closing is faster: the items fade together, the panel retracts. */
+.menu__panel {
+    position: absolute;
+    inset: 0;
+    background: var(--surface-1-dark);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path var(--dur-menu-close) var(--ease-in);
+}
+.menu.is-open .menu__panel { clip-path: inset(0 0 0 0); transition: clip-path var(--dur-menu) var(--ease-drive); }
+.menu [data-menu-item] {
+    opacity: 0;
+    transform: translate3d(0, var(--rise-sm), 0);
+    transition: opacity var(--dur-fast) var(--ease-in), transform 0s linear var(--dur-fast);
+}
+.menu.is-open [data-menu-item] {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--dur-rise) var(--ease-rise), transform var(--dur-rise) var(--ease-rise);
+    transition-delay: calc(var(--menu-items-delay) + min(calc(var(--mi, 0) * var(--menu-step)), var(--menu-cap)));
+}
+.menu-icon path { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; transform-box: view-box; transform-origin: 12px 12px; transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-fast) var(--ease-out); }
+.menu.is-open .menu-icon__l1 { transform: translateY(5px) rotate(45deg); }
+.menu.is-open .menu-icon__l2 { opacity: 0; }
+.menu.is-open .menu-icon__l3 { transform: translateY(-5px) rotate(-45deg); }
+
+.menu__bar {
+    height: var(--header-h);
+    display: grid;
+    grid-template-columns: minmax(var(--tap), 1fr) auto minmax(var(--tap), 1fr);
+    gap: var(--sp-8);
+    align-items: center;
+}
+.menu__bar .site-header__menu span { display: inline; }
+.menu__bar .site-header__menu { justify-self: start; }   /* CLOSE sits exactly where MENU was */
+.menu__brand { justify-self: center; }
+
+.menu__body {
+    display: grid;
+    gap: var(--sp-64);
+    padding-block: var(--sp-48) var(--sp-88);
+}
+.menu__cols { display: grid; gap: var(--sp-48); }
+.menu__head {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    color: var(--grey-5);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    margin-bottom: var(--sp-16);
+}
+.menu__link {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-8);
+    padding-block: var(--sp-8);
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.menu__link:hover { color: var(--accent-dark); }
+.menu__contact { display: grid; gap: var(--sp-16); border-top: var(--stroke-1) solid var(--grey-7); padding-top: var(--sp-32); }
+.menu__contact div { display: flex; justify-content: space-between; gap: var(--sp-24); }
+.menu__contact dt { color: var(--grey-3); text-transform: uppercase; letter-spacing: var(--track-upper); }
+.menu__contact dd { font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold); font-variant-numeric: tabular-nums; }
+
+@media (min-width: 768px) {
+    .menu__cols { grid-template-columns: repeat(3, 1fr); gap: var(--grid-gap); }
+    .menu__contact { grid-template-columns: repeat(3, 1fr); gap: var(--grid-gap); }
+    .menu__contact div { display: grid; gap: var(--sp-4); justify-content: start; }
+}
+
+/* ---------- 1 · Hero ---------- */
+/* layout variables (see the copy-group note below); breakpoints override them */
+.hero {
+    --ctrl-b: var(--sp-16);
+    --ctrl-h: var(--tap);
+    --hero-gap: var(--sp-24);
+    --hero-title-fs: min(4rem, calc((100vw - 2 * var(--page-gutter)) / 4.3));
+    --hero-title-lh: var(--lh-display-ratio);
+}
+.hero {
+    position: relative;
+    isolation: isolate;
+    background: var(--surface-0-dark);
+    overflow: hidden;
+}
+/* ---- Slider (user direction, Alex): corporate claim-led model carousel.
+   Slides stack in one grid cell; crossfade, never travel. Without JS only
+   slide 1 exists visually (no-JS / ?figma), so the page is complete. ---- */
+.hero__slides { display: grid; touch-action: pan-y; }
+.hero__slide {
+    grid-area: 1 / 1;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+.hero__slide:not(:first-child) { display: none; }
+.js .hero__slide:not(:first-child) { display: flex; }
+.js .hero__slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--dur-slide) var(--ease-out), visibility 0s linear var(--dur-slide);
+}
+.js .hero__slide.is-active {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--dur-slide) var(--ease-out), visibility 0s;
+}
+.figma[data-slide] .hero__slide { display: none; }
+.figma[data-slide] .hero__slide.is-figma-slide { display: flex; }
+.hero__scrim { display: none; }
+
+/* controls: numbered progress, pause/play, hexagon arrows (corporate btn-icon-special) */
+.hero__controls {
+    display: none;
+    position: absolute;
+    left: 0; right: 0; bottom: var(--ctrl-b);
+    z-index: 2;
+    align-items: center;
+    gap: var(--sp-8);
+}
+.js .hero__controls { display: flex; }
+/* a quiet floor under the controls so numerals and arrows hold on every frame */
+.hero__controls::before {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: calc(-1 * var(--sp-32));
+    width: 100vw; height: calc(100% + var(--sp-80));
+    transform: translateX(-50%);
+    background: linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.6) 55%, rgb(0 0 0 / 0) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+.figma .hero__controls { display: none; }
+.hero__dots { display: flex; gap: var(--sp-4); margin-right: auto; }
+.hero__dot {
+    display: grid;
+    align-content: center;
+    gap: var(--sp-4);
+    min-width: var(--tap);
+    min-height: var(--tap);
+    padding-inline: var(--sp-4);
+    color: var(--grey-3);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: var(--track-upper);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.hero__dot[aria-current="true"], .hero__dot:hover { color: var(--grey-0); }
+.hero__dot-bar { display: block; height: var(--stroke-2); background: rgb(255 255 255 / 0.28); overflow: hidden; }
+.hero__dot-fill {
+    display: block; height: 100%;
+    background: var(--grey-0);
+    transform: scaleX(var(--p, 0));
+    transform-origin: left center;
+}
+.hero__dot[aria-current="true"] .hero__dot-fill { --p: var(--progress, 1); }
+.hero__toggle, .hero__arrow {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: var(--tap);
+    height: var(--tap);
+    color: var(--grey-0);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.hero__toggle:hover, .hero__arrow:hover { color: var(--accent-dark); }
+.hero__arrows { display: none; gap: var(--sp-8); }
+.hero__arrow { position: relative; width: var(--hex); height: var(--hex-h); }
+.hero__hex { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__arrow-icon { width: var(--icon-sm); height: var(--icon-sm); }
+.hero__arrow--prev .hero__arrow-icon { transform: scaleX(-1); }
+@media (min-width: 768px) {
+    .hero { --ctrl-b: var(--sp-32); --ctrl-h: var(--hex-h); --hero-title-fs: var(--fs-80); --hero-title-lh: var(--lh-display-ratio); }
+    .hero__controls { gap: var(--sp-16); }
+    .hero__arrows { display: flex; }
+    .hero__dot { min-width: var(--dot-w); }
+}
+
+
+/* Portrait formats (phones, portrait tablets): the photograph is IN FLOW, as the
+   middle row between the copy and the actions, so it can never run under either.
+   object-fit: contain lets it shrink on short screens instead of overlapping. */
+@media (min-width: 1200px) {
+    .hero { --hero-title-fs: var(--fs-120); --hero-title-lh: var(--lh-110); }
+}
+/* One copy group per slide (Alex, 30 Sep 2026): eyelet, a two-line title, one
+   supporting line and two actions, centred vertically in the free field —
+   between the header and the control row on landscape screens, between the
+   photo field and the control row on portrait ones. The group moves; nothing
+   is pinned to a fixed top. --ctrl-b / --ctrl-h are the control row's own
+   offset and height, so the field ends exactly where the controls begin. */
+.hero__inner {
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+    padding-top: calc(var(--hero-top) + var(--hero-gap));
+    padding-bottom: calc(var(--ctrl-b) + var(--ctrl-h) + var(--hero-gap));
+    --hero-top: var(--header-h);
+}
+.hero__group { display: grid; gap: var(--sp-32); justify-self: start; align-content: start; }
+.hero__copy { display: grid; gap: var(--sp-16); justify-self: start; }
+.hero .hero__title.t-display-xl { font-size: var(--hero-title-fs); line-height: var(--hero-title-lh); }
+.hero__media {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: var(--hero-scene-h);
+    z-index: -1;
+}
+.hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 100%;
+    /* the source's top edge carries a lit blue corner — feather it into the
+       black ground so no hard edge crosses the field (U-rule, hard edges) */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top), #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top), #000 88%, transparent 100%);
+}
+.hero__eyelet { color: var(--grey-1); }
+@media (max-width: 767.98px) {
+    .t-eyelet.hero__eyelet { font-size: var(--fs-16); line-height: var(--lh-24); }
+}
+.hero__title { color: var(--grey-0); }
+.hero__line { display: block; white-space: nowrap; }   /* two authored lines on every slide */
+.nowrap { white-space: nowrap; }
+.hero__place {
+    color: var(--grey-3);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+}
+/* over photographs the key-figures line takes the eyelet's lighter grey, so it holds 4.5:1 on the worst pixel */
+.hero__figures { color: var(--grey-1); }
+.hero__actions {
+    display: grid;
+    gap: var(--sp-16);
+}
+
+/* Short phones (e.g. 320×568, 375×667): a tighter stack — smaller display size,
+   medium buttons — so copy, car and both actions share one screen. */
+@media (max-width: 767.98px) and (max-height: 700px) {
+    .hero { --hero-gap: var(--sp-16); --hero-title-fs: min(3rem, calc((100vw - 2 * var(--page-gutter)) / 4.3)); }
+    .hero__group { gap: var(--sp-16); }
+    .hero__copy { gap: var(--sp-8); }
+    .t-eyelet.hero__eyelet, .hero__place { font-size: var(--fs-14); line-height: var(--lh-22); }
+    .hero__actions { gap: var(--sp-8); }
+    .hero__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
+}
+
+@media (min-width: 768px) {
+    .hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); justify-self: start; }
+}
+
+/* Portrait phones: a full-width night scene. The yellow Temerario (official
+   lamborghini.com gallery frame) is authored for this format: the car sits in the
+   upper field at ~90% of the width on tall phones, the copy and the actions stand
+   in the dark asphalt below it. One primary action per view; Enquire becomes a
+   text link. */
+@media (max-width: 1199.98px) and (orientation: portrait) {
+    .hero__inner { --hero-top: calc(var(--hero-scene-h) * var(--photo-k)); }
+    .hero__img {
+        object-fit: cover;
+        object-position: 50% 0%;
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+    }
+    /* model slides: a shorter photo field sized so the whole car fits the width */
+    .hero__slide--model { --hero-scene-h: var(--hero-scene-h-model); --photo-k: var(--photo-k-model); }
+    .hero__slide--model .hero__img { object-position: var(--m-pos, 50%) 50%; }
+}
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .hero__actions { gap: var(--sp-8); }
+    .hero__actions .btn--secondary {
+        width: auto;
+        justify-self: start;
+        min-height: var(--tap);
+        padding-inline: 0;
+        gap: var(--sp-16);
+        border-width: 0 0 var(--stroke-1);
+        border-color: var(--grey-0);
+    }
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
+    .hero { --hero-scene-h: var(--hero-scene-h-short); }
+    /* short phones: the dealer frame is contained at the top so the car clears the copy */
+    .hero__slide--dealer .hero__img { object-fit: contain; object-position: 50% 0%; }
+    .hero__slide--model { --hero-scene-h: var(--hero-scene-h-model-short); }
+}
+
+/* Landscape tablets, laptops and desktops: the photograph returns to the scene's
+   ground, anchored bottom-right; the copy and actions form one mass upper-left
+   (actions follow the copy at 32px) and the car owns the lower-right diagonal.
+   The lower-left black is the photograph's own studio field, not page void. */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__media {
+        top: auto;
+        left: auto;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+    }
+    .hero__img {
+        position: static;
+        height: auto;
+        object-fit: fill;
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top));
+        mask-image: linear-gradient(180deg, transparent 0%, #000 var(--feather-top));
+    }
+    .hero__inner { grid-template-columns: max-content 1fr; }
+    .hero__group { grid-column: 1; }
+}
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--bleed .hero__media { top: 0; height: 100%; }
+    .hero__slide--bleed .hero__img {
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--d-pos, 50% 50%);
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    .hero__slide--bleed .hero__scrim {
+        display: block;
+        position: absolute; inset: 0; z-index: -1;
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
+            linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) var(--scrim-mid, 34%), rgb(0 0 0 / 0) var(--scrim-end, 62%));
+    }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
+    .hero .hero__slide--bleed { --scrim-a: 0.9; }   /* outranks the per-slide values below */
+}
+/* dealer slide (Alex's edit of img8): the frame is drawn 1.2x from its left edge so
+   the car moves right and its wheels clear the centred action row at every
+   landscape width (the copy may overlap only the rear haunch, per Alex) */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--dealer .hero__img { transform: translateX(var(--dealer-shift, 0px)) scale(var(--dealer-zoom, 1)); transform-origin: 0% 62%; }
+}
+/* per width: 1920 scales 1.2 from the left edge (nose still in frame at 1820);
+   1440 needs nothing; 4:3 tablets shift right 48 px (the frame's left edge is black) */
+@media (min-width: 1600px) { .hero { --dealer-zoom: 1.2; } }
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) { .hero { --dealer-shift: 48px; } }
+/* over photographs the secondary action carries a dark fill so its label holds
+   on any frame (corporate secondary is an outline; the fill is a legibility decision) */
+.hero__slide--model .btn--secondary { background: rgb(0 0 0 / 0.64); }
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero__slide--bleed .hero__scrim {
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 46%, rgb(0 0 0 / 0) 78%);
+    }
+}
+/* short screens: compact claim, one row of actions; "In our inventory" stays in the
+   Models tiles and the header rather than crowding the slide */
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
+    .hero__dots { gap: 0; }
+    .hero__controls { gap: var(--sp-4); }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); --hero-title-fs: var(--fs-40); --hero-title-lh: var(--lh-38); }
+}
+/* per-slide authored framing */
+.hero__slide--dealer { --d-pos: 0% 50%; --scrim-a: 0.5; }         /* Alex's edit of img8: the left side is already dark; a light scrim only */
+.hero__slide--temerario { --d-pos: 0% 55%; --m-pos: 50%; --scrim-a: 0.84; }  /* gallery2 cropped clear of the sign: car right, sunset sky left */
+.hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
+.hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.88; --scrim-mid: 48%; --scrim-end: 78%; }   /* rocks at sunset: car right-centre; the long service line needs a wider scrim */
+.hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.84; --scrim-mid: 44%; --scrim-end: 70%; }   /* the wide Prestige eyelet */
+/* phones on their side: same diagonal, compressed so the copy and both actions
+   fit above the fold and clear the car */
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero__group { gap: var(--sp-16); }
+    .hero__copy { gap: var(--sp-8); }
+    .t-eyelet.hero__eyelet, .hero__place { font-size: var(--fs-14); line-height: var(--lh-22); }
+    .hero__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); }
+    .hero__media { width: var(--hero-media-short); }
+}
+
+/* centred-group follow-ups (Alex, 30 Sep 2026) */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .hero__group { justify-self: stretch; }            /* the primary action is one width on every slide */
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
+    .hero__slide--model { --photo-k: 0.73; }   /* 375x667: the longer dealership lines need ~20 px */
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
+    .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); }
+    .hero__slide--dealer { --photo-k: 0.5; }
+    .hero__slide--model { --photo-k: 0.72; }
+}
+/* portrait tablets: the dealer frame is shown whole across the width (its own
+   1160×667 ratio), so the car ends at 86% of the field and the group centres below it */
+@media (min-width: 768px) and (max-width: 1199.98px) and (orientation: portrait) {
+    .hero__slide--dealer { --hero-scene-h: 56.25vw; --photo-k: 0.8; }    /* Alex's slide 1 frame shown whole (16:9); the car ends at 75% */
+}
+
+/* ---------- 2 · The range — v2 single-model showcase (Alex's concept, 1 Oct 2026) ----------
+   One model at a time, one screen tall: the eyelet, the model's name, claim, figures
+   and two text CTAs; the big front three-quarter car; behind it the name as a pale
+   watermark; a thumbnail switcher with a counter and arrows. Air above (under the
+   header) and below (under the thumbnails) comes from --sc-air-t / --sc-air-b.
+   Phones and portrait tablets stack; from 1024 (or landscape from 700) the text and
+   the car sit side by side. The car is object-fit: contain in a flexible cell, so it
+   takes whatever height is left and the section never exceeds the screen. */
+.showcase {
+    --fg: var(--grey-10);
+    --fg-2: var(--grey-9);
+    --fg-3: var(--grey-8);
+    --fg-4: var(--sc-label);
+    --stroke: var(--grey-3);
+    --accent: var(--accent-light);
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background: var(--sc-ground);
+    color: var(--fg);
+    isolation: isolate;
+}
+.showcase__inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    row-gap: var(--sp-16);
+    padding-top: calc(var(--header-h) + var(--sc-air-t));
+    padding-bottom: var(--sc-air-b);
+}
+.showcase__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); color: var(--fg-3); }
+
+/* the watermark: the model's name, very large and pale, behind the car's upper half,
+   bleeding off the right edge of the section (which clips it) */
+.showcase__marks {
+    position: absolute;
+    z-index: 0;
+    top: var(--sc-mark-top);
+    right: calc((100% - 100vw) / 2);
+    width: 100vw;
+    height: calc(var(--sc-mark-fs) * 0.82);
+    pointer-events: none;
+    user-select: none;
+}
+.showcase__mark {
+    position: absolute;
+    top: 0;
+    right: -0.03em;
+    font-size: var(--sc-mark-fs);
+    line-height: 0.82;
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--sc-mark);
+    opacity: 0;
+    transition: opacity var(--dur-sc-mark) var(--ease-out);
+}
+.showcase__mark.is-active { opacity: 1; }
+
+.showcase__stage { position: relative; display: grid; min-height: 0; }
+.showcase__panel {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+    row-gap: var(--sp-8);
+}
+.showcase__panel[hidden] { display: none; }
+.showcase__text { display: contents; }
+.showcase__name {
+    grid-row: 1;
+    font-size: var(--sc-name-fs);
+    line-height: 0.95;
+    font-weight: var(--wght-heavy);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-heavy);
+    text-transform: uppercase;
+    letter-spacing: var(--track-display);
+    color: var(--grey-11);
+    text-wrap: balance;
+}
+.showcase__claim { grid-row: 2; font-size: var(--fs-18); line-height: var(--lh-28); color: var(--fg-2); text-wrap: balance; }
+.showcase__facts {
+    grid-row: 3;
+    display: flex;
+    flex-wrap: wrap;
+    /* every figure carries a leading dot in a 16 px slot; the slot of whichever figure
+       starts a line falls in the clipped margin, so a wrapped line never opens with "·" */
+    margin-left: calc(-1 * var(--sp-16));
+    clip-path: inset(-0.5em 0 -0.5em var(--sp-16));
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg);
+}
+.showcase__facts div { display: flex; gap: var(--sp-4); white-space: nowrap; }
+.showcase__facts div::before { content: "·"; flex: none; width: var(--sp-16); margin-right: calc(-1 * var(--sp-4)); text-align: center; color: var(--fg-4); }
+.showcase__facts dt { color: var(--fg-4); }
+.showcase__media { grid-row: 4; position: relative; min-height: 0; }
+.showcase__drive, .showcase__media picture { display: block; width: 100%; height: 100%; }
+/* phones: the art's faded left margin (shadow tail) runs off the left edge, so the
+   body itself spans the column */
+.showcase__drive { width: var(--sc-car-span); margin-left: var(--sc-car-shift); }
+.showcase__car { width: 100%; height: 100%; object-fit: contain; object-position: 50% 60%; }
+.showcase__actions { grid-row: 5; display: flex; flex-wrap: wrap; gap: 0 var(--sp-24); }
+.showcase__cta.btn--tertiary { min-height: var(--tap); gap: var(--sp-8); font-size: var(--fs-14); }
+.showcase__cta--quiet { color: var(--fg-3); border-bottom-color: var(--fg-4); }
+
+/* the switcher */
+.showcase__nav { display: grid; row-gap: var(--sp-8); min-width: 0; }
+.showcase__tabs {
+    display: flex;
+    gap: var(--sp-16);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    contain: paint;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.showcase__tabs::-webkit-scrollbar { display: none; }
+.showcase__tab {
+    flex: none;
+    min-width: var(--sc-thumb-w);
+    min-height: var(--tap);
+    display: grid;
+    gap: var(--sp-4);
+    scroll-snap-align: start;
+    color: var(--fg-4);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.showcase__thumb { display: block; width: var(--sc-thumb-w); aspect-ratio: 1200 / 430; }
+.showcase__thumb img { width: 100%; height: 100%; object-fit: contain; }
+.showcase__label {
+    position: relative;
+    padding-bottom: var(--sp-8);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    white-space: nowrap;
+}
+.showcase__label::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: var(--stroke-2);
+    background: var(--grey-11);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+.showcase__tab:hover { color: var(--fg); }
+.showcase__tab.is-active { color: var(--grey-11); }
+.showcase__tab.is-active .showcase__label::after { transform: none; }
+.showcase__ctrl { display: none; align-items: center; justify-content: flex-end; gap: var(--sp-8); grid-row: 1; }
+.js .showcase__ctrl { display: flex; }
+.showcase__count {
+    margin-right: auto;
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-4);
+}
+.showcase__count span { color: var(--grey-11); }
+.showcase__divider { width: var(--stroke-1); height: var(--sp-24); background: var(--stroke); }
+.showcase__arrow {
+    display: inline-grid;
+    place-items: center;
+    width: var(--tap);
+    height: var(--tap);
+    color: var(--grey-11);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.showcase__arrow:hover { color: var(--fg-4); }
+
+/* side by side: from 1024, or any landscape screen from 700 wide — composed on the
+   concept's proportions (Alex, 1 Oct 2026; concept 1672x941): eyelet ~28% of the
+   height, name below it; the car's BODY centred on --sc-car-cy (~53%) and spanning
+   ~32%→89% of the width, measured on the opaque body, not on the canvas (each panel
+   carries its body-centre fraction --cy and right edge --bx); the watermark behind
+   the car's upper half, whole, ~37%→97% wide, top ~17%; four thumbs spread across
+   the lower band with the counter and arrows in their own zone at the right.
+   Positions are fractions of the section (100svh), so they hold on short screens. */
+@media (min-width: 1024px), (orientation: landscape) and (min-width: 700px) {
+    .showcase { --sc-x0: max(var(--page-gutter), (100% - var(--container-max)) / 2); }
+    .showcase__inner, .showcase__stage, .showcase__panel { position: static; }
+    .showcase__inner { grid-template-rows: minmax(0, 1fr) auto; padding-top: 0; }
+    .showcase__eyelet {
+        position: absolute;
+        z-index: 2;
+        left: var(--sc-x0);
+        top: var(--sc-eyelet-y);
+        font-size: var(--fs-16);
+        line-height: var(--lh-24);
+    }
+    .showcase__marks {
+        top: var(--sc-mark-top);
+        right: var(--sc-mark-right);
+        width: 75%;
+        height: calc(var(--sc-mark-fs) * 0.82);
+    }
+    .showcase__mark { right: 0; font-size: calc(var(--sc-mark-fs) * var(--mk, 1)); }
+    .showcase__text {
+        position: absolute;
+        z-index: 2;
+        left: var(--sc-x0);
+        top: calc(var(--sc-eyelet-y) + var(--lh-24) + var(--sc-eyelet-gap));
+        width: var(--sc-text-w);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sc-text-gap);
+    }
+    .showcase__name { font-size: calc(var(--sc-name-fs) * var(--k, 1)); line-height: 0.95; }
+    .showcase__claim { font-size: var(--sc-claim-fs); line-height: 1.25; }
+    .showcase__actions {
+        margin-top: var(--sc-text-gap);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-8);
+    }
+    .showcase__cta.btn--tertiary { font-size: var(--fs-16); gap: var(--sp-16); }
+    .showcase__cta--primary.btn--tertiary { border-bottom-color: transparent; }
+    .showcase__cta--primary.btn--tertiary:hover { border-bottom-color: var(--accent); }
+    .showcase__media {
+        position: absolute;
+        z-index: 1;
+        width: var(--sc-car-w);
+        height: var(--sc-car-h);
+        left: calc(var(--sc-car-right) - var(--bx, 0.87) * var(--sc-car-w));
+        top: calc(var(--sc-car-cy) - var(--cy, 0.55) * var(--sc-car-h));
+    }
+    .showcase__drive { width: 100%; margin-left: 0; }
+    .showcase__car { object-position: 50% 50%; }
+    .showcase__nav { position: relative; z-index: 2; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--sp-32); }
+    .showcase__tabs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        justify-items: center;
+        gap: var(--sp-16);
+        padding-left: var(--sc-tabs-pad);
+        overflow: visible;
+    }
+    .showcase__tabs { contain: none; }
+    .showcase__tab { justify-items: center; min-width: 0; max-width: 100%; }
+    .showcase__label { white-space: normal; text-align: center; text-wrap: balance; }   /* a long name takes two lines in a narrow cell, never clipped */
+    .showcase__ctrl { grid-row: auto; grid-column: 2; align-self: center; margin-bottom: var(--sp-24); }
+    .showcase__count { margin-right: var(--sp-16); }
+    .showcase__divider { margin-right: var(--sp-16); }
+}
+/* anchor landing / keyboard focus: the text and the thumbs are there at once */
+.js .showcase.is-instant [data-sc-line],
+.js .showcase.is-instant .showcase__tab,
+.js .showcase.is-instant .showcase__ctrl { transition: none !important; }
+/* 320: the arrow is decorative, so it gives way and the two CTAs keep one line */
+@media (max-width: 359.98px) {
+    .showcase__cta .btn__icon { display: none; }
+    .showcase__actions { gap: var(--sp-16); }
+}
+/* short portrait phones (667 tall and under): smaller thumbs */
+@media (orientation: portrait) and (max-height: 700px) {
+    .showcase { --sc-thumb-w: 6rem; }
+    .showcase__label { padding-bottom: var(--sp-4); }
+}
+/* phones on their side: everything tighter */
+@media (orientation: landscape) and (max-height: 520px) {
+    .showcase__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
+    .showcase__claim { font-size: var(--fs-16); line-height: var(--lh-24); }
+    .showcase__actions { flex-direction: row; gap: var(--sp-24); }
+    .showcase__cta.btn--tertiary { font-size: var(--fs-14); gap: var(--sp-8); }
+    .showcase__label { padding-bottom: var(--sp-4); }
+    .showcase__ctrl { margin-bottom: var(--sp-8); }
+}
+}
+
+/* ---------- 3 · Inventory (dealer adaptation of the Selezione card) ---------- */
+.inventory .section-head__cta { display: none; }
+.inv-group + .inv-group { margin-top: var(--sp-64); }
+.inv-group__label {
+    color: var(--fg-3);
+    padding-bottom: var(--sp-16);
+    margin-bottom: var(--sp-24);
+    border-bottom: var(--stroke-1) solid var(--stroke);
+}
+.inv-grid { display: grid; gap: var(--grid-gap); min-width: 0; }
+
+.vcard {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-0-dark);
+    padding: var(--sp-24);
+}
+.vcard__title {
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    color: var(--grey-1);
+    text-wrap: balance;
+}
+.vcard__colour {
+    margin-top: var(--sp-4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 var(--sp-16);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    color: var(--grey-3);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+.vcard__stock { color: var(--grey-5); font-variant-numeric: tabular-nums; }
+.vcard__media {
+    margin-block: var(--sp-24);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--grey-9);
+}
+.vcard__media img { width: 100%; height: 100%; object-fit: cover; }
+.vcard__media--rep { position: relative; }
+.vcard__rep-note {
+    position: absolute; left: 0; bottom: 0;
+    padding: var(--sp-4) var(--sp-8);
+    background: rgb(0 0 0 / 0.72);
+    color: var(--grey-3);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+}
+/* kept for future cars without photographs (currently unused) */
+.vcard__media--plate {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: var(--sp-8);
+    background: var(--surface-1-dark);
+    text-align: center;
+}
+.vcard__plate {
+    font-size: var(--fs-56);
+    line-height: var(--lh-52);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    color: var(--grey-8);
+}
+.vcard__plate-note {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    color: var(--grey-4);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+.vcard__rows { display: grid; }
+.vcard__rows div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-16);
+    padding-block: var(--sp-8);
+    border-bottom: var(--stroke-1) solid var(--grey-7);
+}
+.vcard__rows dt { color: var(--grey-3); }
+.vcard__rows dd {
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+.vcard__foot {
+    margin-top: auto;
+    padding-top: var(--sp-24);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-16);
+}
+.vcard__price {
+    font-size: var(--fs-27);
+    line-height: var(--lh-37);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-dark);
+}
+.vcard__price--none { color: var(--grey-3); }
+.inventory__foot {
+    margin-top: var(--sp-48);
+    display: grid;
+    gap: var(--sp-32);
+}
+
+/* Group headings sit inline above their grids at every width (no left rail),
+   so the cards take the full 12 columns. Rows always fill: New (2 cars) as a
+   pair, Pre-owned (3 cars) as a trio from 1024; below that Pre-owned stacks
+   rather than orphan a card. One card image ratio (16:9) throughout. */
+@media (min-width: 768px) {
+    .inv-group--new .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .inventory__foot { grid-template-columns: 1fr auto; align-items: end; }
+}
+@media (min-width: 1024px) {
+    .inv-group--pre .inv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* Pre-owned below 1024 (Alex, 30 Sep 2026): six stacked cards are too long on a
+   phone, so they run as a horizontal rail with scroll-snap and a visible peek of
+   the next card. Native horizontal swipe; vertical wheel stays with Lenis (no data-lenis-prevent).
+   The rail bleeds to the screen edges but never widens the page. New stays stacked. */
+@media (max-width: 1023.98px) {
+    .inv-grid--rail {
+        grid-auto-flow: column;
+        grid-auto-columns: var(--rail-card);
+        grid-template-columns: none;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        margin-inline: calc(-1 * var(--page-gutter));
+        padding-inline: var(--page-gutter);
+        scroll-padding-inline: var(--page-gutter);
+        padding-bottom: var(--sp-16);
+        scrollbar-width: thin;
+        scrollbar-color: var(--grey-7) transparent;
+        contain: paint;               /* without it the rail's scroll width leaks into the page when Lenis is off (reduced motion) */
+    }
+    .inv-grid--rail > li { scroll-snap-align: start; }
+    .inv-group--pre { min-width: 0; }   /* the rail's min-content width must not size its ancestors */
+}
+@media (min-width: 1200px) {
+    .inventory .section-head__cta { display: inline-flex; }
+    .inventory__all { display: none; }
+    .inventory__foot { grid-template-columns: 1fr; }
+}
+
+/* ---------- 4 · Ad Personam (Alex, 30 Sep 2026) ----------
+   Laid out like a hero slide: ONE left-aligned column (eyelet, title, paragraph,
+   two actions). Landscape: the PHOTOGRAPH is pinned (.adp__stage, sticky for the
+   whole of .adp-pin) with a hero-style left gradient fixed to it; the column is in
+   normal flow, enters in the lower-middle and rises at scroll speed over the dark
+   left zone, with Service (#181818, clean edge) directly below it. Portrait: a
+   plain chapter like the hero on phones: the photo above, fading to black, the
+   column below it (a pinned photo there would put the rising column over the
+   bright cabin). Pure CSS sticky; body uses overflow-x: clip, which keeps it working. */
+.adp-pin { position: relative; scroll-margin-top: 0; }
+.adp__stage {
+    position: relative;
+    height: var(--adp-photo-p);
+    overflow: hidden;
+    background: var(--surface-0-dark);
+}
+.adp__media, .adp__media picture { position: absolute; inset: 0; display: block; margin: 0; max-width: none; }
+.hero__media { max-width: none; }
+.adp__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--adp-pos-p);
+}
+.adp__scrim {
+    position: absolute; inset: 0;
+    /* portrait: header gradient on top, the frame fading to black at its foot */
+    background:
+        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(180deg, rgb(0 0 0 / 0) 55%, var(--surface-0-dark) 100%);
+}
+.adp__stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: calc(var(--adp-cover, 0) * 0.55);   /* dims as Service covers it (main.js; not under reduced motion) */
+    pointer-events: none;
+}
+.adp {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: start;
+    padding-block: var(--sp-24) var(--sp-56);
+    background: var(--surface-0-dark);
+    color: var(--grey-1);
+}
+.adp-pin > .service { position: relative; z-index: 2; }   /* opaque #181818, clean top edge */
+.adp__eyelet { color: var(--grey-2); }
+.adp__lead { color: var(--grey-1); max-width: var(--adp-measure); }
+.adp__actions { display: grid; gap: var(--sp-16); }
+
+/* one column, the hero's rhythm: copy, then the actions 32 px below */
+.adp__inner { display: grid; justify-items: start; row-gap: var(--sp-32); }
+.adp__head { display: grid; gap: var(--sp-8); }
+.adp__body { display: grid; gap: var(--sp-32); justify-items: start; }
+.adp__actions { justify-self: stretch; }
+
+@media (max-width: 767.98px) and (max-height: 700px) {
+    .adp__inner, .adp__body { row-gap: var(--sp-16); }
+    .adp .t-banner { font-size: var(--fs-40); line-height: var(--lh-46); }
+    .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
+    .adp__actions { gap: var(--sp-8); }
+    .adp__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
+    .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
+}
+@media (min-width: 768px) {
+    .adp__actions { display: flex; flex-wrap: wrap; gap: var(--sp-16); justify-self: start; }
+    .adp__actions .btn { width: auto; }
+}
+
+/* landscape: the pinned photograph, the column rising over its dark left zone */
+@media (orientation: landscape) and (min-width: 568px) {
+    .adp__stage {
+        position: sticky;
+        top: 0;
+        z-index: 0;
+        height: 100vh;
+        height: 100svh;
+    }
+    .adp__img { object-position: var(--adp-pos-l); }
+    .adp__scrim {
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+            linear-gradient(90deg, rgb(0 0 0 / var(--adp-scrim-a)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * var(--adp-scrim-k))) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-end));
+    }
+    .adp {
+        margin-top: -100vh;
+        margin-top: -100svh;          /* the column overlays the pinned photo from its first screen */
+        min-height: 100vh;
+        min-height: 100svh;
+        align-content: end;
+        padding-block: 0 var(--adp-pad-b);   /* the column's foot at entry; Service follows below */
+        background: none;
+    }
+    .adp__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); gap: var(--sp-16); }
+    .adp .t-banner { font-size: var(--fs-56); line-height: var(--lh-52); }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+    .adp-pin { --adp-scrim-a: 0.92; --adp-scrim-k: 0.92; --adp-scrim-mid: 52%; --adp-scrim-end: 86%; --adp-measure: 60ch; }
+    .adp__inner, .adp__body { row-gap: var(--sp-16); }
+    .adp__head { gap: var(--sp-4); }
+    .adp .t-banner { font-size: var(--fs-40); line-height: var(--lh-46); }
+    .adp__lead { font-size: var(--fs-16); line-height: var(--lh-24); }
+    .adp__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
+}
+@media (orientation: landscape) and (min-width: 1200px) and (min-height: 600.02px) {
+    .adp .t-banner { font-size: var(--fs-80); line-height: var(--lh-80); }
+}
+
+/* ---------- 5 · Service & ownership ---------- */
+.service__grid { display: grid; gap: var(--sp-48); }
+.service__media img { width: 100%; }
+.service__caption { margin-top: var(--sp-16); }
+.service__lead { margin-top: var(--sp-24); }
+.service__body { display: grid; gap: var(--sp-48); align-content: start; }
+.service__actions { display: grid; gap: var(--sp-16); }
+
+/* spec rows — corporate technical-specification pattern (shot 07) */
+.spec { border-top: var(--stroke-1) solid var(--stroke); }
+.spec__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-4);
+    padding-block: var(--sp-16);
+    border-bottom: var(--stroke-1) solid var(--stroke);
+}
+.spec__label {
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+.spec__value {
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+}
+.spec__value a { transition: color var(--dur-fast) var(--ease-out); }
+/* 44px hit areas without changing the type: padding grows the target, the
+   equal negative margin keeps the row's rhythm (each row holds one link) */
+.spec__value > a,
+.spec__link,
+.menu__contact a {
+    display: inline-block;
+    padding-block: var(--tap-pad);
+    margin-block: calc(-1 * var(--tap-pad));
+    min-width: var(--tap);
+}
+.spec__value > a:hover { color: var(--accent); }
+.spec__sub {
+    display: block;
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-regular);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-regular);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--fg-4);
+}
+.spec__link {
+    color: var(--fg-2);
+    text-decoration: underline;
+    text-decoration-thickness: var(--stroke-1);
+    text-underline-offset: 0.2em;
+}
+.spec__link:hover { color: var(--accent); }
+
+@media (min-width: 768px) {
+    .spec__row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-24); align-items: baseline; }
+    .spec__label, .spec__value { font-size: var(--fs-18); line-height: var(--lh-28); }
+    .spec__value { text-align: right; }
+    .service__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
+    .service__media img { aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 60%; }
+}
+@media (min-width: 1024px) {
+    .service__media img { aspect-ratio: auto; }
+    .service__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: start; }
+}
+@media (min-width: 1200px) {
+    .service__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); }
+    .service__body { grid-column: 3; }
+    .service__media { position: sticky; top: calc(var(--header-h) + var(--sp-24)); }
+}
+
+/* ---------- 5b · Certified collision center (Alex, 30 Sep 2026) ----------
+   Black, after Service's #181818, with a hairline between them; text left and the
+   photograph right (the mirror of Service). From 1200 the photograph is exactly the
+   height of the text block (top on the eyelet, bottom on the buttons): a portrait
+   slice of the 802 px square, never upscaled at the measured heights (≤ 802 px).
+   Below 1200 it stacks after the text, square, at its natural size or smaller. */
+.collision { border-top: var(--stroke-1) solid var(--grey-8); }
+.collision__grid { display: grid; gap: var(--sp-48); }
+.collision__body { display: grid; gap: var(--sp-48); align-content: start; }
+.collision__line { display: block; }
+.collision__lead { margin-top: var(--sp-24); max-width: var(--measure); }
+.collision__actions { display: grid; gap: var(--sp-16); }
+.collision__media { position: relative; overflow: hidden; max-width: 31.25rem; aspect-ratio: 1 / 1; }
+.collision__media picture { position: absolute; inset: 0; display: block; }
+.collision__media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--collision-pos); }
+@media (min-width: 768px) {
+    .collision__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
+}
+@media (min-width: 1200px) {
+    .collision__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 1fr) minmax(0, 5fr); align-items: stretch; }
+    .collision__body { grid-column: 1; }
+    .collision__media { grid-column: 3; max-width: none; aspect-ratio: auto; align-self: stretch; }
+}
+/* the unveil (Alex): the photograph opens upward as it enters, scrubbed to scroll
+   (main.js sets --reveal 0 → 1 from the cell's top at 85% to 35% of the viewport)
+   and settles from 1.12 to 1. Only with JS and motion allowed; static otherwise. */
+@media (prefers-reduced-motion: no-preference) {
+    .js .collision__media[data-reveal] { clip-path: inset(calc((1 - var(--reveal, 0)) * 100%) 0 0 0); }
+    .js .collision__media[data-reveal] img { transform: scale(calc(1.12 - 0.12 * var(--reveal, 0))); transform-origin: 50% 100%; }
+    .js .collision__media.is-revealing { will-change: clip-path; }
+    .js .collision__media.is-revealing img { will-change: transform; }
+}
+
+/* ---------- 6 · The house ---------- */
+.house__grid { display: grid; gap: var(--sp-48); }
+.house__intro { display: grid; gap: var(--sp-32); align-content: start; justify-items: start; }
+.lockup { display: flex; align-items: center; gap: var(--sp-16); color: var(--fg); }
+@media (min-width: 768px) { .lockup__name { font-size: var(--fs-24); line-height: var(--lh-32); } }
+.lockup__bull {
+    width: var(--bull-w);
+    aspect-ratio: 70 / 72;
+    background: currentColor;
+    -webkit-mask: url("../img/bull.svg") center / contain no-repeat;
+    mask: url("../img/bull.svg") center / contain no-repeat;
+}
+.lockup__name {
+    white-space: nowrap;
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+.house__title { color: var(--fg); }
+.house__text { display: grid; gap: var(--sp-16); max-width: var(--measure); color: var(--fg-2); font-size: var(--fs-18); line-height: var(--lh-28); }
+.house__media img { width: 100%; }
+.house__caption { margin-top: var(--sp-16); }
+
+.archive {
+    margin-top: var(--sp-80);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(var(--archive-col), 72%);
+    gap: var(--grid-gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;   /* horizontal swipes stay in the strip; vertical wheel goes to Lenis and the page */
+    contain: paint;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--sp-16);
+    border-top: var(--stroke-1) solid var(--stroke);
+    padding-top: var(--sp-32);
+}
+.archive__item { scroll-snap-align: start; display: grid; gap: var(--sp-8); align-content: start; }
+.archive__item img { width: 100%; filter: grayscale(0.15); }
+.archive__year {
+    margin-top: var(--sp-8);
+    font-size: var(--fs-28);
+    line-height: var(--lh-38);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+}
+.archive__text { font-size: var(--fs-14); line-height: var(--lh-22); color: var(--fg-3); max-width: var(--measure-caption); }
+
+@media (min-width: 768px) {
+    .house__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); }
+    .archive { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
+}
+@media (min-width: 1200px) {
+    .house__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 1fr) minmax(0, 7fr); }
+    .house__media { grid-column: 3; }
+    .archive { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .archive__item { grid-row: 1; grid-column: span 3; }
+    .archive__item:first-child { grid-column: 4 / span 3; }
+    .archive::before {
+        content: "From the archive";
+        grid-row: 1;
+        grid-column: 1 / span 3;
+        font-size: var(--fs-18);
+        line-height: var(--lh-28);
+        font-weight: var(--wght-bold);
+        font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+        text-transform: uppercase;
+        letter-spacing: var(--track-upper);
+        color: var(--fg-3);
+    }
+}
+
+/* ---------- 7 · Visit ---------- */
+.visit { padding-bottom: var(--sp-88); }
+.visit__grid { display: grid; gap: var(--sp-64); }
+.visit__intro { display: grid; gap: var(--sp-24); align-content: start; }
+.visit__address {
+    font-size: var(--fs-24);
+    line-height: var(--lh-34);
+    color: var(--grey-1);
+}
+.visit__actions { display: grid; gap: var(--sp-16); margin-top: var(--sp-16); }
+.visit__data { display: grid; gap: var(--sp-16); align-content: start; }
+.visit__head { color: var(--fg-3); }
+.visit__head:not(:first-child) { margin-top: var(--sp-32); }
+
+@media (min-width: 768px) {
+    .visit__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); }
+}
+@media (min-width: 1200px) {
+    .visit__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); column-gap: var(--grid-gap); }
+    .visit__data { grid-column: 3; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer { padding-block: 0 var(--sp-64); }
+.site-footer__top {
+    display: grid;
+    gap: var(--sp-48);
+    padding-top: var(--sp-64);
+    border-top: var(--stroke-1) solid var(--grey-8);
+}
+.site-footer__brand { display: grid; gap: var(--sp-8); justify-items: start; }
+.site-footer__bull { width: var(--bull-sm); margin-bottom: var(--sp-8); }
+.site-footer__name {
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+}
+.site-footer__sub { color: var(--grey-3); }
+.site-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-40) var(--grid-gap); }
+.site-footer__head {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    color: var(--grey-5);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    margin-bottom: var(--sp-8);
+}
+.site-footer__nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+    padding-block: var(--sp-8);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.site-footer__nav a:hover { color: var(--grey-3); }
+
+.site-footer__parent {
+    margin-top: var(--sp-64);
+    padding-block: var(--sp-32);
+    border-block: var(--stroke-1) solid var(--grey-8);
+    display: grid;
+    gap: var(--sp-16);
+    justify-items: start;
+}
+.site-footer__prestige { width: var(--prestige-w); height: auto; }
+.site-footer__parent-text { color: var(--grey-2); }
+
+.site-footer__legal { margin-top: var(--sp-40); display: grid; gap: var(--sp-8); max-width: none; }
+.site-footer__legal p { max-width: var(--measure-legal-wide); }
+/* the baseline row: copyright left, "Powered by All Auto Network" right from 768;
+   stacked on phones. Same legal type and colour; the link is a 44 px target. */
+.site-footer__baseline { display: grid; gap: 0; }
+.site-footer__powered { white-space: nowrap; }
+.site-footer__powered a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: var(--stroke-1);
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.site-footer__powered a:hover { color: var(--grey-1); }
+@media (min-width: 768px) {
+    .site-footer__baseline { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-24); }
+}
+
+@media (min-width: 768px) {
+    .site-footer__nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .site-footer__parent { grid-template-columns: auto 1fr auto; align-items: center; gap: var(--sp-32); }
+}
+@media (min-width: 1200px) {
+    .site-footer__top { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--grid-gap); }
+}
+
+/* the page text enters from the left (-48 px): sections clip their own horizontal
+   overflow (clip, not hidden: no scroll container, so the sticky Ad Personam
+   photograph, the sticky Service image and the Models drive keep working) */
+main section { overflow-x: clip; }
+
+/* ---------- Motion: text rise (DESIGN_SYSTEM.md §8, user direction) ----------
+   Every text element rises into place once, as it enters. Classes are added by
+   main.js only when JS runs and motion is allowed, and removed again when the
+   rise completes, so hover transitions are handed back. transform/opacity only. */
+@media (prefers-reduced-motion: no-preference) {
+    /* page text enters like the hero (Alex, 30 Sep 2026): from the left, in a
+       staircase, on the hero's tokens (--hero-in-x, --dur-hero-in, --ease-drive,
+       --hero-step; --rv-cap lets a block of ~8 lines visibly cascade) */
+    .js .rv {
+        opacity: 0;
+        transform: translate3d(var(--hero-in-x), 0, 0);
+        transition: opacity var(--dur-hero-in) var(--ease-drive),
+                    transform var(--dur-hero-in) var(--ease-drive);
+        transition-delay: var(--rv-delay, 0ms);
+    }
+    .js .rv.is-in { opacity: 1; transform: none; }
+
+
+    /* v2 showcase (Alex's concept): the switch. The outgoing car leaves to the right
+       and fades, the incoming one drives in from the left; text lines change with the
+       hero's staircase (outgoing fade, incoming slide-in after it). The scroll-linked
+       entry moves .showcase__drive, the switch moves .showcase__car, so they compose. */
+    .js .showcase [data-sc-line] {
+        opacity: 0;
+        transform: translate3d(var(--hero-in-x), 0, 0);
+        transition: opacity var(--dur-sc-text-out) var(--ease-out),
+                    transform 0s linear var(--dur-sc-text-out);
+    }
+    .js .showcase.is-in .showcase__panel.is-active [data-sc-line] {
+        opacity: 1;
+        transform: none;
+        transition: opacity var(--dur-hero-in) var(--ease-drive),
+                    transform var(--dur-hero-in) var(--ease-drive);
+        transition-delay: calc(var(--dur-sc-text-out) + min(calc(var(--i, 0) * var(--hero-step)), var(--hero-cap)));
+    }
+    .js .showcase__car {
+        opacity: 0;
+        transform: translate3d(var(--sc-car-in), 0, 0);
+        transition: opacity var(--dur-sc-out) var(--ease-in), transform var(--dur-sc-out) var(--ease-in);
+    }
+    .js .showcase__panel.is-active .showcase__car {
+        opacity: 1;
+        transform: none;
+        transition: transform var(--dur-sc-in) var(--ease-drive) var(--sc-in-delay),
+                    opacity var(--dur-sc-out) var(--ease-out) var(--sc-in-delay);
+    }
+    .js .showcase__panel.is-leaving .showcase__car { opacity: 0; transform: translate3d(var(--sc-car-out), 0, 0); }
+    .js .showcase.is-still .showcase__car { transition: none; }      /* first paint: model 1 is simply there */
+    .js .showcase[data-drive] .showcase__drive {
+        transform: translate3d(var(--car-x, 0%), 0, 0);
+        opacity: var(--car-o, 1);
+    }
+    .js .showcase.is-driving .showcase__drive { will-change: transform, opacity; }
+    .js .showcase__tab,
+    .js .showcase__ctrl {
+        opacity: 0;
+        transform: translate3d(var(--hero-in-x), 0, 0);
+    }
+    .js .showcase.is-in .showcase__tab,
+    .js .showcase.is-in .showcase__ctrl {
+        opacity: 1;
+        transform: none;
+        transition: opacity var(--dur-hero-in) var(--ease-drive),
+                    transform var(--dur-hero-in) var(--ease-drive),
+                    color var(--dur-fast) var(--ease-out);
+        transition-delay: calc(var(--sc-tabs-delay) + var(--t, 4) * var(--hero-step)), calc(var(--sc-tabs-delay) + var(--t, 4) * var(--hero-step)), 0s;
+    }
+
+    /* hero text slides in from the left on load and on every slide change (Alex,
+       30 Sep 2026). The outgoing slide's lines fade in --dur-hero-out without
+       travel; the incoming lines wait for that, then glide in top to bottom. */
+    .js [data-hero-line] {
+        opacity: 0;
+        transform: translate3d(var(--hero-in-x), 0, 0);
+        transition: opacity var(--dur-hero-out) var(--ease-out),
+                    transform 0s linear var(--dur-hero-out);
+    }
+    .js.is-loaded .hero__slide.is-active [data-hero-line] {
+        opacity: 1;
+        transform: none;
+        transition: opacity var(--dur-hero-in) var(--ease-drive),
+                    transform var(--dur-hero-in) var(--ease-drive);
+        transition-delay: calc(var(--dur-hero-out) + min(calc(var(--i, 0) * var(--hero-step)), var(--hero-cap)));
+    }
+
+    .js .hero__media { opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
+    .js.is-loaded .hero__media { opacity: 1; }
+}
+
+/* ---------- Reduced motion: an authored still, not a switch-off ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    /* Soft, opacity-only entrances (Alex, 30 Sep 2026): reduced motion removes all
+       travel, scrubbing and autoplay, but nothing cuts in. Each rule below outranks
+       the blanket above by specificity (both !important). */
+
+    /* page text: 400 ms fade on the same 80 ms staircase, no translate */
+    .js .rv {
+        opacity: 0;
+        transition: opacity var(--dur-rm-text) var(--ease-out) !important;
+        transition-delay: var(--rv-delay, 0ms) !important;
+    }
+    .js .rv.is-in { opacity: 1; }
+    .js .rv.rv-now { transition: none !important; }      /* anchor landing and focus: at once */
+
+    /* hero: outgoing lines fade 200 ms, incoming fade 400 ms on the staircase after
+       them; the photographs crossfade over 600 ms */
+    .js [data-hero-line] {
+        opacity: 0;
+        transition: opacity var(--dur-rm-out) var(--ease-out) !important;
+    }
+    .js.is-loaded .hero__slide.is-active [data-hero-line] {
+        opacity: 1;
+        transition: opacity var(--dur-rm-text) var(--ease-out) !important;
+        transition-delay: calc(var(--dur-rm-out) + min(calc(var(--i, 0) * var(--hero-step)), var(--hero-cap))) !important;
+    }
+    .js .hero__slide { transition: opacity var(--dur-rm-slide) var(--ease-out), visibility 0s linear var(--dur-rm-slide) !important; }
+    .js .hero__slide.is-active { transition: opacity var(--dur-rm-slide) var(--ease-out), visibility 0s !important; }
+
+
+    /* collision photograph: no clip or scale scrub; a 400 ms fade */
+    .js .collision__media[data-reveal] { opacity: 0; transition: opacity var(--dur-rm-media) var(--ease-out) !important; }
+    .js .collision__media[data-reveal].is-shown { opacity: 1; }
+    .js .collision__media[data-reveal].is-now { transition: none !important; }
+
+    /* v2 showcase: no travel; the cars, the text and the thumbs crossfade */
+    .js .showcase [data-sc-line] { opacity: 0; transition: opacity var(--dur-rm-out) var(--ease-out) !important; }
+    .js .showcase.is-in .showcase__panel.is-active [data-sc-line] {
+        opacity: 1;
+        transition: opacity var(--dur-rm-text) var(--ease-out) !important;
+        transition-delay: calc(var(--dur-rm-out) + min(calc(var(--i, 0) * var(--hero-step)), var(--hero-cap))) !important;
+    }
+    .js .showcase__car { opacity: 0; transition: opacity var(--dur-rm-out) var(--ease-out) !important; }
+    .js .showcase__panel.is-active .showcase__car { opacity: 1; transition: opacity var(--dur-rm-car) var(--ease-out) !important; transition-delay: var(--dur-rm-out) !important; }
+    .js .showcase.is-still .showcase__car { transition: none !important; }
+    .js .showcase__mark { transition: opacity var(--dur-rm-car) var(--ease-out) !important; }
+    .js .showcase__tab, .js .showcase__ctrl { opacity: 0; transition: opacity var(--dur-rm-text) var(--ease-out) !important; }
+    .js .showcase.is-in .showcase__tab, .js .showcase.is-in .showcase__ctrl { opacity: 1; }
+
+    /* menu: panel and backdrop fade 250 ms (no reveal), items fade 200 ms together, no travel */
+    .menu, .menu.is-open { transition: background-color var(--dur-rm-menu) var(--ease-out) !important; }
+    .menu__panel { clip-path: none; opacity: 0; transition: opacity var(--dur-rm-menu) var(--ease-out) !important; }
+    .menu.is-open .menu__panel { clip-path: none; opacity: 1; }
+    .menu [data-menu-item] { transform: none; transition: opacity var(--dur-rm-item) var(--ease-out) !important; transition-delay: 0s !important; }
+    /* arrows signal by colour instead of travel */
+    .btn:hover .btn__icon, .btn:focus-visible .btn__icon { transform: none; color: var(--accent); }
+    .btn--primary:hover .btn__icon, .btn--accent:hover .btn__icon { color: inherit; }
+}

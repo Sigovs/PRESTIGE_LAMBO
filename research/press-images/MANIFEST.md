@@ -74,3 +74,16 @@ Resize and export only, via `site/_tools/process-models-alex.py`: shadows as sup
 | `research/images-prestige-group/prestige_paint-booth-painter-blue-panel_802x802.jpg` | 802×802 | A painter in a respirator spraying a blue panel in a paint booth | The Prestige Imports group site update (`_______PRESTIGE TO PREVIEW/prestige-final/UPDATES SEPTEMBER 2026/Collision Paint & Concours Restoration.jpg`); same dealer group | The Certified Collision Center section, at most 500 px wide (never full bleed). Outputs `collision-paint-booth-{560,802}.webp` + `.jpg` |
 
 Rejected: `prestige-final/assets/images/collision_hero_sept26.jpg` (2560×1275), which shows a Lotus. No other brands on this page.
+
+## v2 range showcase (index_v2.html only, 1 Oct 2026)
+
+| File | Dimensions | Content | Source | Used for |
+|---|---|---|---|---|
+| `site/assets/img/showcase-revuelto-{800,1200,1830}.webp` + `-800.png` | 1830×863 master | Revuelto, orange, front three-quarter | Alex-supplied art, `MODELS/NEW MODELS/image 9.png` (2430×923 RGBA) | v2 showcase, model 1 |
+| `site/assets/img/showcase-temerario-…` | 1830×863 | Temerario, dark blue, hexagonal DRLs lit | `MODELS/NEW MODELS/image 8.png` | v2 showcase, model 2 |
+| `site/assets/img/showcase-urus-se-…` | 1830×863 | Urus SE, orange | `MODELS/NEW MODELS/image 10.png` | v2 showcase, model 3 |
+| `site/assets/img/showcase-urus-se-performante-…` | 1830×863 | Urus SE Performante, yellow-green, "URUS SE Performante" plate | `MODELS/NEW MODELS/image 7.png` | v2 showcase, model 4 |
+
+Processing (`site/_tools/process-showcase.py`): one shared crop for all four (x 600–2430, y 60–923), so Alex's scale and baseline are kept; the shadow tails that run past the crop's left edge are faded out over the first 240 px (an alpha ramp), so no hard edge shows. Resize only, never upscaled. Thumbnails reuse the existing `model-art-*-{600,1200}` side profiles (MODELS/image*.png).
+
+Deliberately not exported: `MODELS/NEW MODELS/image 6.png` (Revuelto SV), which is under approval in the US.

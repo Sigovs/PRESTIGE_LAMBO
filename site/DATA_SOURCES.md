@@ -180,3 +180,14 @@ Each claim on the hero slides, and its source. There are no superlatives, and no
 - The TÜV certification of the paint shop. It appears on `/ccrc` as the dealer's own claim, is unverified, and is left off the page.
 
 The image is the Prestige Imports group paint-booth photograph (see MANIFEST). The page carries no caption (Alex); the alt text describes the scene only, and the image is not presented as the Lamborghini Miami body shop. `collision_hero_sept26.jpg` was rejected: it shows a Lotus, and this page excludes other brands.
+
+## v2 range showcase (index_v2.html only, 1 Oct 2026)
+
+- Model names, claims and figures are carried over unchanged from the v1 range tiles (sources above). The claims are Lamborghini's corporate claims: Revuelto "The quantum of driving", Temerario "You can't hide who you are", Urus SE "Dare to live more", Urus SE Performante "Urus at its peak".
+- "Explore model" links, each checked with an HTTP request on 1 Oct 2026:
+  - `https://www.lamborghini.com/en-en/models/revuelto`: 301 to the Revuelto page, then 200.
+  - `https://www.lamborghini.com/en-en/models/temerario`: 200.
+  - `https://www.lamborghini.com/en-en/models/urus/urus-se`: 200.
+  - `https://www.lamborghini.com/en-en/models/urus/urus-se-performante`: 200.
+  - The shorter `/models/urus-se` forms return 404 and are not used.
+- "View inventory" goes to `#inventory`. The brief said `#showroom`, but no such anchor exists on the page, and the inventory section is `#inventory`.
