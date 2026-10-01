@@ -872,7 +872,7 @@ address { font-style: normal; }
     margin-bottom: var(--sp-24);
     border-bottom: var(--stroke-1) solid var(--stroke);
 }
-.inv-grid { display: grid; gap: var(--grid-gap); }
+.inv-grid { display: grid; gap: var(--grid-gap); min-width: 0; }
 
 .vcard {
     display: flex;
@@ -991,6 +991,29 @@ address { font-style: normal; }
 }
 @media (min-width: 1024px) {
     .inv-group--pre .inv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* Pre-owned below 1024 (Alex, 30 Sep 2026): six stacked cards are too long on a
+   phone, so they run as a horizontal rail with scroll-snap and a visible peek of
+   the next card. Native horizontal swipe; Lenis leaves it alone (data-lenis-prevent).
+   The rail bleeds to the screen edges but never widens the page. New stays stacked. */
+@media (max-width: 1023.98px) {
+    .inv-grid--rail {
+        grid-auto-flow: column;
+        grid-auto-columns: var(--rail-card);
+        grid-template-columns: none;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        margin-inline: calc(-1 * var(--page-gutter));
+        padding-inline: var(--page-gutter);
+        scroll-padding-inline: var(--page-gutter);
+        padding-bottom: var(--sp-16);
+        scrollbar-width: thin;
+        scrollbar-color: var(--grey-7) transparent;
+        contain: paint;               /* without it the rail's scroll width leaks into the page when Lenis is off (reduced motion) */
+    }
+    .inv-grid--rail > li { scroll-snap-align: start; }
+    .inv-group--pre { min-width: 0; }   /* the rail's min-content width must not size its ancestors */
 }
 @media (min-width: 1200px) {
     .inventory .section-head__cta { display: inline-flex; }

@@ -1,14 +1,14 @@
 {
   "gate": "Gate 1 · Measurable Conformance",
-  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
-  "fileCount": 510,
+  "sourceSeal": "d47d337cb821e340b98bd48df490c5735a62e4500fa1e9ab10e5436aa318d5a9",
+  "fileCount": 538,
   "page": "index.html",
   "measured": {
     "desktop": {
-      "pageHeightPx": 9806,
-      "screens": 10.9,
-      "mediaTotal": 25,
-      "fullBleedMedia": 6,
+      "pageHeightPx": 10319,
+      "screens": 11.47,
+      "mediaTotal": 28,
+      "fullBleedMedia": 0,
       "largestTypePx": 120,
       "smallestTypePx": 14,
       "typeScaleRatio": 8.57,
@@ -16,10 +16,10 @@
       "errors": []
     },
     "mobile": {
-      "pageHeightPx": 14556,
-      "screens": 17.25,
-      "mediaTotal": 25,
-      "fullBleedMedia": 6,
+      "pageHeightPx": 13499,
+      "screens": 15.99,
+      "mediaTotal": 28,
+      "fullBleedMedia": 0,
       "largestTypePx": 64,
       "smallestTypePx": 14,
       "typeScaleRatio": 4.57,
@@ -33,21 +33,21 @@
       "eventStatement": "A five-slide hero: the dealer's name (slide 1) or a model's claim over the car, with its actions and the slide controls as one composed event.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 1,
-        "mediaCoverage": 1,
+        "eventCoverage": 0.988,
+        "mediaCoverage": 0.99,
         "competitionRatio": 0,
-        "structuralShare": 1,
+        "structuralShare": 0.988,
         "negativeSpaceShare": 0,
         "rankMassShare": 0.22,
         "subjectShareOfEvent": 1,
-        "chromeShare": 0.116,
+        "chromeShare": 0.114,
         "declaredMasses": 3,
         "readsWithoutMedia": true
       },
       "envelope": {
         "x": 0,
         "y": 0,
-        "w": 1440,
+        "w": 1425,
         "h": 900
       },
       "components": [
@@ -58,13 +58,13 @@
           "matched": 1,
           "inDocument": 5,
           "hasMedia": true,
-          "share": 1,
+          "share": 0.99,
           "isWrapper": true,
           "rects": [
             {
               "x": 0,
               "y": 0,
-              "w": 1440,
+              "w": 1425,
               "h": 900
             }
           ]
@@ -98,7 +98,7 @@
           "isWrapper": false,
           "rects": [
             {
-              "x": 48,
+              "x": 49,
               "y": 597,
               "w": 434,
               "h": 72
@@ -112,13 +112,13 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": false,
-          "share": 0.053,
+          "share": 0.052,
           "isWrapper": false,
           "rects": [
             {
               "x": 60,
               "y": 816,
-              "w": 1320,
+              "w": 1305,
               "h": 52
             }
           ]
@@ -130,13 +130,13 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": false,
-          "share": 1,
+          "share": 0.99,
           "isWrapper": true,
           "rects": [
             {
               "x": 0,
               "y": 0,
-              "w": 1440,
+              "w": 1425,
               "h": 900
             }
           ]
@@ -161,13 +161,13 @@
       "eventStatement": "A yellow Temerario on a night circuit fills the upper field; the dealer's name and one action stand in the dark asphalt beneath it.",
       "floor": 0.9,
       "metrics": {
-        "eventCoverage": 0.955,
-        "mediaCoverage": 0.739,
-        "competitionRatio": 0.105,
-        "structuralShare": 0.907,
-        "negativeSpaceShare": 0.05,
-        "rankMassShare": 0.907,
-        "subjectShareOfEvent": 0.774,
+        "eventCoverage": 0.92,
+        "mediaCoverage": 0.711,
+        "competitionRatio": 0.103,
+        "structuralShare": 0.883,
+        "negativeSpaceShare": 0.039,
+        "rankMassShare": 0.883,
+        "subjectShareOfEvent": 0.773,
         "chromeShare": 0,
         "declaredMasses": 4,
         "readsWithoutMedia": true
@@ -175,7 +175,7 @@
       "envelope": {
         "x": 0,
         "y": 0,
-        "w": 390,
+        "w": 375,
         "h": 828
       },
       "components": [
@@ -186,13 +186,13 @@
           "matched": 1,
           "inDocument": 5,
           "hasMedia": true,
-          "share": 0.739,
+          "share": 0.711,
           "isWrapper": false,
           "rects": [
             {
               "x": 0,
               "y": 0,
-              "w": 390,
+              "w": 375,
               "h": 624
             }
           ]
@@ -204,14 +204,14 @@
           "matched": 1,
           "inDocument": 5,
           "hasMedia": false,
-          "share": 0.362,
+          "share": 0.37,
           "isWrapper": false,
           "rects": [
             {
               "x": 24,
-              "y": 390,
-              "w": 342,
-              "h": 348
+              "y": 378,
+              "w": 327,
+              "h": 372
             }
           ]
         },
@@ -222,13 +222,13 @@
           "matched": 1,
           "inDocument": 5,
           "hasMedia": false,
-          "share": 0.129,
+          "share": 0.123,
           "isWrapper": false,
           "rects": [
             {
               "x": 13,
-              "y": 614,
-              "w": 342,
+              "y": 626,
+              "w": 327,
               "h": 124
             }
           ]
@@ -240,13 +240,13 @@
           "matched": 1,
           "inDocument": 1,
           "hasMedia": false,
-          "share": 0.046,
+          "share": 0.044,
           "isWrapper": false,
           "rects": [
             {
               "x": 24,
               "y": 784,
-              "w": 342,
+              "w": 327,
               "h": 44
             }
           ]
@@ -293,15 +293,15 @@
           "rect": {
             "x": 0,
             "y": 0,
-            "w": 390,
+            "w": 375,
             "h": 80
           },
           "hasMedia": true,
           "maxFontPx": 18,
           "hasAction": true,
-          "area": 31200,
-          "share": 0.095,
-          "ratio": 0.105
+          "area": 30000,
+          "share": 0.091,
+          "ratio": 0.103
         }
       ],
       "excluded": [],
@@ -349,6 +349,6 @@
     }
   ],
   "verdict": "pass",
-  "finishedAt": "2026-10-01T00:29:24.736Z",
+  "finishedAt": "2026-10-01T00:34:56.020Z",
   "blockers": []
 }

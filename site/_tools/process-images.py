@@ -7,6 +7,7 @@ from PIL import Image
 R = 'research/images-current-site/'
 S = 'research/inventory-capture-2026-09-30/photos/'
 P = 'research/press-images/'
+L = 'research/inventory-capture-live/photos/'
 OUT = 'site/assets/img/'
 JOBS = [
   # hero: Temerario front 3/4, dark studio (no watermark)
@@ -46,6 +47,12 @@ JOBS = [
   (S+'revuelto-2024-giallo.jpg', (0, 24, 1024, 600), 'inv-2024-revuelto-giallo', [1024, 640]),
   (S+'revuelto-2024-acheso.jpg', (0, 24, 1024, 600), 'inv-2024-revuelto-acheso', [1024, 640]),
   (S+'huracan-2015.jpg', (0, 24, 1024, 600), 'inv-2015-huracan-lp610-4', [1024, 640]),
+  # Live capture 30 Sep 2026 17:47-18:05 CDT (research/inventory-capture-live/): photo -1 is a clean front
+  # three-quarter (no lockup band). A 16:9 window is placed per car, clear of the bottom-right shield bug (y >= 683).
+  (L+'10914-1.jpg', (0, 60, 1024, 636), 'inv-2026-temerario', [1024, 640]),
+  (L+'CD2536-1.jpg', (0, 50, 1024, 626), 'inv-2023-urus-performante-rosso-mars', [1024, 640]),
+  (L+'CJ2630-1.jpg', (0, 105, 1024, 681), 'inv-2024-urus-s-oro-elios', [1024, 640]),
+  (L+'85991Z-1.jpg', (0, 100, 1024, 676), 'inv-2020-urus-blu-astraeus', [1024, 640]),
 ]
 os.makedirs(OUT, exist_ok=True)
 for src, box, stem, widths in JOBS:

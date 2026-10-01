@@ -192,6 +192,7 @@
     --dur-hero-out: 250ms;  /* the outgoing lines fade first, no travel */
     --hero-step: 80ms;      /* top-to-bottom stagger */
     --hero-cap: 400ms;
+    --rail-card: 84%;           /* pre-owned rail on phones: one card and a peek of the next */
     --collision-pos: 60% 40%;   /* the painter, spray gun and blue panel stay in the portrait slice */
     /* menu overlay (Alex): reveal from the top, items rise in after it */
     --dur-menu: 650ms;          /* panel reveal, on --ease-drive */
@@ -211,6 +212,7 @@
 @media (min-width: 768px) {
     :root {
         --page-gutter: 2.5rem;    /* 40px */
+        --rail-card: calc((100% - var(--grid-gap)) / 2.15);   /* tablets: two cards and a peek */
         --section-pt: var(--sp-120);
         --section-pb: var(--sp-160);
     }

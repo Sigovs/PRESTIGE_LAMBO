@@ -9,25 +9,28 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 - **dealer-stated**: the dealer's own published statement, with no independent confirmation.
 - **confirm**: in use, but the client has to confirm it before launch.
 
-## Inventory (captured 30 Sep 2026)
+## Inventory (live capture, 30 Sep 2026, 17:47–18:05 CDT)
 
-**Method.** Each listing page was fetched with `curl` using a Chrome user agent, and the schema.org JSON-LD on the page was parsed. The raw captures are in `research/inventory-capture-2026-09-30/`:
-- `srp.html`
-- `new.html`
-- `vdp-jsonld.json`
-- `photos/`
+**Method.** The full Lamborghini inventory was captured from lamborghinimiami.com. That covers the SRP plus its XHR pagination, all three pages (52 listings, deduplicated to 26 VINs), the data-layer `VehicleObject`s and every VDP. Everything is in `research/inventory-capture-live/` (`DATA.md`, `vehicles.json`, `raw/`, `photos/`). The earlier capture is in `research/inventory-capture-2026-09-30/`.
 
-**Deduplication.** Every VIN is listed twice on the source site, under stock prefixes `ICC80512-` and `ICC80512-1-`. One card is shown per VIN.
+**Photos.** Each card uses the car's own photo `-1`: a clean front three-quarter from the dealer's VDP gallery, 1024×768 at most, without the lockup band. Every card was checked by eye: the photo shows the listed model and colour. The cards are cropped to 16:9, clear of the small shield in the bottom-right corner. The two Revuelto and the Huracán cards keep their earlier verified photos. The cards are at most 641 px wide, so the 1024 px source is sharp at 1×, and slightly soft at 2× on high-density screens.
 
-**Photos.** Each card uses the primary photo of that VIN. The footer band carrying the Prestige / Lamborghini Miami lockup is cropped off. Photos are 1024×768 at most.
+**Certification.** No car is marked certified on the source: `certificationProgram` is empty and `isOEMCertified`/`isDealerCertified` are 0. Nothing on the page is labelled Selezione or CPO.
 
-| Card | VIN | Stock | Colour (as listed) | Odometer | Price (as listed) | Source URL |
+| Card | VIN | Stock | Colour (as listed) | Odometer | Price (as displayed) | VDP |
 |---|---|---|---|---|---|---|
-| 2026 Urus SE, New | ZPBUD6ZLXTLA46954 | 10918 | Nero Noctis Metallic | 24 mi | none listed, shown as "Price on request" | https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-urus-se-north-miami-beach-fl-id-66267994 |
-| 2026 Temerario, New | ZHWUC1ZC1TLA02400 | 10914 | Verde Mercurius Metallic | 37 mi | none listed, shown as "Price on request" | https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290 |
-| 2024 Revuelto, Pre-owned | ZHWUC1ZM3RLA00116 | 86180 | Giallo Metallic | 187 mi | $651,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655 |
+| 2026 Urus SE, New | ZPBUD6ZLXTLA46954 | 10918 | Nero Noctis Metallic | 24 mi | Call For Price, shown as "Price on request" | https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-urus-se-north-miami-beach-fl-id-66267994 |
+| 2026 Temerario, New | ZHWUC1ZC1TLA02400 | 10914 | Verde Mercurius Metallic | 37 mi | Call For Price, shown as "Price on request" | https://www.lamborghinimiami.com/vehicle-details/new-2026-lamborghini-temerario---north-miami-beach-fl-id-66311290 |
 | 2024 Revuelto, Pre-owned | ZHWUC1ZM0RLA00252 | CJ2602 | Grigio Acheso Matt | 1,411 mi | $741,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65607471 |
-| 2015 Huracán LP610-4, Pre-owned (added 30 Sep at Alex's request; the photo shows a matt black car with bronze wheels, consistent with the listing) | ZHWUC1ZF6FLA02875 | 10881A | Nero Nemesis Matt | 18,536 | $246,697 (data-layer sellingPrice $244,950 + $1,746.50 in fees) | https://www.lamborghinimiami.com/vehicle-details/used-2015-lamborghini-huracan-lp610-4-north-miami-beach-fl-id-66157191 |
+| 2024 Revuelto, Pre-owned | ZHWUC1ZM3RLA00116 | 86180 | Giallo Metallic (listed; the car's paint plate in its photo 5 reads "Giallo Countach"; the page prints the listing) | 187 mi | $651,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-revuelto---north-miami-beach-fl-id-65586655 |
+| 2024 Urus S, Pre-owned | ZPBUB3ZL3RLA35890 | CJ2630 | Oro Elios Metallic | 537 mi | $286,697 | https://www.lamborghinimiami.com/vehicle-details/used-2024-lamborghini-urus-s-north-miami-beach-fl-id-66092572 |
+| 2023 Urus Performante, Pre-owned | ZPBUC3ZL7PLA25115 | CD2536 | Rosso Mars Metallic | 8,794 mi | $291,697 | https://www.lamborghinimiami.com/vehicle-details/used-2023-lamborghini-urus-performante-north-miami-beach-fl-id-64609499 |
+| 2020 Urus, Pre-owned | ZPBUA1ZL6LLA06169 | 85991Z | Blu Astraeus Metallic | 4,872 mi | $210,697 | https://www.lamborghinimiami.com/vehicle-details/used-2020-lamborghini-urus---north-miami-beach-fl-id-65769445 |
+| 2015 Huracán LP610-4, Pre-owned | ZHWUC1ZF6FLA02875 | 10881A | Nero Nemesis Matt | 18,536 mi | $246,697 | https://www.lamborghinimiami.com/vehicle-details/used-2015-lamborghini-huracan-lp610-4-north-miami-beach-fl-id-66157191 |
+
+**Capture time:** every row is from the same capture, 30 Sep 2026 17:47–18:05 CDT.
+
+**Order.** Pre-owned is ordered by newest year, then price (descending); the two Revueltos come first. At 1024 px and wider this gives two full rows of three. Below 1024 the cards run as a horizontal scroll-snap rail.
 
 ### Listing endpoints
 
@@ -43,11 +46,10 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 
 - **2021 Urus, ZPBUA1ZL7MLA15500.** It is listed as "Grigio Keres Matt", but its photo shows a dark green car. The listing contradicts itself, so it is not shown.
 - **Three Revuelto VINs.** Their listings have no photos. Showing the two photographed Revueltos is enough; the rest are behind "View all inventory".
-- **2026 Temerario.** It is shown even though it has no photos, because it is the only new Temerario. Its card carries a visibly-labelled plate, "Photography in preparation", instead of a borrowed image (CP4, CP7).
 
-### Representative image
+### Representative image (retired 30 Sep 2026)
 
-- **2026 Temerario, stock 10914.** On a live re-check, 30 Sep 2026, the listing still has no photos. The card therefore shows the official lamborghini.com green Temerario (`research/press-images/temerario_side-profile-green-sunset_2560x1463.jpg`), captioned "Representative image" on the card. It is not the listed vehicle, and the page does not claim it is.
+- The 2026 Temerario (stock 10914) now has its own dealer photos (41 in the live capture), and its card uses photo `-1`. The official lamborghini.com green Temerario that stood in for it, and its "Representative image" caption, are gone from the card.
 
 ### Price notes
 
@@ -55,6 +57,9 @@ Every fact, figure and promise shown in `index.html` is listed below with its so
 - **Arithmetic check** of the data-layer `sellingPrice` against the printed price:
   - 86180: $649,950 + $1,447.50 + $299 = $651,696.50, printed as **$651,697**
   - CJ2602: $739,950 + $1,747.50 = **$741,697**
+  - CJ2630: $284,950 + $1,746.50 = $286,696.50, printed as **$286,697**
+  - CD2536: $289,950 + $1,746.50 = **$291,697** (rounded the same way)
+  - 85991Z: $208,950 + $1,746.50 = **$210,697** (rounded the same way)
 - The page now prints that fee statement next to the prices in `.inventory__note`, replacing the vaguer "applicable fees" line.
 - The new Urus SE and Temerario carry a data-layer `sellingPrice` (313,631 and 470,849), but the source shows no public price for them. The page keeps "Price on request" and does not publish those figures.
 

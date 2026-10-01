@@ -1,16 +1,16 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
+  "sourceSeal": "d47d337cb821e340b98bd48df490c5735a62e4500fa1e9ab10e5436aa318d5a9",
   "build": {
     "private": false
   },
   "claims": [
     {
       "id": "inv-prices",
-      "claim": "$651,697 $741,697 $246,697",
+      "claim": "$741,697 $651,697 $286,697 $291,697 $210,697 $246,697",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
-      "source": "lamborghinimiami.com VDP JSON-LD (offers.price), curl 30 Sep 2026; research/inventory-capture-2026-09-30/vdp-jsonld.json",
+      "source": "lamborghinimiami.com SRP/VDP displayed prices and data-layer sellingPrice, live capture 30 Sep 2026 17:47–18:05 CDT; research/inventory-capture-live/ (DATA.md, vehicles.json)",
       "sourceType": "live-system",
       "appearsAt": [
         ".vcard__price"
@@ -18,10 +18,10 @@
     },
     {
       "id": "inv-odometer",
-      "claim": "24 mi 37 mi 187 mi 1,411 mi 18,536 mi",
+      "claim": "24 mi 37 mi 1,411 mi 187 mi 537 mi 8,794 mi 4,872 mi 18,536 mi",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
-      "source": "lamborghinimiami.com VDP JSON-LD mileageFromOdometer, 30 Sep 2026",
+      "source": "lamborghinimiami.com data layer (mileage), live capture 30 Sep 2026 17:47–18:05 CDT; research/inventory-capture-live/vehicles.json",
       "sourceType": "live-system",
       "appearsAt": [
         ".vcard__rows"
@@ -29,10 +29,10 @@
     },
     {
       "id": "inv-identity",
-      "claim": "2026 Urus SE 2026 Temerario 2024 Revuelto Stock 10918 10914 86180 CJ2602 VINs ZPBUD6ZLXTLA46954 ZHWUC1ZC1TLA02400 ZHWUC1ZM3RLA00116 ZHWUC1ZM0RLA00252 2015 Huracán LP610-4 Stock 10881A ZHWUC1ZF6FLA02875",
+      "claim": "2026 Urus SE 10918 ZPBUD6ZLXTLA46954 · 2026 Temerario 10914 ZHWUC1ZC1TLA02400 · 2024 Revuelto CJ2602 ZHWUC1ZM0RLA00252 · 2024 Revuelto 86180 ZHWUC1ZM3RLA00116 · 2024 Urus S CJ2630 ZPBUB3ZL3RLA35890 · 2023 Urus Performante CD2536 ZPBUC3ZL7PLA25115 · 2020 Urus 85991Z ZPBUA1ZL6LLA06169 · 2015 Huracán LP610-4 10881A ZHWUC1ZF6FLA02875; colours as listed",
       "status": "dated-requires-reconciliation",
       "captureDate": "2026-09-30",
-      "source": "lamborghinimiami.com SRP and VDP JSON-LD, 30 Sep 2026",
+      "source": "lamborghinimiami.com SRP, data layer and VDPs, live capture 30 Sep 2026 17:47–18:05 CDT; research/inventory-capture-live/",
       "sourceType": "live-system",
       "appearsAt": [
         ".vcard__title",
@@ -215,7 +215,7 @@
       "class": "bare-count",
       "text": "920",
       "context": "920 CV",
-      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd.rv"
+      "where": "li#range-temerario > div.model__body > div.model__meta > dl.model__facts > div > dd"
     },
     {
       "class": "bare-count",
@@ -374,6 +374,66 @@
       "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
     },
     {
+      "class": "grouped-number",
+      "text": "1,411",
+      "context": "1,411 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
+    },
+    {
+      "class": "bare-count",
+      "text": "411",
+      "context": "1,411 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
+    },
+    {
+      "class": "currency",
+      "text": "$741,697",
+      "context": "$741,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "grouped-number",
+      "text": "741,697",
+      "context": "$741,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "741",
+      "context": "$741,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "697",
+      "context": "$741,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "2024",
+      "context": ": 2024 Revuelto, Grigio Acheso Matt",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "year",
+      "text": "2024",
+      "context": ": 2024 Revuelto, Grigio Acheso Matt",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "bare-count",
+      "text": "2024",
+      "context": "2024 Revuelto",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "year",
+      "text": "2024",
+      "context": "2024 Revuelto",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
       "class": "bare-count",
       "text": "86180",
       "context": "Stock 86180",
@@ -424,61 +484,175 @@
     {
       "class": "bare-count",
       "text": "2024",
-      "context": "2024 Revuelto",
+      "context": "2024 Urus S",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
     },
     {
       "class": "year",
       "text": "2024",
-      "context": "2024 Revuelto",
+      "context": "2024 Urus S",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
     },
     {
-      "class": "grouped-number",
-      "text": "1,411",
-      "context": "1,411 mi",
-      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
-    },
-    {
       "class": "bare-count",
-      "text": "411",
-      "context": "1,411 mi",
+      "text": "537",
+      "context": "537 mi",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
     },
     {
       "class": "currency",
-      "text": "$741,697",
-      "context": "$741,697",
+      "text": "$286,697",
+      "context": "$286,697",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
     },
     {
       "class": "grouped-number",
-      "text": "741,697",
-      "context": "$741,697",
+      "text": "286,697",
+      "context": "$286,697",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
     },
     {
       "class": "bare-count",
-      "text": "741",
-      "context": "$741,697",
+      "text": "286",
+      "context": "$286,697",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
     },
     {
       "class": "bare-count",
       "text": "697",
-      "context": "$741,697",
+      "context": "$286,697",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
     },
     {
       "class": "bare-count",
       "text": "2024",
-      "context": ": 2024 Revuelto, Grigio Acheso Matt",
+      "context": ": 2024 Urus S, Oro Elios Metallic",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
     },
     {
       "class": "year",
       "text": "2024",
-      "context": ": 2024 Revuelto, Grigio Acheso Matt",
+      "context": ": 2024 Urus S, Oro Elios Metallic",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "bare-count",
+      "text": "2023",
+      "context": "2023 Urus Performante",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "year",
+      "text": "2023",
+      "context": "2023 Urus Performante",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "grouped-number",
+      "text": "8,794",
+      "context": "8,794 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
+    },
+    {
+      "class": "bare-count",
+      "text": "794",
+      "context": "8,794 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
+    },
+    {
+      "class": "currency",
+      "text": "$291,697",
+      "context": "$291,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "grouped-number",
+      "text": "291,697",
+      "context": "$291,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "291",
+      "context": "$291,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "697",
+      "context": "$291,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "2023",
+      "context": ": 2023 Urus Performante, Rosso Mars Metallic",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "year",
+      "text": "2023",
+      "context": ": 2023 Urus Performante, Rosso Mars Metallic",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "bare-count",
+      "text": "2020",
+      "context": "2020 Urus",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "year",
+      "text": "2020",
+      "context": "2020 Urus",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > h4.vcard__title"
+    },
+    {
+      "class": "grouped-number",
+      "text": "4,872",
+      "context": "4,872 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
+    },
+    {
+      "class": "bare-count",
+      "text": "872",
+      "context": "4,872 mi",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > dl.vcard__rows > div > dd.rv"
+    },
+    {
+      "class": "currency",
+      "text": "$210,697",
+      "context": "$210,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "grouped-number",
+      "text": "210,697",
+      "context": "$210,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "210",
+      "context": "$210,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "697",
+      "context": "$210,697",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > p.vcard__price"
+    },
+    {
+      "class": "bare-count",
+      "text": "2020",
+      "context": ": 2020 Urus, Blu Astraeus Metallic",
+      "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
+    },
+    {
+      "class": "year",
+      "text": "2020",
+      "context": ": 2020 Urus, Blu Astraeus Metallic",
       "where": "div#pre-owned > ul.inv-grid > li.vcard > div.vcard__foot > a.btn > span.visually-hidden"
     },
     {
@@ -877,7 +1051,7 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 121,
+      "hits": 150,
       "entries": 12,
       "uncovered": 0
     }
@@ -885,5 +1059,5 @@
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-10-01T00:30:17.512Z"
+  "finishedAt": "2026-10-01T00:35:50.106Z"
 }

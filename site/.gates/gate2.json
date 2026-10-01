@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
+  "sourceSeal": "d47d337cb821e340b98bd48df490c5735a62e4500fa1e9ab10e5436aa318d5a9",
   "detector": {
     "desktop": {
       "sections": [
@@ -11,11 +11,11 @@
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.917,
-                0.917,
-                0.917,
-                0.917,
-                0.917
+                0.916,
+                0.916,
+                0.916,
+                0.916,
+                0.916
               ],
               "slots": {
                 "meta": "upper",
@@ -34,9 +34,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.119,
-                0.119,
-                0.117
+                0.12,
+                0.12,
+                0.118
               ],
               "slots": {
                 "meta": "mid"
@@ -52,8 +52,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.36,
-                0.36
+                0.364,
+                0.364
               ],
               "slots": {},
               "align": "start",
@@ -67,8 +67,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.166,
-                0.166
+                0.168,
+                0.168
               ],
               "slots": {
                 "meta": "mid"
@@ -112,10 +112,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45,
-                0.45,
-                0.45
+                0.449,
+                0.449,
+                0.449,
+                0.449
               ],
               "slots": {
                 "image": "mid"
@@ -131,10 +131,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.217,
-                0.217,
-                0.217,
-                0.217
+                0.216,
+                0.216,
+                0.216,
+                0.216
               ],
               "slots": {
                 "meta": "top"
@@ -150,10 +150,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45,
-                0.45,
-                0.45
+                0.449,
+                0.449,
+                0.449,
+                0.449
               ],
               "slots": {
                 "cta": "mid",
@@ -170,9 +170,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.217,
-                0.217,
-                0.217
+                0.216,
+                0.216,
+                0.216
               ],
               "slots": {
                 "meta": "mid",
@@ -189,9 +189,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.193,
-                0.193,
-                0.193
+                0.192,
+                0.192,
+                0.192
               ],
               "slots": {},
               "align": "start",
@@ -205,8 +205,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45
+                0.449,
+                0.449
               ],
               "slots": {
                 "image": "upper",
@@ -225,8 +225,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45
+                0.449,
+                0.449
               ],
               "slots": {
                 "meta": "upper",
@@ -244,8 +244,28 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45
+                0.449,
+                0.449
+              ],
+              "slots": {
+                "image": "upper",
+                "meta": "lower",
+                "heading": "mid",
+                "cta": "bottom"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "li#range-urus-se.model",
+              "formula": "2×equal|i:upper|h:mid|m:lower|c:bottom|align:start|cont:none|int:link",
+              "shape": "2×equal|i:upper|h:mid|m:lower|c:bottom"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.449,
+                0.449
               ],
               "slots": {
                 "meta": "top",
@@ -265,14 +285,17 @@
           "section": "section#inventory.inventory",
           "groups": [
             {
-              "units": 5,
+              "units": 8,
               "widthClass": "equal",
               "widthRatios": [
-                0.133,
-                0.133,
-                0.133,
-                0.133,
-                0.133
+                0.134,
+                0.134,
+                0.134,
+                0.134,
+                0.134,
+                0.134,
+                0.134,
+                0.134
               ],
               "slots": {
                 "meta": "mid"
@@ -281,13 +304,16 @@
               "container": "box",
               "interaction": "static",
               "sample": "a.btn",
-              "formula": "5×equal|m:mid|align:start|cont:box|int:static",
-              "shape": "5×equal|m:mid"
+              "formula": "8×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "8×equal|m:mid"
             },
             {
-              "units": 3,
+              "units": 6,
               "widthClass": "equal",
               "widthRatios": [
+                0.294,
+                0.294,
+                0.294,
                 0.294,
                 0.294,
                 0.294
@@ -301,16 +327,19 @@
               "container": "fill",
               "interaction": "link",
               "sample": "li.vcard",
-              "formula": "3×equal|i:mid|h:top|m:top|align:start|cont:fill|int:link",
-              "shape": "3×equal|i:mid|h:top|m:top"
+              "formula": "6×equal|i:mid|h:top|m:top|align:start|cont:fill|int:link",
+              "shape": "6×equal|i:mid|h:top|m:top"
             },
             {
-              "units": 3,
+              "units": 6,
               "widthClass": "equal",
               "widthRatios": [
-                0.261,
-                0.261,
-                0.261
+                0.26,
+                0.26,
+                0.26,
+                0.26,
+                0.26,
+                0.26
               ],
               "slots": {
                 "image": "mid"
@@ -319,32 +348,38 @@
               "container": "fill",
               "interaction": "static",
               "sample": "figure.vcard__media",
-              "formula": "3×equal|i:mid|align:start|cont:fill|int:static",
-              "shape": "3×equal|i:mid"
+              "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
+              "shape": "6×equal|i:mid"
             },
             {
-              "units": 3,
+              "units": 6,
               "widthClass": "equal",
               "widthRatios": [
-                0.261,
-                0.261,
-                0.261
+                0.26,
+                0.26,
+                0.26,
+                0.26,
+                0.26,
+                0.26
               ],
               "slots": {},
               "align": "start",
               "container": "none",
               "interaction": "static",
               "sample": "dl.vcard__rows",
-              "formula": "3×equal||align:start|cont:none|int:static",
-              "shape": "3×equal|"
+              "formula": "6×equal||align:start|cont:none|int:static",
+              "shape": "6×equal|"
             },
             {
-              "units": 3,
+              "units": 6,
               "widthClass": "equal",
               "widthRatios": [
-                0.261,
-                0.261,
-                0.261
+                0.26,
+                0.26,
+                0.26,
+                0.26,
+                0.26,
+                0.26
               ],
               "slots": {
                 "meta": "lower"
@@ -353,15 +388,15 @@
               "container": "none",
               "interaction": "link",
               "sample": "div.vcard__foot",
-              "formula": "3×equal|m:lower|align:start|cont:none|int:link",
-              "shape": "3×equal|m:lower"
+              "formula": "6×equal|m:lower|align:start|cont:none|int:link",
+              "shape": "6×equal|m:lower"
             },
             {
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.917,
-                0.917
+                0.916,
+                0.916
               ],
               "slots": {},
               "align": "start",
@@ -375,8 +410,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.45,
-                0.45
+                0.449,
+                0.449
               ],
               "slots": {
                 "heading": "top",
@@ -395,8 +430,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.417,
-                0.417
+                0.416,
+                0.416
               ],
               "slots": {
                 "image": "mid"
@@ -412,8 +447,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.417,
-                0.417
+                0.416,
+                0.416
               ],
               "slots": {
                 "cta": "lower",
@@ -435,13 +470,13 @@
               "units": 7,
               "widthClass": "equal",
               "widthRatios": [
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441
               ],
               "slots": {},
               "align": "start",
@@ -455,10 +490,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.095,
-                0.095,
-                0.098,
-                0.094
+                0.096,
+                0.096,
+                0.099,
+                0.095
               ],
               "slots": {},
               "align": "right",
@@ -472,9 +507,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.161,
-                0.161,
-                0.164
+                0.163,
+                0.163,
+                0.166
               ],
               "slots": {
                 "meta": "mid"
@@ -499,13 +534,13 @@
               "units": 7,
               "widthClass": "equal",
               "widthRatios": [
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441
               ],
               "slots": {},
               "align": "start",
@@ -519,10 +554,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.095,
-                0.095,
-                0.098,
-                0.094
+                0.096,
+                0.096,
+                0.099,
+                0.095
               ],
               "slots": {},
               "align": "right",
@@ -536,8 +571,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.161,
-                0.164
+                0.163,
+                0.166
               ],
               "slots": {
                 "meta": "lower",
@@ -559,13 +594,13 @@
               "units": 7,
               "widthClass": "equal",
               "widthRatios": [
-                0.425,
-                0.425,
-                0.425,
-                0.425,
-                0.425,
-                0.425,
-                0.425
+                0.424,
+                0.424,
+                0.424,
+                0.424,
+                0.424,
+                0.424,
+                0.424
               ],
               "slots": {},
               "align": "start",
@@ -584,9 +619,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.217,
-                0.217,
-                0.217
+                0.216,
+                0.216,
+                0.216
               ],
               "slots": {
                 "image": "upper",
@@ -603,9 +638,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.217,
-                0.217,
-                0.217
+                0.216,
+                0.216,
+                0.216
               ],
               "slots": {},
               "align": "start",
@@ -624,22 +659,22 @@
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.442,
-                0.442,
-                0.442,
-                0.442,
-                0.442
+                0.441,
+                0.441,
+                0.441,
+                0.441,
+                0.441
               ],
               "slots": {
-                "meta": "lower",
-                "cta": "lower"
+                "meta": "mid",
+                "cta": "mid"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "div.spec__row",
-              "formula": "5×equal|m:lower|c:lower|align:start|cont:none|int:link",
-              "shape": "5×equal|m:lower|c:lower"
+              "formula": "5×equal|m:mid|c:mid|align:start|cont:none|int:link",
+              "shape": "5×equal|m:mid|c:mid"
             },
             {
               "units": 3,
@@ -663,23 +698,22 @@
           "section": "footer.site-footer",
           "groups": [
             {
-              "units": 14,
+              "units": 13,
               "widthClass": "equal",
               "widthRatios": [
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138,
-                0.138
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137,
+                0.137
               ],
               "slots": {
                 "cta": "mid"
@@ -688,17 +722,17 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "14×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "14×equal|c:mid"
+              "formula": "13×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "13×equal|c:mid"
             },
             {
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.138,
-                0.138,
-                0.138,
-                0.138
+                0.137,
+                0.137,
+                0.137,
+                0.137
               ],
               "slots": {
                 "meta": "top",
@@ -715,8 +749,25 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.138,
-                0.138
+                0.137,
+                0.137
+              ],
+              "slots": {
+                "cta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "li.rv",
+              "formula": "2×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "2×equal|c:mid"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.137,
+                0.137
               ],
               "slots": {
                 "cta": "upper"
@@ -732,8 +783,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.083,
-                0.083
+                0.084,
+                0.084
               ],
               "slots": {},
               "align": "start",
@@ -749,10 +800,9 @@
           "section": "div.container",
           "groups": [
             {
-              "units": 14,
+              "units": 13,
               "widthClass": "equal",
               "widthRatios": [
-                0.15,
                 0.15,
                 0.15,
                 0.15,
@@ -774,8 +824,8 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "14×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "14×equal|c:mid"
+              "formula": "13×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "13×equal|c:mid"
             },
             {
               "units": 4,
@@ -805,6 +855,23 @@
                 0.15
               ],
               "slots": {
+                "cta": "mid"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "li.rv",
+              "formula": "2×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "2×equal|c:mid"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.15,
+                0.15
+              ],
+              "slots": {
                 "cta": "upper"
               },
               "align": "start",
@@ -818,8 +885,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.091,
-                0.091
+                0.092,
+                0.092
               ],
               "slots": {},
               "align": "start",
@@ -844,61 +911,64 @@
           "section": "section.hero",
           "groups": [
             {
-              "units": 10,
+              "units": 13,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {},
               "align": "start",
               "container": "none",
               "interaction": "static",
               "sample": "span.hero__line",
-              "formula": "10×equal||align:start|cont:none|int:static",
-              "shape": "10×equal|"
+              "formula": "13×equal||align:start|cont:none|int:static",
+              "shape": "13×equal|"
             },
             {
-              "units": 8,
+              "units": 9,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
-                "cta": "upper",
                 "meta": "upper"
               },
               "align": "start",
               "container": "none",
-              "interaction": "link",
-              "sample": "div.hero__actions",
-              "formula": "8×equal|m:upper|c:upper|align:start|cont:none|int:link",
-              "shape": "8×equal|m:upper|c:upper"
+              "interaction": "static",
+              "sample": "h1#hero-title.hero__title",
+              "formula": "9×equal|m:upper|align:start|cont:none|int:static",
+              "shape": "9×equal|m:upper"
             },
             {
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "mid",
@@ -917,11 +987,11 @@
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "mid"
@@ -934,12 +1004,13 @@
               "shape": "5×equal|m:mid"
             },
             {
-              "units": 3,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "top",
@@ -950,16 +1021,17 @@
               "container": "none",
               "interaction": "link",
               "sample": "div.hero__group",
-              "formula": "3×equal|h:upper|m:top|c:lower|align:start|cont:none|int:link",
-              "shape": "3×equal|h:upper|m:top|c:lower"
+              "formula": "4×equal|h:upper|m:top|c:lower|align:start|cont:none|int:link",
+              "shape": "4×equal|h:upper|m:top|c:lower"
             },
             {
-              "units": 3,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "top",
@@ -969,49 +1041,15 @@
               "container": "none",
               "interaction": "static",
               "sample": "div.hero__copy",
-              "formula": "3×equal|h:mid|m:top|align:start|cont:none|int:static",
-              "shape": "3×equal|h:mid|m:top"
+              "formula": "4×equal|h:mid|m:top|align:start|cont:none|int:static",
+              "shape": "4×equal|h:mid|m:top"
             },
             {
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "meta": "top",
-                "heading": "upper",
-                "cta": "lower"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.hero__group",
-              "formula": "2×equal|h:upper|m:top|c:lower|align:start|cont:none|int:link",
-              "shape": "2×equal|h:upper|m:top|c:lower"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.843,
-                0.843
-              ],
-              "slots": {},
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "span.hero__line",
-              "formula": "2×equal||align:start|cont:none|int:static",
-              "shape": "2×equal|"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.289,
-                0.289
+                0.3,
+                0.3
               ],
               "slots": {
                 "meta": "mid"
@@ -1022,6 +1060,21 @@
               "sample": "a.btn",
               "formula": "2×equal|m:mid|align:start|cont:none|int:static",
               "shape": "2×equal|m:mid"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.807,
+                0.807
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "span.hero__line",
+              "formula": "2×equal||align:start|cont:none|int:static",
+              "shape": "2×equal|"
             }
           ]
         },
@@ -1032,14 +1085,14 @@
               "units": 8,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "top",
@@ -1056,14 +1109,14 @@
               "units": 8,
               "widthClass": "equal",
               "widthRatios": [
-                0.428,
-                0.428,
-                0.428,
-                0.428,
-                0.428,
-                0.428,
-                0.428,
-                0.428
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425,
+                0.425
               ],
               "slots": {
                 "meta": "mid"
@@ -1079,11 +1132,11 @@
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "image": "mid"
@@ -1099,10 +1152,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "top"
@@ -1118,30 +1171,30 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "image": "top",
                 "meta": "mid",
-                "heading": "mid",
+                "heading": "upper",
                 "cta": "bottom"
               },
               "align": "start",
               "container": "none",
               "interaction": "link",
               "sample": "li#range-temerario.model",
-              "formula": "3×equal|i:top|h:mid|m:mid|c:bottom|align:start|cont:none|int:link",
-              "shape": "3×equal|i:top|h:mid|m:mid|c:bottom"
+              "formula": "3×equal|i:top|h:upper|m:mid|c:bottom|align:start|cont:none|int:link",
+              "shape": "3×equal|i:top|h:upper|m:mid|c:bottom"
             },
             {
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "top",
@@ -1159,9 +1212,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.79,
-                0.79,
-                0.79
+                0.781,
+                0.781,
+                0.781
               ],
               "slots": {},
               "align": "start",
@@ -1177,21 +1230,27 @@
           "section": "section#inventory.inventory",
           "groups": [
             {
-              "units": 12,
+              "units": 18,
               "widthClass": "equal",
               "widthRatios": [
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604
               ],
               "slots": {
                 "meta": "lower"
@@ -1200,18 +1259,97 @@
               "container": "none",
               "interaction": "static",
               "sample": "p.vcard__colour",
-              "formula": "12×equal|m:lower|align:start|cont:none|int:static",
-              "shape": "12×equal|m:lower"
+              "formula": "18×equal|m:lower|align:start|cont:none|int:static",
+              "shape": "18×equal|m:lower"
             },
             {
-              "units": 5,
+              "units": 6,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.744,
+                0.744,
+                0.744,
+                0.744,
+                0.744,
+                0.744
+              ],
+              "slots": {
+                "meta": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "p.vcard__colour",
+              "formula": "6×equal|m:lower|align:start|cont:none|int:static",
+              "shape": "6×equal|m:lower"
+            },
+            {
+              "units": 6,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.732,
+                0.732,
+                0.732,
+                0.732,
+                0.732,
+                0.732
+              ],
+              "slots": {
+                "heading": "top",
+                "meta": "top",
+                "image": "upper"
+              },
+              "align": "start",
+              "container": "fill",
+              "interaction": "link",
+              "sample": "li.vcard",
+              "formula": "6×equal|i:upper|h:top|m:top|align:start|cont:fill|int:link",
+              "shape": "6×equal|i:upper|h:top|m:top"
+            },
+            {
+              "units": 6,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604,
+                0.604
+              ],
+              "slots": {
+                "image": "mid"
+              },
+              "align": "start",
+              "container": "fill",
+              "interaction": "static",
+              "sample": "figure.vcard__media",
+              "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
+              "shape": "6×equal|i:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.872,
+                0.872,
+                0.872,
+                0.872
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "h2#inventory-title.t-banner",
+              "formula": "4×equal||align:start|cont:none|int:static",
+              "shape": "4×equal|"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.872,
+                0.872
               ],
               "slots": {
                 "heading": "top",
@@ -1223,18 +1361,15 @@
               "container": "fill",
               "interaction": "link",
               "sample": "li.vcard",
-              "formula": "5×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:fill|int:link",
-              "shape": "5×equal|i:mid|h:top|m:top|c:bottom"
+              "formula": "2×equal|i:mid|h:top|m:top|c:bottom|align:start|cont:fill|int:link",
+              "shape": "2×equal|i:mid|h:top|m:top|c:bottom"
             },
             {
-              "units": 5,
+              "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754
+                0.744,
+                0.744
               ],
               "slots": {
                 "image": "mid"
@@ -1243,18 +1378,15 @@
               "container": "fill",
               "interaction": "static",
               "sample": "figure.vcard__media",
-              "formula": "5×equal|i:mid|align:start|cont:fill|int:static",
-              "shape": "5×equal|i:mid"
+              "formula": "2×equal|i:mid|align:start|cont:fill|int:static",
+              "shape": "2×equal|i:mid"
             },
             {
-              "units": 5,
+              "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.754,
-                0.754,
-                0.754,
-                0.754,
-                0.754
+                0.744,
+                0.744
               ],
               "slots": {
                 "cta": "lower",
@@ -1264,25 +1396,23 @@
               "container": "none",
               "interaction": "link",
               "sample": "div.vcard__foot",
-              "formula": "5×equal|m:lower|c:lower|align:start|cont:none|int:link",
-              "shape": "5×equal|m:lower|c:lower"
+              "formula": "2×equal|m:lower|c:lower|align:start|cont:none|int:link",
+              "shape": "2×equal|m:lower|c:lower"
             },
             {
-              "units": 4,
+              "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.604,
+                0.604
               ],
               "slots": {},
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "h2#inventory-title.t-banner",
-              "formula": "4×equal||align:start|cont:none|int:static",
-              "shape": "4×equal|"
+              "sample": "h4.vcard__title",
+              "formula": "2×equal||align:start|cont:none|int:static",
+              "shape": "2×equal|"
             }
           ]
         },
@@ -1290,33 +1420,34 @@
           "section": "div#ad-personam.adp-pin",
           "groups": [
             {
-              "units": 6,
+              "units": 7,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {},
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "h2#service-title.t-banner",
-              "formula": "6×equal||align:start|cont:none|int:static",
-              "shape": "6×equal|"
+              "sample": "figcaption.t-legal",
+              "formula": "7×equal||align:start|cont:none|int:static",
+              "shape": "7×equal|"
             },
             {
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "upper",
@@ -1333,10 +1464,10 @@
               "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "mid"
@@ -1352,9 +1483,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.315,
-                0.315,
-                0.322
+                0.328,
+                0.328,
+                0.335
               ],
               "slots": {},
               "align": "start",
@@ -1368,27 +1499,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "meta": "top",
-                "heading": "top",
-                "cta": "lower"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.adp__inner",
-              "formula": "2×equal|h:top|m:top|c:lower|align:start|cont:none|int:link",
-              "shape": "2×equal|h:top|m:top|c:lower"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877
+                0.872,
+                0.872
               ],
               "slots": {
                 "cta": "upper",
@@ -1410,8 +1522,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "mid"
@@ -1429,33 +1541,34 @@
           "section": "section#service.service",
           "groups": [
             {
-              "units": 6,
+              "units": 7,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {},
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "h2#service-title.t-banner",
-              "formula": "6×equal||align:start|cont:none|int:static",
-              "shape": "6×equal|"
+              "sample": "figcaption.t-legal",
+              "formula": "7×equal||align:start|cont:none|int:static",
+              "shape": "7×equal|"
             },
             {
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "upper",
@@ -1472,9 +1585,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.315,
-                0.315,
-                0.322
+                0.328,
+                0.328,
+                0.335
               ],
               "slots": {},
               "align": "start",
@@ -1488,8 +1601,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "mid"
@@ -1510,12 +1623,12 @@
               "units": 6,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {},
               "align": "start",
@@ -1529,11 +1642,11 @@
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "upper"
@@ -1549,8 +1662,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "mid"
@@ -1571,9 +1684,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.631,
-                0.631,
-                0.631
+                0.628,
+                0.628,
+                0.628
               ],
               "slots": {
                 "image": "upper",
@@ -1590,9 +1703,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.631,
-                0.631,
-                0.631
+                0.628,
+                0.628,
+                0.628
               ],
               "slots": {},
               "align": "start",
@@ -1606,8 +1719,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.459,
-                0.467
+                0.477,
+                0.485
               ],
               "slots": {},
               "align": "start",
@@ -1626,11 +1739,11 @@
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {
                 "meta": "upper",
@@ -1647,9 +1760,9 @@
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877,
-                0.877
+                0.872,
+                0.872,
+                0.872
               ],
               "slots": {},
               "align": "start",
@@ -1663,8 +1776,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
-                0.877
+                0.872,
+                0.872
               ],
               "slots": {},
               "align": "start",
@@ -1680,21 +1793,20 @@
           "section": "footer.site-footer",
           "groups": [
             {
-              "units": 12,
+              "units": 11,
               "widthClass": "equal",
               "widthRatios": [
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408,
-                0.408
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404,
+                0.404
               ],
               "slots": {
                 "cta": "mid"
@@ -1703,16 +1815,17 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "12×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "12×equal|c:mid"
+              "formula": "11×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "11×equal|c:mid"
             },
             {
-              "units": 3,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.408,
-                0.408,
-                0.408
+                0.404,
+                0.404,
+                0.404,
+                0.404
               ],
               "slots": {
                 "cta": "top"
@@ -1721,16 +1834,17 @@
               "container": "none",
               "interaction": "link",
               "sample": "ul",
-              "formula": "3×equal|c:top|align:start|cont:none|int:link",
-              "shape": "3×equal|c:top"
+              "formula": "4×equal|c:top|align:start|cont:none|int:link",
+              "shape": "4×equal|c:top"
             },
             {
-              "units": 3,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.408,
-                0.408,
-                0.408
+                0.404,
+                0.404,
+                0.404,
+                0.404
               ],
               "slots": {
                 "cta": "mid"
@@ -1739,15 +1853,15 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "3×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "3×equal|c:mid"
+              "formula": "4×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "4×equal|c:mid"
             },
             {
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.408,
-                0.408
+                0.404,
+                0.404
               ],
               "slots": {
                 "meta": "top",
@@ -1764,8 +1878,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.307,
-                0.308
+                0.32,
+                0.32
               ],
               "slots": {},
               "align": "start",
@@ -1781,21 +1895,20 @@
           "section": "div.container",
           "groups": [
             {
-              "units": 12,
+              "units": 11,
               "widthClass": "equal",
               "widthRatios": [
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465,
-                0.465
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463,
+                0.463
               ],
               "slots": {
                 "cta": "mid"
@@ -1804,16 +1917,17 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "12×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "12×equal|c:mid"
+              "formula": "11×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "11×equal|c:mid"
             },
             {
-              "units": 3,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.465,
-                0.465,
-                0.465
+                0.463,
+                0.463,
+                0.463,
+                0.463
               ],
               "slots": {
                 "cta": "top"
@@ -1822,16 +1936,17 @@
               "container": "none",
               "interaction": "link",
               "sample": "ul",
-              "formula": "3×equal|c:top|align:start|cont:none|int:link",
-              "shape": "3×equal|c:top"
+              "formula": "4×equal|c:top|align:start|cont:none|int:link",
+              "shape": "4×equal|c:top"
             },
             {
-              "units": 3,
+              "units": 4,
               "widthClass": "equal",
               "widthRatios": [
-                0.465,
-                0.465,
-                0.465
+                0.463,
+                0.463,
+                0.463,
+                0.463
               ],
               "slots": {
                 "cta": "mid"
@@ -1840,15 +1955,15 @@
               "container": "none",
               "interaction": "link",
               "sample": "li.rv",
-              "formula": "3×equal|c:mid|align:start|cont:none|int:link",
-              "shape": "3×equal|c:mid"
+              "formula": "4×equal|c:mid|align:start|cont:none|int:link",
+              "shape": "4×equal|c:mid"
             },
             {
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.465,
-                0.465
+                0.463,
+                0.463
               ],
               "slots": {
                 "meta": "top",
@@ -1865,8 +1980,8 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.351,
-                0.351
+                0.367,
+                0.367
               ],
               "slots": {},
               "align": "start",
@@ -1946,33 +2061,33 @@
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 5,
-      "shape": "5×equal|m:mid",
-      "formula": "5×equal|m:mid|align:start|cont:box|int:static",
+      "units": 8,
+      "shape": "8×equal|m:mid",
+      "formula": "8×equal|m:mid|align:start|cont:box|int:static",
       "disposition": null
     },
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 3,
-      "shape": "3×equal|i:mid|h:top|m:top",
-      "formula": "3×equal|i:mid|h:top|m:top|align:start|cont:fill|int:link",
+      "units": 6,
+      "shape": "6×equal|i:mid|h:top|m:top",
+      "formula": "6×equal|i:mid|h:top|m:top|align:start|cont:fill|int:link",
       "disposition": null
     },
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 3,
-      "shape": "3×equal|i:mid",
-      "formula": "3×equal|i:mid|align:start|cont:fill|int:static",
+      "units": 6,
+      "shape": "6×equal|i:mid",
+      "formula": "6×equal|i:mid|align:start|cont:fill|int:static",
       "disposition": null
     },
     {
       "kind": "parallel-units",
       "section": "section#inventory.inventory",
-      "units": 3,
-      "shape": "3×equal|m:lower",
-      "formula": "3×equal|m:lower|align:start|cont:none|int:link",
+      "units": 6,
+      "shape": "6×equal|m:lower",
+      "formula": "6×equal|m:lower|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -1995,16 +2110,16 @@
       "kind": "parallel-units",
       "section": "section#visit.visit",
       "units": 5,
-      "shape": "5×equal|m:lower|c:lower",
-      "formula": "5×equal|m:lower|c:lower|align:start|cont:none|int:link",
+      "shape": "5×equal|m:mid|c:mid",
+      "formula": "5×equal|m:mid|c:mid|align:start|cont:none|int:link",
       "disposition": null
     },
     {
       "kind": "parallel-units",
       "section": "footer.site-footer",
-      "units": 14,
-      "shape": "14×equal|c:mid",
-      "formula": "14×equal|c:mid|align:start|cont:none|int:link",
+      "units": 13,
+      "shape": "13×equal|c:mid",
+      "formula": "13×equal|c:mid|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -2018,9 +2133,9 @@
     {
       "kind": "parallel-units",
       "section": "div.container",
-      "units": 14,
-      "shape": "14×equal|c:mid",
-      "formula": "14×equal|c:mid|align:start|cont:none|int:link",
+      "units": 13,
+      "shape": "13×equal|c:mid",
+      "formula": "13×equal|c:mid|align:start|cont:none|int:link",
       "disposition": null
     },
     {
@@ -2042,6 +2157,15 @@
     },
     {
       "kind": "repeated-shape",
+      "shape": "8×equal|m:mid",
+      "sections": [
+        "section#range.range",
+        "section#inventory.inventory"
+      ],
+      "disposition": null
+    },
+    {
+      "kind": "repeated-shape",
       "shape": "2×equal|m:lower|c:lower",
       "sections": [
         "section#inventory.inventory",
@@ -2051,7 +2175,7 @@
     },
     {
       "kind": "repeated-shape",
-      "shape": "14×equal|c:mid",
+      "shape": "13×equal|c:mid",
       "sections": [
         "footer.site-footer",
         "div.container"
@@ -2061,6 +2185,15 @@
     {
       "kind": "repeated-shape",
       "shape": "4×equal|m:top|c:upper",
+      "sections": [
+        "footer.site-footer",
+        "div.container"
+      ],
+      "disposition": null
+    },
+    {
+      "kind": "repeated-shape",
+      "shape": "2×equal|c:mid",
       "sections": [
         "footer.site-footer",
         "div.container"
@@ -2080,7 +2213,7 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-10-01T00:29:32.160Z",
+  "finishedAt": "2026-10-01T00:35:04.333Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 5×equal|i:mid|h:mid|m:upper|c:lower",
@@ -2090,21 +2223,23 @@
     "undisposed parallel-units: 4×equal|m:top",
     "undisposed parallel-units: 4×equal|m:mid|c:mid",
     "undisposed parallel-units: 3×equal|h:upper|m:mid",
-    "undisposed parallel-units: 5×equal|m:mid",
-    "undisposed parallel-units: 3×equal|i:mid|h:top|m:top",
-    "undisposed parallel-units: 3×equal|i:mid",
-    "undisposed parallel-units: 3×equal|m:lower",
+    "undisposed parallel-units: 8×equal|m:mid",
+    "undisposed parallel-units: 6×equal|i:mid|h:top|m:top",
+    "undisposed parallel-units: 6×equal|i:mid",
+    "undisposed parallel-units: 6×equal|m:lower",
     "undisposed parallel-units: 3×equal|m:mid",
     "undisposed parallel-units: 3×equal|i:upper|m:bottom",
-    "undisposed parallel-units: 5×equal|m:lower|c:lower",
-    "undisposed parallel-units: 14×equal|c:mid",
+    "undisposed parallel-units: 5×equal|m:mid|c:mid",
+    "undisposed parallel-units: 13×equal|c:mid",
     "undisposed parallel-units: 4×equal|m:top|c:upper",
-    "undisposed parallel-units: 14×equal|c:mid",
+    "undisposed parallel-units: 13×equal|c:mid",
     "undisposed parallel-units: 4×equal|m:top|c:upper",
     "undisposed repeated-shape: 3×equal|m:mid",
+    "undisposed repeated-shape: 8×equal|m:mid",
     "undisposed repeated-shape: 2×equal|m:lower|c:lower",
-    "undisposed repeated-shape: 14×equal|c:mid",
+    "undisposed repeated-shape: 13×equal|c:mid",
     "undisposed repeated-shape: 4×equal|m:top|c:upper",
+    "undisposed repeated-shape: 2×equal|c:mid",
     "undisposed repeated-shape: 2×equal|c:upper"
   ]
 }

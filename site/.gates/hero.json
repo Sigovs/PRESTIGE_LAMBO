@@ -1,6 +1,6 @@
 {
   "gate": "Gate 1/2 · delegated — rendered hero conformance",
-  "sourceSeal": "43e4ff674db43dfb16d3e3856ec98265461ff181f2753015ceb3c1f4af3179cf",
+  "sourceSeal": "d47d337cb821e340b98bd48df490c5735a62e4500fa1e9ab10e5436aa318d5a9",
   "viewports": [
     {
       "label": "desktop",
@@ -13,13 +13,13 @@
         "hero": {
           "x": 0,
           "y": 0,
-          "w": 1440,
+          "w": 1425,
           "h": 900
         },
         "media": {
           "x": 0,
           "y": 0,
-          "w": 1440,
+          "w": 1425,
           "h": 900
         },
         "fit": "cover",
@@ -47,10 +47,10 @@
           "clearance": {
             "left": 728,
             "top": 108,
-            "right": -104,
+            "right": -119,
             "bottom": 180
           },
-          "subjectShare": 0.385,
+          "subjectShare": 0.389,
           "navOverlap": 0,
           "textSafeOverlap": 0,
           "copyOverlap": 0
@@ -70,10 +70,10 @@
         "clearance": {
           "left": 728,
           "top": 108,
-          "right": -104,
+          "right": -119,
           "bottom": 180
         },
-        "subjectShare": 0.385,
+        "subjectShare": 0.389,
         "navOverlap": 0,
         "textSafeOverlap": 0,
         "copyOverlap": 0
@@ -89,13 +89,13 @@
         "hero": {
           "x": 0,
           "y": 0,
-          "w": 390,
+          "w": 375,
           "h": 844
         },
         "media": {
           "x": 0,
           "y": 0,
-          "w": 390,
+          "w": 375,
           "h": 624
         },
         "fit": "cover",
@@ -112,19 +112,19 @@
         {
           "t": 0,
           "rect": {
-            "x": 20.57908280254776,
+            "x": 13.07908280254776,
             "y": 172.848,
             "w": 348.8418343949045,
             "h": 168.48000000000002
           },
           "clipped": [],
           "clearance": {
-            "left": 20.57908280254776,
+            "left": 13.07908280254776,
             "top": 172.848,
-            "right": 20.57908280254776,
+            "right": 13.07908280254776,
             "bottom": 502.67199999999997
           },
-          "subjectShare": 0.179,
+          "subjectShare": 0.186,
           "navOverlap": 0,
           "textSafeOverlap": 0,
           "copyOverlap": 0
@@ -133,19 +133,19 @@
       "worst": {
         "t": 0,
         "rect": {
-          "x": 20.57908280254776,
+          "x": 13.07908280254776,
           "y": 172.848,
           "w": 348.8418343949045,
           "h": 168.48000000000002
         },
         "clipped": [],
         "clearance": {
-          "left": 20.57908280254776,
+          "left": 13.07908280254776,
           "top": 172.848,
-          "right": 20.57908280254776,
+          "right": 13.07908280254776,
           "bottom": 502.67199999999997
         },
-        "subjectShare": 0.179,
+        "subjectShare": 0.186,
         "navOverlap": 0,
         "textSafeOverlap": 0,
         "copyOverlap": 0
@@ -156,7 +156,7 @@
   ],
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-10-01T00:29:51.159Z",
+  "finishedAt": "2026-10-01T00:35:23.161Z",
   "sourceEvidence": "/Users/alex/Desktop/WORK/PRESTIGE/_____LAMBO PRESTIGE/site/.gates/evidence/hero-source-declared.png",
   "blockers": [
     "desktop: subject clipped at right (worst sample t=0)",
