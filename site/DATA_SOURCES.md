@@ -145,3 +145,17 @@ Source: `research/LAMBORGHINI_CI_RESEARCH.md`, captured from lamborghini.com on 
 | `bull.svg` | `corp-site-shots/ref-logo-corp-header-bull.svg` (the lamborghini.com header bull) | Unmodified. Its use by the dealer must be covered by Lamborghini's dealer CI |
 
 Every crop is reproducible with `site/_tools/process-images.py`. The originals are never modified.
+
+
+## Hero copy (dealership slides, 30 Sep 2026)
+
+Each claim on the hero slides, and its source. There are no superlatives, and nothing is invented.
+
+| Slide | Line on the page | Basis |
+|---|---|---|
+| 1 | "14780 Biscayne Boulevard, North Miami Beach" | dealer address (see Contact) |
+| 2 | "920 CV · 343 km/h · 0–100 km/h 2.7 s" | Models ledger (lamborghini.com Temerario page) |
+| 3 | "New and pre-owned Lamborghini, on Biscayne Boulevard." | the inventory captured on this page (New and Used listings) and the dealer address |
+| 4 | "Scheduled service, genuine parts, Lamborghini-certified collision and paint." | Service section sources: lamborghini.com dealer page `certCollisionCenter: true`, `certPaintShop: true`; dealer service and parts pages |
+| 4 | "Care for every mile" (title) | A tagline, not a factual claim |
+| 5 | "A family house since 1977" / "Prestige Imports, founded in Miami by Irv David in 1977." | Dealer-stated: `/our-story` (founded by Irv David), `/careers` ("second-generation family-owned … since 1977"), footer "A division of the Prestige Imports family" |

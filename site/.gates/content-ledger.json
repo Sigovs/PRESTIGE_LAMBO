@@ -1,6 +1,6 @@
 {
   "gate": "Gate 4 · Content Provenance",
-  "sourceSeal": "7a6347052034f6cd8f5ac78c7ce156b78e1851d8d791222d7fc5d27a68d25dfc",
+  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
   "build": {
     "private": false
   },
@@ -188,63 +188,27 @@
       "where": "article#hero-slide-2 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
     },
     {
-      "class": "grouped-number",
-      "text": "1,015",
-      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
-      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
+      "class": "bare-count",
+      "text": "1977",
+      "context": "since 1977",
+      "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > h2.hero__title > span.hero__line"
+    },
+    {
+      "class": "year",
+      "text": "1977",
+      "context": "since 1977",
+      "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > h2.hero__title > span.hero__line"
     },
     {
       "class": "bare-count",
-      "text": "015",
-      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
-      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "350",
-      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
-      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "100",
-      "context": "1,015 CV · >350 km/h · 0–100 km/h 2.5 s",
-      "where": "article#hero-slide-3 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "800",
-      "context": "800 CV · 312 km/h · 0–100 km/h 3.4 s",
-      "where": "article#hero-slide-4 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "312",
-      "context": "800 CV · 312 km/h · 0–100 km/h 3.4 s",
-      "where": "article#hero-slide-4 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "100",
-      "context": "800 CV · 312 km/h · 0–100 km/h 3.4 s",
-      "where": "article#hero-slide-4 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "812",
-      "context": "812 CV · 312 km/h · 0–100 km/h 3.3 s",
+      "text": "1977",
+      "context": "Prestige Imports, founded in Miami by Irv David in 1977.",
       "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
     },
     {
-      "class": "bare-count",
-      "text": "312",
-      "context": "812 CV · 312 km/h · 0–100 km/h 3.3 s",
-      "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
-    },
-    {
-      "class": "bare-count",
-      "text": "100",
-      "context": "812 CV · 312 km/h · 0–100 km/h 3.3 s",
+      "class": "year",
+      "text": "1977",
+      "context": "Prestige Imports, founded in Miami by Irv David in 1977.",
       "where": "article#hero-slide-5 > div.hero__inner > div.hero__group > div.hero__copy > p.hero__place"
     },
     {
@@ -895,7 +859,7 @@
     "problems": [],
     "uncovered": [],
     "counts": {
-      "hits": 124,
+      "hits": 118,
       "entries": 12,
       "uncovered": 0
     }
@@ -903,5 +867,5 @@
   "humanConfirmed": true,
   "blockers": [],
   "verdict": "pass",
-  "finishedAt": "2026-09-30T23:51:20.211Z"
+  "finishedAt": "2026-10-01T00:25:15.970Z"
 }

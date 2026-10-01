@@ -1,6 +1,6 @@
 {
   "gate": "Gate 2 · Structural and Authorship Conformance",
-  "sourceSeal": "7a6347052034f6cd8f5ac78c7ce156b78e1851d8d791222d7fc5d27a68d25dfc",
+  "sourceSeal": "4e46660f800d10e93418e6f502c3aebb9b2705b70f82712246a6a6763e812401",
   "detector": {
     "desktop": {
       "sections": [
@@ -31,83 +31,22 @@
               "shape": "5×equal|i:mid|h:mid|m:upper|c:lower"
             },
             {
-              "units": 5,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.119,
-                0.119,
-                0.119,
-                0.119,
-                0.119
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "box",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "5×equal|m:mid|align:start|cont:box|int:static",
-              "shape": "5×equal|m:mid"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.324,
-                0.324,
-                0.324,
-                0.324
-              ],
-              "slots": {
-                "cta": "mid",
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.hero__actions",
-              "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
-              "shape": "4×equal|m:mid|c:mid"
-            },
-            {
-              "units": 4,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.189,
-                0.189,
-                0.189,
-                0.189
-              ],
-              "slots": {
-                "meta": "mid"
-              },
-              "align": "start",
-              "container": "box",
-              "interaction": "static",
-              "sample": "a.btn",
-              "formula": "4×equal|m:mid|align:start|cont:box|int:static",
-              "shape": "4×equal|m:mid"
-            },
-            {
               "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.324,
-                0.324,
-                0.324
+                0.119,
+                0.119,
+                0.117
               ],
               "slots": {
-                "meta": "top",
-                "heading": "upper",
-                "cta": "bottom"
+                "meta": "mid"
               },
               "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.hero__group",
-              "formula": "3×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
-              "shape": "3×equal|h:upper|m:top|c:bottom"
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "3×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "3×equal|m:mid"
             },
             {
               "units": 2,
@@ -123,6 +62,23 @@
               "sample": "span.hero__line",
               "formula": "2×equal||align:start|cont:none|int:static",
               "shape": "2×equal|"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.166,
+                0.166
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "2×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "2×equal|m:mid"
             }
           ]
         },
@@ -529,21 +485,6 @@
               "sample": "a.btn",
               "formula": "3×equal|m:mid|align:start|cont:box|int:static",
               "shape": "3×equal|m:mid"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.415,
-                0.415
-              ],
-              "slots": {},
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "p.t-lead",
-              "formula": "2×equal||align:start|cont:none|int:static",
-              "shape": "2×equal|"
             }
           ]
         },
@@ -878,6 +819,53 @@
           "section": "section.hero",
           "groups": [
             {
+              "units": 10,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {},
+              "align": "start",
+              "container": "none",
+              "interaction": "static",
+              "sample": "span.hero__line",
+              "formula": "10×equal||align:start|cont:none|int:static",
+              "shape": "10×equal|"
+            },
+            {
+              "units": 8,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "cta": "upper",
+                "meta": "upper"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__actions",
+              "formula": "8×equal|m:upper|c:upper|align:start|cont:none|int:link",
+              "shape": "8×equal|m:upper|c:upper"
+            },
+            {
               "units": 5,
               "widthClass": "equal",
               "widthRatios": [
@@ -911,49 +899,6 @@
                 0.877
               ],
               "slots": {
-                "meta": "top",
-                "heading": "upper",
-                "cta": "lower"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.hero__group",
-              "formula": "5×equal|h:upper|m:top|c:lower|align:start|cont:none|int:link",
-              "shape": "5×equal|h:upper|m:top|c:lower"
-            },
-            {
-              "units": 5,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "cta": "upper",
-                "meta": "upper"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "link",
-              "sample": "div.hero__actions",
-              "formula": "5×equal|m:upper|c:upper|align:start|cont:none|int:link",
-              "shape": "5×equal|m:upper|c:upper"
-            },
-            {
-              "units": 5,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
                 "meta": "mid"
               },
               "align": "start",
@@ -964,21 +909,62 @@
               "shape": "5×equal|m:mid"
             },
             {
-              "units": 4,
+              "units": 3,
               "widthClass": "equal",
               "widthRatios": [
-                0.671,
-                0.671,
-                0.671,
-                0.671
+                0.877,
+                0.877,
+                0.877
               ],
-              "slots": {},
+              "slots": {
+                "meta": "top",
+                "heading": "upper",
+                "cta": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__group",
+              "formula": "3×equal|h:upper|m:top|c:lower|align:start|cont:none|int:link",
+              "shape": "3×equal|h:upper|m:top|c:lower"
+            },
+            {
+              "units": 3,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "mid"
+              },
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "span.hero__line",
-              "formula": "4×equal||align:start|cont:none|int:static",
-              "shape": "4×equal|"
+              "sample": "div.hero__copy",
+              "formula": "3×equal|h:mid|m:top|align:start|cont:none|int:static",
+              "shape": "3×equal|h:mid|m:top"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "top",
+                "heading": "upper",
+                "cta": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.hero__group",
+              "formula": "2×equal|h:upper|m:top|c:lower|align:start|cont:none|int:link",
+              "shape": "2×equal|h:upper|m:top|c:lower"
             },
             {
               "units": 2,
@@ -999,36 +985,18 @@
               "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.671,
-                0.671
+                0.289,
+                0.289
               ],
               "slots": {
-                "meta": "top",
-                "heading": "mid"
+                "meta": "mid"
               },
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "div.hero__copy",
-              "formula": "2×equal|h:mid|m:top|align:start|cont:none|int:static",
-              "shape": "2×equal|h:mid|m:top"
-            },
-            {
-              "units": 2,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.671,
-                0.671
-              ],
-              "slots": {
-                "meta": "upper"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "h2.hero__title",
-              "formula": "2×equal|m:upper|align:start|cont:none|int:static",
-              "shape": "2×equal|m:upper"
+              "sample": "a.btn",
+              "formula": "2×equal|m:mid|align:start|cont:none|int:static",
+              "shape": "2×equal|m:mid"
             }
           ]
         },
@@ -1297,10 +1265,9 @@
           "section": "div#ad-personam.adp-pin",
           "groups": [
             {
-              "units": 7,
+              "units": 6,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
                 0.877,
                 0.877,
                 0.877,
@@ -1312,30 +1279,9 @@
               "align": "start",
               "container": "none",
               "interaction": "static",
-              "sample": "h2#adp-title.t-banner",
-              "formula": "7×equal||align:start|cont:none|int:static",
-              "shape": "7×equal|"
-            },
-            {
-              "units": 5,
-              "widthClass": "equal",
-              "widthRatios": [
-                0.877,
-                0.877,
-                0.877,
-                0.877,
-                0.877
-              ],
-              "slots": {
-                "meta": "top",
-                "heading": "lower"
-              },
-              "align": "start",
-              "container": "none",
-              "interaction": "static",
-              "sample": "header.adp__head",
-              "formula": "5×equal|h:lower|m:top|align:start|cont:none|int:static",
-              "shape": "5×equal|h:lower|m:top"
+              "sample": "h2#service-title.t-banner",
+              "formula": "6×equal||align:start|cont:none|int:static",
+              "shape": "6×equal|"
             },
             {
               "units": 5,
@@ -1357,6 +1303,25 @@
               "sample": "div.spec__row",
               "formula": "5×equal|m:upper|c:mid|align:start|cont:none|int:link",
               "shape": "5×equal|m:upper|c:mid"
+            },
+            {
+              "units": 4,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877,
+                0.877,
+                0.877
+              ],
+              "slots": {
+                "meta": "mid"
+              },
+              "align": "start",
+              "container": "box",
+              "interaction": "static",
+              "sample": "a.btn",
+              "formula": "4×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "4×equal|m:mid"
             },
             {
               "units": 3,
@@ -1382,6 +1347,25 @@
                 0.877
               ],
               "slots": {
+                "meta": "top",
+                "heading": "top",
+                "cta": "lower"
+              },
+              "align": "start",
+              "container": "none",
+              "interaction": "link",
+              "sample": "div.adp__inner",
+              "formula": "2×equal|h:top|m:top|c:lower|align:start|cont:none|int:link",
+              "shape": "2×equal|h:top|m:top|c:lower"
+            },
+            {
+              "units": 2,
+              "widthClass": "equal",
+              "widthRatios": [
+                0.877,
+                0.877
+              ],
+              "slots": {
                 "cta": "upper",
                 "meta": "upper"
               },
@@ -1398,23 +1382,21 @@
           "section": "section.adp",
           "groups": [
             {
-              "units": 3,
+              "units": 2,
               "widthClass": "equal",
               "widthRatios": [
-                0.877,
                 0.877,
                 0.877
               ],
               "slots": {
-                "meta": "top",
-                "heading": "lower"
+                "meta": "mid"
               },
               "align": "start",
-              "container": "none",
+              "container": "box",
               "interaction": "static",
-              "sample": "header.adp__head",
-              "formula": "3×equal|h:lower|m:top|align:start|cont:none|int:static",
-              "shape": "3×equal|h:lower|m:top"
+              "sample": "a.btn",
+              "formula": "2×equal|m:mid|align:start|cont:box|int:static",
+              "shape": "2×equal|m:mid"
             }
           ]
         },
@@ -1832,33 +1814,9 @@
     {
       "kind": "parallel-units",
       "section": "section.hero",
-      "units": 5,
-      "shape": "5×equal|m:mid",
-      "formula": "5×equal|m:mid|align:start|cont:box|int:static",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section.hero",
-      "units": 4,
-      "shape": "4×equal|m:mid|c:mid",
-      "formula": "4×equal|m:mid|c:mid|align:start|cont:none|int:link",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section.hero",
-      "units": 4,
-      "shape": "4×equal|m:mid",
-      "formula": "4×equal|m:mid|align:start|cont:box|int:static",
-      "disposition": null
-    },
-    {
-      "kind": "parallel-units",
-      "section": "section.hero",
       "units": 3,
-      "shape": "3×equal|h:upper|m:top|c:bottom",
-      "formula": "3×equal|h:upper|m:top|c:bottom|align:start|cont:none|int:link",
+      "shape": "3×equal|m:mid",
+      "formula": "3×equal|m:mid|align:start|cont:box|int:static",
       "disposition": null
     },
     {
@@ -1991,19 +1949,10 @@
     },
     {
       "kind": "repeated-shape",
-      "shape": "5×equal|m:mid",
+      "shape": "3×equal|m:mid",
       "sections": [
         "section.hero",
-        "section#inventory.inventory"
-      ],
-      "disposition": null
-    },
-    {
-      "kind": "repeated-shape",
-      "shape": "4×equal|m:mid|c:mid",
-      "sections": [
-        "section.hero",
-        "section#range.range"
+        "div#ad-personam.adp-pin"
       ],
       "disposition": null
     },
@@ -2047,14 +1996,11 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-09-30T23:50:36.417Z",
+  "finishedAt": "2026-10-01T00:24:31.849Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 5×equal|i:mid|h:mid|m:upper|c:lower",
-    "undisposed parallel-units: 5×equal|m:mid",
-    "undisposed parallel-units: 4×equal|m:mid|c:mid",
-    "undisposed parallel-units: 4×equal|m:mid",
-    "undisposed parallel-units: 3×equal|h:upper|m:top|c:bottom",
+    "undisposed parallel-units: 3×equal|m:mid",
     "undisposed parallel-units: 8×equal|m:mid",
     "undisposed parallel-units: 4×equal|i:mid",
     "undisposed parallel-units: 4×equal|m:top",
@@ -2071,8 +2017,7 @@
     "undisposed parallel-units: 4×equal|m:top|c:upper",
     "undisposed parallel-units: 14×equal|c:mid",
     "undisposed parallel-units: 4×equal|m:top|c:upper",
-    "undisposed repeated-shape: 5×equal|m:mid",
-    "undisposed repeated-shape: 4×equal|m:mid|c:mid",
+    "undisposed repeated-shape: 3×equal|m:mid",
     "undisposed repeated-shape: 2×equal|m:lower|c:lower",
     "undisposed repeated-shape: 14×equal|c:mid",
     "undisposed repeated-shape: 4×equal|m:top|c:upper",

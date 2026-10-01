@@ -680,7 +680,7 @@ address { font-style: normal; }
         position: absolute; inset: 0; z-index: -1;
         background:
             linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
-            linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) 34%, rgb(0 0 0 / 0) 62%);
+            linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) var(--scrim-mid, 34%), rgb(0 0 0 / 0) var(--scrim-end, 62%));
     }
 }
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
@@ -717,8 +717,8 @@ address { font-style: normal; }
 .hero__slide--dealer { --d-pos: 0% 50%; --scrim-a: 0.5; }         /* Alex's edit of img8: the left side is already dark; a light scrim only */
 .hero__slide--temerario { --d-pos: 0% 55%; --m-pos: 50%; --scrim-a: 0.84; }  /* gallery2 cropped clear of the sign: car right, sunset sky left */
 .hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
-.hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.8; }   /* rocks at sunset: car right-centre */
-.hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.78; }
+.hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.88; --scrim-mid: 48%; --scrim-end: 78%; }   /* rocks at sunset: car right-centre; the long service line needs a wider scrim */
+.hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.84; --scrim-mid: 44%; --scrim-end: 70%; }   /* the wide Prestige eyelet */
 /* phones on their side: same diagonal, compressed so the copy and both actions
    fit above the fold and clear the car */
 @media (orientation: landscape) and (max-height: 600px) {
@@ -732,6 +732,9 @@ address { font-style: normal; }
 /* centred-group follow-ups (Alex, 30 Sep 2026) */
 @media (max-width: 767.98px) and (orientation: portrait) {
     .hero__group { justify-self: stretch; }            /* the primary action is one width on every slide */
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
+    .hero__slide--model { --photo-k: 0.73; }   /* 375x667: the longer dealership lines need ~20 px */
 }
 @media (max-width: 767.98px) and (orientation: portrait) and (max-height: 600px) {
     .hero { --ctrl-b: var(--sp-8); --hero-gap: var(--sp-8); }
