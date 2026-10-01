@@ -178,13 +178,11 @@
     --rise-step: 70ms;      /* sibling stagger */
     --rise-cap: 400ms;      /* no element waits longer than this */
 
-    /* model drive-in (user direction, Alex) — mirrored as constants in main.js */
-    --drive-distance: -15%;   /* start offset, % of the car image = tile width; cars face right, so they arrive from the left */
-    --dur-drive: 1250ms;      /* long roll to a stop, not a snap */
-    --ease-drive: cubic-bezier(0.16, 1, 0.3, 1);
-    --dur-drive-fade: 600ms;  /* opacity lands early, so the car is seen rolling, not ghosting */
-    --drive-stagger: 135ms;   /* second tile of a row follows the first */
-    --drive-text-lag: 200ms;  /* the tile's text starts this long after its car */
+    /* model slide-in, scroll-linked (Alex) — mirrored as constants in main.js */
+    --drive-from: -70%;       /* the car starts 70% of the tile out of its frame, to the left */
+    --drive-end: 0.55;        /* progress reaches 1 when the image's centre is at 55% of the viewport */
+    --drive-lag: 0.08;        /* right-column tiles start 8% of the viewport later */
+    --drive-fade: 0.3;        /* opacity 0 -> 1 over the first 30% of progress */
     /* hero slider (user direction, Alex) */
     --dur-slide: 800ms;     /* crossfade */
     /* hero text entrance (Alex): from the left, on load and on every slide change */

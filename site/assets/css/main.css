@@ -1448,18 +1448,14 @@ main section { overflow-x: clip; }
     }
     .js .rv.is-in { opacity: 1; transform: none; }
 
-    /* model drive-in (§8, user direction): the car rolls in from the left and
-       decelerates into place. .dv is added by main.js only; the media box already
-       clips (overflow: hidden), so the travel never reaches the page width. */
-    .js .model.dv .model__car {
-        opacity: 0;
-        transform: translate3d(var(--drive-distance), 0, 0);
-        transition: opacity var(--dur-drive-fade) var(--ease-out),
-                    transform var(--dur-drive) var(--ease-drive);
-        transition-delay: var(--dv-delay, 0ms);
-        will-change: transform, opacity;
+    /* model slide-in (§8, Alex): scroll-linked; main.js sets --car-x / --car-o on
+       each tile from its scroll progress. The media box clips (overflow: hidden),
+       so the car starting 70% out of its frame never widens the page. */
+    .js .model[data-drive] .model__car {
+        transform: translate3d(var(--car-x, 0%), 0, 0);
+        opacity: var(--car-o, 1);
     }
-    .js .model.dv.is-driven .model__car { opacity: 1; transform: none; }
+    .js .model.is-driving .model__car { will-change: transform, opacity; }
 
     /* hero text slides in from the left on load and on every slide change (Alex,
        30 Sep 2026). The outgoing slide's lines fade in --dur-hero-out without

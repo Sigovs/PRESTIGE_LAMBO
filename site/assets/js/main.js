@@ -270,87 +270,77 @@
         // Text inside a model tile is released by its car (drive-in, below), not by this observer.
         risers.forEach((el) => { if (!el.closest('.model')) io.observe(el); });
 
-        /* ---------- Model drive-in (user direction, Alex; DESIGN_SYSTEM §8) ----------
-           Each car rolls in from the left and decelerates into place as its tile
-           enters; the tile's text follows DRIVE_LAG later with the ordinary rise.
-           The image is decoded before the drive starts, so it never pops in blank. */
-        const DRIVE = 1250, DRIVE_STEP = 135, DRIVE_LAG = 200;   // mirror of --dur-drive, --drive-stagger, --drive-text-lag
+        /* ---------- Model slide-in, scroll-linked (user direction, Alex; DESIGN_SYSTEM §8) ----------
+           Each car is tied to its tile's scroll progress p: 0 when the image's top
+           enters at the viewport bottom, 1 when the image's centre reaches 55% of the
+           viewport. x = -70% of the tile -> 0 on easeOutCubic(p); opacity 0 -> 1 over
+           the first 30%. Scrubbed both ways. Right-column tiles start 8% of the
+           viewport later, so the left car leads. The tile's text follows once p
+           passes 0.6. Rects are cached and recomputed on resize/load only. */
+        const DRIVE_FROM = -70, DRIVE_END = 0.55, DRIVE_LAG = 0.08, DRIVE_FADE = 0.3, TEXT_AT = 0.6;   // mirror of --drive-from etc.
         const tiles = [...document.querySelectorAll('.model')];
-        const ready = new Map();                                  // tile -> Promise(decoded)
-        function prepare(tile) {
-            if (ready.has(tile)) return ready.get(tile);
-            const img = tile.querySelector('.model__car');
-            img.loading = 'eager';
-            const decoded = (img.complete && img.naturalWidth ? Promise.resolve() : new Promise((r) => {
-                img.addEventListener('load', r, { once: true }); img.addEventListener('error', r, { once: true });
-            })).then(() => img.decode && img.decode()).catch(() => {});
-            // never hold a car back for more than a moment
-            const p = Promise.race([decoded, new Promise((r) => setTimeout(r, 1200))]);
-            ready.set(tile, p);
-            return p;
-        }
-        function drive(tile, delay) {
-            if (tile.dataset.driven) return;
-            tile.dataset.driven = '1';
-            prepare(tile).then(() => requestAnimationFrame(() => {
-                tile.style.setProperty('--dv-delay', delay + 'ms');
-                tile.classList.add('is-driven');
-                release([...tile.querySelectorAll('.rv')], true, delay + DRIVE_LAG);
-                setTimeout(() => {                                   // hand the car back to its hover transition
-                    tile.classList.remove('dv', 'is-driven');
-                    tile.style.removeProperty('--dv-delay');
-                }, DRIVE + delay + 60);
-            }));
-        }
-        function driveRows(list) {                                   // left tile first, per row
-            list.sort((x, y) => x.getBoundingClientRect().top - y.getBoundingClientRect().top
-                              || x.getBoundingClientRect().left - y.getBoundingClientRect().left);
-            let rowTop = null, i = 0;
-            list.forEach((t) => {
-                const top = Math.round(t.getBoundingClientRect().top);
-                if (rowTop === null || Math.abs(top - rowTop) > 8) { rowTop = top; i = 0; }
-                drive(t, i++ * DRIVE_STEP);
+        let tileMetrics = [];
+        function measureTiles() {
+            const y = window.scrollY;
+            const lefts = tiles.map((t) => t.getBoundingClientRect().left);
+            const minLeft = Math.min(...lefts);
+            tileMetrics = tiles.map((t, k) => {
+                const m = t.querySelector('.model__media').getBoundingClientRect();
+                return { top: m.top + y, h: m.height, lag: lefts[k] - minLeft > 8 ? DRIVE_LAG : 0 };
             });
         }
-        tiles.forEach((t) => t.classList.add('dv'));
-        const prep = new IntersectionObserver((entries) => entries.forEach((e) => {
-            if (e.isIntersecting) { prepare(e.target.closest('.model')); prep.unobserve(e.target); }
-        }), { rootMargin: '0px 0px 60% 0px' });
-        const dio = new IntersectionObserver((entries) => {
-            const batch = entries.filter((e) => e.isIntersecting).map((e) => e.target.closest('.model'));
-            entries.forEach((e) => { if (e.isIntersecting) dio.unobserve(e.target); });
-            if (batch.length) driveRows(batch);
-        }, { threshold: 0.3 });
-        tiles.forEach((t) => { const m = t.querySelector('.model__media'); prep.observe(m); dio.observe(m); });
-        window.__drive = { tiles, drive };                       // exposed for verification scripts
+        function releaseTileText(tile) {
+            if (tile.dataset.textIn) return;
+            tile.dataset.textIn = '1';
+            release([...tile.querySelectorAll('.rv')], true);
+        }
+        function updateDrive() {
+            if (!tileMetrics.length) return;
+            const vh = window.innerHeight, y = window.scrollY;
+            tiles.forEach((t, k) => {
+                const mtr = tileMetrics[k];
+                const top = mtr.top - y;
+                const start = vh * (1 - mtr.lag), end = vh * DRIVE_END - mtr.h / 2;
+                const p = Math.min(1, Math.max(0, (start - top) / (start - end)));
+                const e = 1 - Math.pow(1 - p, 3);
+                t.style.setProperty('--car-x', (DRIVE_FROM * (1 - e)).toFixed(2) + '%');
+                t.style.setProperty('--car-o', Math.min(1, p / DRIVE_FADE).toFixed(3));
+                t.classList.toggle('is-driving', p > 0 && p < 1);
+                if (p >= TEXT_AT) releaseTileText(t);
+            });
+        }
+        tiles.forEach((t) => t.setAttribute('data-drive', ''));
+        measureTiles(); updateDrive();
+        window.addEventListener('load', () => { measureTiles(); updateDrive(); });
+        window.addEventListener('resize', () => { measureTiles(); updateDrive(); }, { passive: true });
+        if ('ResizeObserver' in window) new ResizeObserver(() => { measureTiles(); updateDrive(); }).observe(document.body);
+        window.addEventListener('scroll', () => requestAnimationFrame(updateDrive), { passive: true });
+        window.__drive = { tiles, measureTiles, updateDrive };   // exposed for verification scripts
 
         // Anchor jumps: everything in the destination section is released at once,
-        // so a section never lands blank under the header.
+        // so a section never lands blank under the header (the cars follow the landing position).
         document.addEventListener('click', (e) => {
             const a = e.target.closest('a[href^="#"]');
             const target = a && a.getAttribute('href').length > 1 && document.querySelector(a.getAttribute('href'));
             if (!target) return;
             const scope = target.closest('section') || target;
-            release([...scope.querySelectorAll('.rv')].filter((el) => !el.closest('.model.dv')), false);
-            const inScope = tiles.filter((t) => scope.contains(t) || t.contains(scope));
-            if (inScope.length) driveRows(inScope);
+            tiles.filter((t) => scope.contains(t)).forEach((t) => { t.dataset.textIn = '1'; });
+            release([...scope.querySelectorAll('.rv')], false);
         });
         // Keyboard focus never waits for choreography.
         document.addEventListener('focusin', (e) => {
             const tile = e.target.closest('.model');
-            if (tile) drive(tile, 0);
+            if (tile) releaseTileText(tile);
             const el = e.target.closest('.rv') || e.target.querySelector?.('.rv');
             if (el) release([el], false);
         });
-        // Safety sweep: anything already on screen that the observer missed.
+        // Safety sweep: anything already on screen that the observer missed (tile text waits for its car).
         const sweep = () => {
-            driveRows(tiles.filter((t) => {                            // same bar as the observer: 30% of the car in view, or already passed
-                if (t.dataset.driven) return false;
-                const r = t.querySelector('.model__media').getBoundingClientRect();
-                return r.bottom < 0 || Math.min(r.bottom, innerHeight) - Math.max(r.top, 0) >= 0.3 * r.height;
-            }));
+            updateDrive();
             release(risers.filter((el) => {
-                if (!el.classList.contains('rv') || el.classList.contains('is-in') || el.closest('.model.dv')) return false;
+                if (!el.classList.contains('rv') || el.classList.contains('is-in')) return false;
+                const tile = el.closest('.model');
+                if (tile && !tile.dataset.textIn) return false;
                 const r = el.getBoundingClientRect();
                 return r.top < innerHeight && r.bottom > 0;
             }), false);
