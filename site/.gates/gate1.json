@@ -163,7 +163,7 @@
       "metrics": {
         "eventCoverage": 0.955,
         "mediaCoverage": 0.739,
-        "competitionRatio": 0.104,
+        "competitionRatio": 0.105,
         "structuralShare": 0.907,
         "negativeSpaceShare": 0.05,
         "rankMassShare": 0.907,
@@ -226,7 +226,7 @@
           "isWrapper": false,
           "rects": [
             {
-              "x": 12,
+              "x": 13,
               "y": 614,
               "w": 342,
               "h": 124
@@ -301,7 +301,7 @@
           "hasAction": true,
           "area": 31200,
           "share": 0.095,
-          "ratio": 0.104
+          "ratio": 0.105
         }
       ],
       "excluded": [],
@@ -349,6 +349,6 @@
     }
   ],
   "verdict": "pass",
-  "finishedAt": "2026-10-01T00:28:14.884Z",
+  "finishedAt": "2026-10-01T00:29:24.736Z",
   "blockers": []
 }

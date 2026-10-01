@@ -13,6 +13,7 @@ html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     background: var(--surface-0-dark);
+    scrollbar-gutter: stable;     /* locking the page under the menu never shifts the layout */
 }
 
 body {
@@ -357,15 +358,41 @@ address { font-style: normal; }
     position: fixed;
     inset: 0;
     z-index: var(--z-menu);
-    background: var(--surface-1-dark);
     color: var(--grey-1);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    opacity: 0;
-    transition: opacity var(--dur-base) var(--ease-out);
+    background: rgb(0 0 0 / 0);
+    transition: background-color var(--dur-menu-close) var(--ease-in);
 }
 .menu[hidden] { display: none; }
-.menu.is-open { opacity: 1; }
+.menu.is-open { background: rgb(0 0 0 / 0.6); transition: background-color var(--dur-menu-backdrop) var(--ease-out); }
+
+/* Designed open and close (Alex, 30 Sep 2026): the panel is revealed from the top,
+   its items rise in after it with the page's rise language, and the MENU lines turn
+   into a cross. Closing is faster: the items fade together, the panel retracts. */
+.menu__panel {
+    position: absolute;
+    inset: 0;
+    background: var(--surface-1-dark);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path var(--dur-menu-close) var(--ease-in);
+}
+.menu.is-open .menu__panel { clip-path: inset(0 0 0 0); transition: clip-path var(--dur-menu) var(--ease-drive); }
+.menu [data-menu-item] {
+    opacity: 0;
+    transform: translate3d(0, var(--rise-sm), 0);
+    transition: opacity var(--dur-fast) var(--ease-in), transform 0s linear var(--dur-fast);
+}
+.menu.is-open [data-menu-item] {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--dur-rise) var(--ease-rise), transform var(--dur-rise) var(--ease-rise);
+    transition-delay: calc(var(--menu-items-delay) + min(calc(var(--mi, 0) * var(--menu-step)), var(--menu-cap)));
+}
+.menu-icon path { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; transform-box: view-box; transform-origin: 12px 12px; transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-fast) var(--ease-out); }
+.menu.is-open .menu-icon__l1 { transform: translateY(5px) rotate(45deg); }
+.menu.is-open .menu-icon__l2 { opacity: 0; }
+.menu.is-open .menu-icon__l3 { transform: translateY(-5px) rotate(-45deg); }
 
 .menu__bar {
     height: var(--header-h);
@@ -1401,6 +1428,9 @@ address { font-style: normal; }
         animation-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+    /* the menu opens and closes at once: no reveal, no stagger, no item travel */
+    .menu.is-open [data-menu-item] { transition-delay: 0s; }
+    .menu [data-menu-item] { transform: none; }
     /* arrows signal by colour instead of travel */
     .btn:hover .btn__icon, .btn:focus-visible .btn__icon { transform: none; color: var(--accent); }
     .btn--primary:hover .btn__icon, .btn--accent:hover .btn__icon { color: inherit; }

@@ -192,6 +192,13 @@
     --dur-hero-out: 250ms;  /* the outgoing lines fade first, no travel */
     --hero-step: 80ms;      /* top-to-bottom stagger */
     --hero-cap: 400ms;
+    /* menu overlay (Alex): reveal from the top, items rise in after it */
+    --dur-menu: 650ms;          /* panel reveal, on --ease-drive */
+    --dur-menu-close: 400ms;    /* faster retract, on --ease-in */
+    --dur-menu-backdrop: 300ms;
+    --menu-items-delay: 200ms;  /* items start this far into the reveal */
+    --menu-step: 55ms;
+    --menu-cap: 350ms;
     --ctrl-gap: 8px;        /* slider controls reach opacity 0 this far below the header (mirrored in main.js) */
     --ctrl-fade: 96px;      /* scroll distance over which they fade (mirrored in main.js) */
     --slide-hold: 6500ms;   /* autoplay dwell per slide — mirrored in main.js */

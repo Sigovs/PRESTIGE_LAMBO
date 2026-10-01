@@ -156,23 +156,33 @@
     function focusables() {
         return [...menu.querySelectorAll('a[href], button:not([disabled])')].filter((el) => el.offsetParent !== null);
     }
+    // Items rise in one after another (CSS); each gets its order once.
+    menu?.querySelectorAll('.menu__head, .menu__link, .menu__contact > div').forEach((el, i) => {
+        el.setAttribute('data-menu-item', '');
+        el.style.setProperty('--mi', i);
+    });
+    const MENU_CLOSE = 400;            // mirror of --dur-menu-close
+    let menuTimer = 0;
     function openMenu() {
         if (!menu) return;
+        clearTimeout(menuTimer);       // re-opening mid-close keeps the same element
         menu.hidden = false;
+        void menu.offsetWidth;         // commit the closed state so the reveal always runs
         requestAnimationFrame(() => menu.classList.add('is-open'));
         openBtn.setAttribute('aria-expanded', 'true');
         root.style.overflow = 'hidden';
         lenis?.stop();
-        closeBtn?.focus();
+        closeBtn?.focus();             // focusable at once; the stagger is visual only
     }
     function closeMenu(returnFocus = true) {
-        if (!menu || menu.hidden) return;
+        if (!menu || menu.hidden || !menu.classList.contains('is-open')) return;
         menu.classList.remove('is-open');
         openBtn.setAttribute('aria-expanded', 'false');
         root.style.overflow = '';
         lenis?.start();
-        const done = () => { menu.hidden = true; };
-        if (reduceMotion.matches) done(); else setTimeout(done, 300);
+        clearTimeout(menuTimer);
+        const done = () => { if (!menu.classList.contains('is-open')) menu.hidden = true; };
+        if (reduceMotion.matches) done(); else menuTimer = setTimeout(done, MENU_CLOSE);
         if (returnFocus) openBtn.focus();
     }
     openBtn?.addEventListener('click', openMenu);

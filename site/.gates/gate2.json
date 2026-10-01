@@ -2080,7 +2080,7 @@
   "humanInventory": null,
   "humanConfirmed": false,
   "verdict": "fail",
-  "finishedAt": "2026-10-01T00:28:23.312Z",
+  "finishedAt": "2026-10-01T00:29:32.160Z",
   "blockers": [
     "humanInventory is null — the detector is not an oracle; a section-by-section formula inventory is required beside it",
     "undisposed parallel-units: 5×equal|i:mid|h:mid|m:upper|c:lower",
