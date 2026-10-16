@@ -1,5 +1,6 @@
 /* Copied from prestige-final/assets/js/search5.js (Prestige SRP interactions) for the Lamborghini
-   Miami SRP mockup. Two lines patched, marked LAMBO MOCKUP PATCH; everything else is Prestige's. */
+   Miami SRP mockup. One function patched (reshuffleResults, marked LAMBO MOCKUP PATCH) so the
+   results are real; dropdowns, chips, badges, sort label and pagination state are Prestige's. */
 /* ============================================================
    PRESTIGE IMPORTS — SRP interaction (inventory.html)
    Light, no-dependency JS that brings the static mockup to life:
@@ -31,64 +32,11 @@
     /* Reshuffle the results grid + update count. Fades the cards
        out, reorders + hides a random subset, updates the count
        and fades back in with a staggered cascade. */
-    var isShuffling = false;
+    /* LAMBO MOCKUP PATCH: Prestige's mockup "reshuffle" (random order, random subset, random
+       count) is replaced by the real result set: inventory_pi.js filters, sorts and pages the
+       cards from the checked options, the active sort option, the keyword and the active page. */
     function reshuffleResults() {
-        if (isShuffling) return;
-        var grid     = document.querySelector('.srp-grid');
-        var countEl  = document.querySelector('.srp-intro__count b');
-        if (!grid) return;
-        isShuffling = true;
-        grid.setAttribute('aria-busy', 'true');
-
-        var cards = Array.from(grid.children);
-
-        /* Fade out — all at once */
-        cards.forEach(function (li) {
-            li.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-            li.style.opacity    = '0';
-            li.style.transform  = 'translateY(6px)';
-        });
-
-        setTimeout(function () {
-            /* Shuffle DOM order + decide a visible subset */
-            var shuffled  = shuffleArray(cards);
-            /* LAMBO MOCKUP PATCH: every card stays visible (the page shows real listings,
-               so no random subset is hidden) */
-            var showCount = cards.length;
-            shuffled.forEach(function (li, idx) {
-                grid.appendChild(li);
-                li.style.display = (idx < showCount) ? '' : 'none';
-            });
-
-            /* Update the result count — plausible 20–149 */
-            /* LAMBO MOCKUP PATCH: the result count is the real inventory total and is not
-               replaced by a random number */
-
-            /* Stagger fade back in */
-            requestAnimationFrame(function () {
-                shuffled.forEach(function (li, idx) {
-                    if (idx >= showCount) return;
-                    li.style.transitionDelay = (idx * 40) + 'ms';
-                    li.style.opacity         = '1';
-                    li.style.transform       = 'translateY(0)';
-
-                    /* Strip inline styles after the card lands so CSS
-                       hover transitions (.vehicle-card--extended:hover)
-                       can take over again cleanly. */
-                    setTimeout(function () {
-                        li.style.transition      = '';
-                        li.style.transitionDelay = '';
-                        li.style.transform       = '';
-                        li.style.opacity         = '';
-                    }, idx * 40 + 450);
-                });
-
-                setTimeout(function () {
-                    isShuffling = false;
-                    grid.removeAttribute('aria-busy');
-                }, showCount * 40 + 500);
-            });
-        }, 260);
+        if (window.__srpApply) window.__srpApply();
     }
 
     /* Debounced wrapper — multiple rapid changes collapse to one */

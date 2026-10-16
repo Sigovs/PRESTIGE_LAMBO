@@ -188,8 +188,11 @@
    Prestige stretches the photo to the panel's height and crops it (object-fit: cover). The studio
    frames are 4:3, so the cell takes that ratio and nothing is cropped; the panel's insets are
    tightened so that head, price, specs and both CTAs end on the photo's line at 1440. */
-.pi .vdp-summary__media { align-self: start; }
-.pi .vdp-gallery__main { height: auto; aspect-ratio: 4 / 3; }
+/* the cell is 4:3 at least, and stretches with the panel where the panel is taller (narrower desktops);
+   the frame is then contained, never cropped — both columns always end on one line */
+.pi .vdp-summary__media { align-self: stretch; }
+.pi .vdp-gallery__main { height: auto; aspect-ratio: 4 / 3; min-height: 100%; background-color: var(--surface-0-dark); }
+.pi .vdp-gallery__main img { object-fit: contain; }
 .pi .vdp-panel__head, .pi .vdp-panel__price, .pi .vdp-specs, .pi .vdp-panel__ctas { padding: var(--pi-sp-2) var(--pi-sp-3); }
 .pi .vdp-panel__head { padding-top: var(--pi-sp-3); }
 .pi .vdp-specs li { padding-block: var(--sp-4); }
@@ -276,7 +279,11 @@
 .pi .vehicle-card--extended .vehicle-card__body { padding: var(--pi-sp-2) 0.75rem 1.125rem; gap: var(--pi-sp-2); }
 .pi .vehicle-card__ctas { gap: var(--pi-sp-2); }
 
-/* the report logo: carfax-on-dark.svg (dark and white fills swapped, the blue kept), straight on the bar */
+/* vehicle-history reports: each badge on a white tile of one height, artwork unchanged (larger than
+   Prestige's 30px so the CARFAX badge reads) */
+.pi .vdp-actionbar__trust { gap: var(--sp-16); }
+.pi .vdp-actionbar__trust img { box-sizing: content-box; height: 2rem; width: auto; padding: var(--sp-8) 0.75rem; background: var(--grey-0); }   /* 48px tiles */
+.pi .vdp-actionbar__trust img[src*="carfax"] { height: 3rem; padding: 0 var(--sp-4); }
 .pi .filter__list { scrollbar-color: var(--grey-7) transparent; scrollbar-width: thin; }
 
 /* phone side padding as the demo renders it at 390 (the prototype CSS says 20 px): SRP 12 px, VDP 16 px */
@@ -302,3 +309,7 @@
 /* class-name clash: Prestige's card spec item is .spec; the Lamborghini .spec (spec-row list) draws a
    top rule — it must not reach Prestige's items */
 .pi .spec { border-top: 0; }
+
+/* SRP states the mockup's real filtering adds: the empty result, and hidden page links */
+.pi .srp-empty { padding: var(--pi-sp-5) 0; font-size: var(--fs-18); line-height: var(--lh-28); color: var(--pi-ink-soft); }
+.pi .pagination__link[hidden], .pi .pagination[hidden], .pi .srp-grid > li[hidden] { display: none; }

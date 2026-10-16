@@ -22,7 +22,8 @@ os.makedirs(IMG, exist_ok=True)
 E = html.escape
 
 cars = {v['stock']: v for v in json.load(open(CAP + 'vehicles.json'))}
-SRP_STOCKS = ['CJ2630', 'CJ2626', 'CJ2622', '10918', '10914', '10881A',
+SRP_STOCKS = None  # set below: all cars, recently listed first
+_OLD_SRP = ['CJ2630', 'CJ2626', 'CJ2622', '10918', '10914', '10881A',
               '85991Z', '86198X', 'CJ2602', '86180', '86104X', '86065X']   # recently listed first
 VDP_STOCK = 'CJ2602'
 TOTAL = len(cars)
@@ -80,8 +81,10 @@ SPRITE = re.search(r'<svg class="sprite"[\s\S]*?</svg>', home).group(0).replace(
 CHROME_TOP = svc[svc.index('<a class="skip-link"'):svc.index('<main id="main">')]
 CHROME_FOOT = svc[svc.index('<!-- ============================ FOOTER'):svc.index('</footer>') + len('</footer>')]
 for a, b in [(' aria-current="page"', ''),
-             ('href="index_v2.html#new"', 'href="srp.html#new"'),
-             ('href="index_v2.html#pre-owned"', 'href="srp.html#used"'),
+             ('href="index_v2.html#new"', 'href="srp.html?condition=new"'),
+             ('href="index_v2.html#pre-owned"', 'href="srp.html?condition=used"'),
+             ('href="srp.html#new"', 'href="srp.html?condition=new"'),
+             ('href="srp.html#used"', 'href="srp.html?condition=used"'),
              ('href="#request" data-menu-link', 'href="service.html#request"'),
              ('href="#request"', 'href="service.html#request"'),
              ('href="https://www.lamborghinimiami.com/lamborghini-miami-fl"', 'href="srp.html"'),
@@ -141,7 +144,7 @@ def page(title, desc, body, kind):
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_{kind}.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=7">
+    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=11">
 </head>
 <body class="page-inventory page-{kind}">
 
@@ -159,8 +162,8 @@ def page(title, desc, body, kind):
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script src="assets/js/main_v2.js?v=105" defer></script>
 <script src="assets/js/forms_v2.js?v=1" defer></script>
-<script src="assets/js/prestige_{kind}.js?v=1" defer></script>
-<script src="assets/js/inventory_pi.js?v=2" defer></script>
+<script src="assets/js/prestige_{kind}.js?v=2" defer></script>
+<script src="assets/js/inventory_pi.js?v=3" defer></script>
 </body>
 </html>
 '''
@@ -308,11 +311,31 @@ def price_block_pi(v, label_cls='vehicle-card__price-label', value_cls='vehicle-
     return f'''<span class="{label_cls}">Price</span>
                                 <a class="{value_cls} price-call" href="tel:+18332905147" aria-label="Call for price, sales (833) 290-5147">Call for Price</a>'''
 
+COLOUR = {'Nero': 'Black', 'Grigio': 'Grey', 'Giallo': 'Yellow', 'Rosso': 'Red', 'Blu': 'Blue', 'Verde': 'Green', 'Oro': 'Gold'}
+FACETS = {
+    'year':   lambda v: str(v['year']),
+    'make':   lambda v: 'Lamborghini',
+    'model':  lambda v: {'Huracan': 'Huracán'}.get(v['model'], v['model']),
+    'trim':   lambda v: None if v['trim'] in ('.', '') else v['trim'],
+    'engine': lambda v: engine(info(v['stock'])),
+    'body':   lambda v: 'SUV' if v['model'] == 'Urus' else 'Spyder' if 'Spyder' in (v['trim'] or '') else 'Coupe',
+    'colour': lambda v: COLOUR.get((v['exteriorColor'] or 'x').split()[0], 'Not listed'),
+    'trans':  lambda v: 'Automatic',
+    'drive':  lambda v: 'All-wheel drive',
+    'cond':   lambda v: 'New' if v['condition_site'] == 'New' else 'Pre-owned',
+}
+def card_data(v):
+    p = price(v)
+    d = {k: (f(v) or '') for k, f in FACETS.items()}
+    d.update({'price': p[1:].replace(',', '') if p else '', 'miles': v['mileage'], 'date': v['dateInStock'],
+              'text': ' '.join(str(x) for x in [model_name(v), v['stock'], v['vin'], v['exteriorColor'], v['interiorColor']] if x).lower()})
+    return ' '.join(f'data-{k}="{E(str(val))}"' for k, val in d.items())
+
 def srp_card(v):
     i = info(v['stock'])
     name = model_name(v)
     trans = (v['transmission'] or '').capitalize()
-    return f'''                <li>
+    return f'''                <li {card_data(v)}>
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true">{media_img(v, '(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw')}</a>
@@ -353,8 +376,12 @@ def srp_card(v):
                     </article>
                 </li>'''
 
-def opt_list(items):
-    return '\n'.join(f'                            <li><label class="filter__option"><input type="checkbox"> {E(l)} <span class="filter__option-count">{n}</span></label></li>' for l, n in items)
+def opt_list(items, name):
+    return '\n'.join(f'                            <li><label class="filter__option"><input type="checkbox" name="{name}" value="{E(l)}"> {E(l)} <span class="filter__option-count">{n}</span></label></li>' for l, n in items)
+
+def facet_items(key, order=None):
+    c = count_by(FACETS[key])
+    return sorted(c.items(), reverse=(key == 'year'))
 
 def count_by(key):
     c = {}
@@ -363,16 +390,16 @@ def count_by(key):
         if k: c[k] = c.get(k, 0) + 1
     return c
 
-def replace_filter_list(main, label, items, title=None):
+def replace_filter_list(main, label, key, title=None):
     """the <ul class="filter__list"> inside the <details class="filter"> whose trigger reads `label`"""
     pat = r'(<span>' + re.escape(label) + r'</span>[\s\S]*?<p class="filter__group-title">)[^<]*(</p>\s*<ul class="filter__list">)[\s\S]*?(</ul>)'
-    return sub1(main, pat, lambda m: m.group(1) + (title or label) + m.group(2) + '\n' + opt_list(items) + '\n                        ' + m.group(3))
+    return sub1(main, pat, lambda m: m.group(1) + (title or label) + m.group(2) + '\n' + opt_list(facet_items(key), key) + '\n                        ' + m.group(3))
 
-def replace_all_col(main, title, items):
+def replace_all_col(main, title, key):
     pat = r'(<p class="filter__group-title">' + re.escape(title) + r'</p>\s*<ul class="filter__list">)[\s\S]*?(</ul>)'
-    return sub1(main, pat, lambda m: m.group(1) + '\n' + opt_list(items) + '\n                            ' + m.group(2))
+    return sub1(main, pat, lambda m: m.group(1) + '\n' + opt_list(facet_items(key), key) + '\n                            ' + m.group(2))
 
-COLOUR = {'Nero': 'Black', 'Grigio': 'Grey', 'Giallo': 'Yellow', 'Rosso': 'Red', 'Blu': 'Blue', 'Verde': 'Green', 'Oro': 'Gold'}
+SRP_STOCKS = [v['stock'] for v in sorted(cars.values(), key=lambda v: v['dateInStock'], reverse=True)]
 
 srp_cls, srp = prestige_main('srp_v2.html')
 srp = srp.replace('<b>149</b>', f'<b>{TOTAL}</b>')
@@ -385,22 +412,35 @@ srp = sub1(srp, r'(<div class="filter-bar" role="search" aria-label="Refine resu
                     <a href="#" class="stock-btn btn">Search</a>
                 </div>
             </div>''')
-yrs = count_by(lambda v: str(v['year']))
-srp = replace_filter_list(srp, 'Year', [(y, n) for y, n in sorted(yrs.items(), reverse=True)], 'Year')
-srp = replace_filter_list(srp, 'Make', [('Lamborghini', TOTAL)])
-srp = replace_filter_list(srp, 'Model', sorted(count_by(lambda v: {'Huracan': 'Huracán'}.get(v['model'], v['model'])).items()), 'Lamborghini models')
-srp = replace_filter_list(srp, 'Trim', sorted(count_by(lambda v: None if v['trim'] in ('.', '') else v['trim']).items()))
-srp = replace_filter_list(srp, 'Engine', sorted(count_by(lambda v: engine(info(v['stock']))).items()))
+srp = replace_filter_list(srp, 'Year', 'year')
+srp = replace_filter_list(srp, 'Make', 'make')
+srp = replace_filter_list(srp, 'Model', 'model', 'Lamborghini models')
+srp = replace_filter_list(srp, 'Trim', 'trim')
+srp = replace_filter_list(srp, 'Engine', 'engine')
+# the New / Pre-owned state the navigation links select (?condition=new|used): a filter in Prestige's own
+# markup, kept out of the visible row (the demo has no Condition dropdown); it shows as a chip like any other
+srp = sub1(srp, r'(\s*<!-- ALL FILTERS)', lambda m: '''
+                <details class="filter" hidden data-condition-filter>
+                    <summary class="filter__trigger"><span>Condition</span></summary>
+                    <div class="filter__panel">
+                        <p class="filter__group-title">Condition</p>
+                        <ul class="filter__list">
+''' + opt_list(facet_items('cond'), 'cond') + '''
+                        </ul>
+                    </div>
+                </details>''' + m.group(1))
 srp = sub1(srp, r'<span class="t-caption">12 of 23</span>', '')
-srp = replace_all_col(srp, 'Body style', sorted(count_by(lambda v: 'SUV' if v['model'] == 'Urus' else 'Spyder' if 'Spyder' in (v['trim'] or '') else 'Coupe').items()))
-srp = replace_all_col(srp, 'Exterior color', sorted(count_by(lambda v: COLOUR.get((v['exteriorColor'] or 'x').split()[0], 'Not listed')).items()))
-srp = replace_all_col(srp, 'Transmission', [('Automatic', TOTAL)])
-srp = replace_all_col(srp, 'Drivetrain', [('All-wheel drive', TOTAL)])
+srp = replace_all_col(srp, 'Body style', 'body')
+srp = replace_all_col(srp, 'Exterior color', 'colour')
+srp = replace_all_col(srp, 'Transmission', 'trans')
+srp = replace_all_col(srp, 'Drivetrain', 'drive')
 srp = srp.replace('Show 149 results', 'Apply')   # the demo's label
 srp = srp.replace('<p class="filter__group-title">Body style</p>', '<p class="filter__group-title">Body</p>').replace('<p class="filter__group-title">Transmission</p>', '<p class="filter__group-title">Trans</p>')   # the demo's group titles
 srp = sub1(srp, r'<span class="sort__value">Recently listed</span>', '<span class="sort__value">All</span>')   # as the demo
 srp = sub1(srp, r'(<ul class="srp-grid">)[\s\S]*?(</ul>\s*<!-- Pagination -->)',
            lambda m: m.group(1) + '\n' + '\n'.join(srp_card(cars[s]) for s in SRP_STOCKS) + '\n            ' + m.group(2))
+srp = sub1(srp, r'(\s*<!-- Pagination -->)', lambda m: '''
+            <p class="srp-empty" hidden data-srp-empty>No vehicles match these filters. <button class="chip-clear" type="button" data-srp-clear>Clear all</button></p>''' + m.group(1))
 srp = sub1(srp, r'<a class="pagination__link" href="#">4</a>\s*<a class="pagination__link" href="#">5</a>\s*<span class="pagination__ellipsis" aria-hidden="true">…</span>\s*<a class="pagination__link" href="#">12</a>', '')
 srp = srp + '''
         <p class="t-caption srp-note">Listings as published on lamborghinimiami.com on 30 Sep 2026. Price includes dealer fee of $1,447.50 and $299 electronic filing fee; tax, tag, title and registration fees are not included and are calculated at time of purchase. Price and availability subject to change.</p>
@@ -450,7 +490,7 @@ vdp = sub1(vdp, r'<span class="breadcrumb__current" aria-current="page">[^<]*</s
 vdp = sub1(vdp, r'<img src="assets/images/vdp1\.jpg" alt="[^"]*">',
            f'<img src="{photos[START]}" alt="{E(name)} in {E(v["exteriorColor"])}, photograph {START + 1} of {len(photos)}" data-stage-img data-start="{START}" width="1024" height="768">')
 vdp = sub1(vdp, r'href="#photos" aria-label="See all 7 photos"', f'href="#photos" aria-label="See all {len(photos)} photos"')
-vdp = sub1(vdp, r'(<i class="ph ph-images" aria-hidden="true"></i>) 7 Photos', rf'\1 <span data-stage-n>{START + 1}</span>&nbsp;/&nbsp;{len(photos)} Photos')
+vdp = sub1(vdp, r'(<i class="ph ph-images" aria-hidden="true"></i>) 7 Photos', rf'\1 <span><span data-stage-n>{START + 1}</span> / {len(photos)} Photos</span>')
 vdp = sub1(vdp, r'(<h1 class="t-h2 vdp-panel__title">)[^<]*(</h1>)', lambda m: m.group(1) + E(name) + m.group(2))
 vdp = sub1(vdp, r'(<div class="vdp-panel__price">)[\s\S]*?(</div>)', lambda m: m.group(1) + f'''
                     <span class="t-eyebrow">Price</span>
@@ -460,8 +500,11 @@ vdp = sub1(vdp, r'(<ul class="vdp-specs">)[\s\S]*?(</ul>)', lambda m: m.group(1)
 # the VDP keeps Prestige's single INQUIRE (the two CTAs are the SRP request); it opens the lead dialog
 vdp = sub1(vdp, r'<a href="#" class="btn btn--solid"><span>Inquire</span></a>',
            f'''<button class="btn btn--solid is-accent" type="button" data-lead-open="inquire" {lead_data(v)}><span>Inquire</span></button>''')
-vdp = vdp.replace('assets/images/carfax.svg', 'assets/img/pi/carfax-on-dark.svg')   # dark-ground variant (fills swapped), no tile
-vdp = sub1(vdp, r'\s*<img src="assets/images/autocheck\.svg"[^>]*>\s*<img src="assets/images/ipacket\.svg"[^>]*>', '')   # the demo shows CARFAX only
+# the reports this car's listing offers (CARFAX, AutoCheck, iPacket — all three, as Prestige's bar), in dark-ground variants
+# CARFAX: the official value badge the dealer serves for this car (1-Owner); AutoCheck and iPacket: Prestige's
+# marks unchanged. All three on white badge tiles of one height (a badge is never recoloured)
+vdp = vdp.replace('assets/images/carfax.svg', 'assets/img/pi/carfax-1own.svg').replace('assets/images/autocheck.svg', 'assets/img/pi/autocheck.svg').replace('assets/images/ipacket.svg', 'assets/img/pi/ipacket.svg')
+vdp = vdp.replace('alt="CARFAX 1-Owner"', 'alt="Show me the CARFAX — 1 Owner"')
 vdp = sub1(vdp, r'<a class="btn btn--solid" href="tel:\+18332906287"><span>\(833\)&nbsp;290-6287</span></a>',
            '<a class="btn btn--solid" href="tel:+18332905147"><span>(833)&nbsp;290-5147</span></a>')
 vdp = sub1(vdp, r'<a class="btn" href="#"><span>Start Buying</span></a>', '<a class="btn" href="https://shop.lamborghinimiami.com/" rel="noopener"><span>Start Buying</span></a>')
@@ -493,7 +536,7 @@ def related_card(r):
                         </div>
                     </a>
                 </li>'''
-RELATED = ['86180', 'CJ2626', '10914', 'CJ2630', '86198X', '10881A']
+RELATED = ['86180', '10914', 'CJ2630', 'CJ2622', '86198X', '10881A']   # vehicles with photographs
 vdp = sub1(vdp, r'(<ul class="vdp-related__track" data-related-track aria-label="Related vehicles">)[\s\S]*?(</ul>\s*<div class="vdp-related__foot">)',
            lambda m: m.group(1) + '\n' + '\n'.join(related_card(cars[s]) for s in RELATED) + '\n            ' + m.group(2))
 vdp = vdp + '''

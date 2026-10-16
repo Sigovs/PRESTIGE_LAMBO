@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_srp.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=7">
+    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=11">
 </head>
 <body class="page-inventory page-srp">
 
@@ -60,8 +60,8 @@
                 <span>Menu</span>
             </button>
             <nav class="site-header__nav" aria-label="Primary">
-                <a class="site-header__link" href="srp.html#new">New</a>
-                <a class="site-header__link" href="srp.html#used">Pre-owned</a>
+                <a class="site-header__link" href="srp.html?condition=new">New</a>
+                <a class="site-header__link" href="srp.html?condition=used">Pre-owned</a>
                 <a class="site-header__link" href="service.html">Service</a>
             </nav>
         </div>
@@ -98,8 +98,8 @@
                 <p class="menu__head">Vehicles</p>
                 <ul class="menu__list">
                     <li><a class="menu__link" href="index_v2.html#range">Models</a></li>
-                    <li><a class="menu__link" href="srp.html#new">New inventory</a></li>
-                    <li><a class="menu__link" href="srp.html#used">Pre-owned inventory</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=new">New inventory</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=used">Pre-owned inventory</a></li>
                     <li><a class="menu__link" href="srp.html">All Lamborghini inventory</a></li>
                     <li><a class="menu__link" href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
                 </ul>
@@ -170,16 +170,16 @@
                     <div class="filter__panel">
                         <p class="filter__group-title">Year</p>
                         <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> 2026 <span class="filter__option-count">2</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2025 <span class="filter__option-count">3</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2024 <span class="filter__option-count">11</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2023 <span class="filter__option-count">4</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2022 <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2021 <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2020 <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2019 <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2018 <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 2015 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2026"> 2026 <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2025"> 2025 <span class="filter__option-count">3</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2024"> 2024 <span class="filter__option-count">11</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2023"> 2023 <span class="filter__option-count">4</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2022"> 2022 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2021"> 2021 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2020"> 2020 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2019"> 2019 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2018"> 2018 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="year" value="2015"> 2015 <span class="filter__option-count">1</span></label></li>
                         </ul>
                         <div class="filter__panel-foot">
                             <button class="filter__clear" type="button">Clear</button>
@@ -196,7 +196,7 @@
                     <div class="filter__panel filter__panel--wide">
                         <p class="filter__group-title">Make</p>
                         <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> Lamborghini <span class="filter__option-count">26</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="make" value="Lamborghini"> Lamborghini <span class="filter__option-count">26</span></label></li>
                         </ul>
                         <div class="filter__panel-foot">
                             <button class="filter__clear" type="button">Clear</button>
@@ -214,10 +214,10 @@
                     <div class="filter__panel">
                         <p class="filter__group-title">Lamborghini models</p>
                         <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> Huracán <span class="filter__option-count">2</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Revuelto <span class="filter__option-count">5</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Temerario <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Urus <span class="filter__option-count">18</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="model" value="Huracán"> Huracán <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="model" value="Revuelto"> Revuelto <span class="filter__option-count">5</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="model" value="Temerario"> Temerario <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="model" value="Urus"> Urus <span class="filter__option-count">18</span></label></li>
                         </ul>
                         <div class="filter__panel-foot">
                             <button class="filter__clear" type="button">Clear</button>
@@ -234,11 +234,11 @@
                     <div class="filter__panel">
                         <p class="filter__group-title">Trim</p>
                         <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> LP610-4 <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Performante <span class="filter__option-count">5</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Performante Spyder <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> S <span class="filter__option-count">7</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> SE <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="trim" value="LP610-4"> LP610-4 <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="trim" value="Performante"> Performante <span class="filter__option-count">5</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="trim" value="Performante Spyder"> Performante Spyder <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="trim" value="S"> S <span class="filter__option-count">7</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="trim" value="SE"> SE <span class="filter__option-count">2</span></label></li>
                         </ul>
                         <div class="filter__panel-foot">
                             <button class="filter__clear" type="button">Clear</button>
@@ -255,13 +255,23 @@
                     <div class="filter__panel">
                         <p class="filter__group-title">Engine</p>
                         <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> 4.0L V8 <span class="filter__option-count">19</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 5.2L V10 <span class="filter__option-count">2</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> 6.5L V12 <span class="filter__option-count">5</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="engine" value="4.0L V8"> 4.0L V8 <span class="filter__option-count">19</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="engine" value="5.2L V10"> 5.2L V10 <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="engine" value="6.5L V12"> 6.5L V12 <span class="filter__option-count">5</span></label></li>
                         </ul>
                         <div class="filter__panel-foot">
                             <button class="filter__clear" type="button">Clear</button>
                         </div>
+                    </div>
+                </details>
+                <details class="filter" hidden data-condition-filter>
+                    <summary class="filter__trigger"><span>Condition</span></summary>
+                    <div class="filter__panel">
+                        <p class="filter__group-title">Condition</p>
+                        <ul class="filter__list">
+                            <li><label class="filter__option"><input type="checkbox" name="cond" value="New"> New <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="cond" value="Pre-owned"> Pre-owned <span class="filter__option-count">24</span></label></li>
+                        </ul>
                     </div>
                 </details>
 
@@ -305,37 +315,37 @@
                         <div class="filter-all__col">
                             <p class="filter__group-title">Body</p>
                             <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> Coupe <span class="filter__option-count">7</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> SUV <span class="filter__option-count">18</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Spyder <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="body" value="Coupe"> Coupe <span class="filter__option-count">7</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="body" value="SUV"> SUV <span class="filter__option-count">18</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="body" value="Spyder"> Spyder <span class="filter__option-count">1</span></label></li>
                             </ul>
                         </div>
 
                         <div class="filter-all__col">
                             <p class="filter__group-title">Exterior color</p>
                             <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> Black <span class="filter__option-count">6</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Blue <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Gold <span class="filter__option-count">1</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Green <span class="filter__option-count">2</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Grey <span class="filter__option-count">6</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Not listed <span class="filter__option-count">2</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Red <span class="filter__option-count">4</span></label></li>
-                            <li><label class="filter__option"><input type="checkbox"> Yellow <span class="filter__option-count">4</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Black"> Black <span class="filter__option-count">6</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Blue"> Blue <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Gold"> Gold <span class="filter__option-count">1</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Green"> Green <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Grey"> Grey <span class="filter__option-count">6</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Not listed"> Not listed <span class="filter__option-count">2</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Red"> Red <span class="filter__option-count">4</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="colour" value="Yellow"> Yellow <span class="filter__option-count">4</span></label></li>
                             </ul>
                         </div>
 
                         <div class="filter-all__col">
                             <p class="filter__group-title">Trans</p>
                             <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> Automatic <span class="filter__option-count">26</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="trans" value="Automatic"> Automatic <span class="filter__option-count">26</span></label></li>
                             </ul>
                         </div>
 
                         <div class="filter-all__col">
                             <p class="filter__group-title">Drivetrain</p>
                             <ul class="filter__list">
-                            <li><label class="filter__option"><input type="checkbox"> All-wheel drive <span class="filter__option-count">26</span></label></li>
+                            <li><label class="filter__option"><input type="checkbox" name="drive" value="All-wheel drive"> All-wheel drive <span class="filter__option-count">26</span></label></li>
                             </ul>
                         </div>
 
@@ -359,7 +369,89 @@
         <!-- ═══════════ RESULTS ═══════════ -->
         <section class="srp-results" aria-label="Inventory results">
             <ul class="srp-grid">
-                <li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Green" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="266697" data-miles="5811" data-date="2026-09-15" data-text="2024 lamborghini urus s 86230x zpbub3zlxrla30573 verde mantis metallic nero ade">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><span class="vehicle-card__plate"><span class="vehicle-card__plate-name">Urus</span><span class="vehicle-card__plate-note">Photography in preparation</span></span></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2024 Lamborghini Urus S</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>5,811 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Verde Mantis Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86230X</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$266,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2024 Lamborghini Urus S" data-stock="86230X" data-vin="ZPBUB3ZLXRLA30573"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2024 Lamborghini Urus S" data-stock="86230X" data-vin="ZPBUB3ZLXRLA30573"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2025" data-make="Lamborghini" data-model="Revuelto" data-trim="" data-engine="6.5L V12" data-body="Coupe" data-colour="Not listed" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="711697" data-miles="1337" data-date="2026-09-11" data-text="2025 lamborghini revuelto cj2632 zhwuc1zm1sla03103">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><span class="vehicle-card__plate"><span class="vehicle-card__plate-name">Revuelto</span><span class="vehicle-card__plate-note">Photography in preparation</span></span></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2025 Lamborghini Revuelto</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>1,337 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">—</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">—</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">6.5L V12</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CJ2632</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$711,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2025 Lamborghini Revuelto" data-stock="CJ2632" data-vin="ZHWUC1ZM1SLA03103"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2025 Lamborghini Revuelto" data-stock="CJ2632" data-vin="ZHWUC1ZM1SLA03103"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Gold" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="286697" data-miles="537" data-date="2026-09-05" data-text="2024 lamborghini urus s cj2630 zpbub3zl3rla35890 oro elios metallic terra asia vintage">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cj2630-43-640.webp 640w, assets/img/inv/cj2630-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cj2630-43-640.jpg" srcset="assets/img/inv/cj2630-43-640.jpg 640w, assets/img/inv/cj2630-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus S" loading="lazy"></picture></a>
@@ -400,7 +492,48 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2025" data-make="Lamborghini" data-model="Revuelto" data-trim="" data-engine="6.5L V12" data-body="Coupe" data-colour="Not listed" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="701697" data-miles="2090" data-date="2026-09-01" data-text="2025 lamborghini revuelto cj2627 zhwuc1zm5sla01922">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><span class="vehicle-card__plate"><span class="vehicle-card__plate-name">Revuelto</span><span class="vehicle-card__plate-note">Photography in preparation</span></span></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2025 Lamborghini Revuelto</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>2,090 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">—</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">—</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">6.5L V12</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CJ2627</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$701,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2025 Lamborghini Revuelto" data-stock="CJ2627" data-vin="ZHWUC1ZM5SLA01922"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2025 Lamborghini Revuelto" data-stock="CJ2627" data-vin="ZHWUC1ZM5SLA01922"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Revuelto" data-trim="" data-engine="6.5L V12" data-body="Coupe" data-colour="Yellow" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="681697" data-miles="788" data-date="2026-08-31" data-text="2024 lamborghini revuelto cj2626 zhwuc1zm6rla01390 giallo metallic nero ade">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><span class="vehicle-card__plate"><span class="vehicle-card__plate-name">Revuelto</span><span class="vehicle-card__plate-note">Photography in preparation</span></span></a>
@@ -441,10 +574,10 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Red" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="271697" data-miles="7171" data-date="2026-08-26" data-text="2024 lamborghini urus s 86218 zpbub3zl0rla34146 rosso efesto metallic nero ade/rosso alala">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
-                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cj2622-43-640.webp 640w, assets/img/inv/cj2622-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cj2622-43-640.jpg" srcset="assets/img/inv/cj2622-43-640.jpg 640w, assets/img/inv/cj2622-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2025 Lamborghini Urus SE" loading="lazy"></picture></a>
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86218-43-640.webp 640w, assets/img/inv/86218-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86218-43-640.jpg" srcset="assets/img/inv/86218-43-640.jpg 640w, assets/img/inv/86218-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus S" loading="lazy"></picture></a>
                             <div class="vehicle-card__actions" aria-label="Quick actions">
                                 <button class="vehicle-card__action" type="button">
                                     <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
@@ -459,30 +592,30 @@
                         </div>
                         <div class="vehicle-card__body">
                             <a href="vdp.html" class="vehicle-card__heading-link">
-                                <h3 class="vehicle-card__name">2025 Lamborghini Urus SE</h3>
+                                <h3 class="vehicle-card__name">2024 Lamborghini Urus S</h3>
                             </a>
                             <ul class="vehicle-card__specs">
-                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>9,160 mi</span></li>
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>7,171 mi</span></li>
                                 <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
                             </ul>
                             <ul class="vehicle-card__details">
-                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Grigio Keres Metallic</span></li>
-                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade</span></li>
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Rosso Efesto Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade/Rosso Alala</span></li>
                                 <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
-                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CJ2622</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86218</span></li>
                             </ul>
                             <div class="vehicle-card__price-block">
                                 <span class="vehicle-card__price-label">Sale Price</span>
-                                <span class="vehicle-card__price">$291,697</span>
+                                <span class="vehicle-card__price">$271,697</span>
                             </div>
                             <div class="vehicle-card__ctas">
-                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2025 Lamborghini Urus SE" data-stock="CJ2622" data-vin="ZPBUD6ZL2SLA36854"><span>Check Availability</span></button>
-                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2025 Lamborghini Urus SE" data-stock="CJ2622" data-vin="ZPBUD6ZL2SLA36854"><span>Schedule Consultation</span></button>
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2024 Lamborghini Urus S" data-stock="86218" data-vin="ZPBUB3ZL0RLA34146"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2024 Lamborghini Urus S" data-stock="86218" data-vin="ZPBUB3ZL0RLA34146"><span>Schedule Consultation</span></button>
                             </div>
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2026" data-make="Lamborghini" data-model="Urus" data-trim="SE" data-engine="4.0L V8" data-body="SUV" data-colour="Black" data-trans="Automatic" data-drive="All-wheel drive" data-cond="New" data-price="" data-miles="24" data-date="2026-08-25" data-text="2026 lamborghini urus se 10918 zpbud6zlxtla46954 nero noctis metallic">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/10918-43-640.webp 640w, assets/img/inv/10918-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/10918-43-640.jpg" srcset="assets/img/inv/10918-43-640.jpg 640w, assets/img/inv/10918-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2026 Lamborghini Urus SE" loading="lazy"></picture></a>
@@ -523,7 +656,89 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2023" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Grey" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="245697" data-miles="17564" data-date="2026-08-24" data-text="2023 lamborghini urus s 10913a zpbub3zl2pla27647 grigio hati metallic nero ade/blu amon">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/10913a-43-640.webp 640w, assets/img/inv/10913a-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/10913a-43-640.jpg" srcset="assets/img/inv/10913a-43-640.jpg 640w, assets/img/inv/10913a-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2023 Lamborghini Urus S" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2023 Lamborghini Urus S</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>17,564 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Grigio Hati Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade/Blu Amon</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">10913A</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$245,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2023 Lamborghini Urus S" data-stock="10913A" data-vin="ZPBUB3ZL2PLA27647"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2023 Lamborghini Urus S" data-stock="10913A" data-vin="ZPBUB3ZL2PLA27647"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2025" data-make="Lamborghini" data-model="Urus" data-trim="SE" data-engine="4.0L V8" data-body="SUV" data-colour="Grey" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="291697" data-miles="9160" data-date="2026-08-22" data-text="2025 lamborghini urus se cj2622 zpbud6zl2sla36854 grigio keres metallic nero ade">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cj2622-43-640.webp 640w, assets/img/inv/cj2622-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cj2622-43-640.jpg" srcset="assets/img/inv/cj2622-43-640.jpg 640w, assets/img/inv/cj2622-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2025 Lamborghini Urus SE" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2025 Lamborghini Urus SE</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>9,160 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Grigio Keres Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CJ2622</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$291,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2025 Lamborghini Urus SE" data-stock="CJ2622" data-vin="ZPBUD6ZL2SLA36854"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2025 Lamborghini Urus SE" data-stock="CJ2622" data-vin="ZPBUD6ZL2SLA36854"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2026" data-make="Lamborghini" data-model="Temerario" data-trim="" data-engine="4.0L V8" data-body="Coupe" data-colour="Green" data-trans="Automatic" data-drive="All-wheel drive" data-cond="New" data-price="" data-miles="37" data-date="2026-08-18" data-text="2026 lamborghini temerario 10914 zhwuc1zc1tla02400 verde mercurius metallic">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/10914-43-640.webp 640w, assets/img/inv/10914-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/10914-43-640.jpg" srcset="assets/img/inv/10914-43-640.jpg 640w, assets/img/inv/10914-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2026 Lamborghini Temerario" loading="lazy"></picture></a>
@@ -564,7 +779,7 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2015" data-make="Lamborghini" data-model="Huracán" data-trim="LP610-4" data-engine="5.2L V10" data-body="Coupe" data-colour="Black" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="246697" data-miles="18536" data-date="2026-08-17" data-text="2015 lamborghini huracán lp610-4 10881a zhwuc1zf6fla02875 nero nemesis matt rosso alala/nero ade">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/10881a-43-640.webp 640w, assets/img/inv/10881a-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/10881a-43-640.jpg" srcset="assets/img/inv/10881a-43-640.jpg 640w, assets/img/inv/10881a-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2015 Lamborghini Huracán LP610-4" loading="lazy"></picture></a>
@@ -605,7 +820,7 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2020" data-make="Lamborghini" data-model="Urus" data-trim="" data-engine="4.0L V8" data-body="SUV" data-colour="Blue" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="210697" data-miles="4872" data-date="2026-08-06" data-text="2020 lamborghini urus 85991z zpbua1zl6lla06169 blu astraeus metallic nero ade">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/85991z-43-640.webp 640w, assets/img/inv/85991z-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/85991z-43-640.jpg" srcset="assets/img/inv/85991z-43-640.jpg 640w, assets/img/inv/85991z-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2020 Lamborghini Urus" loading="lazy"></picture></a>
@@ -646,7 +861,48 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2023" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Grey" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="248697" data-miles="13662" data-date="2026-07-29" data-text="2023 lamborghini urus s 86197j zpbub3zl8pla26387 grigio keres metallic nero ade">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86197j-43-640.webp 640w, assets/img/inv/86197j-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86197j-43-640.jpg" srcset="assets/img/inv/86197j-43-640.jpg 640w, assets/img/inv/86197j-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2023 Lamborghini Urus S" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2023 Lamborghini Urus S</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>13,662 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Grigio Keres Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86197J</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$248,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2023 Lamborghini Urus S" data-stock="86197J" data-vin="ZPBUB3ZL8PLA26387"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2023 Lamborghini Urus S" data-stock="86197J" data-vin="ZPBUB3ZL8PLA26387"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="Performante" data-engine="4.0L V8" data-body="SUV" data-colour="Grey" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="309697" data-miles="13329" data-date="2026-07-29" data-text="2024 lamborghini urus performante 86198x zpbuc3zl4rla32901 grigio hati metallic nero cosmus/blu cepheus">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86198x-43-640.webp 640w, assets/img/inv/86198x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86198x-43-640.jpg" srcset="assets/img/inv/86198x-43-640.jpg 640w, assets/img/inv/86198x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus Performante" loading="lazy"></picture></a>
@@ -687,7 +943,130 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Red" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="271697" data-miles="4515" data-date="2026-07-28" data-text="2024 lamborghini urus s 86196x zpbub3zl7rla35245 rosso efesto metallic nero ade/rosso rea">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86196x-43-640.webp 640w, assets/img/inv/86196x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86196x-43-640.jpg" srcset="assets/img/inv/86196x-43-640.jpg 640w, assets/img/inv/86196x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus S" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2024 Lamborghini Urus S</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>4,515 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Rosso Efesto Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade/Rosso Rea</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86196X</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$271,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2024 Lamborghini Urus S" data-stock="86196X" data-vin="ZPBUB3ZL7RLA35245"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2024 Lamborghini Urus S" data-stock="86196X" data-vin="ZPBUB3ZL7RLA35245"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2018" data-make="Lamborghini" data-model="Huracán" data-trim="Performante Spyder" data-engine="5.2L V10" data-body="Spyder" data-colour="Black" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="411697" data-miles="8104" data-date="2026-07-23" data-text="2018 lamborghini huracán performante spyder cj2607 zhwus4zf6jla10746 nero noctis nero cosmus">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cj2607-43-640.webp 640w, assets/img/inv/cj2607-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cj2607-43-640.jpg" srcset="assets/img/inv/cj2607-43-640.jpg 640w, assets/img/inv/cj2607-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2018 Lamborghini Huracán Performante Spyder" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2018 Lamborghini Huracán Performante Spyder</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>8,104 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Nero Noctis</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Cosmus</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">5.2L V10</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CJ2607</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$411,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2018 Lamborghini Huracán Performante Spyder" data-stock="CJ2607" data-vin="ZHWUS4ZF6JLA10746"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2018 Lamborghini Huracán Performante Spyder" data-stock="CJ2607" data-vin="ZHWUS4ZF6JLA10746"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="Performante" data-engine="4.0L V8" data-body="SUV" data-colour="Yellow" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="306697" data-miles="12819" data-date="2026-07-20" data-text="2024 lamborghini urus performante 86184j zpbuc3zl2rla29012 giallo auge metallic nero cosmus/giallo taurus">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86184j-43-640.webp 640w, assets/img/inv/86184j-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86184j-43-640.jpg" srcset="assets/img/inv/86184j-43-640.jpg 640w, assets/img/inv/86184j-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus Performante" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2024 Lamborghini Urus Performante</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>12,819 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Giallo Auge Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Cosmus/Giallo Taurus</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86184J</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$306,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2024 Lamborghini Urus Performante" data-stock="86184J" data-vin="ZPBUC3ZL2RLA29012"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2024 Lamborghini Urus Performante" data-stock="86184J" data-vin="ZPBUC3ZL2RLA29012"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Revuelto" data-trim="" data-engine="6.5L V12" data-body="Coupe" data-colour="Grey" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="741697" data-miles="1411" data-date="2026-07-16" data-text="2024 lamborghini revuelto cj2602 zhwuc1zm0rla00252 grigio acheso matt nero ade">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cj2602-43-640.webp 640w, assets/img/inv/cj2602-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cj2602-43-640.jpg" srcset="assets/img/inv/cj2602-43-640.jpg 640w, assets/img/inv/cj2602-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Revuelto" loading="lazy"></picture></a>
@@ -728,7 +1107,7 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Revuelto" data-trim="" data-engine="6.5L V12" data-body="Coupe" data-colour="Yellow" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="651697" data-miles="187" data-date="2026-07-14" data-text="2024 lamborghini revuelto 86180 zhwuc1zm3rla00116 giallo metallic nero ade">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86180-43-640.webp 640w, assets/img/inv/86180-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86180-43-640.jpg" srcset="assets/img/inv/86180-43-640.jpg 640w, assets/img/inv/86180-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Revuelto" loading="lazy"></picture></a>
@@ -769,7 +1148,130 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2021" data-make="Lamborghini" data-model="Urus" data-trim="" data-engine="4.0L V8" data-body="SUV" data-colour="Grey" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="186697" data-miles="45700" data-date="2026-07-06" data-text="2021 lamborghini urus cj2597 zpbua1zl7mla15500 grigio keres matt">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cj2597-43-640.webp 640w, assets/img/inv/cj2597-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cj2597-43-640.jpg" srcset="assets/img/inv/cj2597-43-640.jpg 640w, assets/img/inv/cj2597-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2021 Lamborghini Urus" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2021 Lamborghini Urus</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>45,700 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Grigio Keres Matt</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">—</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CJ2597</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$186,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2021 Lamborghini Urus" data-stock="CJ2597" data-vin="ZPBUA1ZL7MLA15500"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2021 Lamborghini Urus" data-stock="CJ2597" data-vin="ZPBUA1ZL7MLA15500"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2022" data-make="Lamborghini" data-model="Urus" data-trim="" data-engine="4.0L V8" data-body="SUV" data-colour="Black" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="211697" data-miles="31094" data-date="2026-07-06" data-text="2022 lamborghini urus 86168x zpbua1zl8nla17774 nero noctis matt nero ade/verde scandal">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86168x-43-640.webp 640w, assets/img/inv/86168x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86168x-43-640.jpg" srcset="assets/img/inv/86168x-43-640.jpg 640w, assets/img/inv/86168x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2022 Lamborghini Urus" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2022 Lamborghini Urus</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>31,094 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Nero Noctis Matt</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade/Verde Scandal</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86168X</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$211,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2022 Lamborghini Urus" data-stock="86168X" data-vin="ZPBUA1ZL8NLA17774"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2022 Lamborghini Urus" data-stock="86168X" data-vin="ZPBUA1ZL8NLA17774"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2019" data-make="Lamborghini" data-model="Urus" data-trim="" data-engine="4.0L V8" data-body="SUV" data-colour="Black" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="168697" data-miles="48786" data-date="2026-04-27" data-text="2019 lamborghini urus 86115x zpbua1zl6kla02248 nero helene metallic bianco polar/nero ade">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86115x-43-640.webp 640w, assets/img/inv/86115x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86115x-43-640.jpg" srcset="assets/img/inv/86115x-43-640.jpg 640w, assets/img/inv/86115x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2019 Lamborghini Urus" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2019 Lamborghini Urus</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>48,786 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Nero Helene Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Bianco Polar/Nero Ade</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86115X</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$168,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2019 Lamborghini Urus" data-stock="86115X" data-vin="ZPBUA1ZL6KLA02248"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2019 Lamborghini Urus" data-stock="86115X" data-vin="ZPBUA1ZL6KLA02248"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="Performante" data-engine="4.0L V8" data-body="SUV" data-colour="Yellow" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="278697" data-miles="15289" data-date="2026-04-17" data-text="2024 lamborghini urus performante 86104x zpbuc3zl0rla29400 giallo auge metallic nero cosmus/giallo taurus">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86104x-43-640.webp 640w, assets/img/inv/86104x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86104x-43-640.jpg" srcset="assets/img/inv/86104x-43-640.jpg 640w, assets/img/inv/86104x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus Performante" loading="lazy"></picture></a>
@@ -810,7 +1312,48 @@
                         </div>
                     </article>
                 </li>
-                <li>
+                <li data-year="2024" data-make="Lamborghini" data-model="Urus" data-trim="S" data-engine="4.0L V8" data-body="SUV" data-colour="Black" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="261697" data-miles="5313" data-date="2026-03-16" data-text="2024 lamborghini urus s 86073x zpbub3zl3rla35081 nero helene metallic nero ade">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86073x-43-640.webp 640w, assets/img/inv/86073x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86073x-43-640.jpg" srcset="assets/img/inv/86073x-43-640.jpg 640w, assets/img/inv/86073x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2024 Lamborghini Urus S" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2024 Lamborghini Urus S</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>5,313 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Nero Helene Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Ade</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">86073X</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$261,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2024 Lamborghini Urus S" data-stock="86073X" data-vin="ZPBUB3ZL3RLA35081"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2024 Lamborghini Urus S" data-stock="86073X" data-vin="ZPBUB3ZL3RLA35081"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                <li data-year="2023" data-make="Lamborghini" data-model="Urus" data-trim="Performante" data-engine="4.0L V8" data-body="SUV" data-colour="Red" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="288697" data-miles="6530" data-date="2026-03-04" data-text="2023 lamborghini urus performante 86065x zpbuc3zl7pla26846 rosso anteros metallic">
                     <article class="vehicle-card vehicle-card--extended">
                         <div class="vehicle-card__media">
                             <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/86065x-43-640.webp 640w, assets/img/inv/86065x-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/86065x-43-640.jpg" srcset="assets/img/inv/86065x-43-640.jpg 640w, assets/img/inv/86065x-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2023 Lamborghini Urus Performante" loading="lazy"></picture></a>
@@ -851,7 +1394,49 @@
                         </div>
                     </article>
                 </li>
+                <li data-year="2023" data-make="Lamborghini" data-model="Urus" data-trim="Performante" data-engine="4.0L V8" data-body="SUV" data-colour="Red" data-trans="Automatic" data-drive="All-wheel drive" data-cond="Pre-owned" data-price="291697" data-miles="8794" data-date="2026-02-09" data-text="2023 lamborghini urus performante cd2536 zpbuc3zl7pla25115 rosso mars metallic nero cosmus/rosso alala">
+                    <article class="vehicle-card vehicle-card--extended">
+                        <div class="vehicle-card__media">
+                            <a class="vehicle-card__media-link" href="vdp.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/inv/cd2536-43-640.webp 640w, assets/img/inv/cd2536-43-1024.webp 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw"><img src="assets/img/inv/cd2536-43-640.jpg" srcset="assets/img/inv/cd2536-43-640.jpg 640w, assets/img/inv/cd2536-43-1024.jpg 1024w" sizes="(min-width: 1100px) 30vw, (min-width: 760px) 46vw, 100vw" width="1024" height="768" alt="2023 Lamborghini Urus Performante" loading="lazy"></picture></a>
+                            <div class="vehicle-card__actions" aria-label="Quick actions">
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-heart" aria-hidden="true"></i><span>Save</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-share-network" aria-hidden="true"></i><span>Share</span>
+                                </button>
+                                <button class="vehicle-card__action" type="button">
+                                    <i class="ph ph-chat-circle" aria-hidden="true"></i><span>Text</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <a href="vdp.html" class="vehicle-card__heading-link">
+                                <h3 class="vehicle-card__name">2023 Lamborghini Urus Performante</h3>
+                            </a>
+                            <ul class="vehicle-card__specs">
+                                <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>8,794 mi</span></li>
+                                <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>Automatic</span></li>
+                            </ul>
+                            <ul class="vehicle-card__details">
+                                <li><span class="vehicle-card__detail-label">Exterior</span><span class="vehicle-card__detail-value">Rosso Mars Metallic</span></li>
+                                <li><span class="vehicle-card__detail-label">Interior</span><span class="vehicle-card__detail-value">Nero Cosmus/Rosso Alala</span></li>
+                                <li><span class="vehicle-card__detail-label">Engine</span><span class="vehicle-card__detail-value">4.0L V8</span></li>
+                                <li><span class="vehicle-card__detail-label">Stock</span><span class="vehicle-card__detail-value">CD2536</span></li>
+                            </ul>
+                            <div class="vehicle-card__price-block">
+                                <span class="vehicle-card__price-label">Sale Price</span>
+                                <span class="vehicle-card__price">$291,697</span>
+                            </div>
+                            <div class="vehicle-card__ctas">
+                                <button class="btn btn--solid is-accent" type="button" data-lead-open="availability" data-vehicle="2023 Lamborghini Urus Performante" data-stock="CD2536" data-vin="ZPBUC3ZL7PLA25115"><span>Check Availability</span></button>
+                                <button class="btn" type="button" data-lead-open="consultation" data-vehicle="2023 Lamborghini Urus Performante" data-stock="CD2536" data-vin="ZPBUC3ZL7PLA25115"><span>Schedule Consultation</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </li>
             </ul>
+            <p class="srp-empty" hidden data-srp-empty>No vehicles match these filters. <button class="chip-clear" type="button" data-srp-clear>Clear all</button></p>
 
             <!-- Pagination -->
             <nav class="pagination" aria-label="Results pagination">
@@ -887,8 +1472,8 @@
                     <p class="site-footer__head">Vehicles</p>
                     <ul>
                         <li><a href="index_v2.html#range">Models</a></li>
-                        <li><a href="srp.html#new">New inventory</a></li>
-                        <li><a href="srp.html#used">Pre-owned inventory</a></li>
+                        <li><a href="srp.html?condition=new">New inventory</a></li>
+                        <li><a href="srp.html?condition=used">Pre-owned inventory</a></li>
                         <li><a href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini</a></li>
                     </ul>
                 </div>
@@ -1037,7 +1622,7 @@
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script src="assets/js/main_v2.js?v=105" defer></script>
 <script src="assets/js/forms_v2.js?v=1" defer></script>
-<script src="assets/js/prestige_srp.js?v=1" defer></script>
-<script src="assets/js/inventory_pi.js?v=2" defer></script>
+<script src="assets/js/prestige_srp.js?v=2" defer></script>
+<script src="assets/js/inventory_pi.js?v=3" defer></script>
 </body>
 </html>
