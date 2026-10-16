@@ -2,7 +2,7 @@
 
 **Pages:** `site/srp.html` and `site/vdp.html` (the VDP shows a 2024 Revuelto, stock CJ2602). Both are **developer mockups**.
 **Round:** 4, 16 Oct 2026.
-**Side-by-side review:** `site/_review/round4/index.html`. Each pair puts the Prestige AAN demo and this mockup at the same viewport (1440×900 and 390×844), with the accordions and the calculator expanded.
+**Side-by-side review:** `site/review/round4/index.html`. Each pair puts the Prestige AAN demo and this mockup at the same viewport (1440×900 and 390×844), with the accordions and the calculator expanded.
 
 ## The rule for these pages
 
