@@ -321,6 +321,7 @@
     --vdp-pad-m: 1rem;             /* 16px side padding below 900, as the demo renders at 390 */
     --vdp-title-fs: 2.125rem;      /* 34px, the demo's panel title */
     --vdp-title-lh: 2.5rem;        /* 40px */
+    --vdp-cta-h: 3rem;             /* 48px panel CTAs, so the panel fits the photo's height */
 }
 .vdp-wrap { width: var(--vdp-wrap); margin-inline: auto; }
 @media (max-width: 900px) { .vdp-wrap { width: 100%; padding-inline: var(--vdp-pad-m); } }
@@ -331,13 +332,15 @@
 .breadcrumb a:hover { color: var(--grey-0); }
 .breadcrumb [aria-current] { color: var(--grey-1); }
 
-.vdp-summary { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(20.625rem, 1fr); gap: var(--sp-24); align-items: start; }
+.vdp-summary { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(20.625rem, 1fr); gap: var(--sp-24); }
 @media (max-width: 960px) { .vdp-summary { grid-template-columns: minmax(0, 1fr); } }
 
-/* the photo: wide 16:10 frame; the studio frames are 4:3, so cover trims curtain and floor only —
-   the whole car stays in view (and the corner shield below the turntable falls outside) */
-.vdp-stage { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--grey-9); border: var(--stroke-1) solid var(--grey-8); }
-.vdp-stage__img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }   /* the trimmed band falls below the turntable: the car stays whole, the corner shield drops out */
+/* the photo: the studio frames' own 4:3 (1024×768), as the Prestige photo — nothing is stretched or
+   cropped. The stage keeps its ratio (align-self: start); the panel stretches to the row, so from
+   1440 the two columns end on one line (796×597 | 491×597). Where the panel's content is taller than
+   the photo (narrower desktops), the panel runs longer rather than the car being cropped. */
+.vdp-stage { position: relative; align-self: start; aspect-ratio: 4 / 3; overflow: hidden; background: var(--grey-9); border: var(--stroke-1) solid var(--grey-8); }
+.vdp-stage__img { width: 100%; height: 100%; object-fit: cover; }   /* same ratio as the frame: nothing is trimmed */
 .vdp-stage__nav {
     position: absolute;
     top: 50%;
@@ -370,7 +373,8 @@
 
 /* the panel: head · price · specs · CTAs, each inset 24 and divided by a hairline (as Prestige) */
 .vdp-panel { display: flex; flex-direction: column; background: var(--surface-0-dark); border: var(--stroke-1) solid var(--grey-8); }
-.vdp-panel__head, .vdp-panel__price, .vdp-specs, .vdp-panel__ctas { padding: var(--sp-24); }
+.vdp-panel__head, .vdp-panel__price, .vdp-specs, .vdp-panel__ctas { padding: var(--sp-16) var(--sp-24); }
+.vdp-panel__head { padding-top: var(--sp-24); }
 .vdp-panel__price, .vdp-specs, .vdp-panel__ctas { border-top: var(--stroke-1) solid var(--grey-8); }
 .vdp-panel__title {
     font-size: var(--fs-28);
@@ -381,7 +385,7 @@
     text-wrap: balance;
 }
 @media (min-width: 768px) { .vdp-panel__title { font-size: var(--vdp-title-fs); line-height: var(--vdp-title-lh); } }
-.vdp-panel__price { display: flex; flex-direction: column; gap: var(--sp-8); }
+.vdp-panel__price { display: flex; flex-direction: column; gap: var(--sp-4); }
 .vdp-panel__label {
     font-size: var(--fs-14);
     line-height: var(--lh-22);
@@ -398,12 +402,13 @@
     color: var(--accent-dark);
 }
 /* spec rows: readable mixed case, label | value, hairline between (as Prestige) */
-.vdp-specs li { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-24); padding-block: var(--sp-8); }
+.vdp-specs li { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-24); padding-block: var(--sp-4); }
 .vdp-specs li + li { border-top: var(--stroke-1) solid var(--grey-8); }
 .vdp-specs__label { flex: none; font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-3); }
 .vdp-specs__value { font-size: var(--fs-16); line-height: var(--lh-22); color: var(--grey-1); text-align: right; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
 .vdp-panel__ctas { margin-top: auto; }
 .vdp-panel__ctas .lead-ctas { margin-top: 0; gap: var(--sp-8); }
+.vdp-panel__ctas .btn { min-height: var(--vdp-cta-h); }   /* 48px: still above the 44px target */
 
 /* the action bar: spans both columns; the buy group sits in the panel's column, edge to edge
    with the panel's CTAs (Prestige: 1fr | (100% − 22px) / 2.62 − 2px) */

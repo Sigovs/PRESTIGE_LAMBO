@@ -116,7 +116,7 @@ def page(title, desc, body, extra_js=''):
     <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_v2.css?v=11">
+    <link rel="stylesheet" href="assets/css/inventory_v2.css?v=12">
 </head>
 <body class="page-inventory">
 
@@ -441,7 +441,9 @@ vi = info(VDP_STOCK)
 name = model_name(v)
 photos = v['photos']
 # the stage opens on the clean front three-quarter (photo 0 carries the dealer lockup band)
-START = next((k for k, u in enumerate(photos) if u.split('/')[-1] == v['downloaded'][0]['url'].split('/')[-1]), 0)
+# Alex, review round 3: open on the first full-car exterior frame — photo 2 of 58, the car head-on on the
+# turntable (photo 1 carries the dealer lockup band). Checked by eye against the gallery.
+START = 1
 
 def md_inline(t):   # client: "**text**" renders bold (the platform prints the asterisks today)
     return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', E(t))

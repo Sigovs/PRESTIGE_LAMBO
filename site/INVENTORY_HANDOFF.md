@@ -55,12 +55,13 @@ The VDP repeats the Prestige VDP's geometry: the AAN demo build and `prestige-fi
 |---|---|---|
 | Content width / side margin | `min(92%, 1440px)`: 1311 px, 57 px each side | the same rule: 1311 px, 57 px |
 | Photo : panel | `1.62fr : minmax(330px, 1fr)`, gap 24: 796 \| 491 | the same: 796 \| 491 |
-| Photo | 16:10 at the top of its column (796×497), not stretched to the panel | the same: 796×497. The studio frames are 4:3, so `cover` at 50% 30% trims only curtain and floor; the whole car stays in view and the corner shield falls outside |
+| Photo | about 4:3; its bottom aligns with the panel | the studio frame's own **4:3** (796×597), not stretched or cropped: the whole car shows. It opens on photo 2 of 58, the first full-car exterior (photo 1 carries the dealer lockup band) |
 | Photo / panel top | 203 | 206 (the Lambo header is 104 px against Prestige's 107) |
-| Panel | head · price · specs · CTAs, each block inset 24 and divided by a hairline | the same blocks and insets |
+| Column ends | photo and panel end on one line | one line from 1440 up (1440: 597 \| 597, 1920: 657 \| 657). The panel is spaced to fit: blocks inset 16/24, rows 30 px, the two CTAs 48 px. **Below about 1440** the panel's content is taller than a 4:3 photo (1280: photo 529, panel 630), and the panel runs longer, so the car is never cropped |
+| Panel | head · price · specs · CTAs, each block inset 24 and divided by a hairline | the same blocks and hairlines, insets 16/24 (24 above the title) so that both CTAs fit the photo's height |
 | Title | 34/40, mixed case | 34/40, mixed case (Roboto Flex, normal width, bold) |
 | Price | label in small capitals, value 22 px | label 14 px in capitals, value 24 px in the accent |
-| Spec rows | label 13 / value 15, mixed case, about 36 px rows | label 14 / value 16, mixed case, 38 px rows (the 14 px text floor) |
+| Spec rows | label 13 / value 15, mixed case, about 36 px rows | label 14 / value 16, mixed case, 30 px rows (the 14 px text floor) |
 | CTA block | INQUIRE, pinned to the panel's foot | **Check availability** + **Schedule consultation** in the same block (client) |
 | Action bar | spans both columns; buy group under the panel, edge to edge with its CTA | the same grid (`1fr \| (100% − 22px) / 2.62 − 2px`): Share · Text us \| phone · Start buying |
 | Single column | at 960 px and below | at 960 px and below |
