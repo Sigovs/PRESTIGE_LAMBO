@@ -36,7 +36,7 @@
        User direction: the header never hides (DESIGN_SYSTEM.md §4 overrides the
        corporate .to-hide pattern). Only its ground changes. */
     const header = document.querySelector('[data-header]');
-    const hero = document.querySelector('.hero');
+    const hero = document.querySelector('.hero, .subhero');   // .subhero: the inner pages' hero (service.html)
     let ticking = false;
 
     const photoChapters = [...document.querySelectorAll('.adp__stage')];   // the pinned Ad Personam photograph
@@ -47,7 +47,7 @@
     const HDR_LEAD = 450;                               // ms of travel to anticipate: the 300 ms fade + a frame
     let settleT;
     let scrollV = 0, lastY = window.scrollY, lastT = performance.now();   // px/ms, signed (down > 0)
-    const heroContent = () => hero ? [...hero.querySelectorAll('.hero__slide.is-active .hero__copy, .hero__slide.is-active .hero__actions, .hero__controls')] : [];
+    const heroContent = () => hero ? [...hero.querySelectorAll('.hero__slide.is-active .hero__copy, .hero__slide.is-active .hero__actions, .hero__controls, .subhero__group')] : [];
     const adpContent = [...document.querySelectorAll('.adp__head, .adp__lead, .adp__actions')];
     function updateHeader() {
         ticking = false;
@@ -234,7 +234,7 @@
        every element is released by at least one of: the observer, an anchor
        jump into its section, keyboard focus, or the safety sweep. ---------- */
     const RISE_SEL = [
-        'main h2', 'main h3', 'main h4', 'main p', 'main dt', 'main dd',
+        'main h1', 'main h2', 'main h3', 'main h4', 'main p', 'main dt', 'main dd',
         'main figcaption', 'main address', 'main .btn',
         '.site-footer p', '.site-footer li', '.site-footer .btn'
     ].join(',');
@@ -243,7 +243,7 @@
     const RM = reduceMotion.matches;
     const STEP = 80, CAP = 640, DUR = RM ? 400 : 750;   // mirror of --hero-step, --rv-cap, --dur-hero-in / --dur-rm-text
     const risers = [...document.querySelectorAll(RISE_SEL)].filter((el) =>
-        !el.closest('.hero') && !el.closest('.showcase') && !el.parentElement.closest(RISE_SEL));   // the showcase runs its own staircase
+        !el.closest('.hero') && !el.closest('.showcase') && !el.closest('[data-no-rise]') && !el.parentElement.closest(RISE_SEL));   // the showcase runs its own staircase; [data-no-rise]: state text that appears later (form errors, status, confirmation) must never wait hidden
 
     function settle(el) {            // hand the element back to its own transitions (hover etc.)
         el.classList.remove('rv', 'rv--sm', 'is-in', 'rv-now');

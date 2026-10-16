@@ -193,3 +193,29 @@ The image is the Prestige Imports group paint-booth photograph (see MANIFEST). T
 - "View inventory" goes to `#inventory`. The brief said `#showroom`, but no such anchor exists on the page, and the inventory section is `#inventory`.
 - Pre-owned on v2 (Alex, 1 Oct 2026): one row of three cars: the 2024 Revuelto in Grigio Acheso Matt, the 2024 Revuelto in Giallo Metallic and the 2024 Urus S in Oro Elios Metallic. **Not on homepage v2:** the 2023 Urus Performante, the 2020 Urus and the 2015 Huracán LP610-4. Their data and images stay on disk, and they are still on v1.
 - "View all inventory" (one button, under the pre-owned row) links to the Lamborghini-only SRP `https://www.lamborghinimiami.com/lamborghini-miami-fl`. The dealer's used SRP (`/used-vehicles-miami-fl`, captured in `research/inventory-capture-live/raw/`) also lists Aston Martin, Audi, BMW, Bentley and other makes, which this page never shows.
+
+## Service page (service.html, 16 Oct 2026)
+
+The structure follows the Prestige Imports service page (`prestige-final/service_v2.html`, after the client's 21 Sep cuts): hero, why us, factory expertise, the difference, the request form with a map. Two blocks come from the current lamborghinimiami.com service page: pickup & delivery and roadside assistance (Alex, 16 Oct 2026). Only Lamborghini is named; Prestige's multi-marque list is not used.
+
+| Claim on the page | Status | Source |
+|---|---|---|
+| Service (833) 290-5148, Mon–Fri 8:00 am – 5:30 pm · Parts (833) 290-5149 | verified / dealer-stated | Dealer facts above (JSON-LD; header panel) |
+| "We use only genuine, factory-approved parts" | dealer-stated | Current service page: "only use genuine OEM factory-approved parts" (CURRENT_SITE_CONTENT §3.4) |
+| "We keep a large supply of them in stock"; "a large supply of parts on hand" | dealer-stated | Current service page: "We have a very large supply of parts in stock" |
+| "Gets the job done, effectively and efficiently" | dealer-stated | Prestige service page copy ("get the job done — effectively, efficiently") |
+| Technicians "trained for high-end models", "the equipment these cars require"; "Proper service by the right hands extends your car's life…" | dealer-stated | Prestige service page, "Factory Expertise" block (group copy) |
+| Lamborghini-certified collision center and paint shop | verified | See "Certified collision center" above |
+| Service pickup and delivery; detailing; "interior and exterior" | dealer-stated | Current service page, "What We Offer": "Service pickup and delivery", "Sanitation of your vehicle's interior and exterior", "Detailing" |
+| "In an enclosed transporter" | dealer-stated, **confirm** | The current page shows the Prestige enclosed transporter; the research lists the "enclosed transporter fleet" (CURRENT_SITE_CONTENT §5). Confirm that service pickups use it |
+| Roadside assistance 1-888-464-6040, 24 hours | **confirm** | As on the homepage: seen only in an image banner on the current service page. It may be the Lamborghini national number or a dealer line |
+
+**Not used:** "the largest Lamborghini service department in the country" (Prestige's #1 stat and the current H1 copy; unverified superlative, CP6); the marque list (Audi … Land Rover: other brands are out of scope); "Beyond the average garage" (cut by the client on the Prestige page as adding no value).
+
+**Form.** No endpoint yet (`data-endpoint=""` on the form). Until the platform (All Auto Network) supplies one, a valid request shows the confirmation locally and sends nothing. **This must be wired before launch.**
+
+**Images** (`_tools/process-service.py`; originals untouched):
+- `svc-hero-l-*`, `svc-hero-p-*`: official AL Huracán STO in a workshop (CCRC page, generic; MANIFEST row `service_huracan-sto-in-workshop-official`). The alt text describes the scene and does not claim it is the dealer's workshop.
+- `svc-workshop-*`: dealer-shot Aventador SVJ under a raised Aventador, cropped at y 1900 to drop the stamped shield.
+- `svc-transport-*`: dealer-shot Prestige enclosed transporter and flatbed, no watermark.
+- Rejected: `service_detailer-sanitizing-interior-covid` (a non-Lamborghini car and a COVID mask).

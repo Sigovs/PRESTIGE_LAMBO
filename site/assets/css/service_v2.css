@@ -1,0 +1,446 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — service page (service.html), v2 system.
+   Loaded after tokens_v2.css and main_v2.css; reuses their type roles,
+   bands, buttons, spec rows, header, menu, footer and motion. Only the
+   page's own sections live here. Every value resolves to a token;
+   the page-specific ones are declared in the block below.
+   Structure follows the Prestige Imports service page (hero · why ·
+   expertise · the difference · request + map), plus pickup & delivery
+   and roadside assistance from the current lamborghinimiami.com page.
+   ============================================================ */
+
+:root {
+    /* hero: the photograph's box starts this far in, so the dark left field is
+       page black and the car (x 25–88% of the frame) stays clear of the copy */
+    --svc-hero-shift: 0%;
+    --svc-hero-pos: 50% 50%;
+    --svc-hero-min: 36rem;          /* 576px: eyelet, two display lines, lead, actions */
+    --svc-hero-h: 88svh;
+    --svc-hero-copy: 40rem;         /* the copy column, 640px at most */
+    /* the photograph's left edge fades into black on an eased ramp: a linear ramp starts with
+       a slope break that reads as a drawn line (Mach band) over the bright windows */
+    --svc-feather: linear-gradient(90deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.04) 8%, rgb(0 0 0 / 0.16) 16%,
+        rgb(0 0 0 / 0.36) 24%, rgb(0 0 0 / 0.62) 32%, rgb(0 0 0 / 0.84) 40%, rgb(0 0 0 / 0.96) 46%, rgb(0 0 0) 52%);
+    --svc-hero-floor: 24%;          /* bottom blend into the next band (#181818) */
+    --svc-number-fs: var(--fs-48);  /* roadside number */
+    --svc-map-ratio: 4 / 3;
+    --svc-check: 1.5rem;            /* 24px checkbox, inside a 44px row */
+    --svc-field-h: var(--btn-h-md); /* 56px fields, the medium button height */
+    --svc-field-stroke: var(--grey-6);   /* #7d7d7d: 4.31:1 on #181818, the 3:1 non-text floor */
+}
+
+/* nav: the current page carries the accent rule (DESIGN_SYSTEM §2: the accent is spent on
+   "the active or hover rule under text links") */
+.site-header__link[aria-current="page"] { box-shadow: inset 0 calc(-1 * var(--stroke-2)) 0 var(--accent-dark); }
+.menu__link[aria-current="page"] { color: var(--grey-3); }
+
+/* the form's states toggle with [hidden]; the components' own display must not outrank it */
+.page-service [hidden] { display: none !important; }
+
+/* titles set in authored lines; a long line may still wrap on the narrowest phones */
+.svc-line { display: block; }
+
+/* ---------- 1 · Hero ---------- */
+.subhero {
+    position: relative;
+    background: var(--surface-0-dark);
+    color: var(--grey-1);
+    overflow: clip;
+}
+/* portrait (phones, portrait tablets): the photograph in flow, the copy below it on black */
+.subhero__media { position: relative; }
+.subhero__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: var(--svc-hero-pos); }
+.subhero__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(0deg, var(--surface-0-dark) 0%, rgb(0 0 0 / 0) var(--svc-hero-floor));
+}
+.subhero__inner { position: relative; padding-block: var(--sp-24) var(--sp-72); }
+.subhero__group { display: grid; justify-items: start; max-width: var(--svc-hero-copy); }
+.subhero__eyelet { color: var(--grey-3); margin-bottom: var(--sp-16); }
+.subhero__line { display: block; white-space: nowrap; }
+.subhero__lead { margin-top: var(--sp-24); color: var(--grey-2); }
+.subhero__actions { display: grid; gap: var(--sp-16); width: 100%; margin-top: var(--sp-32); }
+.subhero .btn--secondary { border-color: var(--grey-1); color: var(--grey-1); }
+
+@media (min-width: 768px) {
+    .subhero__media img { aspect-ratio: 16 / 9; }
+    .subhero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); width: auto; }
+}
+
+/* landscape (desktop, landscape tablets and phones): full-screen scene. The photograph's box
+   starts --svc-hero-shift in from the left and feathers into page black, so the copy stands
+   in a dark field that is the page, not the car */
+@media (min-width: 1200px), (min-width: 768px) and (orientation: landscape) {
+    :root { --svc-hero-shift: 26%; --svc-hero-pos: 78% 50%; }
+    .subhero {
+        min-height: max(var(--svc-hero-min), var(--svc-hero-h));
+        display: grid;
+    }
+    /* one floor across the whole width, over the photograph and the black field alike, so the
+       scene blends into the next band (#181818) with no seam at the photograph's box edge */
+    .subhero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(0deg, var(--surface-1-dark) 0%, rgb(24 24 24 / 0) var(--svc-hero-floor));
+    }
+    .subhero__media { position: absolute; inset: 0 0 0 var(--svc-hero-shift); }
+    .subhero__media picture { height: 100%; }
+    .subhero__media img {
+        height: 100%;
+        aspect-ratio: auto;
+        -webkit-mask-image: var(--svc-feather);
+        mask-image: var(--svc-feather);
+    }
+    /* no horizontal scrim: the copy stands on page black and the feathered edge, never on the
+       car, and an unmasked scrim would draw the box's left edge as a line over the black */
+    .subhero__media::after { content: none; }
+    .subhero__lead { max-width: var(--measure-note); }
+    /* the actions stack, one width: side by side the second button reached the STO's front
+       wheel (1024: fully visible; 1440: in the feather). Alex's rule: text and buttons may
+       cross the roofline or haunch, never the face, badge or wheels */
+    .subhero__actions { display: grid; grid-template-columns: max-content; gap: var(--sp-16); }
+    .subhero__inner {
+        z-index: 1;   /* above the floor (.subhero::after paints after the children) */
+        display: flex;
+        align-items: center;
+        padding-block: calc(var(--header-h) + var(--sp-40)) var(--sp-80);
+    }
+}
+/* phones on their side: the whole group must fit one short screen */
+@media (orientation: landscape) and (max-height: 600px) {
+    :root { --svc-hero-shift: 30%; --svc-hero-min: 100svh; }
+    .subhero__title { font-size: var(--fs-48); line-height: var(--lh-46); }
+    .subhero__lead { display: none; }
+    .subhero__actions { margin-top: var(--sp-24); }
+    .subhero__actions .btn { min-height: var(--btn-h-md); padding-inline: var(--btn-pad-md); }
+    .subhero__inner { padding-block: calc(var(--header-h) + var(--sp-16)) var(--sp-24); }
+}
+
+/* ---------- 2 · Why us ---------- */
+.why__grid { display: grid; gap: var(--sp-64); }
+.why__intro { display: grid; align-content: start; }
+.why__lead { margin-top: var(--sp-24); }
+.why__data { display: grid; gap: var(--sp-16); align-content: start; }
+.why__head { color: var(--fg-3); }
+@media (min-width: 1200px) {
+    .why__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); column-gap: var(--grid-gap); }
+    .why__data { grid-column: 3; }
+}
+
+/* ---------- 3 · The workshop ---------- */
+.workshop { border-top: var(--stroke-1) solid var(--grey-8); }
+.workshop__grid { display: grid; gap: var(--sp-48); }
+.workshop__media { position: relative; overflow: hidden; }
+.workshop__media img { width: 100%; }
+.workshop__body { display: grid; gap: var(--sp-32); align-content: center; }
+.workshop__text {
+    display: grid;
+    gap: var(--sp-16);
+    max-width: var(--measure);
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    color: var(--fg-2);
+    text-wrap: pretty;
+}
+.workshop__actions { display: grid; }
+@media (min-width: 768px) {
+    .workshop__actions { display: flex; }
+}
+@media (min-width: 1024px) {
+    .workshop__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: center; }
+}
+@media (min-width: 1200px) {
+    .workshop__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); }
+    .workshop__body { grid-column: 3; }
+}
+/* the unveil, as the homepage collision photograph: opens upward, scrubbed to scroll */
+@media (prefers-reduced-motion: no-preference) {
+    .js .workshop__media[data-reveal] { clip-path: inset(calc((1 - var(--reveal, 0)) * 100%) 0 0 0); }
+    .js .workshop__media[data-reveal] img { transform: scale(calc(1.12 - 0.12 * var(--reveal, 0))); transform-origin: 50% 100%; }
+    .js .workshop__media.is-revealing { will-change: clip-path; }
+    .js .workshop__media.is-revealing img { will-change: transform; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .js .workshop__media[data-reveal] { opacity: 0; transition: opacity var(--dur-rm-media) var(--ease-out) !important; }
+    .js .workshop__media[data-reveal].is-shown { opacity: 1; }
+    .js .workshop__media[data-reveal].is-now { transition: none !important; }
+}
+
+/* ---------- 4 · The difference ---------- */
+.difference { padding-bottom: var(--sp-80); }
+.points { display: grid; gap: var(--sp-40) var(--grid-gap); }
+.points__item {
+    display: grid;
+    gap: var(--sp-8);
+    align-content: start;
+    padding-top: var(--sp-24);
+    border-top: var(--stroke-1) solid var(--fg);
+}
+.points__title {
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    color: var(--fg);
+}
+.points__text { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); max-width: var(--measure-caption); text-wrap: pretty; }
+@media (min-width: 768px) {
+    .points { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1200px) {
+    .points { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .points__title { font-size: var(--fs-27); line-height: var(--lh-37); }
+}
+
+/* ---------- 5 · Pickup & delivery (continues the white band) ---------- */
+.band--join { padding-top: 0; }
+.pickup__grid {
+    display: grid;
+    gap: var(--sp-48);
+    padding-top: var(--sp-80);
+    border-top: var(--stroke-1) solid var(--stroke);
+}
+.pickup__body { display: grid; gap: var(--sp-32); align-content: center; }
+.pickup__actions { display: grid; }
+.pickup__media img { width: 100%; }
+@media (min-width: 768px) {
+    .pickup__actions { display: flex; }
+}
+@media (min-width: 1024px) {
+    .pickup__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: center; }
+}
+
+/* ---------- 6 · Roadside assistance ---------- */
+.roadside__grid { display: grid; gap: var(--sp-40); }
+.roadside__call { display: grid; gap: var(--sp-16); align-content: end; }
+.roadside__number {
+    justify-self: start;
+    padding-block: var(--sp-8);
+    font-size: var(--svc-number-fs);
+    line-height: var(--lh-46);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+    border-bottom: var(--stroke-1) solid var(--fg);
+    transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.roadside__number:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.roadside__note { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); max-width: var(--measure-note); }
+@media (min-width: 768px) {
+    :root { --svc-number-fs: var(--fs-80); }
+    .roadside__number { line-height: var(--lh-80); }
+}
+@media (min-width: 1024px) {
+    .roadside__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: end; }
+}
+@media (min-width: 1200px) {
+    .roadside__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); }
+    .roadside__call { grid-column: 3; }
+}
+
+/* ---------- 7 · Service request: form + map ---------- */
+.request__grid { display: grid; gap: var(--sp-64); }
+@media (min-width: 1024px) {
+    .request__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--grid-gap); align-items: start; }
+}
+@media (min-width: 1200px) {
+    .request__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 1fr) minmax(0, 4fr); }
+    .request__aside { grid-column: 3; }
+}
+
+.form { display: grid; gap: var(--sp-24); }
+.form__row { display: grid; gap: var(--sp-24); }
+@media (min-width: 768px) {
+    .form__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.field { display: grid; gap: var(--sp-8); align-content: start; }
+.field__label {
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-3);
+}
+.field__req {
+    font-weight: var(--wght-regular);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-regular);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--fg-4);
+}
+.field__input {
+    width: 100%;
+    min-height: var(--svc-field-h);
+    padding: var(--sp-16);
+    font: inherit;
+    font-size: var(--fs-18);
+    line-height: var(--lh-24);
+    color: var(--grey-1);
+    background: var(--surface-0-dark);
+    border: var(--stroke-1) solid var(--svc-field-stroke);
+    border-radius: 0;
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.field__input::placeholder { color: var(--grey-5); opacity: 1; }
+.field__input:hover { border-color: var(--grey-3); }
+.field__input:focus-visible { border-color: var(--grey-0); }
+.field__select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: calc(var(--sp-16) * 2 + var(--icon));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m5 9 7 7 7-7' fill='none' stroke='%23c4c4c4' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--sp-16) center;
+    background-size: var(--icon);
+}
+.field__select option { color: var(--grey-11); background: var(--grey-0); }
+.field__textarea { min-height: calc(var(--svc-field-h) * 2.5); resize: vertical; }
+
+/* invalid: a second stroke and a written message; never colour alone */
+.field.is-invalid .field__input { border-color: var(--grey-0); box-shadow: inset 0 0 0 var(--stroke-1) var(--grey-0); }
+.field__error {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    color: var(--grey-1);
+}
+.form__summary {
+    padding: var(--sp-16) var(--sp-24);
+    border: var(--stroke-2) solid var(--grey-0);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    color: var(--grey-1);
+}
+.form__summary strong { font-weight: var(--wght-bold); font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold); }
+.form__summary ul { margin-top: var(--sp-8); display: grid; gap: var(--sp-4); }
+.form__summary a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+.check { display: inline-flex; align-items: center; gap: var(--sp-16); min-height: var(--tap); cursor: pointer; justify-self: start; }
+.check__input { position: absolute; opacity: 0; width: var(--svc-check); height: var(--svc-check); margin: 0; }
+.check__box {
+    position: relative;
+    flex: none;
+    width: var(--svc-check);
+    height: var(--svc-check);
+    border: var(--stroke-1) solid var(--svc-field-stroke);
+    background: var(--surface-0-dark);
+    transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.check__box::after {
+    content: "";
+    position: absolute;
+    left: 30%;
+    top: 12%;
+    width: 30%;
+    height: 55%;
+    border: solid var(--grey-11);
+    border-width: 0 var(--stroke-2) var(--stroke-2) 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+.check:hover .check__box { border-color: var(--grey-3); }
+.check__input:checked + .check__box { background: var(--grey-0); border-color: var(--grey-0); }
+.check__input:checked + .check__box::after { opacity: 1; }
+.check__input:focus-visible + .check__box { outline: var(--stroke-2) solid var(--focus); outline-offset: var(--focus-offset); }
+.check__label { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); }
+
+.form__foot { display: grid; gap: var(--sp-16); margin-top: var(--sp-16); }
+.form__status { font-size: var(--fs-14); line-height: var(--lh-22); color: var(--fg-3); }
+.form__status:empty { display: none; }
+.form__submit[aria-busy="true"] { cursor: progress; background: var(--accent-dark-press); }
+@media (min-width: 768px) {
+    .form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-24); }
+}
+
+.form-done { display: grid; gap: var(--sp-16); justify-items: start; padding-block: var(--sp-32); border-top: var(--stroke-1) solid var(--stroke); }
+.form-done__text { margin-top: var(--sp-8); }
+.form-done__again { margin-top: var(--sp-16); }
+
+/* map: OpenStreetMap tiles in greyscale, inverted to sit on #181818; one white pin */
+.request__aside { display: grid; gap: var(--sp-24); align-content: start; }
+.request__map {
+    aspect-ratio: var(--svc-map-ratio);
+    background: var(--surface-0-dark);
+    border: var(--stroke-1) solid var(--grey-8);
+}
+.request__map .leaflet-tile-pane { filter: grayscale(1) invert(1) brightness(0.85) contrast(0.9); }
+.request__map .leaflet-container,
+.request__map.leaflet-container { background: var(--surface-0-dark); font: inherit; }
+.request__map .leaflet-bar { border: var(--stroke-1) solid var(--grey-8); border-radius: 0; box-shadow: none; }
+.request__map .leaflet-bar a {
+    width: var(--tap);
+    height: var(--tap);
+    line-height: var(--tap);
+    font-size: var(--fs-24);
+    color: var(--grey-1);
+    background: var(--surface-1-dark);
+    border-bottom-color: var(--grey-8);
+    border-radius: 0;
+}
+.request__map .leaflet-bar a:hover { background: var(--surface-2-dark); color: var(--grey-0); }
+.request__map .leaflet-control-attribution {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    padding-inline: var(--sp-8);
+    color: var(--grey-3);
+    background: rgb(0 0 0 / 0.8);
+}
+.request__map .leaflet-control-attribution a { color: var(--grey-1); text-decoration: underline; }
+.map-pin {
+    display: block;
+    width: var(--sp-24);
+    height: var(--sp-24);
+    border-radius: 50%;
+    background: var(--grey-0);
+    border: var(--sp-4) solid var(--grey-11);
+    box-shadow: 0 0 0 var(--stroke-1) var(--grey-0);
+}
+.request__address { font-size: var(--fs-18); line-height: var(--lh-28); color: var(--grey-1); }
+.request__directions { justify-self: start; }
+
+/* the confirmation and the error summary take focus programmatically so screen readers land on
+   them; they are not controls, so they carry no focus ring (the summary keeps its own border) */
+.form-done:focus-visible,
+.form__summary:focus-visible { outline: none; }
+
+/* preferred contact: a segmented control (the Prestige pattern), square, on the field stroke;
+   the chosen option is filled white, so the state reads by fill and weight, not by hue */
+.segmented { border: 0; padding: 0; margin: 0; min-width: 0; }
+.segmented legend { padding: 0; margin-bottom: var(--sp-8); }
+.segmented__opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: var(--stroke-1) solid var(--svc-field-stroke); }
+.segmented__opt { position: relative; display: block; cursor: pointer; }
+.segmented__opt + .segmented__opt { border-left: var(--stroke-1) solid var(--svc-field-stroke); }
+.segmented__opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.segmented__opt span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--svc-field-h);
+    padding-inline: var(--sp-16);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-2);
+    background: var(--surface-0-dark);
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.segmented__opt:hover span { color: var(--grey-0); background: var(--surface-2-dark); }
+.segmented__opt input:checked + span { color: var(--grey-11); background: var(--grey-0); }
+.segmented__opt input:focus-visible + span { outline: var(--stroke-2) solid var(--focus); outline-offset: calc(-1 * var(--focus-offset)); }
+
+/* consent: the Prestige wording, a two-line label beside the box; invalid draws the box twice */
+.check--consent { align-items: flex-start; }
+.check--consent .check__box { margin-top: 0; }
+.field--consent.is-invalid .check__box { border-color: var(--grey-0); box-shadow: inset 0 0 0 var(--stroke-1) var(--grey-0); }
