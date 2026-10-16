@@ -1,8 +1,8 @@
 # Lamborghini Miami — SRP and VDP mockups: developer handoff
 
 **Pages:** `site/srp.html` and `site/vdp.html` (the VDP shows a 2024 Revuelto, stock CJ2602). Both are **developer mockups**.
-**Round:** 4, 16 Oct 2026.
-**Side-by-side review:** `site/review/round4/index.html`. Each pair puts the Prestige AAN demo and this mockup at the same viewport (1440×900 and 390×844), with the accordions and the calculator expanded.
+**Round:** 5, 16 Oct 2026.
+**Side-by-side review:** `site/review/round5/index.html`. Each pair puts the Prestige AAN demo and this mockup at the same viewport (1440×900 and 390×844), with the accordions and the calculator expanded.
 
 ## The rule for these pages
 
@@ -39,7 +39,10 @@ Only the client's three requests change what the pages do:
   - Solid buttons are white; outline buttons are white-on-dark.
 - **Corners and shadows:** everything is square, with no shadows. That covers cards, accordion chips, Related arrows and photo arrows.
 - **Prices:** in the accent. "Call for Price" is an underlined call link.
-- **Carfax logo:** `carfax-on-dark.svg`, a copy of Prestige's SVG with the dark and white fills swapped and the blue kept, placed directly on the dark bar.
+- **Vehicle-history reports:** the reports this car's listing offers: CARFAX, AutoCheck and iPacket, as in Prestige's bar.
+  - CARFAX is the **official value badge the dealer serves for this car**, "Show me the CARFAX · 1 Owner" (`partnerstatic.carfax.com/img/valuebadge/1own.svg`, saved as `assets/img/pi/carfax-1own.svg`). Only its viewBox is trimmed to the badge.
+  - AutoCheck and iPacket are Prestige's marks, unchanged.
+  - Each badge sits on a white tile of one height (48 px desktop, 40 px phone). A badge is never recoloured.
 - **Class clash:** both systems use a class called `.spec`. The Lamborghini `.spec` (spec-row list) draws a top rule; inside `.pi` that rule is switched off.
 
 ## Where the demo differs from the prototype CSS: the demo wins (measured at 1440×900)
@@ -51,18 +54,27 @@ Only the client's three requests change what the pages do:
   - All filters reads Body · Exterior color · Trans · Drivetrain, with **Apply**.
 - **VDP:**
   - no Prestige Certified block, because the car is not certified;
-  - only CARFAX in the action bar;
-  - the calculator opens with the vehicle price filled in.
+  - the calculator opens with the vehicle price filled in;
+  - on phones Clear Form sits above Calculate Payments;
+  - Options & equipment is listed alphabetically;
+  - Related card titles carry the condition ("Used …" / "New …").
 - **Phones:** side padding 12 px on the SRP and 16 px on the VDP, as the demo renders at 390. The prototype CSS says 20.
 
 ## Kept from earlier rounds at Alex's request
 
-- **VDP photo:** in the frame's own 4:3, not stretched and not cropped. The panel's insets are tightened (16 / 24, 30 px spec rows), and its CTA block is pinned to the foot, so the panel ends level with the photo at 1440.
+- **VDP photo:** never stretched and never cropped.
+  - The photo cell is at least 4:3, the studio frame's own ratio, and it stretches with the panel. Where the panel is taller (narrower desktops), the frame is contained on black, so both columns always end on one line.
+  - Measured: 1440, 597 | 597; 1280, 584 | 584; 1920, 657 | 657.
+  - The panel's insets are tightened (16 / 24, 30 px spec rows).
 - **Opening photo:** the first full-car exterior frame, photo 2 of 58.
 
 ## Content
 
-- **Data:** the dealer's listings as captured on 30 Sep 2026 (`research/inventory-capture-live`). The SRP shows 12 of the 26 cars. Every card links to the one mockup VDP.
+- **Data:** the dealer's listings as captured on 30 Sep 2026 (`research/inventory-capture-live`).
+  - The SRP carries **all 26 Lamborghinis**, recently listed first, 12 per page over 3 pages. Every card links to the one mockup VDP.
+  - Four listings have no photographs yet and show the plate: CJ2626, CJ2627, CJ2632 and 86230X.
+  - Three listings have colours their photos do not match: CJ2607, CJ2597 and 86168X. They are shown as the feed has them. This is a feed issue for the client.
+- **Related vehicles:** six cars, all with photographs.
 - **No photo:** a car without photographs (CJ2626) shows the Lamborghini "Photography in preparation" plate where the demo shows its "Coming soon" frame.
 - **Bold demonstration:** the dealer's CJ2602 text has no HP or torque figure. One line is inserted, marked `data-mockup-insert`: "Maximum combined power: **1,015 CV (747 kW)**, the manufacturer figure for the Revuelto."
   - Source: lamborghini.com, captured 30 Sep 2026.
@@ -70,7 +82,11 @@ Only the client's three requests change what the pages do:
   - No verified torque figure exists in the ledger, so **none is shown**.
   - In production, staff type `**…**` in the listing description and the template renders it.
 - **Calculator:** it has **no default APR**. The demo prefills 8.99%, which we cannot verify. The vehicle price and loan amount come from the listing. Calculate and Clear Form behave exactly as on Prestige (`vdp.js`).
-- **Filtering:** `prestige_srp.js` keeps Prestige's mockup behaviour (chips, badges, reshuffle) with two patches: it no longer hides random cards or shows random counts. Production filters server-side.
+- **Filtering, sorting, search and paging are real in the mockup.**
+  - `prestige_srp.js` (Prestige's `search5.js`) still runs the dropdowns, chips, badges, sort label and page links. Its random "reshuffle" is replaced by `window.__srpApply()` in `inventory_pi.js`.
+  - That function filters the cards by the checked options (each option's `name` is a card `data-` attribute), the keyword and the condition. It then sorts (recently listed, price, year, mileage), pages the result 12 per page, updates the count and shows an empty state.
+  - **New / Pre-owned:** the navigation links carry `srp.html?condition=new` or `?condition=used`. This ticks a Condition filter (Prestige markup, kept out of the visible row because the demo has none), which shows as a removable chip: New gives 2 cars, Pre-owned 24.
+  - Production filters server-side.
 
 ## Lead dialog — form submission is SIMULATED
 

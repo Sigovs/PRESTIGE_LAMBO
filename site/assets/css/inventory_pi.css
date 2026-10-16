@@ -313,3 +313,18 @@
 /* SRP states the mockup's real filtering adds: the empty result, and hidden page links */
 .pi .srp-empty { padding: var(--pi-sp-5) 0; font-size: var(--fs-18); line-height: var(--lh-28); color: var(--pi-ink-soft); }
 .pi .pagination__link[hidden], .pi .pagination[hidden], .pi .srp-grid > li[hidden] { display: none; }
+.pi .vdp-actionbar__trust { flex-wrap: wrap; }
+@media (max-width: 760px) {
+    .pi .vdp-actionbar__trust { gap: var(--sp-8); }
+    .pi .vdp-actionbar__trust img { height: 1.5rem; padding: var(--sp-8) var(--sp-8); }   /* 40px tiles: the three fit 343px */
+    .pi .vdp-actionbar__trust img[src*="carfax"] { height: 2.5rem; padding: 0 var(--sp-4); }
+}
+/* phones: the bar's reports and actions centred on one line each, as the demo */
+@media (max-width: 760px) {
+    .pi .vdp-summary__bar-main { justify-content: center; padding: var(--sp-16); row-gap: var(--sp-16); }
+    .pi .vdp-actionbar__trust, .pi .vdp-actionbar__actions { width: 100%; justify-content: center; flex-wrap: nowrap; }
+    .pi .vdp-action { padding-inline: var(--sp-8); }
+    .pi .vdp-actionbar__buy { padding-top: 0; }
+}
+/* the demo stacks Clear Form above Calculate Payments on phones (the prototype CSS reverses them) */
+@media (max-width: 620px) { .pi .vdp-calc__actions { flex-direction: column; } }

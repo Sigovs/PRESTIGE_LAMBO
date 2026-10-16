@@ -144,7 +144,7 @@ def page(title, desc, body, kind):
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_{kind}.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=11">
+    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=14">
 </head>
 <body class="page-inventory page-{kind}">
 
@@ -477,7 +477,7 @@ prose_html = '\n                        '.join(prose)
 
 eq = block(vdp_html(VDP_STOCK), 'mod-vehicle-equipment')[:80000]
 equipment = [html.unescape(re.sub(r'<[^>]+>', '', x)).strip().strip('"') for x in re.findall(r'<li[^>]*>([\s\S]*?)</li>', eq)]
-equipment = [x for x in equipment if x]
+equipment = sorted([x for x in equipment if x], key=lambda x: x.lower().lstrip('"'))   # alphabetical, as the demo lists them
 eq_html = '\n'.join(f'                    <li>{E(x)}</li>' for x in equipment)
 
 specs = [('Exterior', v['exteriorColor']), ('Interior', v['interiorColor']), ('Engine', '6.5L V12 plug-in hybrid'),
@@ -528,7 +528,7 @@ def related_card(r):
                             {media_img(r, '(min-width: 960px) 30vw, 100vw')}
                         </div>
                         <div class="vehicle-card__body">
-                            <h3 class="vehicle-card__name">{E(model_name(r))}</h3>
+                            <h3 class="vehicle-card__name">{'New' if r['condition_site'] == 'New' else 'Used'} {E(model_name(r))}</h3>
                             <ul class="vehicle-card__specs">
                                 <li class="spec"><i class="ph ph-gauge" aria-hidden="true"></i><span>{miles(r)}</span></li>
                                 <li class="spec"><i class="ph ph-gear-six" aria-hidden="true"></i><span>{(r['transmission'] or '').capitalize()}</span></li>
