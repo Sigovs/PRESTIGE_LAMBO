@@ -310,20 +310,34 @@
 .pagination__link.is-disabled { color: var(--grey-7); border-color: var(--grey-8); pointer-events: none; }
 .srp-note { margin-top: var(--sp-32); }
 
-/* ---------- VDP ---------- */
-.vdp { padding-top: var(--sp-32); }
-.breadcrumb { display: flex; flex-wrap: wrap; gap: var(--sp-8); font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-3); }
+/* ---------- VDP: Prestige geometry (vdp.css / the AAN demo), Lambo type and colour ----------
+   Measured on the demo at 1440×900: content min(92%, 1440px) — 57 px margins, 1311 wide; photo |
+   panel = 1.62fr : minmax(330px, 1fr) with a 24 px gap (796 | 491); photo 16:10 at the top of its
+   column, not stretched to the panel; panel blocks inset 24 and divided by hairlines; the action
+   bar spans both columns, its buy group exactly under the panel. Single column from 960 px down;
+   20 px side padding from 900 px down. */
+:root {
+    --vdp-wrap: min(92%, 90rem);   /* Prestige: min(92%, 1440px) */
+    --vdp-pad-m: 1rem;             /* 16px side padding below 900, as the demo renders at 390 */
+    --vdp-title-fs: 2.125rem;      /* 34px, the demo's panel title */
+    --vdp-title-lh: 2.5rem;        /* 40px */
+}
+.vdp-wrap { width: var(--vdp-wrap); margin-inline: auto; }
+@media (max-width: 900px) { .vdp-wrap { width: 100%; padding-inline: var(--vdp-pad-m); } }
+
+.vdp { padding-top: 0; }   /* main already clears the header; the breadcrumb carries the 56 px step */
+.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-8); padding-block: var(--sp-56) var(--sp-24); font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-3); }
 .breadcrumb a { display: inline-block; padding-block: var(--tap-pad); margin-block: calc(-1 * var(--tap-pad)); }
 .breadcrumb a:hover { color: var(--grey-0); }
 .breadcrumb [aria-current] { color: var(--grey-1); }
 
-.vdp-summary { display: grid; gap: var(--grid-gap); margin-top: var(--sp-24); }
-/* the photo column: stage + a strip of five; from 1200 the stage fills what the panel's height leaves */
-.vdp-media { display: flex; flex-direction: column; gap: var(--sp-8); min-width: 0; }
-.vdp-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-8); }
-.vdp-stage { position: relative; aspect-ratio: var(--inv-stage-ratio); overflow: hidden; background: var(--grey-9); }
-.vdp-stage__img { width: 100%; height: 100%; object-fit: cover; object-position: var(--inv-stage-pos); }
-@media (min-width: 1200px) { .vdp-stage__img { position: absolute; inset: 0; object-position: 50% 45%; } }   /* fills the space the strip leaves */
+.vdp-summary { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(20.625rem, 1fr); gap: var(--sp-24); align-items: start; }
+@media (max-width: 960px) { .vdp-summary { grid-template-columns: minmax(0, 1fr); } }
+
+/* the photo: wide 16:10 frame; the studio frames are 4:3, so cover trims curtain and floor only —
+   the whole car stays in view (and the corner shield below the turntable falls outside) */
+.vdp-stage { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--grey-9); border: var(--stroke-1) solid var(--grey-8); }
+.vdp-stage__img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }   /* the trimmed band falls below the turntable: the car stays whole, the corner shield drops out */
 .vdp-stage__nav {
     position: absolute;
     top: 50%;
@@ -347,42 +361,69 @@
     align-items: center;
     min-height: var(--tap);
     padding-inline: var(--sp-16);
-    background: var(--inv-tag-bg);
+    background: var(--grey-11);
     color: var(--grey-1);
     font-size: var(--fs-14);
     line-height: var(--lh-22);
-    font-weight: var(--wght-bold);
-    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
     font-variant-numeric: tabular-nums;
-    text-transform: uppercase;
-    letter-spacing: var(--track-upper);
 }
 
-.vdp-panel { display: flex; flex-direction: column; padding: var(--sp-24); background: var(--surface-0-dark); }
-.vdp-panel__cond { color: var(--grey-3); }
+/* the panel: head · price · specs · CTAs, each inset 24 and divided by a hairline (as Prestige) */
+.vdp-panel { display: flex; flex-direction: column; background: var(--surface-0-dark); border: var(--stroke-1) solid var(--grey-8); }
+.vdp-panel__head, .vdp-panel__price, .vdp-specs, .vdp-panel__ctas { padding: var(--sp-24); }
+.vdp-panel__price, .vdp-specs, .vdp-panel__ctas { border-top: var(--stroke-1) solid var(--grey-8); }
 .vdp-panel__title {
-    margin-top: var(--sp-8);
     font-size: var(--fs-28);
-    line-height: var(--lh-38);
+    line-height: var(--lh-34);
     font-weight: var(--wght-bold);
     font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
     color: var(--grey-1);
     text-wrap: balance;
 }
-.vdp-panel .price { margin-top: var(--sp-16); padding-top: 0; }
-.vdp-panel__spec { margin-top: var(--sp-24); }
-.vdp-panel__spec .spec__row { padding-block: var(--sp-8); }
-.vdp-panel__spec .spec__label, .vdp-panel__spec .spec__value { font-size: var(--fs-14); line-height: var(--lh-22); }
+@media (min-width: 768px) { .vdp-panel__title { font-size: var(--vdp-title-fs); line-height: var(--vdp-title-lh); } }
+.vdp-panel__price { display: flex; flex-direction: column; gap: var(--sp-8); }
+.vdp-panel__label {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--grey-3);
+}
+.vdp-panel__price-value {
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-dark);
+}
+/* spec rows: readable mixed case, label | value, hairline between (as Prestige) */
+.vdp-specs li { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-24); padding-block: var(--sp-8); }
+.vdp-specs li + li { border-top: var(--stroke-1) solid var(--grey-8); }
+.vdp-specs__label { flex: none; font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-3); }
+.vdp-specs__value { font-size: var(--fs-16); line-height: var(--lh-22); color: var(--grey-1); text-align: right; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.vdp-panel__ctas { margin-top: auto; }
+.vdp-panel__ctas .lead-ctas { margin-top: 0; gap: var(--sp-8); }
 
-.vdp-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-16); padding: var(--sp-16) var(--sp-24); background: var(--surface-0-dark); }
-.vdp-bar__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-8) var(--sp-24); }
+/* the action bar: spans both columns; the buy group sits in the panel's column, edge to edge
+   with the panel's CTAs (Prestige: 1fr | (100% − 22px) / 2.62 − 2px) */
+.vdp-bar {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) calc((100% - 22px) / 2.62 - 2px);
+    gap: var(--sp-24);
+    align-items: center;
+    background: var(--surface-0-dark);
+    border: var(--stroke-1) solid var(--grey-8);
+}
+.vdp-bar__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-8) var(--sp-24); padding: var(--sp-24); }
 .vdp-action {
     display: inline-flex;
     align-items: center;
     gap: var(--sp-8);
     min-height: var(--tap);
-    font-size: var(--fs-16);
-    line-height: var(--lh-24);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
     font-weight: var(--wght-bold);
     font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
     text-transform: uppercase;
@@ -392,19 +433,10 @@
 .vdp-action .icon { width: var(--icon-sm); height: var(--icon-sm); }
 .vdp-action:hover { color: var(--grey-3); }
 .vdp-bar__status { font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-3); }
-.vdp-bar__buy { display: grid; gap: var(--sp-16); width: 100%; }
-
-@media (min-width: 768px) {
-    .vdp-panel { padding: var(--sp-32); }
-    .vdp-bar__buy { display: flex; width: auto; }
-}
-@media (min-width: 1200px) {
-    /* as the Prestige VDP: photo 7 · panel 5; the action bar runs under both */
-    .vdp-summary { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: stretch; }
-    .vdp-stage { flex: 1 1 auto; aspect-ratio: auto; min-height: 22rem; }
-    .vdp-bar { grid-column: 1 / -1; }
-    .vdp-panel__title { font-size: var(--fs-40); line-height: var(--lh-46); }
-}
+.vdp-bar__buy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-8); padding: var(--sp-24); }
+.vdp-bar__buy .btn { width: 100%; justify-content: center; padding-inline: var(--sp-8); }
+@media (max-width: 960px) { .vdp-bar { grid-template-columns: minmax(0, 1fr); gap: 0; } .vdp-bar__buy { padding-top: 0; } }
+@media (max-width: 420px) { .vdp-bar__buy { grid-template-columns: minmax(0, 1fr); } }
 
 /* accordions: About · Options · Finance */
 .vdp-sections { display: grid; gap: var(--sp-8); margin-top: var(--sp-64); }
@@ -554,3 +586,8 @@
 /* the panel's spec rows stay label | value on phones too (14px rows fit 327px) */
 .vdp-panel__spec .spec__row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-16); align-items: baseline; }
 .vdp-panel__spec .spec__value { text-align: right; }
+
+/* phones: the photo stays clean, as on the demo — swipe moves it, the gallery below carries the count */
+@media (max-width: 767.98px) {
+    .vdp-stage__nav, .vdp-stage__count { display: none; }
+}

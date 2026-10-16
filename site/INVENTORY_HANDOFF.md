@@ -19,7 +19,7 @@
 |---|---|---|
 | Click-to-call where it says "Call for price" | SRP cards, VDP panel | `<a class="price__call" href="tel:+18332905147">Call for price</a>`, the sales line. It replaces the plain text the platform prints today. |
 | Two CTAs, "Confirm availability" and "Schedule a consultation" | Every SRP card, the VDP panel, related cards | **Check availability** (accent, primary) and **Schedule consultation** (outline). The labels match the Prestige demo. Both open one lead dialog (see below). |
-| Bold key stats in the VDP description | VDP › About this vehicle | `**text**` renders as `<strong>`. A whole line in `**` becomes a sub-heading, and the first one becomes the lead. **The live platform prints the asterisks literally today** (seen on prestigeimports.com and lamborghinimiami.com VDPs). Staff already type them, so rendering them is the whole fix. |
+| Bold key stats in the VDP description | VDP › About this vehicle | `**text**` renders as `<strong>`. A whole line in `**` becomes a sub-heading, and the first one becomes the lead. **The live platform prints the asterisks literally today** (seen on prestigeimports.com and lamborghinimiami.com VDPs). Staff already type them, so rendering them is the whole fix. See "Bold key figures" below for what the mockup shows. |
 
 ## SRP
 
@@ -47,19 +47,40 @@
    - pagination.
 5. **Footnote:** the fee statement, as published on the listings.
 
-## VDP
+## VDP: Prestige geometry, Lamborghini look
 
-1. Breadcrumb.
-2. **Summary:**
-   - Photo stage, with previous / next, swipe and the ←/→ keys, plus a count.
-   - A strip of five thumbnails under the stage.
-   - The panel: condition, name, price, then spec rows (Exterior, Interior, Engine, Transmission, Drivetrain, Mileage, Stock, VIN), then the two CTAs.
-   - The action bar: Share (the native share sheet, or copy the link) · Text us (`sms:`) · the sales phone · **Start buying** (the Roadster storefront, `shop.lamborghinimiami.com`).
-   - From 1200 px the photo and the panel sit 7 : 5, and the stage fills the height the panel leaves above the strip.
-3. **Accordions**, as Prestige: About this vehicle (open), Options & equipment (the listing's 132 items), Finance calculator.
-   - The calculator has **no default rate**. It computes only from figures the visitor enters, and says so in its footnote.
-4. **Gallery:** 12 photos, then "Show all 58 photos". A thumbnail sets the stage and scrolls to it.
-5. **Related vehicles:** the same card as the SRP.
+The VDP repeats the Prestige VDP's geometry: the AAN demo build and `prestige-final/assets/css/vdp.css`. Only the type, colour, header and footer are Lamborghini's. Both pages were compared at the same viewports (1440×900 and 390×844).
+
+| | Prestige demo, 1440×900 | Lambo mockup, 1440×900 |
+|---|---|---|
+| Content width / side margin | `min(92%, 1440px)`: 1311 px, 57 px each side | the same rule: 1311 px, 57 px |
+| Photo : panel | `1.62fr : minmax(330px, 1fr)`, gap 24: 796 \| 491 | the same: 796 \| 491 |
+| Photo | 16:10 at the top of its column (796×497), not stretched to the panel | the same: 796×497. The studio frames are 4:3, so `cover` at 50% 30% trims only curtain and floor; the whole car stays in view and the corner shield falls outside |
+| Photo / panel top | 203 | 206 (the Lambo header is 104 px against Prestige's 107) |
+| Panel | head · price · specs · CTAs, each block inset 24 and divided by a hairline | the same blocks and insets |
+| Title | 34/40, mixed case | 34/40, mixed case (Roboto Flex, normal width, bold) |
+| Price | label in small capitals, value 22 px | label 14 px in capitals, value 24 px in the accent |
+| Spec rows | label 13 / value 15, mixed case, about 36 px rows | label 14 / value 16, mixed case, 38 px rows (the 14 px text floor) |
+| CTA block | INQUIRE, pinned to the panel's foot | **Check availability** + **Schedule consultation** in the same block (client) |
+| Action bar | spans both columns; buy group under the panel, edge to edge with its CTA | the same grid (`1fr \| (100% − 22px) / 2.62 − 2px`): Share · Text us \| phone · Start buying |
+| Single column | at 960 px and below | at 960 px and below |
+| Phone side padding | 16 px as the demo renders at 390 (`vdp.css` says 20) | 16 px |
+
+**On phones:** the photo is clean, with no arrows and no counter over the car, as on the demo. Swipe moves it, and the gallery below carries the count.
+
+**Below the summary**, the sections are unchanged from the first round:
+- About this vehicle, Options & equipment and Finance calculator, as accordions (the calculator has no default rate);
+- the gallery (12 photos, then "Show all 58 photos");
+- Related vehicles.
+
+## Bold key figures (client request)
+
+- **Support:** the description renders the platform's own `**…**` markup as `<strong>`.
+- **What the mockup shows:** the dealer's CJ2602 description contains no HP or torque figure. To show the request, the mockup inserts **one line** (marked `data-mockup-insert` in the HTML and noted in the generator): "Maximum combined power: **1,015 CV (747 kW)**, the manufacturer figure for the Revuelto."
+- **Source:** lamborghini.com, Revuelto model page, captured 30 Sep 2026 (`DATA_SOURCES.md`, Model range).
+- **Units:** the figure is given in the manufacturer's own unit (CV, metric horsepower). It is **not** converted to hp.
+- **Torque is not shown:** no verified torque figure is in the ledger, so none was invented. Staff enter it the same way, for example `**Torque: … lb-ft**`, once they have it from the manufacturer.
+- **In production** the inserted line does not exist. Staff type `**…**` in the listing description, and the template renders it.
 
 ## Lead dialog (both CTAs)
 
@@ -72,7 +93,11 @@
   - focus returns to the button that opened it;
   - full screen on phones;
   - Lenis is paused while it is open.
-- **No endpoint yet:** `data-endpoint=""`, so the mockup confirms locally. **Wire it to the CRM before launch.**
+- **Form submission is SIMULATED in this mockup.**
+  - The form has `data-endpoint=""`, so a valid request goes nowhere. The confirmation state is shown locally, and it says so on screen: "Developer mockup: submission is simulated. Nothing was sent; the form has no endpoint yet."
+  - With an endpoint set, `forms_v2.js` POSTs the form as `FormData`. It shows "Sending…", times out after 15 s, and on failure keeps the input and says the request could not be sent.
+  - **Wire it to the CRM before launch.**
+  - The service page's request form (`service.html`) is simulated the same way.
 
 ## Mockup simplifications, not to copy into production
 

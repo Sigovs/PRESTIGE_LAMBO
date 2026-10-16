@@ -116,7 +116,7 @@ def page(title, desc, body, extra_js=''):
     <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_v2.css?v=5">
+    <link rel="stylesheet" href="assets/css/inventory_v2.css?v=11">
 </head>
 <body class="page-inventory">
 
@@ -301,6 +301,7 @@ LEAD_DIALOG = f'''<!-- ============================ LEAD DIALOG ================
     <div class="form-done lead__done" id="lead-done" tabindex="-1" hidden data-form-done data-no-rise>
         <p class="t-title form-done__title">Thank you<span data-done-name></span>.</p>
         <p class="t-lead form-done__text">Our sales team will contact you about this car, Monday to Friday 9:00 am – 7:00 pm and Saturday 10:00 am – 6:00 pm. To speak to someone now, call <a class="spec__link" href="tel:+18332905147">(833) 290-5147</a>.</p>
+        <p class="t-legal lead__mock">Developer mockup: submission is simulated. Nothing was sent; the form has no endpoint yet.</p>
         <button class="btn btn--primary btn--md" type="button" data-lead-close><span>Close</span></button>
     </div>
 </dialog>'''
@@ -455,6 +456,13 @@ for l in lines:
     if m and len(prose) == 0: prose.append(f'<p class="vdp-prose__lead"><strong>{E(m.group(1))}</strong></p>')
     elif m: prose.append(f'<h3 class="vdp-prose__sub">{E(m.group(1))}</h3>')
     else: prose.append(f'<p>{md_inline(l)}</p>')
+# MOCKUP INSERTION (client: bold key stats in the description). One staff-style line with a VERIFIED
+# figure, written in the platform's own "**…**" markup and rendered by md_inline like the rest:
+# Revuelto maximum combined power 1,015 CV (747 kW), lamborghini.com model page, captured 30 Sep 2026
+# (DATA_SOURCES "Model range"). Torque is not in the verified ledger, so none is shown.
+DEMO_LINE = 'Maximum combined power: **1,015 CV (747 kW)**, the manufacturer figure for the Revuelto.'
+k = next(i for i, x in enumerate(prose) if 'Groundbreaking Performance' in x) + 2
+prose.insert(k, f'<p class="vdp-prose__demo" data-mockup-insert>{md_inline(DEMO_LINE)}</p>')
 prose_html = '\n                    '.join(prose)
 
 eq = block(vdp_html(VDP_STOCK), 'mod-vehicle-equipment')[:80000]
@@ -470,16 +478,15 @@ thumbs = '\n'.join(
 specs = [('Exterior', v['exteriorColor']), ('Interior', v['interiorColor']), ('Engine', '6.5L V12 plug-in hybrid'),
          ('Transmission', '8-speed dual-clutch'), ('Drivetrain', vi.get('Drivetrain', '—')), ('Mileage', miles(v)),
          ('Stock', v['stock']), ('VIN', v['vin'])]
-spec_rows = '\n'.join(f'                        <div class="spec__row"><dt class="spec__label">{k}</dt><dd class="spec__value">{E(val)}</dd></div>' for k, val in specs)
+spec_rows = '\n'.join(f'                    <li><span class="vdp-specs__label">{k}</span><span class="vdp-specs__value">{E(val)}</span></li>' for k, val in specs)
 
 related = [cars[s] for s in ['86180', 'CJ2626', '10914']]   # the other Revueltos, then the Temerario
 related_html = '\n'.join(card(r) for r in related)
 photos_json = json.dumps(photos)
-STRIP = [START] + [k for k in range(len(photos)) if k != START and k != 0][:4]   # the opening view, then four more (not the lockup frame)
-strip = '\n'.join(f'''                <li><button class="vdp-thumb" type="button" data-photo="{k}" aria-label="Photo {k + 1} of {len(photos)}"><img src="{photos[k]}" width="1024" height="768" loading="lazy" decoding="async" alt=""></button></li>''' for k in STRIP)
+
 
 vdp_body = f'''<div class="vdp band band--dark">
-    <div class="container">
+    <div class="vdp-wrap">
 
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="index_v2.html">Home</a><span aria-hidden="true">/</span>
@@ -489,7 +496,6 @@ vdp_body = f'''<div class="vdp band band--dark">
 
         <!-- ============================ SUMMARY: gallery · panel · action bar (as the Prestige VDP) ============================ -->
         <section class="vdp-summary" aria-label="Vehicle overview">
-            <div class="vdp-media">
             <div class="vdp-stage" data-stage>
                 <img class="vdp-stage__img" src="{photos[START]}" width="1024" height="768" fetchpriority="high" decoding="async"
                      alt="{E(name)} in {E(v['exteriorColor'])}, photograph {START + 1} of {len(photos)}" data-stage-img data-start="{START}">
@@ -498,19 +504,21 @@ vdp_body = f'''<div class="vdp band band--dark">
                 <a class="vdp-stage__count" href="#photos"><span data-stage-n>{START + 1}</span>&nbsp;/&nbsp;{len(photos)} photos</a>
                 <script type="application/json" data-photos>{photos_json}</script>
             </div>
-            <ul class="vdp-strip" role="list" aria-label="More photos">
-{strip}
-            </ul>
-            </div>
 
             <aside class="vdp-panel" aria-label="Price and details">
-                <p class="t-eyelet vdp-panel__cond">Pre-owned</p>
-                <h1 class="vdp-panel__title">{E(name)}</h1>
-                {price_block(v, ' price--lg')}
-                <dl class="spec vdp-panel__spec">
+                <div class="vdp-panel__head">
+                    <h1 class="vdp-panel__title">{E(name)}</h1>
+                </div>
+                <div class="vdp-panel__price">
+                    <span class="vdp-panel__label">Sale price</span>
+                    <span class="vdp-panel__price-value">{price(v)}</span>
+                </div>
+                <ul class="vdp-specs">
 {spec_rows}
-                </dl>
-                {ctas(v, ' lead-ctas--panel')}
+                </ul>
+                <div class="vdp-panel__ctas">
+                    {ctas(v, ' lead-ctas--panel')}
+                </div>
             </aside>
 
             <div class="vdp-bar">
@@ -579,7 +587,7 @@ vdp_body = f'''<div class="vdp band band--dark">
 
 <!-- ============================ RELATED ============================ -->
 <section class="related band band--black" aria-labelledby="related-title">
-    <div class="container">
+    <div class="vdp-wrap">
         <header class="related__head">
             <h2 class="t-title" id="related-title">Related vehicles</h2>
             <a class="btn btn--tertiary" href="srp.html"><span>View all inventory</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
