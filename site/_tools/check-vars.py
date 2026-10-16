@@ -12,6 +12,7 @@ SETS = {
     'v1': ['index.html', 'assets/css/tokens.css', 'assets/css/main.css', 'assets/js/main.js'],
     'v2': ['index_v2.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/js/main_v2.js'],
     'service': ['service.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/service_v2.css', 'assets/js/main_v2.js', 'assets/js/service_v2.js'],
+    'inventory': ['srp.html', 'vdp.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/forms_v2.css', 'assets/css/inventory_v2.css', 'assets/js/main_v2.js', 'assets/js/forms_v2.js', 'assets/js/inventory_v2.js'],
 }
 fail = False
 for name, rels in SETS.items():

@@ -1,0 +1,164 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — lead forms (v2 system), shared by service.html
+   (service request) and the inventory pages (Check availability /
+   Schedule consultation). Fields and wording follow the Prestige
+   Imports forms; the look is this system's. Loaded after main_v2.css.
+   ============================================================ */
+
+:root {
+    --form-check: 1.5rem;              /* 24px checkbox, inside a 44px row */
+    --form-field-h: var(--btn-h-md);   /* 56px fields, the medium button height */
+    --form-field-stroke: var(--grey-6);   /* #7d7d7d: 4.31:1 on #181818, the 3:1 non-text floor */
+}
+
+/* the form's states toggle with [hidden]; the components' own display must not outrank it */
+.form [hidden], .form[hidden], .form-done[hidden] { display: none !important; }
+
+.form { display: grid; gap: var(--sp-24); }
+.form__row { display: grid; gap: var(--sp-24); }
+@media (min-width: 768px) {
+    .form__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.field { display: grid; gap: var(--sp-8); align-content: start; }
+.field__label {
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-3);
+}
+.field__req {
+    font-weight: var(--wght-regular);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-regular);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--fg-4);
+}
+.field__input {
+    width: 100%;
+    min-height: var(--form-field-h);
+    padding: var(--sp-16);
+    font: inherit;
+    font-size: var(--fs-18);
+    line-height: var(--lh-24);
+    color: var(--grey-1);
+    background: var(--surface-0-dark);
+    border: var(--stroke-1) solid var(--form-field-stroke);
+    border-radius: 0;
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.field__input::placeholder { color: var(--grey-5); opacity: 1; }
+.field__input:hover { border-color: var(--grey-3); }
+.field__input:focus-visible { border-color: var(--grey-0); }
+.field__select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: calc(var(--sp-16) * 2 + var(--icon));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m5 9 7 7 7-7' fill='none' stroke='%23c4c4c4' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--sp-16) center;
+    background-size: var(--icon);
+}
+.field__select option { color: var(--grey-11); background: var(--grey-0); }
+.field__textarea { min-height: calc(var(--form-field-h) * 2.5); resize: vertical; }
+
+/* invalid: a second stroke and a written message; never colour alone */
+.field.is-invalid .field__input { border-color: var(--grey-0); box-shadow: inset 0 0 0 var(--stroke-1) var(--grey-0); }
+.field__error {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    color: var(--grey-1);
+}
+.form__summary {
+    padding: var(--sp-16) var(--sp-24);
+    border: var(--stroke-2) solid var(--grey-0);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    color: var(--grey-1);
+}
+.form__summary strong { font-weight: var(--wght-bold); font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold); }
+.form__summary ul { margin-top: var(--sp-8); display: grid; gap: var(--sp-4); }
+.form__summary a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+.check { display: inline-flex; align-items: center; gap: var(--sp-16); min-height: var(--tap); cursor: pointer; justify-self: start; }
+.check__input { position: absolute; opacity: 0; width: var(--form-check); height: var(--form-check); margin: 0; }
+.check__box {
+    position: relative;
+    flex: none;
+    width: var(--form-check);
+    height: var(--form-check);
+    border: var(--stroke-1) solid var(--form-field-stroke);
+    background: var(--surface-0-dark);
+    transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.check__box::after {
+    content: "";
+    position: absolute;
+    left: 30%;
+    top: 12%;
+    width: 30%;
+    height: 55%;
+    border: solid var(--grey-11);
+    border-width: 0 var(--stroke-2) var(--stroke-2) 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+.check:hover .check__box { border-color: var(--grey-3); }
+.check__input:checked + .check__box { background: var(--grey-0); border-color: var(--grey-0); }
+.check__input:checked + .check__box::after { opacity: 1; }
+.check__input:focus-visible + .check__box { outline: var(--stroke-2) solid var(--focus); outline-offset: var(--focus-offset); }
+.check__label { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); }
+
+.form__foot { display: grid; gap: var(--sp-16); margin-top: var(--sp-16); }
+.form__status { font-size: var(--fs-14); line-height: var(--lh-22); color: var(--fg-3); }
+.form__status:empty { display: none; }
+.form__submit[aria-busy="true"] { cursor: progress; background: var(--accent-dark-press); }
+@media (min-width: 768px) {
+    .form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-24); }
+}
+
+.form-done { display: grid; gap: var(--sp-16); justify-items: start; padding-block: var(--sp-32); border-top: var(--stroke-1) solid var(--stroke); }
+.form-done__text { margin-top: var(--sp-8); }
+.form-done__again { margin-top: var(--sp-16); }
+
+/* the confirmation and the error summary take focus programmatically so screen readers land on
+   them; they are not controls, so they carry no focus ring (the summary keeps its own border) */
+.form-done:focus-visible,
+.form__summary:focus-visible { outline: none; }
+
+/* preferred contact: a segmented control (the Prestige pattern), square, on the field stroke;
+   the chosen option is filled white, so the state reads by fill and weight, not by hue */
+.segmented { border: 0; padding: 0; margin: 0; min-width: 0; }
+.segmented legend { padding: 0; margin-bottom: var(--sp-8); }
+.segmented__opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: var(--stroke-1) solid var(--form-field-stroke); }
+.segmented__opt { position: relative; display: block; cursor: pointer; }
+.segmented__opt + .segmented__opt { border-left: var(--stroke-1) solid var(--form-field-stroke); }
+.segmented__opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.segmented__opt span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--form-field-h);
+    padding-inline: var(--sp-16);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-2);
+    background: var(--surface-0-dark);
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.segmented__opt:hover span { color: var(--grey-0); background: var(--surface-2-dark); }
+.segmented__opt input:checked + span { color: var(--grey-11); background: var(--grey-0); }
+.segmented__opt input:focus-visible + span { outline: var(--stroke-2) solid var(--focus); outline-offset: calc(-1 * var(--focus-offset)); }
+
+/* consent: the Prestige wording, a two-line label beside the box; invalid draws the box twice */
+.check--consent { align-items: flex-start; }
+.check--consent .check__box { margin-top: 0; }
+.field--consent.is-invalid .check__box { border-color: var(--grey-0); box-shadow: inset 0 0 0 var(--stroke-1) var(--grey-0); }
