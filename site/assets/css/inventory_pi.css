@@ -1,0 +1,305 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — inventory mockups (srp.html, vdp.html): the Lamborghini layer.
+   The layout is Prestige's own (prestige_srp.css / prestige_vdp.css, copied from the
+   Prestige build and scoped to .pi). This file only (1) gives Prestige's custom
+   properties their Lamborghini values, (2) applies Lamborghini type, colour and
+   component styling (square corners, no shadows, the 14 px text floor, the accent on
+   prices and the primary CTA), (3) styles the client's additions, and (4) carries the
+   lead dialog. Every rule is scoped to .pi or to the dialog.
+   ============================================================ */
+
+:root {
+    --inv-dialog-w: 45rem;          /* 720px lead dialog */
+    --inv-tag-bg: rgb(0 0 0 / 0.72);
+}
+
+/* ---------- (1) Prestige's properties, Lamborghini values ---------- */
+.pi {
+    --pi-bg: var(--surface-1-dark);          /* page ground  #181818 */
+    --pi-bg-soft: var(--surface-0-dark);     /* All filters panel  #000 */
+    --pi-bg-deep: var(--surface-2-dark);
+    --pi-cream: var(--grey-1);
+    --pi-ink: var(--grey-1);                 /* text #f5f5f5 */
+    --pi-ink-soft: var(--grey-3);            /* #c4c4c4 */
+    --pi-ink-muted: var(--grey-5);           /* #969696: 6.0:1 on #181818, 7.1:1 on #000 */
+    --pi-header-bg: var(--grey-11);
+    --pi-rule: var(--grey-8);                /* hairlines #494949 */
+    --pi-rule-strong: var(--grey-6);         /* control strokes #7d7d7d: 4.3:1, above the 3:1 non-text floor */
+    --pi-font-display: var(--font-brand);
+    --pi-font-sans: var(--font-brand);
+    /* Prestige's spacing scale, unchanged (its layout depends on it) */
+    --pi-sp-1: 0.5rem;  --pi-sp-2: 1rem;  --pi-sp-3: 1.5rem;  --pi-sp-4: 2.25rem;
+    --pi-sp-5: 3.5rem;  --pi-sp-6: 5rem;  --pi-sp-7: 7rem;    --pi-sp-8: 10rem;
+    --pi-section-py: 8.75rem;
+    --pi-header-h: var(--header-h);          /* the Lamborghini header: 104 / 80 px */
+    --pi-srp-header-h: var(--header-h);
+    --pi-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --pi-card-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --pi-card-dur: 0.6s;
+    --pi-container-max: 90rem;               /* 1440px */
+    --pi-container-wide: 105.25rem;          /* 1684px */
+    --pi-w-standard: 45rem;
+    --pi-surface-card: var(--surface-0-dark); /* cards and panels  #000 */
+    --pi-pop: none;                          /* no decorative shadows */
+    --pi-srp-pop: none;
+    --pi-card-lift: none;
+    background: var(--pi-bg);
+    color: var(--pi-ink);
+}
+/* the Lamborghini body pins the weight through font-variation-settings; inside the Prestige
+   layout the weights come from font-weight, so the axis is released here */
+.pi, .pi * { font-variation-settings: normal; }
+
+/* ---------- (2) Lamborghini type ---------- */
+.pi .t-h1 {                                   /* banner: ultra-condensed, uppercase, at Prestige's size */
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-display);
+}
+.pi .t-h2, .pi .t-h3, .pi .vehicle-card__name, .pi .vdp-panel__price-value, .pi .vehicle-card__price {
+    font-weight: var(--wght-bold);
+    letter-spacing: 0;
+}
+.pi .eyebrow-stamp {                         /* Prestige's stamp → the Lamborghini eyelet */
+    height: auto;
+    padding: 0;
+    background: none;
+    color: var(--grey-3);
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    font-weight: var(--wght-bold);
+    letter-spacing: var(--track-upper);
+}
+/* uppercase micro-labels: the Lamborghini tracking, and the 14 px floor for functional text */
+.pi .t-eyebrow, .pi .vehicle-card__price-label, .pi .filter__group-title, .pi .vdp-calc__label,
+.pi .vehicle-card__action, .pi .vdp-action, .pi .pagination__link--nav {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    letter-spacing: var(--track-upper);
+}
+.pi .vehicle-card__detail-label, .pi .vehicle-card__detail-value, .pi .filter__trigger, .pi .sort__trigger,
+.pi .filter__option, .pi .filter__option-count, .pi .filter__clear, .pi .chip-clear, .pi .sort__option,
+.pi .chip, .pi .pagination__link, .pi .t-caption, .pi .breadcrumb, .pi .vdp-gallery__count,
+.pi .vdp-specs__label, .pi .vdp-calc__note {
+    font-size: var(--fs-14);
+}
+
+/* ---------- (2) Lamborghini components ---------- */
+/* buttons: square, condensed bold uppercase; colour change on hover instead of Prestige's sweep */
+.pi .btn {
+    min-height: 0;
+    font-size: var(--fs-14);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    letter-spacing: var(--track-upper);
+    border-color: var(--grey-1);
+    color: var(--grey-1);
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.pi .btn::before { display: none; }
+.pi .btn:hover { color: var(--grey-3); border-color: var(--grey-3); }
+.pi .btn--solid { background-color: var(--grey-1); color: var(--grey-11); border-color: var(--grey-1); }
+.pi .btn--solid:hover { background-color: var(--grey-3); border-color: var(--grey-3); color: var(--grey-11); }
+.pi .btn.is-accent { background-color: var(--accent-dark); border-color: var(--accent-dark); color: var(--grey-11); }   /* the primary CTA: the accent's job */
+.pi .btn.is-accent:hover { background-color: var(--accent-dark-hover); border-color: var(--accent-dark-hover); color: var(--grey-0); }
+
+/* cards and panels: square, flat */
+.pi .vehicle-card { border-radius: 0; }
+.pi .vehicle-card:hover { transform: none; box-shadow: none; }
+.pi .vehicle-card__name { color: var(--grey-1); }
+.pi .vehicle-card__heading-link:hover .vehicle-card__name { color: var(--accent-dark); }
+
+/* filter controls on the dark ground */
+.pi .filter__trigger { background-color: transparent; }
+.pi .filter--has-value .filter__trigger { background-color: rgb(255 255 255 / 0.06); }
+.pi .filter__panel, .pi .sort__panel { background-color: var(--surface-0-dark); }
+.pi .filter__option:hover, .pi .sort__option:hover { background-color: rgb(255 255 255 / 0.06); }
+.pi .chip__x { color: rgb(0 0 0 / 0.6); }
+.pi .chip:hover .chip__x { color: var(--grey-11); }
+
+/* VDP: accordions, arrows, photo overlays — square, and legible on the dark ground */
+.pi .vdp-accordion__trigger:hover { background-color: rgb(255 255 255 / 0.03); }
+.pi .vdp-accordion[open] .vdp-accordion__trigger { background-color: var(--surface-2-dark); }
+.pi .vdp-accordion[open] .vdp-accordion__title, .pi .vdp-accordion[open] .vdp-accordion__icon { color: var(--grey-0); }
+.pi .vdp-accordion__chip, .pi .vdp-related__arrow { border-radius: 0; }
+.pi .vdp-accordion__trigger:hover .vdp-accordion__chip, .pi .vdp-related__arrow:hover { color: var(--grey-11); }
+.pi .vdp-accordion[open] .vdp-accordion__chip { background-color: var(--grey-0); border-color: var(--grey-0); color: var(--grey-11); }
+.pi .vdp-gallery__nav { border-radius: 0; background-color: var(--inv-tag-bg); color: var(--grey-0); box-shadow: none; }
+.pi .vdp-gallery__nav:hover { box-shadow: none; background-color: var(--grey-11); }
+.pi .vdp-gallery__count { background-color: var(--grey-11); color: var(--grey-1); }
+.pi .vdp-calc__input:focus-visible { outline: var(--stroke-2) solid var(--focus); outline-offset: var(--focus-offset); }
+.pi .vdp-calc__select option { color: var(--grey-11); background: var(--grey-0); }
+
+/* prices: the accent (DESIGN_SYSTEM §2) */
+.pi .vehicle-card__price, .pi .vdp-panel__price-value { color: var(--accent-dark); }
+
+/* ---------- (3) the client's additions ---------- */
+/* "Call for price" is a call (client, 16 Oct 2026) */
+.pi .price-call { color: var(--grey-1); text-decoration: underline; text-decoration-thickness: var(--stroke-1); text-underline-offset: 0.2em; }
+.pi .price-call:hover { color: var(--accent-dark); }
+/* the second card CTA sits under the first (as on the Prestige demo); vehicle-card__ctas already stacks them */
+
+/* keyword search above the filter row — as the AAN demo renders it (input 527 + button 118, 16 px gap) */
+.pi .stock_search-outer { width: min(94%, var(--pi-container-wide)); margin: 0 auto; padding-top: var(--pi-sp-5); }
+.pi .stock_search { display: flex; gap: var(--pi-sp-2); }
+.pi .key-search {
+    flex: 0 1 32.9375rem;
+    min-width: 0;
+    padding: 0 0.625rem;
+    min-height: var(--tap);
+    background: var(--surface-0-dark);
+    border: var(--stroke-1) solid var(--pi-rule-strong);
+    color: var(--grey-1);
+    font: inherit;
+    font-size: var(--fs-14);
+}
+.pi .key-search::placeholder { color: var(--grey-5); opacity: 1; }
+.pi .stock-btn { flex: 0 0 7.375rem; padding-block: 0; min-height: var(--tap); }
+.pi .stock_search-outer + .filter-bar__inner { padding-top: var(--pi-sp-2); }
+@media (max-width: 900px) {
+    .pi .stock_search-outer { width: 100%; padding-inline: 1.25rem; }
+    .pi .key-search { flex: 1 1 auto; }
+}
+
+/* a car without photographs: the Lamborghini plate in Prestige's media box */
+.pi .vehicle-card__plate { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: var(--sp-8); background: var(--surface-2-dark); text-align: center; }
+.pi .vehicle-card__plate-name {
+    font-size: var(--fs-56);
+    line-height: var(--lh-52);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    color: var(--grey-6);
+}
+.pi .vehicle-card__plate-note { font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-4); text-transform: uppercase; letter-spacing: var(--track-upper); }
+.pi .vehicle-card__media picture { display: contents; }
+
+/* bold in the VDP description (client): visible as bold in the Lamborghini weight */
+.pi .vdp-prose strong { color: var(--grey-0); font-weight: var(--wght-bold); }
+
+/* listing footnotes under the grid / the VDP, on Prestige's container */
+.pi .srp-note { width: min(94%, var(--pi-container-wide)); margin: 0 auto; padding-bottom: var(--pi-sp-5); }
+.pi .vdp-note { width: min(92%, var(--pi-container-max)); margin: var(--pi-sp-5) auto 0; }
+@media (max-width: 900px) { .pi .srp-note, .pi .vdp-note { width: 100%; padding-inline: 1.25rem; } }
+.pi .srp-results { padding-bottom: var(--pi-sp-4); }
+
+/* ---------- VDP photo: 4:3, ending level with the panel (Alex, round 3) ----------
+   Prestige stretches the photo to the panel's height and crops it (object-fit: cover). The studio
+   frames are 4:3, so the cell takes that ratio and nothing is cropped; the panel's insets are
+   tightened so that head, price, specs and both CTAs end on the photo's line at 1440. */
+.pi .vdp-summary__media { align-self: start; }
+.pi .vdp-gallery__main { height: auto; aspect-ratio: 4 / 3; }
+.pi .vdp-panel__head, .pi .vdp-panel__price, .pi .vdp-specs, .pi .vdp-panel__ctas { padding: var(--pi-sp-2) var(--pi-sp-3); }
+.pi .vdp-panel__head { padding-top: var(--pi-sp-3); }
+.pi .vdp-specs li { padding-block: var(--sp-4); }
+.pi .vdp-panel__ctas { display: grid; gap: var(--pi-sp-1); }
+.pi .vdp-panel__ctas .btn { padding-block: 0.875rem; }
+
+/* ---------- Lead dialog ---------- */
+.lead {
+    width: min(var(--inv-dialog-w), 100% - 2 * var(--sp-16));
+    max-height: calc(100svh - 2 * var(--sp-16));
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: var(--surface-1-dark);
+    color: var(--grey-1);
+    border: var(--stroke-1) solid var(--grey-8);
+}
+.lead::backdrop { background: rgb(0 0 0 / 0.72); }
+.lead__head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--sp-16);
+    padding: var(--sp-24);
+    background: var(--surface-1-dark);
+    border-bottom: var(--stroke-1) solid var(--grey-8);
+}
+.lead__kind { color: var(--grey-3); }
+.lead__title {
+    margin-top: var(--sp-4);
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    text-wrap: balance;
+}
+.lead__stock { margin-top: var(--sp-4); font-size: var(--fs-14); line-height: var(--lh-22); color: var(--grey-4); font-variant-numeric: tabular-nums; }
+.lead__close { flex: none; display: grid; place-content: center; width: var(--tap); height: var(--tap); color: var(--grey-1); }
+.lead__close:hover { color: var(--grey-3); }
+.lead__form, .lead__done { padding: var(--sp-24); }
+.lead__done { border-top: 0; }
+@media (min-width: 768px) {
+    .lead__head, .lead__form, .lead__done { padding-inline: var(--sp-40); }
+    .lead__title { font-size: var(--fs-28); line-height: var(--lh-38); }
+}
+@media (max-width: 767.98px) {
+    /* phones: the dialog is the screen */
+    .lead { width: 100%; max-width: none; height: 100%; max-height: none; border: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .lead[open] { animation: lead-in var(--dur-base) var(--ease-out); }
+    .lead[open]::backdrop { animation: lead-fade var(--dur-base) var(--ease-out); }
+}
+@keyframes lead-in { from { opacity: 0; transform: translateY(var(--sp-16)); } }
+@keyframes lead-fade { from { opacity: 0; } }
+
+/* phones: the triggers sit in an even two-column grid, sort across the full width */
+@media (max-width: 767.98px) {
+    .filter-bar__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-8); }
+    .filter-bar__row .filter__trigger, .filter-bar__row .sort__trigger { width: 100%; justify-content: space-between; }
+    .filter__trigger--all { justify-content: center; }
+    .filter-bar__spacer { display: none; }
+    .filter-bar__row .sort { grid-column: 1 / -1; }
+    .filter-bar__row .sort__value { margin-right: auto; }
+}
+
+/* the panel's spec rows stay label | value on phones too (14px rows fit 327px) */
+.vdp-panel__spec .spec__row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-16); align-items: baseline; }
+.vdp-panel__spec .spec__value { text-align: right; }
+
+/* phones: the photo stays clean, as on the demo — swipe moves it, the gallery below carries the count */
+@media (max-width: 767.98px) {
+    .vdp-stage__nav, .vdp-stage__count { display: none; }
+}
+
+/* ---------- AAN demo deltas over the prototype CSS (measured on the demo at 1440×900) ----------
+   The demo's card is the prototype card with a 3:2 photo (423×283), the compact body inset
+   (16 / 12 / 18) and 16 px between the two CTAs. */
+.pi .vehicle-card__media { aspect-ratio: 3 / 2; }
+.pi .vehicle-card--extended .vehicle-card__body { padding: var(--pi-sp-2) 0.75rem 1.125rem; gap: var(--pi-sp-2); }
+.pi .vehicle-card__ctas { gap: var(--pi-sp-2); }
+
+/* the report logo keeps its own colours: it sits on a light tile on the dark bar */
+.pi .vdp-actionbar__trust img { box-sizing: content-box; padding: var(--sp-4) var(--sp-8); background: var(--grey-0); }
+.pi .filter__list { scrollbar-color: var(--grey-7) transparent; scrollbar-width: thin; }
+
+/* phone side padding as the demo renders it at 390 (the prototype CSS says 20 px): SRP 12 px, VDP 16 px */
+@media (max-width: 900px) {
+    .pi .srp-intro, .pi .filter-bar__inner, .pi .filter-all__grid, .pi .filter-all__foot, .pi .filter-chips,
+    .pi .srp-results, .pi .stock_search-outer, .pi .srp-note { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .pi .breadcrumb, .pi .vdp-summary, .pi .vdp-summary__bar, .pi .vdp-sections, .pi .vdp-gallery-sec,
+    .pi .vdp-related, .pi .vdp-note { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* one column on phones and tablets: never wider than the screen (Prestige's 1fr takes the buttons'
+   no-wrap labels as its minimum); the bar's buttons may wrap, as on the demo */
+@media (max-width: 960px) { .pi .vdp-summary { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) { .pi .vdp-summary__bar { grid-template-columns: minmax(0, 1fr); } }
+.pi .vdp-actionbar__buy .btn > span { white-space: normal; text-align: center; }
+/* Lamborghini's phone rule widens every .btn to 100%; inside the Prestige layout the buttons keep Prestige's sizing */
+@media (max-width: 767.98px) {
+    .pi .btn:not(.btn--tertiary) { width: auto; }
+    .pi .vehicle-card__ctas .btn, .pi .vdp-panel__ctas .btn, .pi .vdp-actionbar__buy .btn, .pi .vdp-calc__actions .btn { width: 100%; }
+    .pi .filter-all__foot { flex-wrap: wrap; }
+}
+
+/* class-name clash: Prestige's card spec item is .spec; the Lamborghini .spec (spec-row list) draws a
+   top rule — it must not reach Prestige's items */
+.pi .spec { border-top: 0; }
