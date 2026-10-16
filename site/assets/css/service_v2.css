@@ -22,7 +22,8 @@
     --svc-feather: linear-gradient(90deg, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.04) 8%, rgb(0 0 0 / 0.16) 16%,
         rgb(0 0 0 / 0.36) 24%, rgb(0 0 0 / 0.62) 32%, rgb(0 0 0 / 0.84) 40%, rgb(0 0 0 / 0.96) 46%, rgb(0 0 0) 52%);
     --svc-hero-floor: 24%;          /* bottom blend into the next band (#181818) */
-    --svc-number-fs: var(--fs-48);  /* roadside number */
+    --svc-number-fs: var(--fs-40);  /* roadside number: 40px on phones (one line in the block), 80px from 768 */
+    --svc-number-icon: var(--sp-32);   /* phone glyph in the roadside block: 32px, 48px from 768 */
     --svc-map-ratio: 4 / 3;
     --svc-check: 1.5rem;            /* 24px checkbox, inside a 44px row */
     --svc-field-h: var(--btn-h-md); /* 56px fields, the medium button height */
@@ -218,23 +219,30 @@
 /* ---------- 6 · Roadside assistance ---------- */
 .roadside__grid { display: grid; gap: var(--sp-40); }
 .roadside__call { display: grid; gap: var(--sp-16); align-content: end; }
+/* the number is the section's action: an accent block, the accent's job (DESIGN_SYSTEM §2).
+   #000 on #FFC000 = 12.8:1; hover as the accent button (white on #997300, large text) */
 .roadside__number {
     justify-self: start;
-    padding-block: var(--sp-8);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-16);
+    padding: var(--sp-16) var(--sp-24);
     font-size: var(--svc-number-fs);
     line-height: var(--lh-46);
     font-weight: var(--wght-bold);
     font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
     font-variant-numeric: tabular-nums;
-    color: var(--fg);
-    border-bottom: var(--stroke-1) solid var(--fg);
-    transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    white-space: nowrap;
+    color: var(--grey-11);
+    background: var(--accent-dark);
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
-.roadside__number:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.roadside__number:hover { background: var(--accent-dark-hover); color: var(--grey-0); }
+.roadside__icon { width: var(--svc-number-icon); height: var(--svc-number-icon); flex: none; }
 .roadside__note { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); max-width: var(--measure-note); }
 @media (min-width: 768px) {
-    :root { --svc-number-fs: var(--fs-80); }
-    .roadside__number { line-height: var(--lh-80); }
+    :root { --svc-number-fs: var(--fs-80); --svc-number-icon: var(--sp-48); }
+    .roadside__number { line-height: var(--lh-80); padding: var(--sp-24) var(--sp-40); gap: var(--sp-24); }
 }
 @media (min-width: 1024px) {
     .roadside__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: end; }
