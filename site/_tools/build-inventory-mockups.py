@@ -141,7 +141,7 @@ def page(title, desc, body, kind):
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_{kind}.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=6">
+    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=7">
 </head>
 <body class="page-inventory page-{kind}">
 
@@ -160,7 +160,7 @@ def page(title, desc, body, kind):
 <script src="assets/js/main_v2.js?v=105" defer></script>
 <script src="assets/js/forms_v2.js?v=1" defer></script>
 <script src="assets/js/prestige_{kind}.js?v=1" defer></script>
-<script src="assets/js/inventory_pi.js?v=1" defer></script>
+<script src="assets/js/inventory_pi.js?v=2" defer></script>
 </body>
 </html>
 '''
@@ -457,11 +457,10 @@ vdp = sub1(vdp, r'(<div class="vdp-panel__price">)[\s\S]*?(</div>)', lambda m: m
                     <span class="t-h3 vdp-panel__price-value">{price(v)}</span>
                 ''' + m.group(2))
 vdp = sub1(vdp, r'(<ul class="vdp-specs">)[\s\S]*?(</ul>)', lambda m: m.group(1) + '\n' + spec_html + '\n                ' + m.group(2))
-# client: the two CTAs replace INQUIRE in the panel's CTA block
+# the VDP keeps Prestige's single INQUIRE (the two CTAs are the SRP request); it opens the lead dialog
 vdp = sub1(vdp, r'<a href="#" class="btn btn--solid"><span>Inquire</span></a>',
-           f'''<button class="btn btn--solid is-accent" type="button" data-lead-open="availability" {lead_data(v)}><span>Check Availability</span></button>
-                    <button class="btn" type="button" data-lead-open="consultation" {lead_data(v)}><span>Schedule Consultation</span></button>''')
-vdp = vdp.replace('assets/images/carfax.svg', 'assets/img/pi/carfax.svg')
+           f'''<button class="btn btn--solid is-accent" type="button" data-lead-open="inquire" {lead_data(v)}><span>Inquire</span></button>''')
+vdp = vdp.replace('assets/images/carfax.svg', 'assets/img/pi/carfax-on-dark.svg')   # dark-ground variant (fills swapped), no tile
 vdp = sub1(vdp, r'\s*<img src="assets/images/autocheck\.svg"[^>]*>\s*<img src="assets/images/ipacket\.svg"[^>]*>', '')   # the demo shows CARFAX only
 vdp = sub1(vdp, r'<a class="btn btn--solid" href="tel:\+18332906287"><span>\(833\)&nbsp;290-6287</span></a>',
            '<a class="btn btn--solid" href="tel:+18332905147"><span>(833)&nbsp;290-5147</span></a>')

@@ -1,7 +1,8 @@
 /* ============================================================
    LAMBORGHINI MIAMI — inventory mockups (srp.html, vdp.html): the additions to
    Prestige's own behaviour (prestige_srp.js, prestige_vdp.js):
-   - the lead dialog behind "Check Availability" / "Schedule Consultation" (client);
+   - the lead dialog behind "Check Availability" / "Schedule Consultation" (SRP cards, client)
+     and INQUIRE (VDP panel, as Prestige);
      submission is SIMULATED — forms_v2.js confirms locally, there is no endpoint
    - the VDP photo's previous / next buttons step through the listing's photographs
    ============================================================ */
@@ -17,7 +18,8 @@
         let opener = null;
         const KIND = {
             availability: { label: 'Check availability', msg: (v, s) => `Is the ${v} (stock ${s}) still available?` },
-            consultation: { label: 'Schedule consultation', msg: (v, s) => `I would like to schedule a consultation about the ${v} (stock ${s}).` }
+            consultation: { label: 'Schedule consultation', msg: (v, s) => `I would like to schedule a consultation about the ${v} (stock ${s}).` },
+            inquire: { label: 'Inquire', msg: (v, s) => `I would like more information about the ${v} (stock ${s}).` }   // the VDP's INQUIRE (Prestige)
         };
         function open(btn) {
             const kind = btn.dataset.leadOpen;

@@ -276,8 +276,7 @@
 .pi .vehicle-card--extended .vehicle-card__body { padding: var(--pi-sp-2) 0.75rem 1.125rem; gap: var(--pi-sp-2); }
 .pi .vehicle-card__ctas { gap: var(--pi-sp-2); }
 
-/* the report logo keeps its own colours: it sits on a light tile on the dark bar */
-.pi .vdp-actionbar__trust img { box-sizing: content-box; padding: var(--sp-4) var(--sp-8); background: var(--grey-0); }
+/* the report logo: carfax-on-dark.svg (dark and white fills swapped, the blue kept), straight on the bar */
 .pi .filter__list { scrollbar-color: var(--grey-7) transparent; scrollbar-width: thin; }
 
 /* phone side padding as the demo renders it at 390 (the prototype CSS says 20 px): SRP 12 px, VDP 16 px */

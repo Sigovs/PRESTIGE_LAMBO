@@ -11,11 +11,8 @@ They **are** the latest Prestige SRP and VDP, built from Prestige's own markup a
 Only the client's three requests change what the pages do:
 
 1. **Click-to-call on "Call for price":** a `tel:` link to the sales line, (833) 290-5147.
-2. **Two CTAs, "Check Availability" and "Schedule Consultation":**
-   - on every SRP card, where the demo has them;
-   - on the VDP, in the panel's CTA block in place of INQUIRE.
-
-   Both open one lead dialog.
+2. **Two CTAs, "Check Availability" and "Schedule Consultation", on every SRP card**, as on the demo. Both open one lead dialog.
+   - The VDP keeps Prestige's single **INQUIRE** in the panel, since the Prestige VDP has no Check Availability. INQUIRE opens the same dialog as a general inquiry.
 3. **Bold in the VDP description:** `**…**` renders as `<strong>`. The live platform prints the asterisks today. Nothing else in the text is restyled.
 
 ## Where everything comes from
@@ -42,7 +39,7 @@ Only the client's three requests change what the pages do:
   - Solid buttons are white; outline buttons are white-on-dark.
 - **Corners and shadows:** everything is square, with no shadows. That covers cards, accordion chips, Related arrows and photo arrows.
 - **Prices:** in the accent. "Call for Price" is an underlined call link.
-- **Carfax logo:** on a light tile, so the logo keeps its own colours on the dark bar.
+- **Carfax logo:** `carfax-on-dark.svg`, a copy of Prestige's SVG with the dark and white fills swapped and the blue kept, placed directly on the dark bar.
 - **Class clash:** both systems use a class called `.spec`. The Lamborghini `.spec` (spec-row list) draws a top rule; inside `.pi` that rule is switched off.
 
 ## Where the demo differs from the prototype CSS: the demo wins (measured at 1440×900)
@@ -60,7 +57,7 @@ Only the client's three requests change what the pages do:
 
 ## Kept from earlier rounds at Alex's request
 
-- **VDP photo:** in the frame's own 4:3, not stretched and not cropped. The panel's insets are tightened (16 / 24, 30 px spec rows) so that the panel, with both CTAs, ends level with the photo at 1440.
+- **VDP photo:** in the frame's own 4:3, not stretched and not cropped. The panel's insets are tightened (16 / 24, 30 px spec rows), and its CTA block is pinned to the foot, so the panel ends level with the photo at 1440.
 - **Opening photo:** the first full-car exterior frame, photo 2 of 58.
 
 ## Content
