@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/service.html"
+        ],
+        "createdAt": "2026-10-16T19:25:04.748Z",
+        "reason": "Claude, 16 Oct 2026: file-mode scan without CSS; the <section> bands carry container padding (--page-gutter) and a rendered scan of service.html?figma reports no cramped-padding"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "site/service.html"
+        ],
+        "createdAt": "2026-10-16T19:25:04.760Z",
+        "reason": "Claude, 16 Oct 2026: the hit is the spec row dd 'LAMBORGHINI-CERTIFIED' (21 chars, uppercase spec value per DESIGN_SYSTEM §1.2); the counted rest is its nested .spec__sub in sentence case"
+      }
+    ]
+  }
+}
