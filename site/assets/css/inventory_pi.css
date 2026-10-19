@@ -310,7 +310,7 @@
 
 /* SRP states the mockup's real filtering adds: the empty result, and hidden page links */
 .pi .srp-empty { padding: var(--pi-sp-5) 0; font-size: var(--fs-18); line-height: var(--lh-28); color: var(--pi-ink-soft); }
-.pi .pagination__link[hidden], .pi .pagination[hidden], .pi .srp-grid > li[hidden] { display: none; }
+.pi .srp-grid > li[hidden] { display: none; }
 .pi .vdp-actionbar__trust { flex-wrap: wrap; }
 @media (max-width: 760px) {
     .pi .vdp-actionbar__trust { gap: var(--sp-8); }

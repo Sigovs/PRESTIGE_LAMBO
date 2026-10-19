@@ -71,7 +71,7 @@ Only the client's three requests change what the pages do:
 ## Content
 
 - **Data:** the dealer's listings as captured on 30 Sep 2026 (`research/inventory-capture-live`).
-  - The SRP carries **all 26 Lamborghinis**, recently listed first, 12 per page over 3 pages. Every card links to the one mockup VDP.
+  - The SRP carries **all 26 Lamborghinis**, recently listed first, all on one page with no pagination, as on the demo (the prototype `srp_v2.html` has pagination; the demo does not). Every card links to the one mockup VDP.
   - Four listings have no photographs yet and show the plate: CJ2626, CJ2627, CJ2632 and 86230X.
   - Three listings have colours their photos do not match: CJ2607, CJ2597 and 86168X. They are shown as the feed has them. This is a feed issue for the client.
 - **Related vehicles:** six cars, all with photographs.
@@ -82,9 +82,9 @@ Only the client's three requests change what the pages do:
   - No verified torque figure exists in the ledger, so **none is shown**.
   - In production, staff type `**…**` in the listing description and the template renders it.
 - **Calculator:** it has **no default APR**. The demo prefills 8.99%, which we cannot verify. The vehicle price and loan amount come from the listing. Calculate and Clear Form behave exactly as on Prestige (`vdp.js`).
-- **Filtering, sorting, search and paging are real in the mockup.**
-  - `prestige_srp.js` (Prestige's `search5.js`) still runs the dropdowns, chips, badges, sort label and page links. Its random "reshuffle" is replaced by `window.__srpApply()` in `inventory_pi.js`.
-  - That function filters the cards by the checked options (each option's `name` is a card `data-` attribute), the keyword and the condition. It then sorts (recently listed, price, year, mileage), pages the result 12 per page, updates the count and shows an empty state.
+- **Filtering, sorting and search are real in the mockup.**
+  - `prestige_srp.js` (Prestige's `search5.js`) still runs the dropdowns, chips, badges and sort label. Its random "reshuffle" is replaced by `window.__srpApply()` in `inventory_pi.js`.
+  - That function filters the cards by the checked options (each option's `name` is a card `data-` attribute), the keyword and the condition. It then sorts (recently listed, price, year, mileage), updates the count and shows an empty state.
   - **New / Pre-owned:** the navigation links carry `srp.html?condition=new` or `?condition=used`. This ticks a Condition filter (Prestige markup, kept out of the visible row because the demo has none), which shows as a removable chip: New gives 2 cars, Pre-owned 24.
   - Production filters server-side.
 

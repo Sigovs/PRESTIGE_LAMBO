@@ -144,7 +144,7 @@ def page(title, desc, body, kind):
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_{kind}.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=15">
+    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=16">
 </head>
 <body class="page-inventory page-{kind}">
 
@@ -163,7 +163,7 @@ def page(title, desc, body, kind):
 <script src="assets/js/main_v2.js?v=105" defer></script>
 <script src="assets/js/forms_v2.js?v=1" defer></script>
 <script src="assets/js/prestige_{kind}.js?v=2" defer></script>
-<script src="assets/js/inventory_pi.js?v=3" defer></script>
+<script src="assets/js/inventory_pi.js?v=4" defer></script>
 </body>
 </html>
 '''
@@ -441,7 +441,7 @@ srp = sub1(srp, r'(<ul class="srp-grid">)[\s\S]*?(</ul>\s*<!-- Pagination -->)',
            lambda m: m.group(1) + '\n' + '\n'.join(srp_card(cars[s]) for s in SRP_STOCKS) + '\n            ' + m.group(2))
 srp = sub1(srp, r'(\s*<!-- Pagination -->)', lambda m: '''
             <p class="srp-empty" hidden data-srp-empty>No vehicles match these filters. <button class="chip-clear" type="button" data-srp-clear>Clear all</button></p>''' + m.group(1))
-srp = sub1(srp, r'<a class="pagination__link" href="#">4</a>\s*<a class="pagination__link" href="#">5</a>\s*<span class="pagination__ellipsis" aria-hidden="true">…</span>\s*<a class="pagination__link" href="#">12</a>', '')
+srp = sub1(srp, r'\s*<!-- Pagination -->\s*<nav class="pagination"[\s\S]*?</nav>', '')   # the demo has no pagination: every car on one page
 srp = srp + '''
         <p class="t-caption srp-note">Listings as published on lamborghinimiami.com on 30 Sep 2026. Price includes dealer fee of $1,447.50 and $299 electronic filing fee; tax, tag, title and registration fees are not included and are calculated at time of purchase. Price and availability subject to change.</p>
 '''

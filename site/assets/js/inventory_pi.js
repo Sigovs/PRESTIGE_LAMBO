@@ -49,22 +49,17 @@
     }
 
     /* ---------- SRP: the real result set behind Prestige's controls ----------
-       prestige_srp.js (Prestige's search5.js) runs the dropdowns, chips, badges, sort label and
-       page links, and calls window.__srpApply() wherever Prestige "reshuffled". Here the cards are
-       filtered by the checked options (input name = the card's data attribute), the keyword and
-       the ?condition= state the New / Pre-owned links carry; then sorted and paged, 12 per page. */
+       prestige_srp.js (Prestige's search5.js) runs the dropdowns, chips, badges and sort label,
+       and calls window.__srpApply() wherever Prestige "reshuffled". Here the cards are filtered
+       by the checked options (input name = the card's data attribute), the keyword and the
+       ?condition= state the New / Pre-owned links carry, then sorted. No pagination, as the demo. */
     const grid = $('.srp-grid');
     if (grid) {
-        const PAGE = 12;
         const cards = $$(':scope > li', grid);
         const original = cards.slice();
         const count = $('.srp-intro__count b');
-        const pager = $('.pagination');
-        const pageLinks = $$('.pagination__link:not(.pagination__link--nav)', pager);
-        const [prevLink, nextLink] = [$$('.pagination__link--nav', pager)[0], $$('.pagination__link--nav', pager).pop()];
         const empty = $('[data-srp-empty]');
         const key = $('.key-search');
-        let lastSig = '';
 
         const SORTS = {
             'Recently listed': (a, b) => (b.dataset.date > a.dataset.date ? 1 : -1),
@@ -73,51 +68,24 @@
             'Year · newest first': (a, b) => Number(b.dataset.year) - Number(a.dataset.year),
             'Mileage · lowest first': (a, b) => Number(a.dataset.miles) - Number(b.dataset.miles)
         };
-        const activePage = () => Number(($('.pagination__link--active', pager) || {}).textContent) || 1;
-        function setPage(n) {
-            pageLinks.forEach((a) => {
-                const on = Number(a.textContent) === n;
-                a.classList.toggle('pagination__link--active', on);
-                if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
-            });
-        }
         function apply() {
             const checked = $$('.filter-bar input[type="checkbox"]:checked');
             const groups = {};
             checked.forEach((b) => { (groups[b.name] = groups[b.name] || []).push(b.value); });
             const words = (key?.value || '').toLowerCase().split(/\s+/).filter(Boolean);
             const sortLabel = ($('.sort__option--active') || {}).textContent?.trim() || '';
-            const sig = JSON.stringify([groups, words, sortLabel]);
-            if (sig !== lastSig) { setPage(1); lastSig = sig; }       // a new query starts on page 1
 
             const sorted = SORTS[sortLabel] ? original.slice().sort(SORTS[sortLabel]) : original.slice();
-            const hits = sorted.filter((li) => Object.entries(groups).every(([k, vals]) => vals.includes(li.dataset[k]))
-                && words.every((w) => li.dataset.text.includes(w)));
-            const pages = Math.max(1, Math.ceil(hits.length / PAGE));
-            let page = Math.min(activePage(), pages);
-            setPage(page);
+            const hits = new Set(sorted.filter((li) => Object.entries(groups).every(([k, vals]) => vals.includes(li.dataset[k]))
+                && words.every((w) => li.dataset.text.includes(w))));
 
             sorted.forEach((li) => grid.append(li));
-            const shown = new Set(hits.slice((page - 1) * PAGE, page * PAGE));
-            cards.forEach((li) => { li.hidden = !shown.has(li); });
-
-            if (count) count.textContent = hits.length;
-            if (empty) empty.hidden = hits.length > 0;
-            pageLinks.forEach((a) => { a.hidden = Number(a.textContent) > pages; });
-            if (prevLink) prevLink.classList.toggle('pagination__link--disabled', page <= 1);
-            if (nextLink) nextLink.classList.toggle('pagination__link--disabled', page >= pages);
-            if (pager) pager.hidden = hits.length === 0;
+            cards.forEach((li) => { li.hidden = !hits.has(li); });
+            if (count) count.textContent = hits.size;
+            if (empty) empty.hidden = hits.size > 0;
         }
         window.__srpApply = apply;
 
-        const step = (d) => (e) => {
-            e.preventDefault();
-            setPage(activePage() + d);
-            apply();
-            grid.scrollIntoView({ block: 'start' });
-        };
-        prevLink?.addEventListener('click', step(-1));
-        nextLink?.addEventListener('click', step(1));
         key?.addEventListener('input', apply);
         key?.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); apply(); } });
         $('.stock-btn')?.addEventListener('click', (e) => { e.preventDefault(); apply(); });
