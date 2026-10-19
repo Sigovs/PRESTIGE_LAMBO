@@ -136,8 +136,6 @@
 
 /* ---------- (3) the client's additions ---------- */
 /* "Call for price" is a call (client, 16 Oct 2026) */
-.pi .price-call { color: var(--grey-1); text-decoration: underline; text-decoration-thickness: var(--stroke-1); text-underline-offset: 0.2em; }
-.pi .price-call:hover { color: var(--accent-dark); }
 /* the second card CTA sits under the first (as on the Prestige demo); vehicle-card__ctas already stacks them */
 
 /* keyword search above the filter row — as the AAN demo renders it (input 527 + button 118, 16 px gap) */

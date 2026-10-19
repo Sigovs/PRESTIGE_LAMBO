@@ -38,7 +38,7 @@ Only the client's three requests change what the pages do:
   - **Check Availability** carries the accent `#FFC000`; it is the primary action.
   - Solid buttons are white; outline buttons are white-on-dark.
 - **Corners and shadows:** everything is square, with no shadows. That covers cards, accordion chips, Related arrows and photo arrows.
-- **Prices:** in the accent. "Call for Price" is an underlined call link.
+- **Prices:** in the accent. "Call for Price" is styled exactly as a price; it is a `tel:` link.
 - **Vehicle-history reports:** the reports this car's listing offers: CARFAX, AutoCheck and iPacket, as in Prestige's bar.
   - CARFAX is the **official value badge the dealer serves for this car**, "Show me the CARFAX · 1 Owner" (`partnerstatic.carfax.com/img/valuebadge/1own.svg`, saved as `assets/img/pi/carfax-1own.svg`). Only its viewBox is trimmed to the badge.
   - AutoCheck and iPacket are Prestige's marks, unchanged.
