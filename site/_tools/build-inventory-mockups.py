@@ -22,7 +22,9 @@ os.makedirs(IMG, exist_ok=True)
 E = html.escape
 
 cars = {v['stock']: v for v in json.load(open(CAP + 'vehicles.json'))}
-SRP_STOCKS = None  # set below: all cars, recently listed first
+# only cars with photographs (Alex, 19 Oct 2026): CJ2626, CJ2627, CJ2632 and 86230X have none yet
+cars = {k: v for k, v in cars.items() if os.path.exists(f'{CAP}photos/{k}-1.jpg')}
+SRP_STOCKS = None  # set below: all cars with photographs, recently listed first
 _OLD_SRP = ['CJ2630', 'CJ2626', 'CJ2622', '10918', '10914', '10881A',
               '85991Z', '86198X', 'CJ2602', '86180', '86104X', '86065X']   # recently listed first
 VDP_STOCK = 'CJ2602'

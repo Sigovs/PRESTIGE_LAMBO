@@ -72,11 +72,10 @@ Only the client's three requests change what the pages do:
 ## Content
 
 - **Data:** the dealer's listings as captured on 30 Sep 2026 (`research/inventory-capture-live`).
-  - The SRP carries **all 26 Lamborghinis**, recently listed first, all on one page with no pagination, as on the demo (the prototype `srp_v2.html` has pagination; the demo does not). Every card links to the one mockup VDP.
-  - Four listings have no photographs yet and show the plate: CJ2626, CJ2627, CJ2632 and 86230X.
+  - The SRP carries the **22 Lamborghinis that have photographs** (of 26 listed), recently listed first, all on one page with no pagination, as on the demo (the prototype `srp_v2.html` has pagination; the demo does not). Every card links to the one mockup VDP.
+  - Four listings have no photographs yet and are left out of the mockup (Alex, 19 Oct 2026): CJ2626, CJ2627, CJ2632 and 86230X. Production decides how a car without photos is shown.
   - Three listings have colours their photos do not match: CJ2607, CJ2597 and 86168X. They are shown as the feed has them. This is a feed issue for the client.
 - **Related vehicles:** six cars, all with photographs.
-- **No photo:** a car without photographs (CJ2626) shows the Lamborghini "Photography in preparation" plate where the demo shows its "Coming soon" frame.
 - **Bold demonstration:** the dealer's CJ2602 text has no HP or torque figure. One line is inserted, marked `data-mockup-insert`: "Maximum combined power: **1,015 CV (747 kW)**, the manufacturer figure for the Revuelto."
   - Source: lamborghini.com, captured 30 Sep 2026.
   - The figure is not converted to hp.
@@ -86,7 +85,7 @@ Only the client's three requests change what the pages do:
 - **Filtering, sorting and search are real in the mockup.**
   - `prestige_srp.js` (Prestige's `search5.js`) still runs the dropdowns, chips, badges and sort label. Its random "reshuffle" is replaced by `window.__srpApply()` in `inventory_pi.js`.
   - That function filters the cards by the checked options (each option's `name` is a card `data-` attribute), the keyword and the condition. It then sorts (recently listed, price, year, mileage), updates the count and shows an empty state.
-  - **New / Pre-owned:** the navigation links carry `srp.html?condition=new` or `?condition=used`. This ticks a Condition filter (Prestige markup, kept out of the visible row because the demo has none), which shows as a removable chip: New gives 2 cars, Pre-owned 24.
+  - **New / Pre-owned:** the navigation links carry `srp.html?condition=new` or `?condition=used`. This ticks a Condition filter (Prestige markup, kept out of the visible row because the demo has none), which shows as a removable chip: New gives 2 cars, Pre-owned 20.
   - Production filters server-side.
 
 ## Lead dialog — form submission is SIMULATED
