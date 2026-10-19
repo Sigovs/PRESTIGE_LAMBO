@@ -144,7 +144,7 @@ def page(title, desc, body, kind):
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_{kind}.css?v=1">
-    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=16">
+    <link rel="stylesheet" href="assets/css/inventory_pi.css?v=17">
 </head>
 <body class="page-inventory page-{kind}">
 
@@ -442,9 +442,6 @@ srp = sub1(srp, r'(<ul class="srp-grid">)[\s\S]*?(</ul>\s*<!-- Pagination -->)',
 srp = sub1(srp, r'(\s*<!-- Pagination -->)', lambda m: '''
             <p class="srp-empty" hidden data-srp-empty>No vehicles match these filters. <button class="chip-clear" type="button" data-srp-clear>Clear all</button></p>''' + m.group(1))
 srp = sub1(srp, r'\s*<!-- Pagination -->\s*<nav class="pagination"[\s\S]*?</nav>', '')   # the demo has no pagination: every car on one page
-srp = srp + '''
-        <p class="t-caption srp-note">Listings as published on lamborghinimiami.com on 30 Sep 2026. Price includes dealer fee of $1,447.50 and $299 electronic filing fee; tax, tag, title and registration fees are not included and are calculated at time of purchase. Price and availability subject to change.</p>
-'''
 srp = srp.replace('srp_v2.html', 'srp.html').replace('vdp_v2.html', 'vdp.html').replace('index_v2.html', 'index_v2.html')
 assert 'assets/images/' not in srp, re.findall(r'assets/images/[^"]+', srp)[:3]
 
@@ -511,8 +508,7 @@ vdp = sub1(vdp, r'<a class="btn" href="#"><span>Start Buying</span></a>', '<a cl
 # AAN demo delta: the Certified block renders only for certified cars; CJ2602 is not certified
 vdp = sub1(vdp, r'\s*<!-- ═+ PRESTIGE CERTIFIED[\s\S]*?</section>', '')
 vdp = sub1(vdp, r'(<div class="vdp-prose">)[\s\S]*?(</div>\s*</div>\s*</details>)', lambda m: m.group(1) + '\n                        ' + prose_html + '''
-                        <p class="t-small vdp-prose__disclaimer">Equipment and description as published on the dealer's listing, 30 Sep 2026. All pricing and details are believed to be accurate, but we do not warrant or guarantee such accuracy. Please contact the dealership to confirm.</p>
-                    ''' + m.group(2))
+                    ''' + m.group(2))   # no disclaimer paragraph: the demo shows only the dealer's text
 vdp = sub1(vdp, r'(<ul class="vdp-options">)[\s\S]*?(</ul>)', lambda m: m.group(1) + '\n' + eq_html + '\n                    ' + m.group(2))
 vdp = sub1(vdp, r'placeholder="e\.g\. 431,950"', f'placeholder="e.g. {price(v)[1:]}" value="{price(v)[1:]}.00"')   # as the demo: the listing price
 vdp = sub1(vdp, r'(<output class="vdp-calc__output" id="calc-loan">)0\.00(</output>)', lambda m: m.group(1) + price(v)[1:] + '.00' + m.group(2))
@@ -539,9 +535,6 @@ def related_card(r):
 RELATED = ['86180', '10914', 'CJ2630', 'CJ2622', '86198X', '10881A']   # vehicles with photographs
 vdp = sub1(vdp, r'(<ul class="vdp-related__track" data-related-track aria-label="Related vehicles">)[\s\S]*?(</ul>\s*<div class="vdp-related__foot">)',
            lambda m: m.group(1) + '\n' + '\n'.join(related_card(cars[s]) for s in RELATED) + '\n            ' + m.group(2))
-vdp = vdp + '''
-        <p class="t-caption vdp-note">Price includes dealer fee of $1,447.50 and $299 electronic filing fee; tax, tag, title and registration fees are not included and are calculated at time of purchase. Listing as published on lamborghinimiami.com on 30 Sep 2026; price and availability subject to change.</p>
-'''
 vdp = vdp.replace('srp_v2.html', 'srp.html').replace('vdp_v2.html', 'vdp.html')
 assert 'assets/images/' not in vdp, re.findall(r'assets/images/[^"]+', vdp)[:3]
 

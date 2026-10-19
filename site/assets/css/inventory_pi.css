@@ -176,10 +176,6 @@
 /* bold in the VDP description (client): visible as bold in the Lamborghini weight */
 .pi .vdp-prose strong { color: var(--grey-0); font-weight: var(--wght-bold); }
 
-/* listing footnotes under the grid / the VDP, on Prestige's container */
-.pi .srp-note { width: min(94%, var(--pi-container-wide)); margin: 0 auto; padding-bottom: var(--pi-sp-5); }
-.pi .vdp-note { width: min(92%, var(--pi-container-max)); margin: var(--pi-sp-5) auto 0; }
-@media (max-width: 900px) { .pi .srp-note, .pi .vdp-note { width: 100%; padding-inline: 1.25rem; } }
 .pi .srp-results { padding-bottom: var(--pi-sp-4); }
 
 /* ---------- VDP photo: 4:3, ending level with the panel (Alex, round 3) ----------
@@ -287,9 +283,9 @@
 /* phone side padding as the demo renders it at 390 (the prototype CSS says 20 px): SRP 12 px, VDP 16 px */
 @media (max-width: 900px) {
     .pi .srp-intro, .pi .filter-bar__inner, .pi .filter-all__grid, .pi .filter-all__foot, .pi .filter-chips,
-    .pi .srp-results, .pi .stock_search-outer, .pi .srp-note { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .pi .srp-results, .pi .stock_search-outer { padding-left: 0.75rem; padding-right: 0.75rem; }
     .pi .breadcrumb, .pi .vdp-summary, .pi .vdp-summary__bar, .pi .vdp-sections, .pi .vdp-gallery-sec,
-    .pi .vdp-related, .pi .vdp-note { padding-left: 1rem; padding-right: 1rem; }
+    .pi .vdp-related { padding-left: 1rem; padding-right: 1rem; }
 }
 
 /* one column on phones and tablets: never wider than the screen (Prestige's 1fr takes the buttons'

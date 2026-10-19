@@ -54,6 +54,7 @@ Only the client's three requests change what the pages do:
   - All filters reads Body · Exterior color · Trans · Drivetrain, with **Apply**.
 - **VDP:**
   - no Prestige Certified block, because the car is not certified;
+  - no disclaimer paragraph under the description, and no footnotes under the SRP grid or the VDP (the demo has none; the dealer's own text carries the fee line);
   - the calculator opens with the vehicle price filled in;
   - on phones Clear Form sits above Calculate Payments;
   - Options & equipment is listed alphabetically;
