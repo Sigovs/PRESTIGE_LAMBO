@@ -15,3 +15,6 @@ node_modules/
 site/_shots/
 *.zip
 _public/
+
+# client change requests + raw Dropbox sources (≈1 GB)
+___OCT changes/

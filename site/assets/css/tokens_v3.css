@@ -1,0 +1,320 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — DESIGN TOKENS (single source of truth)
+   Colour · type · spacing · layout · motion.
+   Linked BEFORE main.css. Every value in main.css resolves here.
+   Evidence and reasoning for each value: site/DESIGN_SYSTEM.md
+   ============================================================ */
+
+/* ---- Brand font scaffold ---------------------------------------------------
+   Lambotype is proprietary ("exclusively for Lamborghini"). It is NOT loaded.
+   When a dealer licence and files are supplied, drop them in assets/fonts/,
+   uncomment this block, set --font-brand to 'Lambotype', and remap the three
+   width tokens to Lambotype's own axis: ultra 0 · cnd 50 · normal 100.
+
+@font-face {
+    font-family: 'Lambotype';
+    src: url('../fonts/Lambotype-Variable.woff2') format('woff2-variations');
+    font-weight: 300 900;
+    font-stretch: 0% 100%;
+    font-display: swap;
+}
+------------------------------------------------------------------------------ */
+
+:root {
+    /* ---- Grey ramp (OBSERVED, Lamborghini tokens v1.5.0) ---- */
+    --grey-0:  #ffffff;
+    --grey-1:  #f5f5f5;
+    --grey-2:  #dcdcdc;
+    --grey-3:  #c4c4c4;
+    --grey-4:  #ababab;
+    --grey-5:  #969696;
+    --grey-6:  #7d7d7d;   /* strokes only — 4.31:1 on #181818, never text */
+    --grey-7:  #626262;
+    --grey-8:  #494949;
+    --grey-9:  #313131;
+    --grey-10: #181818;
+    --grey-11: #000000;
+
+    /* ---- Accent (OBSERVED) ---- */
+    --accent-dark:        #ffc000;   /* on dark surfaces */
+    --accent-dark-hover:  #997300;
+    --accent-dark-press:  #cc9a00;
+    --accent-light:       #917300;   /* on #fff only — 4.51:1 */
+    --accent-light-hover: #423500;
+    --accent-light-press: #665100;
+    --focus:              #1e90ff;
+    --focus-offset:       3px;
+    /* solid secondary button, light bands only (Alex, 30 Sep 2026: Models CTAs) */
+    --btn-solid-bg:    var(--grey-2);   /* #dcdcdc, surface-2 light */
+    --btn-solid-fg:    var(--grey-11);  /* #000: 15.4:1 on the fill, 12.2:1 on hover */
+    --btn-solid-hover: var(--grey-3);   /* #c4c4c4 */
+
+    /* ---- Semantic surfaces ---- */
+    --surface-0-dark:  var(--grey-11);
+    --surface-1-dark:  var(--grey-10);
+    --surface-2-dark:  var(--grey-9);
+    --surface-0-light: var(--grey-0);
+
+    /* ---- Typography ---- */
+    --font-brand: 'Roboto Flex', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --wdth-ultra:  25;
+    --wdth-cnd:    60;
+    --wdth-normal: 100;
+    --wght-regular: 400;
+    --wght-bold:    700;
+    --wght-heavy:   800;   /* v2 showcase model name (Alex: bold, normal width) */
+
+    /* size / line-height pairs — corporate token scale, px → rem (16 base) */
+    --fs-120: 7.5rem;    --lh-110: 6.875rem;
+    --fs-80:  5rem;      --lh-80:  5rem;    --lh-70: 4.375rem;
+    --fs-56:  3.5rem;    --lh-52:  3.25rem;
+    --fs-48:  3rem;      --lh-46:  2.875rem;
+    --fs-40:  2.5rem;
+    --fs-28:  1.75rem;   --lh-38:  2.375rem;
+    --fs-27:  1.6875rem; --lh-37:  2.3125rem;
+    --fs-24:  1.5rem;    --lh-32:  2rem;    --lh-34: 2.125rem;
+    --fs-18:  1.125rem;  --lh-28:  1.75rem;
+    --fs-16:  1rem;      --lh-24:  1.5rem;  --lh-26: 1.625rem;
+    --fs-14:  0.875rem;  --lh-22:  1.375rem; /* the floor (design-dna I7) */
+
+    --lh-display-ratio: 0.875;  /* 70/80, corporate mobile hero */
+    --display-xl-fluid: 21vw;  /* keeps LAMBORGHINI on one line down to 320px */
+    --display-xl-short: 15vw;  /* short phones: 48px at 320 */
+    --model-name-fluid: 13.5vw; /* keeps PERFORMANTE in a 272px column at 320 */
+    --track-upper: 0.08em;   /* uppercase ≤ 40px (I4) */
+    --track-display: 0;      /* uppercase display ≥ 48px (I3) */
+    --measure: 60ch;
+
+    /* ---- Spacing (OBSERVED scale + two DECISION steps) ---- */
+    --sp-4:   0.25rem;
+    --sp-8:   0.5rem;
+    --sp-16:  1rem;
+    --sp-24:  1.5rem;
+    --sp-32:  2rem;
+    --sp-40:  2.5rem;
+    --sp-48:  3rem;
+    --sp-56:  3.5rem;
+    --sp-64:  4rem;
+    --sp-72:  4.5rem;
+    --sp-80:  5rem;
+    --sp-88:  5.5rem;
+    --sp-120: 7.5rem;
+    --sp-160: 10rem;
+
+    --section-pt: var(--sp-72);
+    --section-pb: var(--sp-88);
+
+    /* ---- Layout ---- */
+    --container-max: 1320px;
+    --page-gutter:   1.5rem;      /* 24px < 768 */
+    --grid-gap:      1.5rem;      /* 24px gutter */
+    --header-h:      5rem;        /* 80px mobile */
+
+    /* ---- Components ---- */
+    --btn-h-lg: 4.5rem;   /* 72px */
+    --btn-h-md: 3.5rem;   /* 56px */
+    --btn-pad-lg: var(--sp-24);
+    --btn-pad-md: var(--sp-16);
+    --stroke-1: 1px;
+    --stroke-2: 2px;
+    --icon: 1.5rem;
+    --bull-w: 3.5625rem;  /* 57px */
+    /* dealer lockup (header, menu bar): bull + LAMBORGHINI MIAMI beneath */
+    --lockup-bull-h: 1.875rem;   /* 30px on phones */
+    --lockup-fs: 0.875rem;       /* 14px: the name meets the text floor from 360 px up */
+    --lockup-gap: 0.375rem;      /* 6px */
+    --wdth-lockup: 112;          /* Roboto Flex, slightly wide */
+    --track-lockup: 0.2em;
+    --bull-h: 3.6875rem;  /* 59px */
+    --bull-sm: 2.5rem;    /* footer mark, 40px */
+    --tap: 2.75rem;       /* 44px minimum touch target */
+    --tap-pad: 0.75rem;   /* 12px: grows a 21px text link to a 45px target */
+    --hero-media-short: 78%;
+    --hero-scene-h: min(74svh, 160vw);       /* portrait phones: photo field height */
+    --hero-scene-h-short: min(66svh, 160vw); /* ≤600px tall phones */
+    --hero-scene-h-model: min(58svh, 118vw); /* model slides on phones: whole car across the width */
+    --hero-scene-h-model-short: min(44svh, 118vw); /* ≤600px tall phones */
+    /* portrait hero: the photo field is the car band; the copy group centres below it */
+    --photo-k: 0.55;          /* car bottom as a share of the scene height, dealer night frame */
+    --photo-k-model: 0.78;    /* model slides */
+    --hex: 3rem;            /* 48px hexagon arrow */
+    --hex-h: 3.25rem;       /* 52px */
+    --icon-sm: 1.25rem;
+    --dot-w: 3.5rem;        /* 56px progress segment */
+    --lockup-w: 17.5rem;  /* dealer lockup, 280px (1406px master = 5x) */
+    --prestige-w: 7.5rem; /* parent logo, 120px (318px master = 2.65x) */
+    --archive-col: 16rem; /* archive print column on mobile, 256px (640px master) */
+    --folio-col: 3rem;
+    --folio-col-lg: 4rem;
+    --measure-note: 44ch;
+    --measure-detail: 32rem;
+    --measure-caption: 34ch;
+    --measure-legal: 80ch;
+    --measure-legal-wide: 90ch;
+    --feather-top: 22%;   /* hero image top-edge feather */
+    /* Ad Personam (personalization.webp, Revuelto cabin; Alex) */
+    --adp-pos-p: 50% 50%;         /* portrait crop: steering wheel + centre console */
+    --adp-pos-l: 50% 50%;         /* landscape: the whole cabin */
+    --adp-photo-p: 38svh;         /* portrait phones: the photo above the column, sized so the chapter fits one screen at entry */
+    --adp-pad-b: 30svh;           /* landscape: foot of the column at entry, ~30% above the bottom (Alex) */
+    --adp-measure: 40ch;          /* paragraph measure, as on a hero slide */
+    --adp-scrim-a: 0.85;          /* landscape left gradient, hero-style: density at the left edge */
+    --adp-scrim-k: 0.9;           /* density kept at the mid stop */
+    --adp-scrim-mid: 36%;
+    --adp-scrim-end: 62%;         /* clean from here: console, leather, windscreen */
+
+    /* ---- Motion ---- */
+    --dur-fast:   200ms;
+    --dur-base:   300ms;
+    --dur-slow:   900ms;   /* hero image fade-in only */
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --ease-in:  cubic-bezier(0.4, 0, 1, 1);
+    --arrow-travel: 0.25rem;   /* 4px */
+    /* text rise (user direction, Alex) — mirrored as constants in main.js */
+    /* rise tokens: now used by the menu items only; page text uses the hero tokens */
+    --rise: 1.75rem;        /* 28px, text ≥ 20px */
+    --rise-sm: 1rem;        /* 16px, text < 20px */
+    --dur-rise: 700ms;
+    --ease-rise: cubic-bezier(0.2, 0.7, 0.2, 1);   /* = --ease-out */
+    --rise-step: 70ms;      /* sibling stagger */
+    --rise-cap: 400ms;      /* no element waits longer than this */
+
+    /* model slide-in, scroll-linked (Alex) — mirrored as constants in main.js */
+    --drive-from: -70%;       /* the car starts 70% of the tile out of its frame, to the left */
+    --drive-end: 0.55;        /* progress reaches 1 when the image's centre is at 55% of the viewport */
+    --drive-lag: 0.08;        /* right-column tiles start 8% of the viewport later */
+    --drive-fade: 0.3;        /* opacity 0 -> 1 over the first 30% of progress */
+    /* shared entrance ease — hero text, page text staircase and the menu all run on it.
+       It was retired with the old time-based drive tokens on 30 Sep and every
+       transition using it went invalid (instant cuts). Do not remove. */
+    --ease-drive: cubic-bezier(0.16, 1, 0.3, 1);
+    /* hero slider (user direction, Alex) */
+    --dur-slide: 800ms;     /* crossfade */
+    /* hero text entrance (Alex): from the left, on load and on every slide change */
+    --hero-in-x: -48px;
+    --dur-hero-in: 750ms;   /* on --ease-drive */
+    --dur-hero-out: 250ms;  /* the outgoing lines fade first, no travel */
+    --hero-step: 80ms;      /* top-to-bottom stagger */
+    --hero-cap: 400ms;
+    --rv-cap: 640ms;          /* page text staircase: up to ~8 siblings visibly cascade (mirrored in main.js) */
+    --rail-card: 84%;           /* pre-owned rail on phones: one card and a peek of the next */
+    --collision-pos: 60% 40%;   /* the painter, spray gun and blue panel stay in the portrait slice */
+    /* menu overlay (Alex): reveal from the top, items rise in after it */
+    --dur-menu: 650ms;          /* panel reveal, on --ease-drive */
+    --dur-menu-close: 400ms;    /* faster retract, on --ease-in */
+    --dur-menu-backdrop: 300ms;
+    --menu-items-delay: 200ms;  /* items start this far into the reveal */
+    --menu-step: 55ms;
+    --menu-cap: 350ms;
+    --ctrl-gap: 8px;        /* slider controls reach opacity 0 this far below the header (mirrored in main.js) */
+    --ctrl-fade: 96px;      /* scroll distance over which they fade (mirrored in main.js) */
+    --slide-hold: 6500ms;   /* autoplay dwell per slide — mirrored in main.js */
+    /* reduced motion (Alex, 30 Sep 2026): no travel anywhere, but nothing pops either —
+       every entrance becomes a short opacity fade. Mirrored in main.js where JS times it. */
+    --dur-rm-text: 400ms;     /* page text and incoming hero lines, on the 80 ms staircase */
+    --dur-rm-out: 200ms;      /* outgoing hero lines */
+    --dur-rm-slide: 600ms;    /* hero image crossfade */
+    --dur-rm-car: 500ms;      /* model cars fade in place */
+    --rm-car-step: 150ms;     /* left tile first */
+    --dur-rm-menu: 250ms;     /* menu panel and backdrop */
+    --dur-rm-item: 200ms;     /* menu items, together */
+    --dur-rm-media: 400ms;    /* collision photograph */
+
+    /* v2 range showcase (Alex's concept, 1 Oct 2026) — one screen tall; JS mirrors the motion values */
+    --sc-ground: var(--grey-1);          /* #f5f5f5, the concept's off-white */
+    --sc-mark: #e9e9e9;                  /* watermark word: decorative only, 1.09:1 on the ground */
+    --sc-label: var(--grey-7);           /* inactive thumb labels: #626262 = 5.53:1 on #f5f5f5 */
+    --sc-air-t: var(--sp-24);            /* air under the header */
+    --sc-air-b: var(--sp-40);            /* air under the thumbnail row */
+    --sc-name-fs: clamp(2rem, min(11vw, 7svh), 3rem);
+    --sc-mark-fs: clamp(7rem, min(30vw, 30svh), 13rem);
+    --sc-thumb-w: 7.5rem;                /* 120px thumbs on phones (a rail) */
+    --sc-step: 90svh;                    /* pin: scroll per model (4 models -> 460svh wrapper) */
+    --sc-mark-top: 40%;                  /* watermark: phones, behind the car's top */
+    --sc-car-span: 128%;                 /* phones: the car box is wider than the column... */
+    --sc-car-shift: -16%;                /* ...and starts left of it, so the faded shadow margin falls outside */
+    --sc-car-in: -12%;                   /* switch: incoming car starts 12% of its box to the left */
+    --sc-car-out: 6%;                    /* outgoing car leaves 6% to the right */
+    --dur-sc-in: 850ms;                  /* on --ease-drive */
+    --dur-sc-out: 450ms;
+    --sc-in-delay: 120ms;                /* the new car starts once the old one is on its way */
+    --dur-sc-mark: 600ms;                /* watermark crossfade */
+    --dur-sc-text-out: 200ms;            /* outgoing text lines fade, no travel */
+    --sc-tabs-delay: 240ms;              /* thumbs start their staircase after the text has begun */
+
+    --z-header: 1040;
+    --z-menu:   1050;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --page-gutter: 2.5rem;    /* 40px */
+        --rail-card: calc((100% - var(--grid-gap)) / 2.15);   /* tablets: two cards and a peek */
+        --section-pt: var(--sp-120);
+        --section-pb: var(--sp-160);
+    }
+}
+@media (max-width: 359.98px) {
+    :root { --lockup-fs: 0.75rem; }   /* 320: 12px, a logo-lockup exception to the floor; the bar has 272 px */
+}
+@media (orientation: portrait) and (max-height: 700px) {
+    :root { --adp-photo-p: 30svh; }   /* 375x667 */
+}
+@media (orientation: portrait) and (max-height: 600px) {
+    :root { --adp-photo-p: 24svh; }   /* 320x568 */
+}
+@media (orientation: portrait) and (min-width: 768px) {
+    :root { --adp-photo-p: 56svh; }   /* portrait tablets */
+}
+@media (orientation: landscape) and (max-height: 600px) {
+    :root { --adp-pad-b: 6svh; }    /* phones on their side: the column needs almost the whole frame */
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --page-gutter: 3.75rem;   /* 60px */
+        --header-h: 6.5rem;       /* 104px */
+        --lockup-bull-h: 2.625rem;   /* 42px */
+        --lockup-fs: 0.875rem;       /* 14px */
+        --lockup-gap: 0.4375rem;     /* 7px */
+    }
+}
+/* v2 showcase: side by side from 1024, or on any landscape screen from 700 wide.
+   Proportions from Alex's concept (1672x941) as fractions of the 100svh section. */
+@media (min-width: 1024px), (orientation: landscape) and (min-width: 700px) {
+    :root {
+        --sc-air-b: clamp(1.5rem, 8svh, 5rem);      /* 72px at 900 tall, 61 at 768, 31 at 390 */
+        --sc-eyelet-y: max(30svh, calc(var(--header-h) + var(--sp-16)));
+        --sc-eyelet-gap: clamp(var(--sp-16), 3.5svh, var(--sp-32));
+        --sc-text-gap: clamp(var(--sp-4), 1.6svh, var(--sp-16));
+        --sc-text-w: 29%;
+        --sc-name-fs: clamp(2.5rem, min(5.3vw, 8.5svh), 5rem);
+        --sc-claim-fs: clamp(1rem, 3.4svh, 2rem);           /* the concept's ~32px regular claim */
+        --sc-car-h: min(35vw, 59svh);                       /* body ~54% of the width at 1440x900 (~20% larger than before) */
+        --sc-car-w: calc(var(--sc-car-h) * 2.1205);         /* the art is 1830x863 */
+        --sc-car-right: 89%;                                /* the body's right edge */
+        --sc-car-cy: 53svh;                                 /* the body's centre line */
+        --sc-mark-fs: min(27vw, 38svh);
+        --sc-mark-top: 17svh;
+        --sc-mark-right: 2.5%;
+        --sc-thumb-w: clamp(6rem, min(14.7vw, 22svh), 13.25rem);
+        --sc-tabs-pad: 0px;
+    }
+}
+@media (min-width: 1200px) {
+    :root { --sc-tabs-pad: 8vw; }
+}
+@media (orientation: landscape) and (max-height: 520px) {
+    :root {
+        --sc-air-b: 6svh;                             /* 23px at 390 tall */
+        --sc-eyelet-y: calc(var(--header-h) + var(--sp-8));
+        --sc-eyelet-gap: var(--sp-4);
+        --sc-text-w: 42%;
+        --sc-car-right: 94%;
+        --sc-car-cy: 50svh;
+        --sc-car-h: min(30vw, 50svh);
+        --sc-mark-top: calc(var(--header-h) + var(--sp-8));
+        --sc-thumb-w: 6rem;
+    }
+}
+
