@@ -296,3 +296,14 @@
 .minv__price { font-size: var(--fs-18); line-height: var(--lh-28); font-weight: var(--wght-bold); font-variant-numeric: tabular-nums; }
 .minv__none { color: var(--fg-2); }
 @media (prefers-reduced-motion: reduce) { .minv__link img { transition: none; } }
+
+/* CTAs along the page (Alex): one row per chapter, then a closing band before the inventory */
+.mcta__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-16) var(--sp-24); margin-top: var(--sp-48); }
+.mnum__cta { margin-top: 0; }
+@media (min-width: 1024px) { .mnum__cta { grid-column: 1; } }
+@media (max-width: 767.98px) { .mcta__row .btn:not(.btn--tertiary) { width: 100%; } }
+.mcta__grid { display: grid; gap: var(--sp-40); }
+.mcta__lead { margin-top: var(--sp-24); max-width: 32rem; color: var(--fg-2); }
+.mcta__actions { display: grid; gap: var(--sp-16); align-content: end; }
+@media (min-width: 768px) { .mcta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-16) var(--sp-24); } }
+@media (min-width: 1024px) { .mcta__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); align-items: end; } .mcta__actions { justify-content: flex-end; } }

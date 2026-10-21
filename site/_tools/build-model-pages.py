@@ -51,8 +51,7 @@ MODELS = [
                       ('gallery-2', 'An orange Revuelto from behind, on a lit circuit at night.'), ('gallery-3', 'The Revuelto centre console in orange and black.'),
                       ('gallery-4', 'A yellow Revuelto on track, seen from above.'),
                       ('gallery-6', 'A dark blue Revuelto in a studio, front three-quarter view.'), ('gallery-7', 'A lime-green Revuelto in a studio, front three-quarter view.'),
-                      ('gallery-8', 'The front of an orange Revuelto, close up, its headlights lit.'), ('gallery-9', 'The rear of an orange Revuelto with its spoiler raised, airflow drawn over it.'),
-                      ('gallery-10', 'The Revuelto’s digital instruments behind the steering wheel.')],
+                      ('gallery-8', 'The front of an orange Revuelto, close up, its headlights lit.'), ('gallery-9', 'The rear of an orange Revuelto with its spoiler raised, airflow drawn over it.')],
          ),
          note=''),
     dict(slug='revuelto-sv', name='Revuelto SV', mark='Revuelto SV', mk='0.62',
@@ -239,6 +238,10 @@ def story(m):
             {pic(slug, st['numbers_img'][0], (800, 1200), '(min-width: 1024px) 45vw, 100vw', st['numbers_img'][1])}
         </figure>
         <p class="t-legal mnum__src">As published by Automobili Lamborghini; power and speed in US units.</p>
+        <div class="mcta__row mnum__cta">
+            <a class="btn btn--secondary" href="{CONFIGURATOR}" rel="noopener"><span>Configure yours</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+            <a class="btn btn--tertiary" href="srp.html?model={m.get('inventory', name)}"><span>See the {name}s in stock</span></a>
+        </div>
     </div>
 </section>
 
@@ -255,6 +258,10 @@ def story(m):
         {pic(slug, 'exterior', (1440, 2160), '100vw', ex['wide_alt'], '', False, ('exterior-p', 750))}
     </figure>
     <div class="container mstory__cards mstory__cards--3">{cards(ex['cards'])}
+    </div>
+    <div class="container mcta__row">
+        <a class="btn btn--secondary" href="{CONFIGURATOR}" rel="noopener"><span>Choose your colour</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+        <a class="btn btn--tertiary" href="index_v3.html#ad-personam"><span>Ad Personam personalization</span></a>
     </div>
 </section>
 
@@ -273,6 +280,10 @@ def story(m):
         </figure>
     </div>
     <div class="container mstory__cards mstory__cards--2">{cards(it['cards'])}
+    </div>
+    <div class="container mcta__row">
+        <a class="btn btn--accent" href="#enquire"><span>Book a viewing</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--tertiary" href="{CONFIGURATOR}" rel="noopener"><span>Design your interior</span></a>
     </div>
 </section>
 
@@ -297,6 +308,22 @@ def story(m):
     <button class="glb__btn glb__btn--next" type="button" data-glb-next aria-label="Next photo"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
     <button class="glb__close" type="button" data-glb-close aria-label="Close gallery"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
 </dialog>
+
+<!-- ============================ CTA BAND ============================ -->
+<section class="mcta band band--black" aria-labelledby="cta-title">
+    <div class="container mcta__grid">
+        <div>
+            <p class="t-eyelet section-head__eyelet">Lamborghini Miami</p>
+            <h2 class="t-banner mcta__title" id="cta-title"><span class="svc-line">Your {name}</span> <span class="svc-line">starts here</span></h2>
+            <p class="t-lead mcta__lead">Talk to our sales team on Biscayne Boulevard about allocation, specification and delivery.</p>
+        </div>
+        <div class="mcta__actions">
+            <a class="btn btn--accent" href="#enquire"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--secondary" href="tel:+18332905147"><span>Call (833) 290-5147</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
+            <a class="btn btn--tertiary" href="{CONFIGURATOR}" rel="noopener"><span>Configure yours</span></a>
+        </div>
+    </div>
+</section>
 {inventory(m)}'''
     return hero
 
@@ -387,7 +414,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=13">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=14">
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 
