@@ -142,7 +142,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=315">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=3">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=4">
 </head>
 <body class="page-model">
 
@@ -295,7 +295,7 @@ def page(m):
 
 {FOOTER}<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script src="assets/js/main_v3.js?v=307" defer></script>
-<script src="assets/js/model_v3.js?v=1" defer></script>
+<script src="assets/js/model_v3.js?v=3" defer></script>
 </body>
 </html>
 '''

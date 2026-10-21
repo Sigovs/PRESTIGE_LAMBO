@@ -1908,3 +1908,25 @@ html.is-film { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .hero__slide--stack.is-active .hero__img { animation: none; } }
 .hero .dev-note { max-width: 26rem; }
 @media (max-width: 767.98px) { .hero .dev-note { display: none; } }   /* phones keep the one-screen hero */
+
+/* ---------- Event films (v3, Oct): the Lifestyle page's cards, and the home page's Lifestyle block ---------- */
+.events__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-48) var(--grid-gap); }
+@media (min-width: 768px) { .events__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.event { display: grid; gap: var(--sp-8); align-content: start; }
+.event__media { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #000; cursor: pointer; aspect-ratio: 16 / 9; overflow: hidden; }
+.event__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.event__media:hover img, .event__media:focus-visible img { transform: scale(1.03); }
+.event__play {
+    position: absolute; left: var(--sp-16); bottom: var(--sp-16);
+    display: grid; place-items: center; width: var(--tap); height: var(--tap);
+    border: var(--stroke-1) solid var(--grey-0); background: rgb(0 0 0 / 0.64); color: var(--grey-0);
+}
+.event__place { margin-top: var(--sp-8); font-size: var(--fs-14); line-height: var(--lh-22); font-weight: var(--wght-bold); text-transform: uppercase; letter-spacing: var(--track-upper); color: var(--fg-3); }
+.event__title { font-size: var(--fs-24); line-height: var(--lh-32); font-weight: var(--wght-bold); color: var(--fg); }
+.event__text { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); max-width: var(--measure-caption); }
+@media (prefers-reduced-motion: reduce) { .event__media img { transition: none; } }
+
+.lifestyle-block .events__grid .event:first-child { grid-column: auto; grid-row: auto; }   /* home: three equal films */
+@media (min-width: 1200px) { .lifestyle-block .events__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.lifestyle-block .event__media { text-decoration: none; }
+.lifestyle-block__actions { display: flex; flex-wrap: wrap; gap: var(--sp-16) var(--sp-24); margin-top: var(--sp-48); }

@@ -1,6 +1,6 @@
 #!/bin/zsh
 # v3 (Oct client changes): web encodes of the hero slide films.
-#   zsh _tools/encode-oct-video.sh [grand-opening|service|ad-personam]
+#   zsh _tools/encode-oct-video.sh [grand-opening|service|ad-personam|lifestyle]
 # Loops are muted H.264 (yuv420p, faststart), cut on a scene change so the jump back
 # to the start lands on a cut. Desktop 1920x1080; phone = centre crop at the hero's
 # portrait ratio (800 x 943), 720 wide. Posters = first frame (webp).
@@ -25,5 +25,6 @@ case ${1:-grand-opening} in
   # the 603 MB source was deleted locally (Alex, 21 Oct): re-download it from the client Dropbox link in index_v3.html to re-encode
   grand-opening) enc grand-opening "$SRC/01-grand-opening/2022-Lamborghini-Miami-Grand-Opening-4K-Landscape-With-Logo.mov" 0 8.30 ;;
   ad-personam)   enc ad-personam "$SRC/06-ad-personam/Andres-Ad-Personam-Revuelto-Horizontal-Reel.mp4" 1.335 10.635 4/5 ;;
+  lifestyle)     enc revuelto-launch "$SRC/09-lifestyle/REVUELTO-LAUNCH.mp4" 19.394 8.759 ;;
   service)       enc service       "$SRC/04-service/Andres-Service-Landing-Video.mov" 3.128 9.09 ;;
 esac

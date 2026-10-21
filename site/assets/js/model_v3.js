@@ -11,6 +11,8 @@
         const submit = form.querySelector('[data-form-submit]');
         const submitLabel = form.querySelector('[data-submit-label]');
         const done = document.querySelector('[data-form-done]');
+        const idleLabel = submitLabel.textContent;   // 'Send enquiry' / 'Join the list': the page's own words
+        const failMsg = form.dataset.fail || 'Your enquiry could not be sent. Please try again, or call sales on (833) 290-5147.';
         const rules = {
             first: (v) => (v.trim() ? '' : 'Enter your first name.'),
             last: (v) => (v.trim() ? '' : 'Enter your last name.'),
@@ -39,7 +41,7 @@
         const setBusy = (busy) => {
             submit.setAttribute('aria-busy', busy ? 'true' : 'false');
             submit.disabled = busy;
-            submitLabel.textContent = busy ? 'Sending…' : 'Send enquiry';
+            submitLabel.textContent = busy ? 'Sending…' : idleLabel;
         };
         const showSent = () => {
             const name = form.elements.first.value.trim();
@@ -82,7 +84,7 @@
                 if (!res.ok) throw new Error(String(res.status));
                 showSent();
             } catch (err) {
-                status.textContent = 'Your enquiry could not be sent. Please try again, or call sales on (833) 290-5147.';
+                status.textContent = failMsg;
             } finally {
                 clearTimeout(timer);
                 setBusy(false);
@@ -100,7 +102,7 @@
     }
 
     /* the film: a poster until asked for, then YouTube (no-cookie) with sound, in place */
-    document.querySelectorAll('[data-yt]').forEach((box) => {
+    document.querySelectorAll('.mfilm[data-yt]').forEach((box) => {
         box.querySelector('[data-yt-play]').addEventListener('click', () => {
             const f = document.createElement('iframe');
             f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.yt}?autoplay=1&rel=0`;

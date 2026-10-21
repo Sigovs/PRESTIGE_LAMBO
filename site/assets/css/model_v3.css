@@ -89,3 +89,31 @@
 }
 .mfilm__play:hover, .mfilm__play:focus-visible { background: rgb(0 0 0 / 0.84); }
 .mfilm.is-playing .mfilm__play, .mfilm.is-playing .mfilm__poster { display: none; }
+
+/* ---------- Lifestyle page (v3, Oct): film hero, event films, newsletter ---------- */
+.lhero { position: relative; overflow: hidden; background: var(--grey-11); color: var(--grey-0); min-height: min(100svh, 56rem); display: grid; align-items: end; }
+.lhero__media { position: absolute; inset: 0; }
+.lhero__video { width: 100%; height: 100%; object-fit: cover; }
+.lhero::after {   /* the copy column, held dark on every frame of the loop */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+        linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
+        linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 52%, rgb(0 0 0 / 0) 85%);
+}
+.lhero__inner { position: relative; z-index: 1; display: grid; justify-items: start; gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-64)); padding-bottom: var(--sp-80); }
+.lhero__eyelet { color: var(--grey-1); }
+.lhero__lead { max-width: var(--measure); color: var(--grey-1); }
+.lhero__actions { display: grid; gap: var(--sp-16); width: 100%; margin-top: var(--sp-16); }
+.lhero .btn--secondary { border-color: var(--grey-0); color: var(--grey-0); background: rgb(0 0 0 / 0.64); }
+@media (min-width: 768px) { .lhero__actions { display: flex; flex-wrap: wrap; width: auto; gap: var(--sp-24); } }
+@media (max-width: 1199.98px) and (orientation: portrait) {
+    .lhero::after { background: linear-gradient(0deg, rgb(0 0 0 / 0.95) 0%, rgb(0 0 0 / 0.85) 45%, rgb(0 0 0 / 0.2) 75%, rgb(0 0 0 / 0.55) 100%); }
+}
+
+@media (min-width: 1200px) {
+    .events__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .events__grid .event:first-child { grid-column: span 2; grid-row: span 2; }   /* our own event leads */
+}
+/* the film lightbox's stage (the dialog itself is main_v3's .film) */
+.film__stage { position: absolute; inset: 0; }
+.film__stage .film__v { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; background: #000; }
