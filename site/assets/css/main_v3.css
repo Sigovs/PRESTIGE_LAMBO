@@ -606,6 +606,8 @@ address { font-style: normal; }
 }
 .hero__title { color: var(--grey-0); }
 .hero__line { display: block; white-space: nowrap; }   /* two authored lines on every slide */
+.hero__br-phone { display: none; }
+@media (max-width: 767.98px) { .hero__br-phone { display: inline; } }
 .nowrap { white-space: nowrap; }
 .hero__place {
     color: var(--grey-3);
