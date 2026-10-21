@@ -766,6 +766,14 @@ address { font-style: normal; }
     .hero__slide--sv .hero__media { left: 36%; right: 0; width: auto; }
     .hero__slide--sv .hero__img.hero__img--art { object-position: 60% 62%; }
 }
+/* slide 05 (Alex): a short claim, so the scrim only holds the copy column and the film stays open */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--prestige .hero__scrim {
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.45) 0%, rgb(0 0 0 / 0) 25%),
+            linear-gradient(90deg, rgb(0 0 0 / 0.88) 0%, rgb(0 0 0 / 0.84) 35%, rgb(0 0 0 / 0) 58%) !important;
+    }
+}
 /* slide 01 (v3, Oct): the Grand Opening film. Poster and loop fill the field at every
    width (cover); the loop fades in over its own first frame once it is playing. */
 .hero__slide--film { --d-pos: 50% 50%; --m-pos: 50%; --scrim-a: 0.8; }
