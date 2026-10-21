@@ -9,16 +9,26 @@ packages: Alex uploads it to allautonetwork.com/previews/lambo-miami-sl11-v3/ an
 same path each time). Only the assets the pages, their CSS and their JS reference are copied.
 Big films are not in it: they stream from the client's Dropbox. The notes for Alex
 (.dev-note / .dev-notes) are taken out: the client sees the site, not our working notes."""
-import os, re, shutil, zipfile
+import os, re, shutil, sys, zipfile
 
 SRC = 'site/'
 NAME = 'lambo-miami-sl11-v3'
-OUT = NAME + '/'
 ZIP = 'lamborghini-miami-sl11-v3.zip'
+HOME = 'index.html'
 PAGES = {'index_v3.html': 'index.html', 'service.html': 'service.html', 'srp.html': 'srp.html', 'vdp.html': 'vdp.html',
          'contact.html': 'contact.html', 'lifestyle.html': 'lifestyle.html',
          'model-revuelto.html': 'model-revuelto.html', 'model-revuelto-sv.html': 'model-revuelto-sv.html',
-         'model-urus-se-performante.html': 'model-urus-se-performante.html'}
+         'model-urus-se-performante.html': 'model-urus-se-performante.html',
+         'model-temerario.html': 'model-temerario.html', 'model-urus-se.html': 'model-urus-se.html'}
+# --page model-revuelto.html: a separate preview that opens on one page (it becomes index.html,
+# the home moves to home.html), in its own folder and zip
+if '--page' in sys.argv:
+    entry = sys.argv[sys.argv.index('--page') + 1]
+    slug = entry.replace('.html', '').replace('model-', '')
+    NAME, ZIP, HOME = f'lambo-miami-{slug}-preview', f'lamborghini-miami-{slug}-preview.zip', 'home.html'
+    PAGES['index_v3.html'] = 'home.html'
+    PAGES[entry] = 'index.html'
+OUT = NAME + '/'
 
 if os.path.isdir(OUT):
     shutil.rmtree(OUT)
@@ -26,7 +36,11 @@ os.makedirs(OUT)
 
 text = ''
 for src, dst in PAGES.items():
-    s = open(SRC + src, encoding='utf-8').read().replace('index_v3.html', 'index.html')
+    s = open(SRC + src, encoding='utf-8').read().replace('index_v3.html', HOME)
+    if HOME != 'index.html':
+        for a, b in PAGES.items():
+            if b == 'index.html':
+                s = s.replace(f'href="{a}', 'href="index.html')
     s = re.sub(r'\n?[ \t]*<p class="dev-note"[^>]*>.*?</p>', '', s, flags=re.S)
     s = re.sub(r'\n?<div class="container dev-notes"[^>]*>.*?</div>\n', '\n', s, flags=re.S)
     assert 'Note for Alex' not in s, src

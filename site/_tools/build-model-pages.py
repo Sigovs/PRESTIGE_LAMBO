@@ -18,12 +18,6 @@ SVC = (SITE / 'service.html').read_text()
 CONFIGURATOR = 'https://configurator.lamborghini.com/'
 
 MODELS = [
-    dict(slug='urus-se-performante', name='Urus SE Performante', mark='Performante', mk='0.68',
-         claim='Urus at its peak',
-         facts=[('Max power', '801 hp'), ('Top speed', '194 mph'), ('0–62 mph', '3.3 s')],
-         art_alt='Lamborghini Urus SE Performante in yellow-green with a carbon bonnet, front three-quarter view.',
-         media=dict(kind='youtube', id='5ZtLH3s8Wvg', title='Urus SE Performante film'),
-         note='Film: the YouTube link the client sent (it loads only on click). The enquiry form is a mock-up and is not connected: the client wants it to feed a DriveCentric campaign.'),
     dict(slug='revuelto', name='Revuelto', mark='Revuelto', mk='1',
          claim='The quantum of driving',
          facts=[('Max power', '1,001 hp'), ('Top speed', '>217 mph'), ('0–62 mph', '2.5 s')],
@@ -59,9 +53,109 @@ MODELS = [
          facts=[('Hockenheimring lap', '1:41.6')],
          art_alt='Lamborghini Revuelto SV in grey and black carbon fibre with red accents, front three-quarter view.',
          media=dict(kind='youtube', id='1UE_RnIbt4c', title='Revuelto SV film'),
-         note='Film: Lamborghini’s official Revuelto SV film on YouTube. No mph / 0–62 published for the SV yet. The enquiry form is a mock-up and is not connected (DriveCentric later).'),
+         inventory='Revuelto SV', note='',
+         story=dict(
+             lead='Super Veloce, to a new dimension: a naturally aspirated V12, hybrid performance and motorsport-derived technologies, for a limited number of drivers.',
+             hero_alt='A Lamborghini Revuelto SV in red and black, front three-quarter view, in a concrete studio.',
+             numbers=[('1,050', 'hp', 'Max power, V12 and electric motors combined'), ('216', 'mph', 'Top speed'),
+                      ('2.4', 's', '0–62 mph'), ('1:41.6', '', 'Hockenheimring lap, a production car record')],
+             numbers_img=('int-engine', 'The Revuelto SV’s V12 engine, on a dark ground.'),
+             exterior=dict(text='The Super Veloce treatment shows from every side: aerodynamics of its own front and rear, and carbon fibre throughout.',
+                           wide_alt='A Lamborghini Revuelto SV in profile against a red ground.',
+                           cards=[('ext-front', 'The front', 'Y-shaped lights and a front built for downforce.', 'The front of a red and black Revuelto SV, head-on.'),
+                                  ('ext-rear', 'The rear', 'A fixed wing over the exhausts and the diffuser.', 'The rear of a red and black Revuelto SV.'),
+                                  ('ext-aero', 'Aerodynamics', 'Airflow worked for balance and grip at speed.', 'The Revuelto SV with its airflow drawn over the body.')]),
+             interior=dict(text='Inside, a cockpit for the track: carbon-shell seats and a wheel built around the driver.',
+                           main_alt='The Revuelto SV cockpit in black and red.',
+                           cards=[('int-driver', 'For the driver', 'The wheel, the instruments and the driving modes at hand.', 'The Revuelto SV steering wheel and instruments.'),
+                                  ('int-seats', 'The seats', 'Carbon-shell seats, trimmed in black and red.', 'The Revuelto SV seats in black with red details.')]),
+             gallery=[('gallery-1', 'A Revuelto SV from above, its carbon engine cover open to view.'), ('gallery-2', 'A red and black Revuelto SV in a concrete studio.'),
+                      ('gallery-3', 'A grey Revuelto SV in a tunnel, a bull mural behind it.'), ('gallery-4', 'A grey Revuelto SV from above, at speed in the wet.'),
+                      ('gallery-5', 'The Revuelto SV’s Y-shaped taillight, close up.'), ('gallery-6', 'A Revuelto SV with its carbon fibre parts highlighted.'),
+                      ('gallery-7', 'A Revuelto SV wheel and tyre, close up.'), ('gallery-8', 'The Revuelto SV’s brake cooling, airflow drawn over the wheel.'),
+                      ('gallery-9', 'The Revuelto SV brakes, discs and calipers.')],
+         )),
+    dict(slug='temerario', name='Temerario', mark='Temerario', mk='0.86',
+         claim='You can’t hide who you are',
+         facts=[('Max power', '907 hp'), ('Top speed', '213 mph'), ('0–62 mph', '2.7 s')],
+         art_alt='Lamborghini Temerario in dark blue, front three-quarter view, its hexagonal daytime lights lit.',
+         media=None, inventory='Temerario', note='',
+         story=dict(
+             lead='Lamborghini’s first super sports car with a twin-turbo V8 and three electric motors, and the second of its HPEV range.',
+             hero_alt='A Lamborghini Temerario in orange, front three-quarter view, in a dark studio.',
+             numbers=[('907', 'hp', 'Max power, V8 and three electric motors combined'), ('213', 'mph', 'Top speed'),
+                      ('2.7', 's', '0–62 mph'), ('4.0', 'L', 'Twin-turbo V8')],
+             numbers_img=('int-engine', 'The Temerario powertrain, on a dark ground.'),
+             exterior=dict(text='Temerario marks a new Lamborghini design milestone, with bold lines, futuristic hexagonal DRLs, an exposed engine and a functional spoiler enhancing aerodynamic efficiency.',
+                           wide_alt='A Lamborghini Temerario in blue, in side profile.',
+                           cards=[('ext-headlight', 'Hexagonal lights', 'The daytime running lights draw a hexagon at each corner.', 'The front of a dark Temerario, its hexagonal lights lit.'),
+                                  ('ext-rear', 'The rear', 'Hexagonal taillights and a functional spoiler.', 'The rear of a dark Temerario, its taillights lit.'),
+                                  ('ext-engine', 'The exposed engine', 'The V8 stays on show under the rear deck.', 'The engine bay of a Temerario, close up.')]),
+             interior=dict(text='Inside, a cockpit built around the driver: the instruments behind the wheel, the driving modes at the driver’s hands, and a display for the passenger.',
+                           main_alt='The Temerario cockpit in black and tan.',
+                           cards=[('int-wheel', 'At the wheel', 'Digital instruments, and the driving modes at hand.', 'The Temerario steering wheel and digital instruments.'),
+                                  ('int-passenger', 'For the passenger', 'A display of its own, set into the dashboard.', 'The passenger display in the Temerario dashboard.')]),
+             gallery=[('gallery-1', 'A yellow Temerario on a circuit.'), ('gallery-2', 'A green Temerario at sunset beside the Sant’Agata Bolognese sign.'),
+                      ('gallery-3', 'A blue Temerario by an old tower.'), ('gallery-4', 'The hexagonal light of a yellow Temerario, close up.'),
+                      ('gallery-5', 'A white Temerario from behind, in a doorway with curtains.'), ('gallery-6', 'A yellow Temerario in a dark studio.'),
+                      ('gallery-7', 'A green Temerario in a dark studio.'), ('gallery-8', 'The Temerario’s spoiler, airflow drawn over it.'),
+                      ('gallery-9', 'The front of a Temerario, airflow drawn over it.')],
+         )),
+    dict(slug='urus-se', name='Urus SE', mark='Urus SE', mk='1',
+         claim='Dare to live more',
+         facts=[('Max power', '789 hp'), ('Top speed', '194 mph'), ('0–62 mph', '3.4 s')],
+         art_alt='Lamborghini Urus SE in orange, front three-quarter view.',
+         media=None, inventory='Urus', note='',
+         story=dict(
+             lead='Lamborghini’s first plug-in hybrid Super SUV, and its next step toward full hybridization.',
+             hero_alt='A Lamborghini Urus SE in teal, front three-quarter view, in a dark studio.',
+             numbers=[('789', 'hp', 'Max power, V8 and electric motor combined'), ('194', 'mph', 'Top speed'),
+                      ('3.4', 's', '0–62 mph'), ('4.0', 'L', 'Twin-turbo V8')],
+             numbers_img=('int-engine', 'The Urus SE’s twin-turbo V8, on a dark ground.'),
+             exterior=dict(text='Urus SE features sportier proportions and refined lines that improve aerodynamics, cooling and rear downforce. Extensive customization options enhance its bold, muscular character.',
+                           wide_alt='A Lamborghini Urus SE in orange, in side profile.',
+                           cards=[('ext-headlight', 'Headlights', 'A new light signature across the front.', 'The front of an orange Urus SE, its headlights lit.'),
+                                  ('ext-rear', 'The rear', 'Slim taillights across a wider rear.', 'The rear of an orange Urus SE.'),
+                                  ('ext-wheel', 'The wheels', 'Large wheels fill the arches.', 'A wheel of an orange Urus SE, close up.')]),
+             interior=dict(text='Inside, a wide central screen, and the drive modes chosen at the centre console.',
+                           main_alt='The Urus SE cockpit in black and orange.',
+                           cards=[('int-selector', 'Drive modes', 'Selected at the centre console.', 'The Urus SE drive mode selector on the centre console.'),
+                                  ('int-screen', 'The screen', 'A central display for the car’s functions.', 'The Urus SE central touchscreen.')]),
+             gallery=[('gallery-1', 'An orange Urus SE raising dust on a dirt road.'), ('gallery-2', 'Three Urus SE in a field: orange, blue and yellow.'),
+                      ('gallery-3', 'A dark Urus SE through spray, close up.'), ('gallery-4', 'An orange Urus SE on rocks at sunset.'),
+                      ('gallery-5', 'A yellow Urus SE in a green landscape.'), ('gallery-6', 'The front corner of an orange Urus SE, close up.'),
+                      ('gallery-7', 'A dark Urus SE in a studio.'), ('gallery-8', 'The Urus SE rear spoiler, airflow drawn over it.'),
+                      ('gallery-9', 'An orange Urus SE seen from above.')],
+         )),
+    dict(slug='urus-se-performante', name='Urus SE Performante', mark='Performante', mk='0.68',
+         claim='Urus at its peak',
+         facts=[('Max power', '801 hp'), ('Top speed', '194 mph'), ('0–62 mph', '3.3 s')],
+         art_alt='Lamborghini Urus SE Performante in yellow-green with a carbon bonnet, front three-quarter view.',
+         media=dict(kind='youtube', id='5ZtLH3s8Wvg', title='Urus SE Performante film'),
+         inventory='Urus', note='',
+         story=dict(
+             lead='The plug-in hybrid Super SUV at its most precise: aerodynamics, driving dynamics and an innovative suspension system.',
+             hero_alt='A Lamborghini Urus SE Performante in violet, front three-quarter view, in a dark studio.',
+             numbers=[('801', 'hp', 'Max power, V8 and electric motor combined'), ('194', 'mph', 'Top speed'),
+                      ('3.3', 's', '0–62 mph'), ('4.0', 'L', 'Twin-turbo V8')],
+             numbers_img=('int-engine', 'The Urus SE Performante’s twin-turbo V8, on a dark ground.'),
+             exterior=dict(text='Extensive use of carbon fiber lightens Urus SE Performante, optimizing the power-to-weight ratio to achieve unrivaled performance.',
+                           wide_alt='A Lamborghini Urus SE Performante in lime, in side profile against a red ground.',
+                           cards=[('ext-front', 'The front', 'A front shaped for air and cooling.', 'The front of a lime Urus SE Performante, close up.'),
+                                  ('ext-bonnet', 'The bonnet', 'A vented bonnet over the V8.', 'The vented bonnet of a lime Urus SE Performante.'),
+                                  ('ext-spoiler', 'The spoiler', 'A rear spoiler for downforce.', 'The rear spoiler of a lime Urus SE Performante.')]),
+             interior=dict(text='Inside, a sports wheel, and seats trimmed for the Performante.',
+                           main_alt='The Urus SE Performante cockpit in black with red details.',
+                           cards=[('int-wheel', 'At the wheel', 'The steering wheel and instruments, close to hand.', 'The Urus SE Performante steering wheel and instruments.'),
+                                  ('int-seats', 'The seats', 'Trimmed in black with red stitching.', 'The Urus SE Performante seats in black with red stitching.')]),
+             gallery=[('gallery-0', 'A lime Urus SE Performante from above, at night in the city.'), ('gallery-1', 'A lime Urus SE Performante from behind, at night.'), ('gallery-2', 'A lime Urus SE Performante at speed, at night.'),
+                      ('gallery-3', 'The exhausts of a Urus SE Performante, close up.'), ('gallery-4', 'A Urus SE Performante interior detail with the Lamborghini script.'),
+                      ('gallery-5', 'A lime Urus SE Performante head-on.'), ('gallery-6', 'A green Urus SE Performante in a dark studio.'),
+                      ('gallery-7', 'A white Urus SE Performante in a dark studio.'), ('gallery-8', 'Airflow along the side of a Urus SE Performante.'),
+                      ('gallery-9', 'The Urus SE Performante brakes.')][:9],
+         )),
 ]
-ORDER = ['revuelto', 'revuelto-sv', 'urus-se-performante']
+ORDER = ['revuelto', 'revuelto-sv', 'temerario', 'urus-se', 'urus-se-performante']
 
 
 def chunk(start, end):
@@ -165,7 +259,7 @@ def inventory(m):
                     <span class="minv__price">{price}</span>
                 </a>
             </li>''')
-    count = len(cards)
+    cards = cards[:6]
     return f'''
 <!-- ============================ 6 · IN STOCK ============================
      The {name}s in our inventory, read from srp.html at build time; each opens its vehicle page,
@@ -262,7 +356,7 @@ def story(m):
         <p class="t-lead mstory__text">{ex['text']}</p>
     </div>
     <figure class="mstory__wide">
-        <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/{slug}-exterior-2160.webp" aria-label="Open photo: the Revuelto in profile">
+        <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/{slug}-exterior-2160.webp" aria-label="Open photo: the {name} in profile">
             {pic(slug, 'exterior', (1440, 2160), '100vw', ex['wide_alt'], '', False, ('exterior-p', 750))}
             {ZOOM}
         </button>
@@ -322,6 +416,7 @@ def story(m):
     <button class="glb__close" type="button" data-glb-close aria-label="Close gallery"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
 </dialog>
 
+{media(m)}
 <!-- ============================ CTA BAND ============================ -->
 <section class="mcta band band--black" aria-labelledby="cta-title">
     <div class="container mcta__grid">
@@ -427,7 +522,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=15">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=17">
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 

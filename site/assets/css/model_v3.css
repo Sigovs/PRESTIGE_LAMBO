@@ -187,6 +187,7 @@
     margin: 0; font-size: clamp(var(--fs-56), 10vw, 9rem); line-height: 0.85;
     font-weight: var(--wght-bold); font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
     text-transform: uppercase; letter-spacing: var(--track-display);
+    max-width: 5.5em; text-wrap: balance;   /* a long name (Urus SE Performante) takes two lines and stays in the copy column */
 }
 .mbig__claim { font-size: var(--fs-24); line-height: var(--lh-34); color: var(--grey-0); }
 .mbig__lead { max-width: 34rem; color: var(--grey-1); font-size: var(--fs-16); line-height: var(--lh-24); }
