@@ -164,7 +164,7 @@ PAGE = f'''<!doctype html>
 </main>
 
 {FOOTER}<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main_v3.js?v=307" defer></script>
+<script src="assets/js/main_v3.js?v=309" defer></script>
 <script src="assets/js/model_v3.js?v=4" defer></script>
 </body>
 </html>

@@ -36,7 +36,7 @@
        User direction: the header never hides (DESIGN_SYSTEM.md §4 overrides the
        corporate .to-hide pattern). Only its ground changes. */
     const header = document.querySelector('[data-header]');
-    const hero = document.querySelector('.hero, .subhero');   // .subhero: the inner pages' hero (service.html)
+    const hero = document.querySelector('.hero, .subhero, .mbig');   // .subhero: the inner pages' hero (service.html); .mbig: a full model page's
     let ticking = false;
 
     const photoChapters = [...document.querySelectorAll('.adp__stage')];   // the pinned Ad Personam photograph
@@ -47,7 +47,7 @@
     const HDR_LEAD = 450;                               // ms of travel to anticipate: the 300 ms fade + a frame
     let settleT;
     let scrollV = 0, lastY = window.scrollY, lastT = performance.now();   // px/ms, signed (down > 0)
-    const heroContent = () => hero ? [...hero.querySelectorAll('.hero__slide.is-active .hero__copy, .hero__slide.is-active .hero__actions, .hero__controls, .subhero__group')] : [];
+    const heroContent = () => hero ? [...hero.querySelectorAll('.hero__slide.is-active .hero__copy, .hero__slide.is-active .hero__actions, .hero__controls, .subhero__group, .mbig__inner')] : [];
     const adpContent = [...document.querySelectorAll('.adp__head, .adp__lead, .adp__actions')];
     function updateHeader() {
         ticking = false;

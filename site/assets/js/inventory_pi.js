@@ -99,6 +99,10 @@
         const cond = { new: 'New', used: 'Pre-owned' }[new URLSearchParams(location.search).get('condition')];
         const box = cond && $(`input[name="cond"][value="${cond}"]`);
         if (box) { box.checked = true; box.dispatchEvent(new Event('change', { bubbles: true })); }
+        // v3 (Oct): a model page's "View inventory" carries ?model=Revuelto
+        const model = new URLSearchParams(location.search).get('model');
+        const mbox = model && $$('input[name="model"]').find((b) => b.value.toLowerCase() === model.toLowerCase());
+        if (mbox) { mbox.checked = true; mbox.dispatchEvent(new Event('change', { bubbles: true })); }
         apply();
     }
 
