@@ -40,13 +40,13 @@ MODELS = [
              numbers_img=('int-engine', 'The Revuelto’s V12 engine and e-gearbox, on a dark ground.'),
              exterior=dict(text='Revuelto blends Lamborghini heritage with a bold new design language. Sculpted lines, sharp surfaces and the iconic center line define a futuristic silhouette, while the exposed V12 proudly celebrates its racing DNA.',
                            wide_alt='A Lamborghini Revuelto in orange, in side profile against an orange ground.',
-                           cards=[('ext-headlight', 'Headlights', 'The front of an orange Revuelto, its Y-shaped headlights lit.'),
-                                  ('ext-rear', 'The rear', 'The rear of an orange Revuelto, its taillights lit.'),
-                                  ('ext-engine', 'The exposed V12', 'The engine bay of an orange Revuelto, seen from above.')]),
+                           cards=[('ext-headlight', 'Headlights', 'Y-shaped lights frame the front.', 'The front of an orange Revuelto, its Y-shaped headlights lit.'),
+                                  ('ext-rear', 'The rear', 'Hexagonal exhausts sit high, between the taillights.', 'The rear of an orange Revuelto, its taillights lit.'),
+                                  ('ext-engine', 'The exposed V12', 'The engine stays on show under the rear cover.', 'The engine bay of an orange Revuelto, seen from above.')]),
              interior=dict(text='Inside, a cockpit built around the driver: the instruments behind the wheel, the driving modes at the driver’s hands, and a display of its own for the passenger.',
                            main_alt='The Revuelto cockpit in black and orange, seen from the passenger side.',
-                           cards=[('int-wheel', 'At the wheel', 'The Revuelto steering wheel and digital instruments.'),
-                                  ('int-passenger', 'For the passenger', 'The passenger display in the Revuelto dashboard, in orange leather.')]),
+                           cards=[('int-wheel', 'At the wheel', 'Digital instruments, and the driving modes at the driver’s hands.', 'The Revuelto steering wheel and digital instruments.'),
+                                  ('int-passenger', 'For the passenger', 'A display of its own, set into the dashboard.', 'The passenger display in the Revuelto dashboard, in orange leather.')]),
              gallery=[('gallery-5', 'A grey Revuelto on track at dusk, from behind.'), ('gallery-1', 'A green Revuelto on snow below mountains.'),
                       ('gallery-2', 'An orange Revuelto from behind, on a lit circuit at night.'), ('gallery-3', 'The Revuelto centre console in orange and black.'),
                       ('gallery-4', 'A yellow Revuelto on track, seen from above.'),
@@ -70,6 +70,7 @@ def chunk(start, end):
 
 
 SPRITE = chunk('<svg class="sprite"', '<a class="skip-link"')
+SPRITE = SPRITE.replace('</svg>', '    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>\n</svg>', 1)
 SPRITE = SPRITE.replace('</svg>', '    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>\n</svg>', 1)
 HEADER = chunk('<!-- ============================ HEADER', '<main id="main">')
 FOOTER = chunk('<!-- ============================ FOOTER', '<script src="https://unpkg.com/lenis')
@@ -188,20 +189,26 @@ def inventory(m):
 
 def story(m):
     st, slug, name = m['story'], m['slug'], m['name']
+    ZOOM = '<span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>'
     nums = ''.join(f'''
                 <div class="mnum__item"><dt class="mnum__label">{lab}</dt><dd class="mnum__value">{v}<span class="mnum__unit">{u}</span></dd></div>''' for v, u, lab in st['numbers'])
+    ZOOM = '<span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>'
     def cards(lst):
         return ''.join(f'''
             <figure class="mcard">
-                {pic(slug, r, (800, 1200), '(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw', alt)}
-                <figcaption class="mcard__cap">{cap}</figcaption>
-            </figure>''' for r, cap, alt in lst)
+                <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/{slug}-{r}-1200.webp" aria-label="Open photo: {title}">
+                    {pic(slug, r, (800, 1200), '(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw', alt)}
+                    {ZOOM}
+                </button>
+                <figcaption class="mcard__cap"><span class="mcard__title">{title}</span><span class="mcard__text">{text}</span></figcaption>
+            </figure>''' for r, title, text, alt in lst)
     ex, it = st['exterior'], st['interior']
     n_gal = len(st['gallery'])
     gal = ''.join(f'''
             <li class="mgal__item mgal__item--{i}">
                 <button class="mgal__open" type="button" data-gal-open="{i - 1}" data-full="assets/img/models/{slug}-{r}-1600.webp" aria-label="Open photo {i} of {n_gal}: {alt}">
                     {pic(slug, r, (900, 1600), '(min-width: 1024px) 50vw, 100vw', alt)}
+                    {ZOOM}
                 </button>
             </li>''' for i, (r, alt) in enumerate(st['gallery'], 1))
     hero = f'''
@@ -246,7 +253,7 @@ def story(m):
 </section>
 
 <!-- ============================ 3 · EXTERIOR ============================ -->
-<section class="mstory band band--dark" id="exterior" aria-labelledby="ext-title">
+<section class="mstory band band--dark" id="exterior" aria-labelledby="ext-title" data-gallery>
     <div class="container mstory__head">
         <div>
             <p class="t-eyelet section-head__eyelet">Exterior</p>
@@ -255,7 +262,10 @@ def story(m):
         <p class="t-lead mstory__text">{ex['text']}</p>
     </div>
     <figure class="mstory__wide">
-        {pic(slug, 'exterior', (1440, 2160), '100vw', ex['wide_alt'], '', False, ('exterior-p', 750))}
+        <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/{slug}-exterior-2160.webp" aria-label="Open photo: the Revuelto in profile">
+            {pic(slug, 'exterior', (1440, 2160), '100vw', ex['wide_alt'], '', False, ('exterior-p', 750))}
+            {ZOOM}
+        </button>
     </figure>
     <div class="container mstory__cards mstory__cards--3">{cards(ex['cards'])}
     </div>
@@ -266,7 +276,7 @@ def story(m):
 </section>
 
 <!-- ============================ 4 · INTERIOR ============================ -->
-<section class="mstory band band--black" id="interior" aria-labelledby="int-title">
+<section class="mstory band band--black" id="interior" aria-labelledby="int-title" data-gallery>
     <div class="container mstory__head">
         <div>
             <p class="t-eyelet section-head__eyelet">Interior</p>
@@ -276,7 +286,10 @@ def story(m):
     </div>
     <div class="container">
         <figure class="mstory__main">
-            {pic(slug, 'interior', (1000, 1600, 2400), '(min-width: 1440px) 1320px, 100vw', it['main_alt'], '', False, ('interior-p', 786))}
+            <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/{slug}-interior-1600.webp" aria-label="Open photo: the cockpit">
+                {pic(slug, 'interior', (1000, 1600, 2400), '(min-width: 1440px) 1320px, 100vw', it['main_alt'], '', False, ('interior-p', 786))}
+                {ZOOM}
+            </button>
         </figure>
     </div>
     <div class="container mstory__cards mstory__cards--2">{cards(it['cards'])}
@@ -414,7 +427,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=14">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=15">
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 
@@ -528,7 +541,7 @@ def page(m):
 
 {FOOTER}<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script src="assets/js/main_v3.js?v=309" defer></script>
-<script src="assets/js/model_v3.js?v=5" defer></script>
+<script src="assets/js/model_v3.js?v=6" defer></script>
 </body>
 </html>
 '''

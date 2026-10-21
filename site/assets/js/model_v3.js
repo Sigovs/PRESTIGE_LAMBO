@@ -119,17 +119,16 @@
         });
     });
 
-    /* the gallery: every frame opens a black lightbox at that photo; arrows, ← →, swipe; Esc,
-       ✕ or a click on the black close it and focus returns to the frame that opened it */
-    const grid = document.querySelector('[data-gallery]');
+    /* zoomable photos: every [data-gal-open] opens the black lightbox at that photo, and the arrows
+       / ← → / swipe move through the photos of its own [data-gallery] group (exterior, interior,
+       gallery); Esc, ✕ or a click on the black close it and focus returns to the opener */
     const box = document.querySelector('[data-gallery-box]');
-    if (grid && box && box.showModal) {
-        const items = [...grid.querySelectorAll('[data-gal-open]')];
+    if (box && box.showModal) {
         const img = box.querySelector('[data-glb-img]');
         const n = box.querySelector('[data-glb-n]');
         const cap = box.querySelector('[data-glb-cap]');
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let k = 0, opener = null;
+        let items = [], k = 0, opener = null;
         const show = (i) => {
             k = (i + items.length) % items.length;
             const b = items[k];
@@ -137,7 +136,8 @@
             img.alt = b.querySelector('img').alt;
             n.textContent = `${k + 1} / ${items.length}`;
             cap.textContent = img.alt;
-            [k + 1, k - 1].forEach((j) => { const p = items[(j + items.length) % items.length]; new Image().src = p.dataset.full; });
+            box.querySelectorAll('[data-glb-prev], [data-glb-next]').forEach((x) => { x.hidden = items.length < 2; });
+            [k + 1, k - 1].forEach((j) => { new Image().src = items[(j + items.length) % items.length].dataset.full; });
         };
         const close = () => {
             box.classList.remove('is-open');
@@ -145,8 +145,10 @@
             document.documentElement.classList.remove('is-film');
             window.__lenis?.start();
         };
-        items.forEach((b, i) => b.addEventListener('click', () => {
-            opener = b; show(i);
+        document.querySelectorAll('[data-gal-open]').forEach((b) => b.addEventListener('click', () => {
+            const group = b.closest('[data-gallery]');
+            items = group ? [...group.querySelectorAll('[data-gal-open]')] : [b];
+            opener = b; show(items.indexOf(b));
             window.__lenis?.stop();
             document.documentElement.classList.add('is-film');
             box.showModal();

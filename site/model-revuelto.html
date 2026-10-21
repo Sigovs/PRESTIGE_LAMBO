@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=14">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=15">
 </head>
 <body class="page-model page-model--story">
 
@@ -38,6 +38,7 @@
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15L19.5 12Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
 </svg>
 
@@ -185,7 +186,7 @@
 </section>
 
 <!-- ============================ 3 · EXTERIOR ============================ -->
-<section class="mstory band band--dark" id="exterior" aria-labelledby="ext-title">
+<section class="mstory band band--dark" id="exterior" aria-labelledby="ext-title" data-gallery>
     <div class="container mstory__head">
         <div>
             <p class="t-eyelet section-head__eyelet">Exterior</p>
@@ -194,33 +195,45 @@
         <p class="t-lead mstory__text">Revuelto blends Lamborghini heritage with a bold new design language. Sculpted lines, sharp surfaces and the iconic center line define a futuristic silhouette, while the exposed V12 proudly celebrates its racing DNA.</p>
     </div>
     <figure class="mstory__wide">
-        <picture>
+        <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-exterior-2160.webp" aria-label="Open photo: the Revuelto in profile">
+            <picture>
                     <source media="(max-width: 767.98px) and (orientation: portrait)" type="image/webp" srcset="assets/img/models/revuelto-exterior-p-750.webp">
                     <source type="image/webp" srcset="assets/img/models/revuelto-exterior-1440.webp 1440w, assets/img/models/revuelto-exterior-2160.webp 2160w" sizes="100vw">
                     <img src="assets/img/models/revuelto-exterior-2160.jpg" srcset="assets/img/models/revuelto-exterior-1440.jpg 1440w, assets/img/models/revuelto-exterior-2160.jpg 2160w" sizes="100vw" loading="lazy" decoding="async" alt="A Lamborghini Revuelto in orange, in side profile against an orange ground.">
                 </picture>
+            <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+        </button>
     </figure>
     <div class="container mstory__cards mstory__cards--3">
             <figure class="mcard">
-                <picture>
+                <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-ext-headlight-1200.webp" aria-label="Open photo: Headlights">
+                    <picture>
                     <source type="image/webp" srcset="assets/img/models/revuelto-ext-headlight-800.webp 800w, assets/img/models/revuelto-ext-headlight-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw">
                     <img src="assets/img/models/revuelto-ext-headlight-1200.jpg" srcset="assets/img/models/revuelto-ext-headlight-800.jpg 800w, assets/img/models/revuelto-ext-headlight-1200.jpg 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw" loading="lazy" decoding="async" alt="The front of an orange Revuelto, its Y-shaped headlights lit.">
                 </picture>
-                <figcaption class="mcard__cap">Headlights</figcaption>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                </button>
+                <figcaption class="mcard__cap"><span class="mcard__title">Headlights</span><span class="mcard__text">Y-shaped lights frame the front.</span></figcaption>
             </figure>
             <figure class="mcard">
-                <picture>
+                <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-ext-rear-1200.webp" aria-label="Open photo: The rear">
+                    <picture>
                     <source type="image/webp" srcset="assets/img/models/revuelto-ext-rear-800.webp 800w, assets/img/models/revuelto-ext-rear-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw">
                     <img src="assets/img/models/revuelto-ext-rear-1200.jpg" srcset="assets/img/models/revuelto-ext-rear-800.jpg 800w, assets/img/models/revuelto-ext-rear-1200.jpg 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw" loading="lazy" decoding="async" alt="The rear of an orange Revuelto, its taillights lit.">
                 </picture>
-                <figcaption class="mcard__cap">The rear</figcaption>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                </button>
+                <figcaption class="mcard__cap"><span class="mcard__title">The rear</span><span class="mcard__text">Hexagonal exhausts sit high, between the taillights.</span></figcaption>
             </figure>
             <figure class="mcard">
-                <picture>
+                <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-ext-engine-1200.webp" aria-label="Open photo: The exposed V12">
+                    <picture>
                     <source type="image/webp" srcset="assets/img/models/revuelto-ext-engine-800.webp 800w, assets/img/models/revuelto-ext-engine-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw">
                     <img src="assets/img/models/revuelto-ext-engine-1200.jpg" srcset="assets/img/models/revuelto-ext-engine-800.jpg 800w, assets/img/models/revuelto-ext-engine-1200.jpg 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw" loading="lazy" decoding="async" alt="The engine bay of an orange Revuelto, seen from above.">
                 </picture>
-                <figcaption class="mcard__cap">The exposed V12</figcaption>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                </button>
+                <figcaption class="mcard__cap"><span class="mcard__title">The exposed V12</span><span class="mcard__text">The engine stays on show under the rear cover.</span></figcaption>
             </figure>
     </div>
     <div class="container mcta__row">
@@ -230,7 +243,7 @@
 </section>
 
 <!-- ============================ 4 · INTERIOR ============================ -->
-<section class="mstory band band--black" id="interior" aria-labelledby="int-title">
+<section class="mstory band band--black" id="interior" aria-labelledby="int-title" data-gallery>
     <div class="container mstory__head">
         <div>
             <p class="t-eyelet section-head__eyelet">Interior</p>
@@ -240,27 +253,36 @@
     </div>
     <div class="container">
         <figure class="mstory__main">
-            <picture>
+            <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-interior-1600.webp" aria-label="Open photo: the cockpit">
+                <picture>
                     <source media="(max-width: 767.98px) and (orientation: portrait)" type="image/webp" srcset="assets/img/models/revuelto-interior-p-786.webp">
                     <source type="image/webp" srcset="assets/img/models/revuelto-interior-1000.webp 1000w, assets/img/models/revuelto-interior-1600.webp 1600w, assets/img/models/revuelto-interior-2400.webp 2400w" sizes="(min-width: 1440px) 1320px, 100vw">
                     <img src="assets/img/models/revuelto-interior-2400.jpg" srcset="assets/img/models/revuelto-interior-1000.jpg 1000w, assets/img/models/revuelto-interior-1600.jpg 1600w, assets/img/models/revuelto-interior-2400.jpg 2400w" sizes="(min-width: 1440px) 1320px, 100vw" loading="lazy" decoding="async" alt="The Revuelto cockpit in black and orange, seen from the passenger side.">
                 </picture>
+                <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+            </button>
         </figure>
     </div>
     <div class="container mstory__cards mstory__cards--2">
             <figure class="mcard">
-                <picture>
+                <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-int-wheel-1200.webp" aria-label="Open photo: At the wheel">
+                    <picture>
                     <source type="image/webp" srcset="assets/img/models/revuelto-int-wheel-800.webp 800w, assets/img/models/revuelto-int-wheel-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw">
                     <img src="assets/img/models/revuelto-int-wheel-1200.jpg" srcset="assets/img/models/revuelto-int-wheel-800.jpg 800w, assets/img/models/revuelto-int-wheel-1200.jpg 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw" loading="lazy" decoding="async" alt="The Revuelto steering wheel and digital instruments.">
                 </picture>
-                <figcaption class="mcard__cap">At the wheel</figcaption>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                </button>
+                <figcaption class="mcard__cap"><span class="mcard__title">At the wheel</span><span class="mcard__text">Digital instruments, and the driving modes at the driver’s hands.</span></figcaption>
             </figure>
             <figure class="mcard">
-                <picture>
+                <button class="mcard__open" type="button" data-gal-open data-full="assets/img/models/revuelto-int-passenger-1200.webp" aria-label="Open photo: For the passenger">
+                    <picture>
                     <source type="image/webp" srcset="assets/img/models/revuelto-int-passenger-800.webp 800w, assets/img/models/revuelto-int-passenger-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw">
                     <img src="assets/img/models/revuelto-int-passenger-1200.jpg" srcset="assets/img/models/revuelto-int-passenger-800.jpg 800w, assets/img/models/revuelto-int-passenger-1200.jpg 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw" loading="lazy" decoding="async" alt="The passenger display in the Revuelto dashboard, in orange leather.">
                 </picture>
-                <figcaption class="mcard__cap">For the passenger</figcaption>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
+                </button>
+                <figcaption class="mcard__cap"><span class="mcard__title">For the passenger</span><span class="mcard__text">A display of its own, set into the dashboard.</span></figcaption>
             </figure>
     </div>
     <div class="container mcta__row">
@@ -283,6 +305,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-5-900.webp 900w, assets/img/models/revuelto-gallery-5-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-5-1600.jpg" srcset="assets/img/models/revuelto-gallery-5-900.jpg 900w, assets/img/models/revuelto-gallery-5-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="A grey Revuelto on track at dusk, from behind.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--2">
@@ -291,6 +314,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-1-900.webp 900w, assets/img/models/revuelto-gallery-1-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-1-1600.jpg" srcset="assets/img/models/revuelto-gallery-1-900.jpg 900w, assets/img/models/revuelto-gallery-1-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="A green Revuelto on snow below mountains.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--3">
@@ -299,6 +323,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-2-900.webp 900w, assets/img/models/revuelto-gallery-2-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-2-1600.jpg" srcset="assets/img/models/revuelto-gallery-2-900.jpg 900w, assets/img/models/revuelto-gallery-2-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="An orange Revuelto from behind, on a lit circuit at night.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--4">
@@ -307,6 +332,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-3-900.webp 900w, assets/img/models/revuelto-gallery-3-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-3-1600.jpg" srcset="assets/img/models/revuelto-gallery-3-900.jpg 900w, assets/img/models/revuelto-gallery-3-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="The Revuelto centre console in orange and black.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--5">
@@ -315,6 +341,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-4-900.webp 900w, assets/img/models/revuelto-gallery-4-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-4-1600.jpg" srcset="assets/img/models/revuelto-gallery-4-900.jpg 900w, assets/img/models/revuelto-gallery-4-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="A yellow Revuelto on track, seen from above.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--6">
@@ -323,6 +350,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-6-900.webp 900w, assets/img/models/revuelto-gallery-6-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-6-1600.jpg" srcset="assets/img/models/revuelto-gallery-6-900.jpg 900w, assets/img/models/revuelto-gallery-6-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="A dark blue Revuelto in a studio, front three-quarter view.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--7">
@@ -331,6 +359,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-7-900.webp 900w, assets/img/models/revuelto-gallery-7-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-7-1600.jpg" srcset="assets/img/models/revuelto-gallery-7-900.jpg 900w, assets/img/models/revuelto-gallery-7-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="A lime-green Revuelto in a studio, front three-quarter view.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--8">
@@ -339,6 +368,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-8-900.webp 900w, assets/img/models/revuelto-gallery-8-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-8-1600.jpg" srcset="assets/img/models/revuelto-gallery-8-900.jpg 900w, assets/img/models/revuelto-gallery-8-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="The front of an orange Revuelto, close up, its headlights lit.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
             <li class="mgal__item mgal__item--9">
@@ -347,6 +377,7 @@
                     <source type="image/webp" srcset="assets/img/models/revuelto-gallery-9-900.webp 900w, assets/img/models/revuelto-gallery-9-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw">
                     <img src="assets/img/models/revuelto-gallery-9-1600.jpg" srcset="assets/img/models/revuelto-gallery-9-900.jpg 900w, assets/img/models/revuelto-gallery-9-1600.jpg 1600w" sizes="(min-width: 1024px) 50vw, 100vw" loading="lazy" decoding="async" alt="The rear of an orange Revuelto with its spoiler raised, airflow drawn over it.">
                 </picture>
+                    <span class="mzoom" aria-hidden="true"><svg class="icon"><use href="#i-expand"/></svg></span>
                 </button>
             </li>
         </ol>
@@ -588,6 +619,6 @@
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script src="assets/js/main_v3.js?v=309" defer></script>
-<script src="assets/js/model_v3.js?v=5" defer></script>
+<script src="assets/js/model_v3.js?v=6" defer></script>
 </body>
 </html>

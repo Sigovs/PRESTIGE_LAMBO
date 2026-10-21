@@ -234,13 +234,24 @@
     .mstory__cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .mstory__cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.mcard { margin: 0; display: grid; gap: var(--sp-16); }
-.mcard img { width: 100%; height: auto; aspect-ratio: 1744 / 1000; object-fit: cover; display: block; }
-.mcard__cap {
-    padding-top: var(--sp-16); border-top: var(--stroke-1) solid var(--stroke);
-    font-size: var(--fs-16); line-height: var(--lh-24); font-weight: var(--wght-bold);
-    text-transform: uppercase; letter-spacing: var(--track-upper); color: var(--fg);
+.mcard { margin: 0; display: grid; gap: var(--sp-16); align-content: start; }
+.mcard__open { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #000; cursor: zoom-in; overflow: hidden; }
+.mcard__open picture { display: block; }
+.mcard__open img { width: 100%; height: auto; display: block; transition: transform var(--dur-slow) var(--ease-out); }
+.mcard .mcard__open img { aspect-ratio: 1744 / 1000; object-fit: cover; }
+.mcard__open:hover img, .mcard__open:focus-visible img { transform: scale(1.03); }
+.mcard__open:focus-visible, .mgal__open:focus-visible { outline: var(--stroke-2) solid var(--focus); outline-offset: 2px; }
+/* the expand mark: says "this opens" on every zoomable photo */
+.mzoom {
+    position: absolute; right: var(--sp-16); bottom: var(--sp-16); display: grid; place-items: center;
+    width: var(--tap); height: var(--tap); border: var(--stroke-1) solid rgb(255 255 255 / 0.6); background: rgb(0 0 0 / 0.55); color: var(--grey-0);
+    transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
+.mcard__open:hover .mzoom, .mgal__open:hover .mzoom, .mcard__open:focus-visible .mzoom, .mgal__open:focus-visible .mzoom { background: rgb(0 0 0 / 0.85); border-color: var(--grey-0); }
+.mcard__cap { display: grid; gap: var(--sp-8); padding-top: var(--sp-16); border-top: var(--stroke-1) solid var(--stroke); }
+.mcard__title { font-size: var(--fs-24); line-height: var(--lh-32); font-weight: var(--wght-bold); font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold); color: var(--fg); }
+.mcard__text { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); max-width: 30rem; }
+@media (prefers-reduced-motion: reduce) { .mcard__open img, .mzoom { transition: none; } }
 
 /* 5 · gallery: a lead frame, then the rest in rows; every frame opens the lightbox */
 .mgal__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--grid-gap); grid-template-columns: repeat(2, minmax(0, 1fr)); }
