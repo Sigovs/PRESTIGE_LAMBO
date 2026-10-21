@@ -744,7 +744,7 @@ address { font-style: normal; }
 }
 /* per-slide authored framing */
 .hero__slide--dealer { --d-pos: 0% 50%; --scrim-a: 0.5; }         /* Alex's edit of img8: the left side is already dark; a light scrim only */
-.hero__slide--temerario { --d-pos: 0% 55%; --m-pos: 50%; --scrim-a: 0.84; }  /* gallery2 cropped clear of the sign: car right, sunset sky left */
+.hero__slide--temerario { --d-pos: 50% 50%; --m-pos: 50%; --scrim-a: 0.84; }  /* Oct client photos: 16:9 band cut from a 4:5 portrait (_tools/process-temerario-oct.py) */
 .hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
 .hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.88; --scrim-mid: 48%; --scrim-end: 78%; }   /* rocks at sunset: car right-centre; the long service line needs a wider scrim */
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.84; --scrim-mid: 44%; --scrim-end: 70%; }   /* the wide Prestige eyelet */
@@ -1803,3 +1803,5 @@ main section { overflow-x: clip; }
 }
 .dev-note b { display: block; margin-bottom: var(--sp-4); font-weight: var(--wght-bold); text-transform: uppercase; letter-spacing: var(--track-upper); color: #B37F00; }
 .band--dark .dev-note b, .band--black .dev-note b, .hero .dev-note b { color: #FFB800; }
+.dev-note code { font-family: ui-monospace, monospace; font-size: .95em; }
+.hero .dev-note { margin-top: var(--sp-8); }
