@@ -256,21 +256,18 @@
                         <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Temerario</p>
                         <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">You can’t hide</span> <span class="hero__line" data-hero-line style="--i:2">who you are</span></h2>
                         <p class="hero__place hero__figures" data-hero-line style="--i:3">907 hp · 213 mph · 0–62 mph 2.7 s</p>
-                        <p class="dev-note" data-dev-note><b>Note for Alex</b> Background: 3 client photos, add <code>?tem=a</code> / <code>b</code> / <code>c</code> to the URL. All three are 4:5 portraits, so desktop is a full-width 16:9 band. US figures converted from the metric ones (1 CV = 0.986 hp, 1 km/h = 0.621 mph); lamborghini.com has no en-us spec pages. 0–62 mph = same run as 0–100 km/h (0–60 would be a different number).</p>
                     </div>
                     <div class="hero__actions" data-hero-line style="--i:4">
                         <a class="btn btn--primary" href="https://www.lamborghini.com/en-en/models/temerario" rel="noopener"><span>Explore the model</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
                         <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/contact-us"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                     </div>
                 </div>
-                <picture class="hero__media" data-tem-pic>
-                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-temerario-oct-a-p-800.webp 800w, assets/img/slide-temerario-oct-a-p-950.webp 950w" sizes="100vw">
-                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-temerario-oct-a-p-800.jpg 800w, assets/img/slide-temerario-oct-a-p-950.jpg 950w" sizes="100vw">
-                    <source type="image/webp" data-srcset="assets/img/slide-temerario-oct-a-1920.webp 1920w, assets/img/slide-temerario-oct-a-1280.webp 1280w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-temerario-oct-a-1920.jpg" data-srcset="assets/img/slide-temerario-oct-a-1920.jpg 1920w, assets/img/slide-temerario-oct-a-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A blue Lamborghini Temerario on the waterfront in Miami.">
+                <picture class="hero__media">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-temerario-03d-p-800.webp 800w, assets/img/slide-temerario-03d-p-950.webp 950w" sizes="100vw">
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-temerario-03d-p-800.jpg 800w, assets/img/slide-temerario-03d-p-950.jpg 950w" sizes="100vw">
+                    <source type="image/webp" data-srcset="assets/img/slide-temerario-03d-1920.webp 1920w, assets/img/slide-temerario-03d-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-temerario-03d-1920.jpg" data-srcset="assets/img/slide-temerario-03d-1920.jpg 1920w, assets/img/slide-temerario-03d-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A blue Lamborghini Temerario on the waterfront in Miami.">
                 </picture>
-                <!-- DEV (v3, Oct): background variant switch for Alex — ?tem=a|b|c. Remove with the dev notes. -->
-                <script>(function(){var k=(new URLSearchParams(location.search).get('tem')||'a').toLowerCase();if(!/^[abc]$/.test(k)||k==='a')return;var p=document.querySelector('[data-tem-pic]');p.querySelectorAll('[data-srcset],[data-src]').forEach(function(e){['data-srcset','data-src'].forEach(function(a){var v=e.getAttribute(a);if(v)e.setAttribute(a,v.replace(/temerario-oct-a-/g,'temerario-oct-'+k+'-'));});});})();</script>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>

@@ -1,30 +1,22 @@
 #!/usr/bin/env python3
-"""Temerario hero slide, October client photos (DSC_8916 / 8930 / 8942).
-
-The three sources are 4:5 portraits; the desktop slide is 16:9, so each gets a
-full-width horizontal band (top edge set per photo, as a fraction of the height)
-and a phone crop at the existing portrait ratio (800 x 943).
+"""Temerario hero slide 03 (v3), from Alex's edit of the client photo DSC_8916:
+`___OCT changes/sources/02-temerario/slide 03d.jpg` (1920 x 1080).
 
     python3 _tools/process-temerario-oct.py
 
-Writes assets/img/slide-temerario-oct-{a,b,c}-{1920,1280}.{jpg,webp}
-and slide-temerario-oct-{a,b,c}-p-{800,950}.{jpg,webp}.
+Writes assets/img/slide-temerario-03d-{1920,1280}.{jpg,webp} (desktop, Alex's frame) and
+slide-temerario-03d-p-{800,950}.{jpg,webp} (phone, 800 x 943). The car in the 16:9 frame is
+wider than the phone frame, so the phone crop comes from the client's 4:5 original,
+mirrored to face the same way as Alex's edit, bottom-anchored.
 """
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT.parent / '___OCT changes' / 'sources' / '02-temerario'
+DIR = ROOT.parent / '___OCT changes' / 'sources' / '02-temerario'
+SRC = DIR / 'slide 03d.jpg'
+SRC_PHONE = DIR / 'DSC_8916-Edit.jpg'
 OUT = ROOT / 'assets' / 'img'
-
-# key, file, desktop band top (fraction of height), phone crop centre x (fraction of width)
-PHOTOS = [
-    ('a', 'DSC_8916-Edit.jpg', 0.350, 0.48),   # profile on the causeway, palm + Brickell
-    ('b', 'DSC_8930-Edit.jpg', 0.315, 0.40),   # three-quarter front, curve + skyline
-    ('c', 'DSC_8942-Edit.jpg', 0.365, 0.50),   # rear, palm + bridge
-]
-DESK = [1920, 1280]
-PHONE = [800, 950]
 PHONE_RATIO = 943 / 800
 
 
@@ -33,20 +25,14 @@ def save(img, stem):
     img.save(OUT / f'{stem}.webp', quality=78, method=6)
 
 
-for key, name, top, cx in PHOTOS:
-    src = Image.open(SRC / name).convert('RGB')
-    w, h = src.size
+src = Image.open(SRC).convert('RGB')
+w, h = src.size
+for dw in (1920, 1280):
+    save(src.resize((dw, round(dw * h / w)), Image.LANCZOS), f'slide-temerario-03d-{dw}')
 
-    band_h = round(w * 9 / 16)
-    y0 = min(round(h * top), h - band_h)
-    band = src.crop((0, y0, w, y0 + band_h))
-    for dw in DESK:
-        save(band.resize((dw, round(dw * 9 / 16)), Image.LANCZOS), f'slide-temerario-oct-{key}-{dw}')
-
-    # phone: full height, width trimmed to the portrait ratio around cx
-    pw = round(h / PHONE_RATIO)
-    x0 = min(max(round(w * cx - pw / 2), 0), w - pw) if pw < w else 0
-    ph_src = src.crop((x0, 0, x0 + min(pw, w), h)) if pw < w else src.crop((0, round((h - w * PHONE_RATIO) / 2), w, round((h + w * PHONE_RATIO) / 2)))
-    for dw in PHONE:
-        save(ph_src.resize((dw, round(dw * PHONE_RATIO)), Image.LANCZOS), f'slide-temerario-oct-{key}-p-{dw}')
-    print(key, name, 'band y', y0, '..', y0 + band_h, 'of', h)
+phone_src = ImageOps.mirror(Image.open(SRC_PHONE).convert('RGB'))
+pw, ph = phone_src.size
+ch = round(pw * PHONE_RATIO)
+phone = phone_src.crop((0, ph - ch, pw, ph))
+for dw in (800, 950):
+    save(phone.resize((dw, round(dw * PHONE_RATIO)), Image.LANCZOS), f'slide-temerario-03d-p-{dw}')
