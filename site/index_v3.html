@@ -345,25 +345,30 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--sv hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="7 of 9: Revuelto SV" id="hero-slide-7">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="9000" aria-roledescription="slide" aria-label="7 of 9: Revuelto SV" id="hero-slide-7">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
                         <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Revuelto SV</p>
                         <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">Hockenheim</span> <span class="hero__line" data-hero-line style="--i:2">record holder</span></h2>
                         <p class="hero__place hero__figures" data-hero-line style="--i:3">Hockenheimring lap 1:41.6</p>
-                        <p class="dev-note" data-dev-note><b>Note for Alex</b> No SV photography yet: the studio art stands in. Figures not published yet.</p>
                     </div>
                     <div class="hero__actions" data-hero-line style="--i:4">
                         <a class="btn btn--primary" href="model-revuelto-sv.html"><span>Explore the model</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                         <a class="btn btn--secondary" href="model-revuelto-sv.html#enquire"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                     </div>
                 </div>
-                <!-- no Revuelto SV photography yet: Alex's studio art stands on the dark ground -->
-                <picture class="hero__media">
-                    <source type="image/webp" data-srcset="assets/img/showcase-revuelto-sv-1200.webp 1200w, assets/img/showcase-revuelto-sv-1830.webp 1830w" sizes="100vw">
-                    <img class="hero__img hero__img--art" data-src="assets/img/showcase-revuelto-sv-800.png" width="1830" height="863" decoding="async" alt="Lamborghini Revuelto SV in grey and black carbon fibre with red accents, front three-quarter view.">
-                </picture>
+                <!-- v3 (Oct): Lamborghini's official Revuelto SV film (youtu.be/1UE_RnIbt4c, Alex's file), 0:37.9-0:46.9:
+                     the car only (track, head-on, light trail), no people, no legal line (_tools/encode-oct-video.sh sv) -->
+                <div class="hero__media">
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/video/revuelto-sv-poster-m.webp">
+                        <img class="hero__img hero__poster" data-src="assets/video/revuelto-sv-poster-d.webp" width="1920" height="1080" decoding="async"
+                             alt="The Lamborghini Revuelto SV on track at dusk.">
+                    </picture>
+                    <video class="hero__img hero__video" muted playsinline loop preload="none" aria-hidden="true" data-hero-video
+                           data-src-d="assets/video/revuelto-sv-loop-d.mp4" data-src-m="assets/video/revuelto-sv-loop-m.mp4"></video>
+                </div>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>

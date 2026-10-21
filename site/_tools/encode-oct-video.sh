@@ -1,6 +1,6 @@
 #!/bin/zsh
 # v3 (Oct client changes): web encodes of the hero slide films.
-#   zsh _tools/encode-oct-video.sh [grand-opening|service|ad-personam|lifestyle|urus]
+#   zsh _tools/encode-oct-video.sh [grand-opening|service|ad-personam|lifestyle|urus|sv]
 # Loops are muted H.264 (yuv420p, faststart), cut on a scene change so the jump back
 # to the start lands on a cut. Desktop 1920x1080; phone = centre crop at the hero's
 # portrait ratio (800 x 943), 720 wide. Posters = first frame (webp).
@@ -29,5 +29,7 @@ case ${1:-grand-opening} in
   lifestyle)     enc revuelto-launch "$SRC/09-lifestyle/REVUELTO-LAUNCH.mp4" 23.524 8.883 800/943 5.0 ;;
   # the client's YouTube film (Alex downloaded it): dust road -> road -> front view, before the legal line that starts ~66.5 s
   urus)          enc urus-sep "$SRC/Urus SE Performante /YTDown.com_YouTube_Media_5ZtLH3s8Wvg_Lamborghini-Urus-SE-Performante-Urus-at-its-peak_001_1080p.mp4" 60.96 5.56 800/943 1.6 crop=1920:960:0:60 ;;   # 2:1 letterbox in a 16:9 file
+  # the official Lamborghini film (youtu.be/1UE_RnIbt4c, Alex's file): track, head-on, light trail, head-on — no people, no legal line
+  sv)            enc revuelto-sv "$SRC/Revuelto SV/YTDown.com_YouTube_Media_1UE_RnIbt4c_Lamborghini-Revuelto-SV-The-Quantum-of-Driving_001_1080p.mp4" 37.9 9.0 800/943 2.6 ;;
   service)       enc service       "$SRC/04-service/Andres-Service-Landing-Video.mov" 3.128 9.09 ;;
 esac

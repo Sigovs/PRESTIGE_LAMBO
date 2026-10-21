@@ -35,8 +35,8 @@ MODELS = [
          claim='Hockenheim record holder',
          facts=[('Hockenheimring lap', '1:41.6')],
          art_alt='Lamborghini Revuelto SV in grey and black carbon fibre with red accents, front three-quarter view.',
-         media=None,
-         note='No hp / mph / 0–62 published for the SV yet (lamborghini.com has only the Hockenheim lap, 6 Aug 2026), and no SV photography or film: the page has no media band until the client sends some. The enquiry form is a mock-up and is not connected (DriveCentric later).'),
+         media=dict(kind='youtube', id='1UE_RnIbt4c', title='Revuelto SV film'),
+         note='Film: Lamborghini’s official Revuelto SV film on YouTube. No mph / 0–62 published for the SV yet. The enquiry form is a mock-up and is not connected (DriveCentric later).'),
 ]
 ORDER = ['revuelto', 'revuelto-sv', 'urus-se-performante']
 
