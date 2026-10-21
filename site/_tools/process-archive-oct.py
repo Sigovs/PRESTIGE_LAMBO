@@ -12,6 +12,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT.parent / '___OCT changes' / 'sources' / 'archive'
 OUT = ROOT / 'assets' / 'img'
+SITE_IMG = str(OUT) + '/'
 
 # slug, source, focus x, focus y
 CARDS = [
@@ -24,6 +25,9 @@ CARDS = [
     ('2024-trofeo', '2024a_20240621-h-7832.jpg', 0.50, 0.62),     # Super Trofeo start
     ('2024-movember', '2024b_DSC_2376.jpg', 0.50, 0.70),          # Countach with a moustache, Movember
     ('2025', '2025_DSC_1988-3.jpg', 0.50, 0.55),                  # Sián in white and purple
+    # no photo from the client for these two: something of ours from the same era stands in
+    ('1988', '../05-prestige-2017/Photo-Aug-09-2017-2-24-04-PM.jpg', 0.50, 0.50),   # Irv David in a white Countach, the Lamborghini of 1988
+    ('2013', SITE_IMG + 'svc-workshop-1200.jpg', 0.50, 0.24),     # an Aventador (the 2013 car) on a lift in our workshop
 ]
 RATIO = 3 / 2
 
@@ -40,7 +44,7 @@ def cut(im, fx, fy):
 
 
 for slug, name, fx, fy in CARDS:
-    im = cut(Image.open(SRC / name).convert('RGB'), fx, fy)
+    im = cut(Image.open(name if name.startswith('/') else SRC / name).convert('RGB'), fx, fy)
     for tw in (640, 1280):
         if tw > im.width and tw != 640:
             continue                      # never upscale for 2x; the 640 is the floor every card has
