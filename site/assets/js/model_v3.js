@@ -11,6 +11,10 @@
         const submit = form.querySelector('[data-form-submit]');
         const submitLabel = form.querySelector('[data-submit-label]');
         const done = document.querySelector('[data-form-done]');
+        // contact.html?model=Revuelto: arrive with the model already chosen
+        const want = new URLSearchParams(location.search).get('model');
+        const sel = form.elements.model;
+        if (want && sel && [...sel.options].some((o) => o.text === want)) sel.value = [...sel.options].find((o) => o.text === want).value || want;
         const idleLabel = submitLabel.textContent;   // 'Send enquiry' / 'Join the list': the page's own words
         const failMsg = form.dataset.fail || 'Your enquiry could not be sent. Please try again, or call sales on (833) 290-5147.';
         const rules = {
