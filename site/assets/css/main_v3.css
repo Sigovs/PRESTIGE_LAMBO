@@ -748,6 +748,34 @@ address { font-style: normal; }
 .hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
 .hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.88; --scrim-mid: 48%; --scrim-end: 78%; }   /* rocks at sunset: car right-centre; the long service line needs a wider scrim */
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.84; --scrim-mid: 44%; --scrim-end: 70%; }   /* the wide Prestige eyelet */
+/* slide 01 (v3, Oct): the Grand Opening film. Poster and loop fill the field at every
+   width (cover); the loop fades in over its own first frame once it is playing. */
+.hero__slide--film { --d-pos: 50% 50%; --m-pos: 50%; --scrim-a: 0.8; }
+.hero__slide--film .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: none; }
+.hero__video { opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
+.hero__video.is-playing { opacity: 1; }
+.hero .hero__film-btn { border-bottom-color: var(--grey-0); color: var(--grey-0); }
+.hero .hero__film-btn:hover { color: var(--grey-1); }
+.hero__slide--film .hero__place { color: var(--grey-1); }   /* like the figures line over photographs */
+.hero__film-btn { justify-self: start; min-height: var(--tap); }
+/* phones: the two text actions share one row under the primary, so the film slide is
+   no taller than the others (they wrap again on the narrowest phones) */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .hero__slide--film .hero__actions { display: flex; flex-wrap: wrap; column-gap: var(--sp-24); }
+    .hero__slide--film .hero__actions .btn--primary { flex-basis: 100%; }
+    .hero__slide--film .hero__actions .btn--secondary, .hero__slide--film .hero__film-btn { gap: var(--sp-8); }
+    /* slide 05's three-line claim ("Lamborghini / in Miami / since 1988") starts higher */
+    .hero__slide--urus-se-performante { --photo-k: 0.66; }
+}
+/* night footage is full of point lights: the copy column (to ~52% with the third action)
+   is held dark on every frame so all lines keep 4.5:1 against the brightest pixel */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--film .hero__scrim {
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
+            linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 52%, rgb(0 0 0 / 0) 85%);
+    }
+}
 /* phones on their side: same diagonal, compressed so the copy and both actions
    fit above the fold and clear the car */
 @media (orientation: landscape) and (max-height: 600px) {
@@ -1805,3 +1833,21 @@ main section { overflow-x: clip; }
 .band--dark .dev-note b, .band--black .dev-note b, .hero .dev-note b { color: #FFB800; }
 .dev-note code { font-family: ui-monospace, monospace; font-size: .95em; }
 .hero .dev-note { margin-top: var(--sp-8); }
+
+/* ---------- Full video lightbox (v3, Oct; same behaviour as Pagani's Grand Opening) ---------- */
+.film {
+    position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none;
+    margin: 0; padding: 0; border: 0; background: #000; color: var(--grey-0);
+    opacity: 0; transition: opacity var(--dur-base) var(--ease-out);
+}
+.film.is-open { opacity: 1; }
+.film::backdrop { background: #000; }
+.film__v { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.film__close {
+    position: absolute; top: max(var(--sp-16), env(safe-area-inset-top)); right: var(--sp-16); z-index: 2;
+    width: var(--tap); height: var(--tap); display: grid; place-items: center;
+    border: var(--stroke-1) solid rgb(255 255 255 / 0.5); background: rgb(0 0 0 / 0.4); color: var(--grey-0); cursor: pointer;
+}
+.film__close:hover, .film__close:focus-visible { border-color: var(--grey-0); background: rgb(0 0 0 / 0.6); }
+html.is-film { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .film, .hero__video { transition: none; } }

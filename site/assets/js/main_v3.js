@@ -409,7 +409,8 @@
         const toggle = heroEl.querySelector('[data-toggle]');
         const live = heroEl.querySelector('[data-hero-live]');
         let idx = 0, elapsed = 0, last = 0, raf = 0;
-        let userPaused = reduceMotion.matches, hovering = false, focusWithin = false, inView = true;
+        let userPaused = reduceMotion.matches, hovering = false, focusWithin = false, inView = true, filmOpen = false;
+        const holdOf = (i) => +slides[i].dataset.hold || HOLD;   // a film slide holds for one pass of its loop
 
         const loadSlide = (s) => s.querySelectorAll('[data-srcset],[data-src]').forEach((el) => {
             if (el.dataset.srcset) { el.srcset = el.dataset.srcset; el.removeAttribute('data-srcset'); }
@@ -420,14 +421,43 @@
 
         slides.forEach((s, i) => { if (i) { s.inert = true; s.setAttribute('aria-hidden', 'true'); } });
 
-        const playing = () => !userPaused && !hovering && !focusWithin && !document.hidden && inView;
-        function paint() { dots[idx]?.style.setProperty('--progress', Math.min(elapsed / HOLD, 1)); }
+        /* v3 (Oct): film slides. The muted loop is armed after load (the poster stays the
+           LCP), its file chosen for the frame; it plays only while its slide is showing,
+           the hero is on screen and the tab is visible, and restarts on each visit so one
+           hold is one pass. Reduced motion keeps the poster. */
+        const portraitFrame = window.matchMedia('(max-width: 1199.98px) and (orientation: portrait)');
+        const films = slides.map((s) => s.querySelector('[data-hero-video]'));
+        let filmsArmed = false;
+        const armFilms = () => {
+            if (filmsArmed || reduceMotion.matches) return;
+            filmsArmed = true;
+            films.forEach((v) => {
+                if (!v) return;
+                v.src = portraitFrame.matches ? v.dataset.srcM : v.dataset.srcD;
+                v.addEventListener('playing', () => v.classList.add('is-playing'));
+            });
+            syncFilms();
+        };
+        function syncFilms(restart) {
+            if (!filmsArmed) return;
+            films.forEach((v, i) => {
+                if (!v) return;
+                if (i === idx && inView && !document.hidden && !filmOpen) {
+                    if (restart) { try { v.currentTime = 0; } catch (e) {} }
+                    v.play().catch(() => {});
+                } else if (!v.paused) v.pause();
+            });
+        }
+        window.addEventListener('load', () => setTimeout(armFilms, 300));
+
+        const playing = () => !userPaused && !hovering && !focusWithin && !document.hidden && inView && !filmOpen;
+        function paint() { dots[idx]?.style.setProperty('--progress', Math.min(elapsed / holdOf(idx), 1)); }
         function tick(t) {
             raf = 0;
             if (!playing()) { last = 0; return; }
             if (last) elapsed += t - last;
             last = t;
-            if (elapsed >= HOLD) { go(idx + 1, false); return; }
+            if (elapsed >= holdOf(idx)) { go(idx + 1, false); return; }
             paint();
             raf = requestAnimationFrame(tick);
         }
@@ -443,6 +473,7 @@
             dots[idx]?.removeAttribute('aria-current'); dots[idx]?.style.setProperty('--progress', 0);
             dots[n]?.setAttribute('aria-current', 'true');
             idx = n; elapsed = 0; paint();
+            syncFilms(true);
             if (byUser || !playing()) live.textContent = to.getAttribute('aria-label');
             if (raf) { cancelAnimationFrame(raf); raf = 0; }
             run();
@@ -470,9 +501,40 @@
         heroEl.addEventListener('focusout', (e) => {
             if (!heroEl.contains(e.relatedTarget)) { focusWithin = false; live.setAttribute('aria-live', userPaused ? 'polite' : 'off'); run(); }
         });
-        document.addEventListener('visibilitychange', run);
+        document.addEventListener('visibilitychange', () => { run(); syncFilms(); });
         if ('IntersectionObserver' in window) {
-            new IntersectionObserver(([e]) => { inView = e.isIntersecting; run(); }, { threshold: 0.35 }).observe(heroEl);
+            new IntersectionObserver(([e]) => { inView = e.isIntersecting; run(); syncFilms(); }, { threshold: 0.35 }).observe(heroEl);
+        }
+
+        /* Watch full video: the full film with sound in a black lightbox. The slideshow and
+           the loop hold while it is open; the page does not scroll; Esc, ✕ or a click on
+           the black close it. */
+        const dlg = document.querySelector('[data-film]');
+        const film = dlg && dlg.querySelector('video');
+        const filmBtn = heroEl.querySelector('[data-film-open]');
+        if (dlg && film && filmBtn && dlg.showModal) {
+            const shut = () => {
+                film.pause();
+                dlg.classList.remove('is-open');
+                setTimeout(() => { if (dlg.open) dlg.close(); filmBtn.focus({ preventScroll: true }); }, reduceMotion.matches ? 0 : 300);
+                root.classList.remove('is-film');
+                lenis?.start();
+                filmOpen = false; run(); syncFilms();
+            };
+            filmBtn.addEventListener('click', () => {
+                if (!film.getAttribute('src')) film.src = film.dataset.src;
+                filmOpen = true; syncFilms();
+                lenis?.stop();
+                root.classList.add('is-film');
+                dlg.showModal();
+                requestAnimationFrame(() => dlg.classList.add('is-open'));
+                try { film.currentTime = 0; } catch (e) {}
+                film.muted = false;
+                film.play().catch(() => {});
+            });
+            dlg.querySelector('[data-film-close]').addEventListener('click', shut);
+            dlg.addEventListener('cancel', (e) => { e.preventDefault(); shut(); });
+            dlg.addEventListener('click', (e) => { if (e.target === dlg) shut(); });
         }
         // swipe: horizontal only; vertical movement stays with the page (touch-action: pan-y)
         let sx = 0, sy = 0, tracking = false;

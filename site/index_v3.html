@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=305">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=310">
 
     <script type="application/ld+json">
     {
@@ -183,7 +183,7 @@
      from the right at ~55–60% of frame width. DESIGN_SYSTEM.md §6. -->
 <section class="hero" aria-roledescription="carousel" aria-label="Lamborghini Miami: the dealership" data-hero>
     <div class="hero__slides" data-hero-track>
-        <article class="hero__slide hero__slide--dealer hero__slide--bleed is-active" data-slide aria-roledescription="slide" aria-label="1 of 5: Lamborghini Miami" id="hero-slide-1">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed is-active" data-slide data-hold="8300" aria-roledescription="slide" aria-label="1 of 5: Lamborghini Miami" id="hero-slide-1">
         <div class="hero__inner container">
             <div class="hero__group">
                 <div class="hero__copy">
@@ -203,27 +203,23 @@
                         <span>Enquire</span>
                         <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
                     </a>
+                    <button class="btn btn--tertiary hero__film-btn" type="button" data-film-open aria-haspopup="dialog">
+                        <span>Watch full video</span>
+                        <svg class="icon btn__icon" aria-hidden="true"><use href="#i-play"/></svg>
+                    </button>
                 </div>
             </div>
-            <picture class="hero__media" data-mass="stage">
-                <source media="(max-width: 767.98px) and (orientation: portrait)" type="image/webp"
-                        srcset="assets/img/hero-temerario-night-p-750.webp 750w, assets/img/hero-temerario-night-p-1000.webp 1000w, assets/img/hero-temerario-night-p-1400.webp 1400w" sizes="165vw">
-                <source media="(max-width: 767.98px) and (orientation: portrait)"
-                        srcset="assets/img/hero-temerario-night-p-750.jpg 750w, assets/img/hero-temerario-night-p-1000.jpg 1000w, assets/img/hero-temerario-night-p-1400.jpg 1400w" sizes="165vw">
-                <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp"
-                        srcset="assets/img/hero-dealer-alex-1280.webp 1280w, assets/img/hero-dealer-alex-1920.webp 1920w" sizes="100vw">
-                <source media="(max-width: 767.98px), (max-width: 1199.98px) and (orientation: portrait)"
-                        srcset="assets/img/hero-dealer-alex-1280.jpg 1280w, assets/img/hero-dealer-alex-1920.jpg 1920w" sizes="100vw">
-                <source type="image/webp"
-                        srcset="assets/img/hero-dealer-alex-1280.webp 1280w, assets/img/hero-dealer-alex-1920.webp 1920w"
-                        sizes="100vw">
-                <img class="hero__img" src="assets/img/hero-dealer-alex-1920.jpg"
-                     srcset="assets/img/hero-dealer-alex-1280.jpg 1280w, assets/img/hero-dealer-alex-1920.jpg 1920w"
-                     sizes="100vw"
-                     width="1920" height="1080" fetchpriority="high" decoding="async"
-                     data-subject-wide="0.3,0.54,0.48,0.21" data-subject-tall="0.3,0.54,0.48,0.21" data-subject-night="0.227,0.277,0.546,0.27"
-                     alt="A yellow Lamborghini Revuelto in side profile between factory buildings on larger screens; a yellow Temerario on a night circuit on phones.">
-            </picture>
+            <!-- v3 (Oct): the Grand Opening film, 0:00-0:08.3 of the client's cut, muted loop (_tools/encode-oct-video.sh).
+                 The poster is the first frame and stays the LCP; the loop starts after load, never under reduced motion. -->
+            <div class="hero__media" data-mass="stage">
+                <picture>
+                    <source media="(max-width: 1199.98px) and (orientation: portrait)" srcset="assets/video/grand-opening-poster-m.webp">
+                    <img class="hero__img hero__poster" src="assets/video/grand-opening-poster-d.webp" width="1920" height="1080" fetchpriority="high" decoding="async"
+                         alt="Lamborghini Miami at night, seen from above: the showroom, its lit bull shield and the cars on the forecourt.">
+                </picture>
+                <video class="hero__img hero__video" muted playsinline loop preload="none" aria-hidden="true" data-hero-video
+                       data-src-d="assets/video/grand-opening-loop-d.mp4" data-src-m="assets/video/grand-opening-loop-m.mp4"></video>
+            </div>
             <div class="hero__scrim" aria-hidden="true"></div>
         </div>
         </article>
@@ -790,7 +786,7 @@
                     <img src="assets/img/showroom-aerial-night-1200.jpg" srcset="assets/img/showroom-aerial-night-800.jpg 800w, assets/img/showroom-aerial-night-1200.jpg 1200w, assets/img/showroom-aerial-night-1760.jpg 1760w" sizes="(min-width: 1200px) 760px, (min-width: 768px) 56vw, 100vw" width="1760" height="990" loading="lazy" decoding="async" alt="Aerial view of the Lamborghini Miami showroom at night, with cars on the forecourt between palm trees.">
                 </picture>
                 <figcaption class="t-legal house__caption">Lamborghini Miami, 14780 Biscayne Boulevard. The showroom was completed in 2020.</figcaption>
-                <p class="dev-note" data-dev-note><b>Note for Alex</b> Kept “completed in 2020”: lamborghinimiami.com/our-story and prestigeimports.com/story both say so. The client’s doc says the grand opening was 2021, yet lists it under 2020 in its own archive. Change only when they confirm one year.</p>
+                <p class="dev-note" data-dev-note><b>Note for Alex</b> Kept “completed in 2020”: lamborghinimiami.com/our-story and prestigeimports.com/story both say so. The client’s doc says the grand opening was 2021, yet lists it under 2020 in its own archive. Their own Grand Opening film (0:44) shows a banner “Grand Opening, January 27, 2022”, so 2020 may be the building and 2022 the opening. Change only when they confirm one year.</p>
             </figure>
         </div>
 
@@ -924,6 +920,13 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
-<script src="assets/js/main_v3.js?v=301" defer></script>
+<!-- v3 (Oct): the full Grand Opening film with sound. It streams from the client's Dropbox (raw=1);
+     developers move it to their own hosting / CDN for production (as on Pagani). -->
+<dialog class="film" aria-label="Lamborghini Miami, the Grand Opening (full video)" data-film data-lenis-prevent>
+    <button class="film__close" type="button" data-film-close><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span class="visually-hidden">Close video</span></button>
+    <video class="film__v" controls playsinline preload="none" poster="assets/video/grand-opening-poster-d.webp"
+           data-src="https://www.dropbox.com/scl/fi/mp2u27fzt2obbd7200t7s/2022-Lamborghini-Miami-Grand-Opening-4K-Landscape-With-Logo.mov?rlkey=2owlvst6ynav2ef15uxyn8uc0&amp;raw=1"></video>
+</dialog>
+<script src="assets/js/main_v3.js?v=303" defer></script>
 </body>
 </html>
