@@ -49,7 +49,10 @@ MODELS = [
                                   ('int-passenger', 'For the passenger', 'The passenger display in the Revuelto dashboard, in orange leather.')]),
              gallery=[('gallery-5', 'A grey Revuelto on track at dusk, from behind.'), ('gallery-1', 'A green Revuelto on snow below mountains.'),
                       ('gallery-2', 'An orange Revuelto from behind, on a lit circuit at night.'), ('gallery-3', 'The Revuelto centre console in orange and black.'),
-                      ('gallery-4', 'A yellow Revuelto on track, seen from above.')],
+                      ('gallery-4', 'A yellow Revuelto on track, seen from above.'),
+                      ('gallery-6', 'A dark blue Revuelto in a studio, front three-quarter view.'), ('gallery-7', 'A lime-green Revuelto in a studio, front three-quarter view.'),
+                      ('gallery-8', 'The front of an orange Revuelto, close up, its headlights lit.'), ('gallery-9', 'The rear of an orange Revuelto with its spoiler raised, airflow drawn over it.'),
+                      ('gallery-10', 'The Revuelto’s digital instruments behind the steering wheel.')],
          ),
          note=''),
     dict(slug='revuelto-sv', name='Revuelto SV', mark='Revuelto SV', mk='0.62',
@@ -195,10 +198,13 @@ def story(m):
                 <figcaption class="mcard__cap">{cap}</figcaption>
             </figure>''' for r, cap, alt in lst)
     ex, it = st['exterior'], st['interior']
+    n_gal = len(st['gallery'])
     gal = ''.join(f'''
-            <figure class="mgal__item mgal__item--{i}">
-                {pic(slug, r, (900, 1600), '(min-width: 1024px) 50vw, 100vw', alt)}
-            </figure>''' for i, (r, alt) in enumerate(st['gallery'], 1))
+            <li class="mgal__item mgal__item--{i}">
+                <button class="mgal__open" type="button" data-gal-open="{i - 1}" data-full="assets/img/models/{slug}-{r}-1600.webp" aria-label="Open photo {i} of {n_gal}: {alt}">
+                    {pic(slug, r, (900, 1600), '(min-width: 1024px) 50vw, 100vw', alt)}
+                </button>
+            </li>''' for i, (r, alt) in enumerate(st['gallery'], 1))
     hero = f'''
 <!-- ============================ 1 · THE MODEL ============================
      Large hero: lamborghini.com's own studio frame, full screen; the copy low left on a floor-up scrim.
@@ -277,10 +283,20 @@ def story(m):
             <p class="t-eyelet section-head__eyelet">{name}</p>
             <h2 class="t-banner" id="gal-title">Gallery</h2>
         </div></header>
-        <div class="mgal__grid">{gal}
-        </div>
+        <ol class="mgal__grid" data-gallery>{gal}
+        </ol>
     </div>
 </section>
+<!-- gallery lightbox: one photo at a time, ← → / swipe / Esc; model_v3.js -->
+<dialog class="glb" aria-label="{name} gallery" data-gallery-box data-lenis-prevent>
+    <figure class="glb__stage">
+        <img class="glb__img" alt="" data-glb-img>
+        <figcaption class="glb__cap"><span class="glb__n" data-glb-n>1 / {n_gal}</span> <span data-glb-cap></span></figcaption>
+    </figure>
+    <button class="glb__btn glb__btn--prev" type="button" data-glb-prev aria-label="Previous photo"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <button class="glb__btn glb__btn--next" type="button" data-glb-next aria-label="Next photo"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <button class="glb__close" type="button" data-glb-close aria-label="Close gallery"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+</dialog>
 {inventory(m)}'''
     return hero
 
@@ -371,7 +387,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=10">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=13">
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 
@@ -485,7 +501,7 @@ def page(m):
 
 {FOOTER}<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script src="assets/js/main_v3.js?v=309" defer></script>
-<script src="assets/js/model_v3.js?v=4" defer></script>
+<script src="assets/js/model_v3.js?v=5" defer></script>
 </body>
 </html>
 '''

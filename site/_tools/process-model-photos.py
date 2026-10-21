@@ -33,6 +33,11 @@ SETS = {
         ('gallery-3', 'gallery3-desktop.jpg', (1600, 900)),
         ('gallery-4', 'gallery4-desktop.jpg', (1600, 900)),
         ('gallery-5', 'gallery5-desktop.jpg', (1600, 900)),
+        ('gallery-6', 'Revuelto_02-Exterior-H_Chapter-Main_Still-B_Config-Alt-B-last-optim.jpg', (1600, 900)),
+        ('gallery-7', 'Revuelto_02-Exterior-H_Chapter-Main_Still-B_Config-Alt-C-last-optim.jpg', (1600, 900)),
+        ('gallery-8', 'AR-desktop.jpg', (1600, 900)),
+        ('gallery-9', 'Revuelto_01-Aero-H_Card-RearSpoiler_Opened-last-optim.jpg', (1600, 900)),
+        ('gallery-10', 'Revuelto_03-Interior-H_Card-VirtualCockpit_Still-last-optim.jpg', (1600, 900)),
     ],
 }
 

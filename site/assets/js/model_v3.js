@@ -118,4 +118,54 @@
             f.focus();
         });
     });
+
+    /* the gallery: every frame opens a black lightbox at that photo; arrows, ← →, swipe; Esc,
+       ✕ or a click on the black close it and focus returns to the frame that opened it */
+    const grid = document.querySelector('[data-gallery]');
+    const box = document.querySelector('[data-gallery-box]');
+    if (grid && box && box.showModal) {
+        const items = [...grid.querySelectorAll('[data-gal-open]')];
+        const img = box.querySelector('[data-glb-img]');
+        const n = box.querySelector('[data-glb-n]');
+        const cap = box.querySelector('[data-glb-cap]');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let k = 0, opener = null;
+        const show = (i) => {
+            k = (i + items.length) % items.length;
+            const b = items[k];
+            img.src = b.dataset.full;
+            img.alt = b.querySelector('img').alt;
+            n.textContent = `${k + 1} / ${items.length}`;
+            cap.textContent = img.alt;
+            [k + 1, k - 1].forEach((j) => { const p = items[(j + items.length) % items.length]; new Image().src = p.dataset.full; });
+        };
+        const close = () => {
+            box.classList.remove('is-open');
+            setTimeout(() => { if (box.open) box.close(); opener?.focus({ preventScroll: true }); }, reduce ? 0 : 300);
+            document.documentElement.classList.remove('is-film');
+            window.__lenis?.start();
+        };
+        items.forEach((b, i) => b.addEventListener('click', () => {
+            opener = b; show(i);
+            window.__lenis?.stop();
+            document.documentElement.classList.add('is-film');
+            box.showModal();
+            requestAnimationFrame(() => box.classList.add('is-open'));
+        }));
+        box.querySelector('[data-glb-prev]').addEventListener('click', () => show(k - 1));
+        box.querySelector('[data-glb-next]').addEventListener('click', () => show(k + 1));
+        box.querySelector('[data-glb-close]').addEventListener('click', close);
+        box.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
+        box.addEventListener('click', (e) => { if (e.target === box) close(); });
+        box.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { e.preventDefault(); show(k + 1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); show(k - 1); }
+        });
+        let sx = 0, sy = 0;
+        box.addEventListener('pointerdown', (e) => { sx = e.clientX; sy = e.clientY; });
+        box.addEventListener('pointerup', (e) => {
+            const dx = e.clientX - sx, dy = e.clientY - sy;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(k + (dx < 0 ? 1 : -1));
+        });
+    }
 })();
