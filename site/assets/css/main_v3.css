@@ -1857,3 +1857,8 @@ main section { overflow-x: clip; }
 .film__close:hover, .film__close:focus-visible { border-color: var(--grey-0); background: rgb(0 0 0 / 0.6); }
 html.is-film { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .film, .hero__video { transition: none; } }
+
+/* Ad Personam film (v3, Oct): the loop sits over its own first frame and fades in once playing */
+.adp__video { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
+.adp__video.is-playing { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .adp__video { transition: none; } }

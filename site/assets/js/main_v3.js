@@ -551,6 +551,23 @@
     }
 
 
+    /* ---------- Ad Personam film (v3, Oct): a muted loop behind the pinned chapter. Its
+       file is chosen for the frame and set as the chapter nears; it plays only while the
+       chapter is on screen and the tab is visible. Reduced motion keeps the poster. */
+    const adpV = document.querySelector('[data-adp-video]');
+    if (adpV && !reduceMotion.matches && 'IntersectionObserver' in window) {
+        const stage = adpV.closest('.adp-pin') || adpV;
+        let adpIn = false;
+        const adpSync = () => { if (adpIn && !document.hidden) adpV.play().catch(() => {}); else if (!adpV.paused) adpV.pause(); };
+        adpV.addEventListener('playing', () => adpV.classList.add('is-playing'));
+        adpV.addEventListener('canplay', adpSync);   // an anchor jump can ask to play before the file is ready
+        new IntersectionObserver(([e]) => {
+            if (e.isIntersecting && !adpV.getAttribute('src')) { adpV.src = window.matchMedia('(orientation: portrait)').matches ? adpV.dataset.srcM : adpV.dataset.srcD; adpSync(); }
+        }, { rootMargin: '100% 0px' }).observe(stage);
+        new IntersectionObserver(([e]) => { adpIn = e.isIntersecting; adpSync(); }, { threshold: 0.01 }).observe(stage);
+        document.addEventListener('visibilitychange', adpSync);
+    }
+
     /* ---------- v2 range showcase (Alex's concept, 1 Oct 2026; DESIGN_SYSTEM §8) ----------
        One model at a time. Thumbs / arrows / ←→ / swipe switch it: the old car leaves
        right and fades, the new one drives in from the left, the watermark crossfades and

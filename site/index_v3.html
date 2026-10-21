@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=311">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=312">
 
     <script type="application/ld+json">
     {
@@ -621,18 +621,17 @@
      stuck element reports top 0 and cannot be scrolled to by its own box. -->
 <div class="adp-pin" id="ad-personam">
 <div class="adp__stage">
-        <picture class="adp__media">
-            <source media="(orientation: portrait)" type="image/webp"
-                    srcset="assets/img/adp-cabin-rv-p-600.webp 600w, assets/img/adp-cabin-rv-p-802.webp 802w" sizes="100vw">
-            <source media="(orientation: portrait)"
-                    srcset="assets/img/adp-cabin-rv-p-600.jpg 600w, assets/img/adp-cabin-rv-p-802.jpg 802w" sizes="100vw">
-            <source type="image/webp"
-                    srcset="assets/img/adp-cabin-rv-l-1280.webp 1280w, assets/img/adp-cabin-rv-l-1744.webp 1744w" sizes="100vw">
-            <img class="adp__img" src="assets/img/adp-cabin-rv-l-1280.jpg"
-                 srcset="assets/img/adp-cabin-rv-l-1280.jpg 1280w, assets/img/adp-cabin-rv-l-1744.jpg 1744w" sizes="100vw"
-                 width="1744" height="1000" loading="lazy" decoding="async"
-                 alt="The cabin of a Lamborghini Revuelto: tan leather, carbon fibre and the steering wheel, with a digital cityscape in the windscreen.">
-        </picture>
+        <!-- v3 (Oct): the client's Ad Personam Revuelto reel, 0:01.3-0:12.0 (before the end card), muted loop
+             (_tools/encode-oct-video.sh ad-personam). Plays only while the chapter is on screen; reduced motion keeps the poster. -->
+        <div class="adp__media">
+            <picture>
+                <source media="(orientation: portrait)" srcset="assets/video/ad-personam-poster-m.webp">
+                <img class="adp__img" src="assets/video/ad-personam-poster-d.webp" width="1920" height="1080" loading="lazy" decoding="async"
+                     alt="A red and black Lamborghini Revuelto Ad Personam, and its details: the badge, the bull, the brakes, the white and red cabin.">
+            </picture>
+            <video class="adp__img adp__video" muted playsinline loop preload="none" aria-hidden="true" data-adp-video
+                   data-src-d="assets/video/ad-personam-loop-d.mp4" data-src-m="assets/video/ad-personam-loop-m.mp4"></video>
+        </div>
         <div class="adp__scrim" aria-hidden="true"></div>
     </div>
     <section class="adp" aria-labelledby="adp-title">
@@ -931,6 +930,6 @@
     <video class="film__v" controls playsinline preload="none" poster="assets/video/grand-opening-poster-d.webp"
            data-src="https://www.dropbox.com/scl/fi/mp2u27fzt2obbd7200t7s/2022-Lamborghini-Miami-Grand-Opening-4K-Landscape-With-Logo.mov?rlkey=2owlvst6ynav2ef15uxyn8uc0&amp;raw=1"></video>
 </dialog>
-<script src="assets/js/main_v3.js?v=303" defer></script>
+<script src="assets/js/main_v3.js?v=305" defer></script>
 </body>
 </html>
