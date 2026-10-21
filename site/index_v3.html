@@ -368,24 +368,30 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--usp hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="8 of 9: Urus SE Performante" id="hero-slide-8">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--usp hero__slide--bleed" data-slide data-hold="5560" aria-roledescription="slide" aria-label="8 of 9: Urus SE Performante" id="hero-slide-8">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
                         <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Urus SE Performante</p>
                         <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">Urus</span> <span class="hero__line" data-hero-line style="--i:2">at its peak</span></h2>
                         <p class="hero__place hero__figures" data-hero-line style="--i:3">801 hp · 194 mph · 0–62 mph 3.3 s</p>
-                        <p class="dev-note" data-dev-note><b>Note for Alex</b> Photo for now: the client’s Urus SE Performante film is only on YouTube (it plays on the model page). Swap in a file if they send one.</p>
                     </div>
                     <div class="hero__actions" data-hero-line style="--i:4">
                         <a class="btn btn--primary" href="model-urus-se-performante.html"><span>Explore the model</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                         <a class="btn btn--secondary" href="model-urus-se-performante.html#enquire"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                     </div>
                 </div>
-                <picture class="hero__media">
-                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-performante-1440.webp 1440w, assets/img/slide-urus-se-performante-1920.webp 1920w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-urus-se-performante-1920.jpg" data-srcset="assets/img/slide-urus-se-performante-1440.jpg 1440w, assets/img/slide-urus-se-performante-1920.jpg 1920w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A yellow-green Lamborghini Urus SE Performante on a road at night.">
-                </picture>
+                <!-- v3 (Oct): the client's Urus SE Performante film (their YouTube link, file from Alex), 1:00.96-1:06.52: the dust road,
+                     the road, the car head-on; before the legal line; letterbox cropped (_tools/encode-oct-video.sh urus) -->
+                <div class="hero__media">
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/video/urus-sep-poster-m.webp">
+                        <img class="hero__img hero__poster" data-src="assets/video/urus-sep-poster-d.webp" width="1920" height="1080" decoding="async"
+                             alt="A yellow-green Lamborghini Urus SE Performante on a dusty mountain road.">
+                    </picture>
+                    <video class="hero__img hero__video" muted playsinline loop preload="none" aria-hidden="true" data-hero-video
+                           data-src-d="assets/video/urus-sep-loop-d.mp4" data-src-m="assets/video/urus-sep-loop-m.mp4"></video>
+                </div>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
