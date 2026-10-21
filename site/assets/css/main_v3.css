@@ -1514,8 +1514,23 @@ address { font-style: normal; }
 .house__media img { width: 100%; }
 .house__caption { margin-top: var(--sp-16); }
 
+/* v3 (Oct): the archive is one strip at every width (14 entries, 1980-2025): it scrolls
+   sideways with snap; the label and the arrows sit above it; four cards to a view on
+   desktops, three on tablets, one and a bit on phones */
+.archive-block { margin-top: var(--sp-80); border-top: var(--stroke-1) solid var(--stroke); padding-top: var(--sp-32); }
+.archive__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-24); margin-bottom: var(--sp-24); }
+.archive__label {
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-3);
+}
+.archive__nav { display: none; gap: var(--sp-8); }
+.archive__nav button:disabled { opacity: 0.3; cursor: default; }
 .archive {
-    margin-top: var(--sp-80);
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: min(var(--archive-col), 72%);
@@ -1524,9 +1539,14 @@ address { font-style: normal; }
     overscroll-behavior-x: contain;   /* horizontal swipes stay in the strip; vertical wheel goes to Lenis and the page */
     contain: paint;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none;
     padding-bottom: var(--sp-16);
-    border-top: var(--stroke-1) solid var(--stroke);
-    padding-top: var(--sp-32);
+}
+.archive::-webkit-scrollbar { display: none; }
+.archive__ph {
+    aspect-ratio: 640 / 427; display: grid; place-items: center;
+    border: var(--stroke-1) dashed var(--fg-4); background: var(--grey-1);
+    color: var(--fg-3); font-size: var(--fs-14); text-transform: uppercase; letter-spacing: var(--track-upper);
 }
 .archive__item { scroll-snap-align: start; display: grid; gap: var(--sp-8); align-content: start; }
 .archive__item img { width: 100%; filter: grayscale(0.15); }
@@ -1543,26 +1563,13 @@ address { font-style: normal; }
 
 @media (min-width: 768px) {
     .house__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); }
-    .archive { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
+    .archive { grid-auto-columns: calc((100% - 2 * var(--grid-gap)) / 3); }
+    .archive__nav { display: flex; }
 }
 @media (min-width: 1200px) {
     .house__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 1fr) minmax(0, 7fr); }
     .house__media { grid-column: 3; }
-    .archive { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .archive__item { grid-row: 1; grid-column: span 3; }
-    .archive__item:first-child { grid-column: 4 / span 3; }
-    .archive::before {
-        content: "From the archive";
-        grid-row: 1;
-        grid-column: 1 / span 3;
-        font-size: var(--fs-18);
-        line-height: var(--lh-28);
-        font-weight: var(--wght-bold);
-        font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
-        text-transform: uppercase;
-        letter-spacing: var(--track-upper);
-        color: var(--fg-3);
-    }
+    .archive { grid-auto-columns: calc((100% - 3 * var(--grid-gap)) / 4); }
 }
 
 /* ---------- 7 · Visit ---------- */

@@ -551,6 +551,20 @@
     }
 
 
+    /* ---------- Archive strip (v3, Oct): the arrows move one card; each greys out at its end. ---------- */
+    const arch = document.querySelector('[data-archive]');
+    if (arch) {
+        const blk = arch.closest('[data-archive-block]');
+        const prev = blk.querySelector('[data-archive-prev]'), next = blk.querySelector('[data-archive-next]');
+        const stepW = () => { const c = arch.children[0]; return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(arch).columnGap || 0) : arch.clientWidth; };
+        const ends = () => { prev.disabled = arch.scrollLeft <= 2; next.disabled = arch.scrollLeft + arch.clientWidth >= arch.scrollWidth - 2; };
+        prev.addEventListener('click', () => arch.scrollBy({ left: -stepW(), behavior: reduceMotion.matches ? 'auto' : 'smooth' }));
+        next.addEventListener('click', () => arch.scrollBy({ left: stepW(), behavior: reduceMotion.matches ? 'auto' : 'smooth' }));
+        arch.addEventListener('scroll', ends, { passive: true });
+        window.addEventListener('resize', ends, { passive: true });
+        ends();
+    }
+
     /* ---------- Ad Personam film (v3, Oct): a muted loop behind the pinned chapter. Its
        file is chosen for the frame and set as the chapter nears; it plays only while the
        chapter is on screen and the tab is visible. Reduced motion keeps the poster. */

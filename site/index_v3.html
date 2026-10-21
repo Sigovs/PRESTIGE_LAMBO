@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=313">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=314">
 
     <script type="application/ld+json">
     {
@@ -852,7 +852,17 @@
             </figure>
         </div>
 
-        <ol class="archive" aria-label="From the Prestige Imports archive">
+        <div class="archive-block" data-archive-block>
+            <div class="archive__head">
+                <p class="archive__label">From the archive</p>
+                <div class="archive__nav">
+                    <button class="showcase__arrow" type="button" data-archive-prev aria-label="Earlier"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+                    <button class="showcase__arrow" type="button" data-archive-next aria-label="Later"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+                </div>
+            </div>
+            <!-- v3 (Oct): the client's Lamborghini archive, 1988-2025, after the Prestige Imports roots (1980-86).
+                 Copy as the client wrote it; photos via _tools/process-archive-oct.py; 1988 and 2013 have none yet. -->
+            <ol class="archive" aria-label="From the Prestige Imports and Lamborghini Miami archive" data-archive>
             <li class="archive__item">
                 <img src="assets/img/archive-1980-640.jpg" width="640" height="427" loading="lazy" decoding="async" alt="Irv David smiling in front of the original Prestige Motor Car Imports sign.">
                 <p class="archive__year">1980</p>
@@ -868,7 +878,91 @@
                 <p class="archive__year">1986</p>
                 <p class="archive__text">The grand opening of the Prestige Imports showroom on Biscayne Boulevard.</p>
             </li>
-        </ol>
+            <li class="archive__item">
+                <div class="archive__ph" data-dev-note><span>Photo to come</span></div>
+                <p class="archive__year">1988</p>
+                <p class="archive__text">Irv David secures the Lamborghini franchise for Miami.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-1990-640.webp 640w, assets/img/archive-1990-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-1990-640.jpg" srcset="assets/img/archive-1990-640.jpg 640w, assets/img/archive-1990-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="Ferruccio Lamborghini, in glasses and a dark suit, signing a book at a table.">
+                </picture>
+                <p class="archive__year">1990</p>
+                <p class="archive__text">Ferruccio Lamborghini signs a book for Irv David at the Diablo unveiling in Monte Carlo.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2007-640.webp 640w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2007-640.jpg" srcset="assets/img/archive-2007-640.jpg 640w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="A Lamborghini Gallardo covered in hand-drawn black-and-white Sharpie patterns.">
+                </picture>
+                <p class="archive__year">2007</p>
+                <p class="archive__text">The “Sharpie Lamborghini” by Jonah Cerwinske, commissioned by Brett David.</p>
+            </li>
+            <li class="archive__item">
+                <div class="archive__ph" data-dev-note><span>Photo to come</span></div>
+                <p class="archive__year">2013</p>
+                <p class="archive__text">The Lamborghini Aventador Roadster is unveiled in Miami.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2014-640.webp 640w, assets/img/archive-2014-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2014-640.jpg" srcset="assets/img/archive-2014-640.jpg 640w, assets/img/archive-2014-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="A silver Lamborghini Veneno with its doors raised, on a turntable in the showroom.">
+                </picture>
+                <p class="archive__year">2014</p>
+                <p class="archive__text">Delivery of the second of three Lamborghini Veneno Coupés.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2020-640.webp 640w, assets/img/archive-2020-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2020-640.jpg" srcset="assets/img/archive-2020-640.jpg 640w, assets/img/archive-2020-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="Brett David and Stephan Winkelmann holding a gold Lamborghini bull at the grand opening.">
+                </picture>
+                <p class="archive__year">2020</p>
+                <p class="archive__text">The grand opening of the all-new Lamborghini Miami showroom.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2021-640.webp 640w, assets/img/archive-2021-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2021-640.jpg" srcset="assets/img/archive-2021-640.jpg 640w, assets/img/archive-2021-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="A grey Lamborghini Sián with its doors raised under the lit Lamborghini Miami sign at night.">
+                </picture>
+                <p class="archive__year">2021</p>
+                <p class="archive__text">Delivery of one of 63 Lamborghini Sián Coupés.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2022-640.webp 640w, assets/img/archive-2022-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2022-640.jpg" srcset="assets/img/archive-2022-640.jpg 640w, assets/img/archive-2022-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="The Tecnomar for Lamborghini 63 yacht on the water in Miami.">
+                </picture>
+                <p class="archive__year">2022</p>
+                <p class="archive__text">Delivery of a Tecnomar for Lamborghini 63.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2024-trofeo-640.webp 640w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2024-trofeo-640.jpg" srcset="assets/img/archive-2024-trofeo-640.jpg 640w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="Lamborghini Huracán Super Trofeo race cars at the start, an orange car leading.">
+                </picture>
+                <p class="archive__year">2024</p>
+                <p class="archive__text">The first Super Trofeo World Championship.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2024-movember-640.webp 640w, assets/img/archive-2024-movember-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2024-movember-640.jpg" srcset="assets/img/archive-2024-movember-640.jpg 640w, assets/img/archive-2024-movember-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="A red Lamborghini Countach with a painted moustache on a Miami street lined with palms.">
+                </picture>
+                <p class="archive__year">2024</p>
+                <p class="archive__text">Number one in Movember fundraising worldwide.</p>
+            </li>
+            <li class="archive__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2025-640.webp 640w, assets/img/archive-2025-1280.webp 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw">
+                    <img src="assets/img/archive-2025-640.jpg" srcset="assets/img/archive-2025-640.jpg 640w, assets/img/archive-2025-1280.jpg 1280w" sizes="(min-width: 1200px) 300px, (min-width: 768px) 30vw, 72vw" width="640" height="427" loading="lazy" decoding="async" alt="A white and purple Lamborghini Sián with its doors raised, in a studio.">
+                </picture>
+                <p class="archive__year">2025</p>
+                <p class="archive__text">Officially the number one US dealer for sales and service.</p>
+            </li>
+            </ol>
+            <p class="dev-note" data-dev-note><b>Note for Alex · Archive</b> 1988 and 2013 have no photo yet (the client sent only an Autoweek link for 2013). 2007 and the 2024 Super Trofeo photo are small sources (604 and 1080 px), fine at card size. Client wrote “Monte Carlo, France”: Monte Carlo is in Monaco, so the card says Monte Carlo only. Our Prestige portal page dates the Sharpie Lamborghini 2012; the client says 2007.</p>
+        </div>
     </div>
 </section>
 
@@ -989,6 +1083,6 @@
     <video class="film__v" controls playsinline preload="none" poster="assets/video/grand-opening-poster-d.webp"
            data-src="https://www.dropbox.com/scl/fi/mp2u27fzt2obbd7200t7s/2022-Lamborghini-Miami-Grand-Opening-4K-Landscape-With-Logo.mov?rlkey=2owlvst6ynav2ef15uxyn8uc0&amp;raw=1"></video>
 </dialog>
-<script src="assets/js/main_v3.js?v=306" defer></script>
+<script src="assets/js/main_v3.js?v=307" defer></script>
 </body>
 </html>
