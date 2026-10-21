@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=314">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=315">
 
     <script type="application/ld+json">
     {
@@ -293,25 +293,44 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--urus-se-performante hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="5 of 5: Prestige Imports" id="hero-slide-5">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--stack hero__slide--bleed" data-slide data-hold="8800" aria-roledescription="slide" aria-label="5 of 5: Prestige Imports" id="hero-slide-5">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
                         <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Part of Prestige Imports</p>
                         <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">Lamborghini<br class="hero__br-phone"> in Miami</span> <span class="hero__line" data-hero-line style="--i:2">since 1988</span></h2>
                         <p class="hero__place hero__figures" data-hero-line style="--i:3">Irv David took on the Lamborghini franchise for Miami in 1988.</p>
+                        <p class="dev-note" data-dev-note><b>Note for Alex · to sort out</b> Client asked for “AI photo animation” of the 2017 archive photos. Interim: 4 of the 7 crossfade with a slow push. 2 left out: the magazine page and the Ferruccio photo (now in the archive).</p>
                     </div>
                     <div class="hero__actions" data-hero-line style="--i:4">
                         <a class="btn btn--primary" href="#house"><span>Our story</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                         <a class="btn btn--secondary" href="#visit"><span>Visit us</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                     </div>
                 </div>
-                <picture class="hero__media">
-                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-urus-se-performante-960.webp 960w, assets/img/slide-urus-se-performante-1440.webp 1440w, assets/img/slide-urus-se-performante-1920.webp 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source media="(max-width: 767.98px) and (orientation: portrait), (max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-urus-se-performante-960.jpg 960w, assets/img/slide-urus-se-performante-1440.jpg 1440w, assets/img/slide-urus-se-performante-1920.jpg 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-performante-2400.webp 2400w, assets/img/slide-urus-se-performante-1920.webp 1920w, assets/img/slide-urus-se-performante-1440.webp 1440w, assets/img/slide-urus-se-performante-960.webp 960w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-urus-se-performante-1920.jpg" data-srcset="assets/img/slide-urus-se-performante-2400.jpg 2400w, assets/img/slide-urus-se-performante-1920.jpg 1920w, assets/img/slide-urus-se-performante-1440.jpg 1440w, assets/img/slide-urus-se-performante-960.jpg 960w" sizes="100vw" width="2400" height="1350" decoding="async" alt="A lime Lamborghini Urus SE Performante with a carbon bonnet, seen from above at night.">
-                </picture>
+                <!-- v3 (Oct), INTERIM: the client asked to explore "AI photo animation" of their 2017 archive photos here.
+                     Until Alex settles that, four of them crossfade with a slow push (_tools/process-prestige-2017.py). -->
+                <div class="hero__media hero__stack">
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-prestige-1-p-800.webp">
+                        <source type="image/webp" data-srcset="assets/img/slide-prestige-1-1920.webp">
+                        <img class="hero__img" data-src="assets/img/slide-prestige-1-1920.jpg" width="1920" height="1080" decoding="async" alt="Irv David leaning on a yellow Lamborghini Diablo outside Prestige Imports.">
+                    </picture>
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-prestige-2-p-800.webp">
+                        <source type="image/webp" data-srcset="assets/img/slide-prestige-2-1920.webp">
+                        <img class="hero__img" data-src="assets/img/slide-prestige-2-1920.jpg" width="1920" height="1080" decoding="async" alt="Irv David beside a white Lamborghini Countach outside the dealership.">
+                    </picture>
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-prestige-3-p-800.webp">
+                        <source type="image/webp" data-srcset="assets/img/slide-prestige-3-1920.webp">
+                        <img class="hero__img" data-src="assets/img/slide-prestige-3-1920.jpg" width="1920" height="1080" decoding="async" alt="Irv David seated in a white Lamborghini Countach, its doors raised.">
+                    </picture>
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-prestige-4-p-800.webp">
+                        <source type="image/webp" data-srcset="assets/img/slide-prestige-4-1920.webp">
+                        <img class="hero__img" data-src="assets/img/slide-prestige-4-1920.jpg" width="1920" height="1080" decoding="async" alt="Irv David with a Lamborghini Diablo at the Prestige Imports showroom, in black and white.">
+                    </picture>
+                </div>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
