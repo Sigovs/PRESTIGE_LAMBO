@@ -65,7 +65,6 @@ PAGE = f'''<!doctype html>
                 <p class="t-eyelet section-head__eyelet">Lamborghini Miami</p>
                 <h1 class="t-banner" id="contact-title">Contact us</h1>
                 <p class="t-lead section-head__lead">Send us a message and our sales team will contact you. Or call <a class="spec__link" href="tel:+18332905147">(833) 290-5147</a>.</p>
-                <p class="dev-note" data-dev-note><b>Note for Alex</b> Every Contact / Enquire link that went to the old lamborghinimiami.com/contact-us now comes here. The form is a mock-up and is not connected.</p>
             </div>
         </header>
 

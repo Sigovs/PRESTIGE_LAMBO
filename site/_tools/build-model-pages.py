@@ -201,7 +201,6 @@ def page(m):
                 <p class="t-eyelet section-head__eyelet">Sales</p>
                 <h2 class="t-banner" id="enquire-title"><span class="svc-line">Enquire about</span> <span class="svc-line">the {name}</span></h2>
                 <p class="t-lead section-head__lead">Our sales team in Miami will contact you. Or call <a class="spec__link" href="tel:+18332905147">(833) 290-5147</a>.</p>
-                <p class="dev-note" data-dev-note><b>Note for Alex</b> {m['note']}</p>
             </div>
         </header>
 

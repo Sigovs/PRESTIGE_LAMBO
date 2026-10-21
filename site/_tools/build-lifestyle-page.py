@@ -172,7 +172,6 @@ def page():
                     <li>Unveilings in our showroom</li>
                     <li>Drives and track days with Lamborghini</li>
                 </ul>
-                <p class="dev-note" data-dev-note><b>Note for Alex</b> Sign-up form is a mock-up and is not connected. Films: the Revuelto unveiling streams from the client’s Dropbox; the other four are the YouTube links they sent, titled as on YouTube.</p>
             </div>
         </header>
         <div class="newsletter__form">
