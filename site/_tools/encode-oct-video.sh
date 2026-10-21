@@ -24,5 +24,5 @@ enc() {   # name src start dur
 case ${1:-grand-opening} in
   # the 603 MB source was deleted locally (Alex, 21 Oct): re-download it from the client Dropbox link in index_v3.html to re-encode
   grand-opening) enc grand-opening "$SRC/01-grand-opening/2022-Lamborghini-Miami-Grand-Opening-4K-Landscape-With-Logo.mov" 0 8.30 ;;
-  service)       enc service       "$SRC/04-service/Andres-Service-Landing-Video.mov" 0 15 ;;
+  service)       enc service       "$SRC/04-service/Andres-Service-Landing-Video.mov" 3.128 9.09 ;;
 esac

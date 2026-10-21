@@ -764,6 +764,12 @@ address { font-style: normal; }
     .hero__slide--film .hero__actions { display: flex; flex-wrap: wrap; column-gap: var(--sp-24); }
     .hero__slide--film .hero__actions .btn--primary { flex-basis: 100%; }
     .hero__slide--film .hero__actions .btn--secondary, .hero__slide--film .hero__film-btn { gap: var(--sp-8); }
+    /* the films are brighter than the photographs: they fade out earlier, so the eyelet
+       sits on black, not on a white car */
+    .hero__slide--film .hero__img {
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 40%, transparent 82%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 40%, transparent 82%);
+    }
     /* slide 05's three-line claim ("Lamborghini / in Miami / since 1988") starts higher */
     .hero__slide--urus-se-performante { --photo-k: 0.66; }
 }

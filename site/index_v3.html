@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=310">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=311">
 
     <script type="application/ld+json">
     {
@@ -267,7 +267,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--urus-se hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="4 of 5: Service and parts" id="hero-slide-4">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="9100" aria-roledescription="slide" aria-label="4 of 5: Service and parts" id="hero-slide-4">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -280,12 +280,16 @@
                         <a class="btn btn--secondary" href="https://www.lamborghinimiami.com/order-parts"><span>Order parts</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                     </div>
                 </div>
-                <picture class="hero__media">
-                    <source media="(max-width: 1199.98px) and (orientation: portrait)" type="image/webp" data-srcset="assets/img/slide-urus-se-m-960.webp 960w, assets/img/slide-urus-se-m-1280.webp 1280w, assets/img/slide-urus-se-m-1920.webp 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/img/slide-urus-se-m-960.jpg 960w, assets/img/slide-urus-se-m-1280.jpg 1280w, assets/img/slide-urus-se-m-1920.jpg 1920w" sizes="(max-width: 767.98px) 210vw, 100vw">
-                    <source type="image/webp" data-srcset="assets/img/slide-urus-se-rocks-2560.webp 2560w, assets/img/slide-urus-se-rocks-1920.webp 1920w, assets/img/slide-urus-se-rocks-1280.webp 1280w" sizes="100vw">
-                    <img class="hero__img" data-src="assets/img/slide-urus-se-rocks-1920.jpg" data-srcset="assets/img/slide-urus-se-rocks-1920.jpg 1920w, assets/img/slide-urus-se-rocks-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="An orange Lamborghini Urus SE: on red coastal rocks at sunset on larger screens, driving through dust on phones.">
-                </picture>
+                <!-- v3 (Oct): the client's service film, 0:03.1-0:12.2 (lifts, Huracán, technician), muted loop (_tools/encode-oct-video.sh) -->
+                <div class="hero__media">
+                    <picture>
+                        <source media="(max-width: 1199.98px) and (orientation: portrait)" data-srcset="assets/video/service-poster-m.webp">
+                        <img class="hero__img hero__poster" data-src="assets/video/service-poster-d.webp" width="1920" height="1080" decoding="async"
+                             alt="The Lamborghini Miami service department: cars on lifts in a bright workshop.">
+                    </picture>
+                    <video class="hero__img hero__video" muted playsinline loop preload="none" aria-hidden="true" data-hero-video
+                           data-src-d="assets/video/service-loop-d.mp4" data-src-m="assets/video/service-loop-m.mp4"></video>
+                </div>
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
