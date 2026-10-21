@@ -1033,7 +1033,7 @@ address { font-style: normal; }
     .showcase__tabs {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        justify-items: center;
+        justify-items: start;                       /* the first thumb sits on the text's left edge */
         gap: var(--sp-16);
         padding-left: var(--sc-tabs-pad);
         overflow: visible;

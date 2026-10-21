@@ -301,9 +301,6 @@
         --sc-tabs-pad: 0px;
     }
 }
-@media (min-width: 1200px) {
-    :root { --sc-tabs-pad: 8vw; }
-}
 @media (orientation: landscape) and (max-height: 520px) {
     :root {
         --sc-air-b: 6svh;                             /* 23px at 390 tall */
