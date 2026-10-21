@@ -1,0 +1,91 @@
+/* ==========================================================================
+   v3 model pages (Oct 2026) — model-<slug>.html, built by _tools/build-model-pages.py.
+   On top of tokens_v3 + main_v3 (chrome, buttons, bands, spec rows, dev notes) and
+   service_v2 (the request form and its states). Only what a model page adds lives here.
+   ========================================================================== */
+
+/* the form's states toggle with [hidden] (as on the service page) */
+.page-model [hidden] { display: none !important; }
+
+/* the first band is light (the studio): the header is the solid bar from the start */
+.page-model .site-header::after { opacity: 1; }
+
+/* ---------- 1 · The model: studio, as the home page range ---------- */
+.mhero {
+    position: relative;
+    overflow: hidden;
+    background: var(--sc-ground);
+    --fg: var(--grey-10);
+    --fg-2: var(--grey-9);
+    --fg-3: var(--grey-8);
+    color: var(--fg);
+    padding-top: calc(var(--header-h) + var(--sp-40));
+    padding-bottom: var(--sp-56);
+}
+.mhero__inner { position: relative; display: grid; gap: var(--sp-32); }
+.mhero__mark {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    margin: 0;
+    font-size: calc(var(--sc-mark-fs) * var(--mk, 1));
+    line-height: 0.8;
+    font-weight: var(--wght-heavy);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-heavy);
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--sc-mark);
+    pointer-events: none;
+}
+.mhero__text { position: relative; z-index: 1; display: grid; justify-items: start; gap: var(--sp-16); }
+.mhero__eyelet { color: var(--fg-3); }
+.mhero__name {
+    margin: 0;
+    font-size: var(--sc-name-fs);   /* the range's model name: one voice for the model across pages */
+    line-height: 0.95;
+    font-weight: var(--wght-heavy);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-heavy);
+    text-transform: uppercase;
+    letter-spacing: var(--track-display);
+    color: var(--grey-11);
+    text-wrap: balance;
+}
+.mhero__claim { font-size: var(--fs-24); line-height: var(--lh-34); color: var(--fg-2); }
+.mhero__actions { display: grid; gap: var(--sp-16); width: 100%; margin-top: var(--sp-16); }
+.mhero .btn--secondary { border-color: var(--grey-10); color: var(--grey-10); }
+.mhero__media { position: relative; z-index: 1; margin: 0; }
+.mhero__car { width: 100%; height: auto; }
+
+@media (min-width: 768px) {
+    .mhero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-24); width: auto; }
+}
+@media (min-width: 1024px) {
+    .mhero { min-height: min(100svh, 62rem); display: grid; align-content: center; }
+    .mhero__inner { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: center; gap: 0; }
+    .mhero__text { grid-column: 1; grid-row: 1; align-self: center; max-width: 26rem; }
+    .mhero__media { grid-column: 2; grid-row: 1; margin-right: calc(-1 * var(--page-gutter)); }
+}
+
+/* ---------- 2 · Figures ---------- */
+.mfacts__grid { display: grid; gap: var(--sp-40); }
+.mfacts__list .spec__value { font-variant-numeric: tabular-nums; }
+.mfacts__src { margin-top: var(--sp-16); color: var(--fg-3); }
+@media (min-width: 1024px) { .mfacts__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+
+/* ---------- 3 · Film / photograph ---------- */
+.mmedia { padding-block: var(--sp-64); }
+.mphoto { margin: 0; }
+.mphoto img { width: 100%; height: auto; }
+.mfilm { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+.mfilm__poster, .mfilm iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.mfilm__play {
+    position: absolute; left: var(--sp-24); bottom: var(--sp-24);
+    display: inline-flex; align-items: center; gap: var(--sp-16);
+    min-height: var(--btn-h-lg); padding-inline: var(--btn-pad-lg);
+    border: var(--stroke-1) solid var(--grey-0); background: rgb(0 0 0 / 0.64); color: var(--grey-0);
+    font-size: var(--fs-16); font-weight: var(--wght-bold); text-transform: uppercase; letter-spacing: var(--track-upper);
+    cursor: pointer;
+}
+.mfilm__play:hover, .mfilm__play:focus-visible { background: rgb(0 0 0 / 0.84); }
+.mfilm.is-playing .mfilm__play, .mfilm.is-playing .mfilm__poster { display: none; }

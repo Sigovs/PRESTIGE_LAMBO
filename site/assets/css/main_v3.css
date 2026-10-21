@@ -536,6 +536,13 @@ address { font-style: normal; }
     transform-origin: left center;
 }
 .hero__dot[aria-current="true"] .hero__dot-fill { --p: var(--progress, 1); }
+/* phones (v3: eight slides): the dots share the row left of the pause control, whatever
+   their number — about 35 x 44 px each at 375, above the 24 px target floor */
+@media (max-width: 767.98px) {
+    .hero__dots { flex: 1 1 auto; min-width: 0; gap: 0; }
+    .hero__dots > li { flex: 1 1 0; min-width: 0; }
+    .hero__dot { width: 100%; min-width: 0; padding-inline: 2px; }
+}
 .hero__toggle, .hero__arrow {
     flex: none;
     display: grid;
@@ -748,6 +755,17 @@ address { font-style: normal; }
 .hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; --scrim-a: 0.82; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
 .hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; --scrim-a: 0.88; --scrim-mid: 48%; --scrim-end: 78%; }   /* rocks at sunset: car right-centre; the long service line needs a wider scrim */
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.84; --scrim-mid: 44%; --scrim-end: 70%; }   /* the wide Prestige eyelet */
+/* v3 (Oct) model slides: Revuelto (Alex's yellow side profile, once slide 1), Revuelto SV
+   (no photography yet: the studio art on the dark ground, contained right of the copy),
+   Urus SE Performante (the night photograph that was slide 5) */
+.hero__slide--rv { --d-pos: 0% 50%; --m-pos: 62%; --scrim-a: 0.6; }
+.hero__slide--usp { --d-pos: 60% 40%; --m-pos: 50%; --scrim-a: 0.84; --scrim-mid: 44%; --scrim-end: 70%; }
+.hero__slide--sv { --scrim-a: 0; background: var(--grey-11); }
+.hero__slide--sv .hero__img.hero__img--art { object-fit: contain; object-position: 50% 62%; -webkit-mask-image: none; mask-image: none; }
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
+    .hero__slide--sv .hero__media { left: 36%; right: 0; width: auto; }
+    .hero__slide--sv .hero__img.hero__img--art { object-position: 60% 62%; }
+}
 /* slide 01 (v3, Oct): the Grand Opening film. Poster and loop fill the field at every
    width (cover); the loop fades in over its own first frame once it is playing. */
 .hero__slide--film { --d-pos: 50% 50%; --m-pos: 50%; --scrim-a: 0.8; }
