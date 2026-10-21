@@ -836,7 +836,7 @@ address { font-style: normal; }
 /* the pin (Alex, 1 Oct 2026): one step of scroll per model, the section sticky inside.
    JS-only: without JS (and in ?figma) the wrapper is just the section. */
 .showcase-pin { scroll-margin-top: 0; }          /* #range lands on the pin's start, model 1 */
-.js .showcase-pin { height: calc(100svh + 4 * var(--sc-step)); }
+.js .showcase-pin { height: calc(100svh + var(--sc-n, 4) * var(--sc-step)); }   /* --sc-n = models, set on the pin */
 .js .showcase-pin > .showcase { position: sticky; top: 0; }
 .showcase__inner {
     position: relative;
@@ -1066,7 +1066,7 @@ address { font-style: normal; }
     .showcase__nav { position: relative; z-index: 2; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--sp-32); }
     .showcase__tabs {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(var(--sc-n, 4), minmax(0, 1fr));
         justify-items: start;                       /* the first thumb sits on the text's left edge */
         gap: var(--sp-16);
         padding-left: var(--sc-tabs-pad);

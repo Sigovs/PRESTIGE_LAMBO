@@ -5,14 +5,15 @@ above the tallest roof. Outputs site/assets/img/model-art-<slug>-{600,1200}.{web
 from PIL import Image
 import numpy as np
 SRC='MODELS/'
-CARS=[('urus-se','image1.png'),('urus-se-performante','image 2.png'),('temerario','image 3.png'),('revuelto','image 4.png')]
+CARS=[('urus-se','image1.png'),('urus-se-performante','image 2.png'),('temerario','image 3.png'),('revuelto','image 4.png'),
+      ('revuelto-sv','NEW MODELS/image 6.png')]   # v3: no side-profile art for the SV yet, so its thumb is the front three-quarter
 W,H,BASE=1200,430,392
 BODY=0.88  # lower bound of the 88-92% brief: the supplied shadows run ~1.16x body length, so 90% cut their tails at alpha 38/255; 88% leaves <=23/255 at the canvas edge
 for slug,f in CARS:
     im=Image.open(SRC+f).convert('RGBA'); a=np.array(im)[...,3]
     ys,xs=np.where(a>200); bx0,bx1,by1=xs.min(),xs.max(),ys.max()
-    s=min(1.0,(BODY*W)/(bx1-bx0+1))
     full=im.crop(im.getbbox()); ox,oy=im.getbbox()[:2]
+    s=min(1.0,(BODY*W)/(bx1-bx0+1),(BASE-30)/(by1-oy+1))   # a taller view (the SV's three-quarter) keeps 30 px of air above the roof
     full=full.resize((round(full.width*s),round(full.height*s)),Image.LANCZOS)
     # body centre and body bottom in scaled crop coordinates
     cx=((bx0+bx1)/2-ox)*s; bottom=(by1-oy)*s

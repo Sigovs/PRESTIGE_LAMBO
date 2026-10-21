@@ -229,7 +229,7 @@
     --sc-name-fs: clamp(2rem, min(11vw, 7svh), 3rem);
     --sc-mark-fs: clamp(7rem, min(30vw, 30svh), 13rem);
     --sc-thumb-w: 7.5rem;                /* 120px thumbs on phones (a rail) */
-    --sc-step: 90svh;                    /* pin: scroll per model (4 models -> 460svh wrapper) */
+    --sc-step: 90svh;                    /* pin: scroll per model (wrapper = 100svh + --sc-n steps) */
     --sc-mark-top: 40%;                  /* watermark: phones, behind the car's top */
     --sc-car-span: 128%;                 /* phones: the car box is wider than the column... */
     --sc-car-shift: -16%;                /* ...and starts left of it, so the faded shadow margin falls outside */

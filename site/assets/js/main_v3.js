@@ -574,6 +574,30 @@
        the text changes with the hero's staircase. On scroll entry the car is tied to
        scroll like the v1 drive and the text and thumbs cascade in. No autoplay.
        Without JS: model 1 stands alone and the thumbs are links to lamborghini.com. */
+    /* v3 (Oct): a model held back for its launch (Temerario Spyder, 18 Nov 2026). Its mark,
+       panel and tab go in after the model named in data-after on or after data-launch once
+       data-ready="yes" is set, or at any time with ?spyder=1; the pin length, the thumb grid
+       and the count follow the number of panels. */
+    document.querySelectorAll('[data-range-soon]').forEach((tpl) => {
+        const launch = Date.parse(tpl.dataset.launch + 'T00:00:00');
+        const live = (tpl.dataset.ready === 'yes' && Date.now() >= launch) || new URLSearchParams(location.search).has('spyder');
+        if (!live) return;
+        const show = tpl.closest('[data-showcase]'), after = tpl.dataset.after, frag = tpl.content;
+        const put = (el, ref) => ref.after(el);
+        const panels0 = [...show.querySelectorAll('[data-panel]')], tabs0 = [...show.querySelectorAll('[data-tab]')], marks0 = [...show.querySelectorAll('[data-mark]')];
+        const at = panels0.findIndex((p) => p.id === 'range-panel-' + after);
+        if (at < 0) return;
+        put(frag.querySelector('[data-mark]'), marks0[at]);
+        put(frag.querySelector('[data-panel]'), panels0[at]);
+        put(frag.querySelector('[data-tab]'), tabs0[at]);
+        const tabs = [...show.querySelectorAll('[data-tab]')];
+        tabs.forEach((t, i) => { t.dataset.tab = i; t.style.setProperty('--t', i); });
+        const pin = show.closest('[data-showcase-pin]');
+        if (pin) pin.style.setProperty('--sc-n', tabs.length);
+        const total = show.querySelector('[data-count]')?.parentElement;
+        if (total) total.lastChild.textContent = ' / ' + String(tabs.length).padStart(2, '0');
+    });
+
     const sc = document.querySelector('[data-showcase]');
     if (sc) {
         const RMs = reduceMotion.matches;

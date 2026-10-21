@@ -4,12 +4,12 @@ One shared crop for all four, so the scale and baseline Alex set are kept:
 x 600..2430, y 60..923 (1830x863). The bodies sit at ~14-89% of the width; the
 shadow tails that run further left are faded out over the first 240 px of the
 crop (alpha ramp), so the cut never shows as an edge. Resize only, never upscaled.
-image 6.png (Revuelto SV) is deliberately not exported: under approval in the US."""
+image 6.png (Revuelto SV) added in v3 (Oct 2026, client request; it had been held back pending US approval)."""
 from PIL import Image
 import os
 SRC = os.path.join(os.path.dirname(__file__), '..', '..', 'MODELS', 'NEW MODELS')
 OUT = os.path.join(os.path.dirname(__file__), '..', 'assets', 'img')
-MAP = {'revuelto': 'image 9.png', 'temerario': 'image 8.png', 'urus-se': 'image 10.png', 'urus-se-performante': 'image 7.png'}
+MAP = {'revuelto': 'image 9.png', 'temerario': 'image 8.png', 'urus-se': 'image 10.png', 'urus-se-performante': 'image 7.png', 'revuelto-sv': 'image 6.png'}
 BOX = (600, 60, 2430, 923)
 RAMP = 240
 for slug, f in MAP.items():
