@@ -6,11 +6,11 @@
 
 Writes assets/img/slide-temerario-03d-{1920,1280}.{jpg,webp} (desktop, Alex's frame) and
 slide-temerario-03d-p-{800,950}.{jpg,webp} (phone, 800 x 943). The car in the 16:9 frame is
-wider than the phone frame, so the phone crop comes from the client's 4:5 original,
-mirrored to face the same way as Alex's edit, bottom-anchored.
+wider than the phone frame, so the phone crop comes from the client's 4:5 original
+(same direction as Alex's edit), bottom-anchored.
 """
 from pathlib import Path
-from PIL import Image, ImageOps
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 DIR = ROOT.parent / '___OCT changes' / 'sources' / '02-temerario'
@@ -30,7 +30,7 @@ w, h = src.size
 for dw in (1920, 1280):
     save(src.resize((dw, round(dw * h / w)), Image.LANCZOS), f'slide-temerario-03d-{dw}')
 
-phone_src = ImageOps.mirror(Image.open(SRC_PHONE).convert('RGB'))
+phone_src = Image.open(SRC_PHONE).convert('RGB')
 pw, ph = phone_src.size
 ch = round(pw * PHONE_RATIO)
 phone = phone_src.crop((0, ph - ch, pw, ph))
