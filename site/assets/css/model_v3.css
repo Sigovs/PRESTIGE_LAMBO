@@ -90,30 +90,74 @@
 .mfilm__play:hover, .mfilm__play:focus-visible { background: rgb(0 0 0 / 0.84); }
 .mfilm.is-playing .mfilm__play, .mfilm.is-playing .mfilm__poster { display: none; }
 
-/* ---------- Lifestyle page (v3, Oct): film hero, event films, newsletter ---------- */
-.lhero { position: relative; overflow: hidden; background: var(--grey-11); color: var(--grey-0); min-height: min(100svh, 56rem); display: grid; align-items: end; }
+/* ---------- Lifestyle page (v3, Oct; re-laid out after Alex's 3/10) ----------
+   The car at our own event fills the first screen; the copy sits low left on a floor-up scrim.
+   Then one feature (our unveiling, a cinema frame) and one row (four Lamborghini events, equal).
+   Then the newsletter: the ask on the left, the form on the right. */
+.lhero { position: relative; overflow: hidden; background: var(--grey-11); color: var(--grey-0); min-height: 100svh; display: grid; align-items: end; }
 .lhero__media { position: absolute; inset: 0; }
-.lhero__video { width: 100%; height: 100%; object-fit: cover; }
-.lhero::after {   /* the copy column, held dark on every frame of the loop */
+.lhero__video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.lhero::after {
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background:
-        linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
-        linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 52%, rgb(0 0 0 / 0) 85%);
+        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(0deg, rgb(0 0 0 / 0.92) 0%, rgb(0 0 0 / 0.8) 28%, rgb(0 0 0 / 0.25) 55%, rgb(0 0 0 / 0) 70%);
 }
-.lhero__inner { position: relative; z-index: 1; display: grid; justify-items: start; gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-64)); padding-bottom: var(--sp-80); }
+.lhero__inner { position: relative; z-index: 1; display: grid; gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-64)); padding-bottom: var(--sp-56); }
 .lhero__eyelet { color: var(--grey-1); }
-.lhero__lead { max-width: var(--measure); color: var(--grey-1); }
-.lhero__actions { display: grid; gap: var(--sp-16); width: 100%; margin-top: var(--sp-16); }
+.lhero__foot { display: grid; gap: var(--sp-24); margin-top: var(--sp-8); }
+.lhero__lead { max-width: 32rem; color: var(--grey-1); }
+.lhero__actions { display: grid; gap: var(--sp-16); }
 .lhero .btn--secondary { border-color: var(--grey-0); color: var(--grey-0); background: rgb(0 0 0 / 0.64); }
-@media (min-width: 768px) { .lhero__actions { display: flex; flex-wrap: wrap; width: auto; gap: var(--sp-24); } }
-@media (max-width: 1199.98px) and (orientation: portrait) {
-    .lhero::after { background: linear-gradient(0deg, rgb(0 0 0 / 0.95) 0%, rgb(0 0 0 / 0.85) 45%, rgb(0 0 0 / 0.2) 75%, rgb(0 0 0 / 0.55) 100%); }
+@media (min-width: 768px) { .lhero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); } }
+@media (max-width: 767.98px) { .lhero__title.t-display-xl { font-size: min(var(--fs-56), 13vw); } }   /* "BY LAMBORGHINI" holds one line at 320-430 */
+@media (min-width: 1024px) {
+    .lhero__foot { grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--sp-64); }
 }
 
-@media (min-width: 1200px) {
-    .events__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .events__grid .event:first-child { grid-column: span 2; grid-row: span 2; }   /* our own event leads */
+/* events: head in two columns, the feature, then the row */
+.events__head { display: grid; gap: var(--sp-24); margin-bottom: var(--sp-56); }
+.events__intro { max-width: 34rem; color: var(--fg-2); }
+@media (min-width: 1024px) { .events__head { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: end; } }
+
+.efeature { display: grid; gap: var(--sp-24); }
+.efeature__media { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #000; cursor: pointer; aspect-ratio: 21 / 9; overflow: hidden; }
+.efeature__media img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 55%; transition: transform var(--dur-slow) var(--ease-out); }
+.efeature__media:hover img, .efeature__media:focus-visible img { transform: scale(1.02); }
+.efeature__play {
+    position: absolute; left: var(--sp-24); bottom: var(--sp-24);
+    display: inline-flex; align-items: center; gap: var(--sp-16);
+    min-height: var(--btn-h-lg); padding-inline: var(--btn-pad-lg);
+    border: var(--stroke-1) solid var(--grey-0); background: rgb(0 0 0 / 0.64); color: var(--grey-0);
+    font-size: var(--fs-16); font-weight: var(--wght-bold); text-transform: uppercase; letter-spacing: var(--track-upper);
 }
+.efeature__title { font-size: var(--fs-40); line-height: 1.05; font-weight: var(--wght-heavy); font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-heavy); text-transform: uppercase; color: var(--fg); }
+.efeature__text { display: grid; gap: var(--sp-8); }
+@media (min-width: 1024px) {
+    .efeature__text { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: baseline; }
+    .efeature__text .event__place { grid-column: 1 / -1; }
+    .efeature__text .event__text { max-width: 34rem; }
+}
+@media (max-width: 767.98px) { .efeature__media { aspect-ratio: 4 / 3; } .efeature__title { font-size: var(--fs-28); } }
+
+.events__sub {
+    margin-top: var(--sp-88); padding-top: var(--sp-24); margin-bottom: var(--sp-32);
+    border-top: var(--stroke-1) solid var(--stroke);
+    font-size: var(--fs-18); line-height: var(--lh-28); font-weight: var(--wght-bold);
+    text-transform: uppercase; letter-spacing: var(--track-upper); color: var(--fg-3);
+}
+.events__row { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-48) var(--grid-gap); }
+@media (min-width: 768px) { .events__row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .events__row { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.events__row .event__title { font-size: var(--fs-18); line-height: var(--lh-28); }
+
+/* newsletter: the ask left, the form right */
+.newsletter__grid { display: grid; gap: var(--sp-48); }
+.newsletter__lead { margin-top: var(--sp-24); max-width: 30rem; color: var(--fg-2); }
+.newsletter__list { list-style: none; margin: var(--sp-32) 0 0; padding: 0; border-top: var(--stroke-1) solid var(--stroke); }
+.newsletter__list li { padding-block: var(--sp-16); border-bottom: var(--stroke-1) solid var(--stroke); color: var(--fg); font-size: var(--fs-16); line-height: var(--lh-24); }
+@media (min-width: 1024px) { .newsletter__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--sp-64); align-items: start; } }
+
 /* the film lightbox's stage (the dialog itself is main_v3's .film) */
 .film__stage { position: absolute; inset: 0; }
 .film__stage .film__v { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; background: #000; }

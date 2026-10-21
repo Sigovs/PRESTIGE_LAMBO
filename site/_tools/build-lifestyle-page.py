@@ -49,27 +49,34 @@ FOOTER = FOOTER.replace(' aria-current="page"', '').replace('<li><a href="#reque
 
 
 def card(f, i):
-    if f['kind'] == 'yt':
-        poster = f'https://i.ytimg.com/vi/{f["id"]}/maxresdefault.jpg'
-        data = f'data-film-open data-yt="{f["id"]}"'
-        via = 'YouTube'
-    else:
-        poster = f['poster']
-        data = f'data-film-open data-src="{f["src"]}" data-poster="{f["poster"]}"'
-        via = 'film'
+    poster = f'https://i.ytimg.com/vi/{f["id"]}/maxresdefault.jpg'
     return f'''            <li class="event">
-                <button class="event__media" type="button" {data} data-film-title="{f['title']}" aria-label="Play {f['title']} ({via})">
+                <button class="event__media" type="button" data-film-open data-yt="{f['id']}" data-film-title="{f['title']}" aria-label="Play {f['title']} (YouTube)">
                     <img src="{poster}" width="1280" height="720" loading="lazy" decoding="async" alt="">
                     <span class="event__play" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
                 </button>
                 <p class="event__place">{f['place']}</p>
-                <h3 class="event__title">{f['title']}</h3>
+                <h4 class="event__title">{f['title']}</h4>
                 <p class="event__text">{f['text']}</p>
             </li>'''
 
 
+def feature(f):
+    return f'''        <article class="efeature">
+            <button class="efeature__media" type="button" data-film-open data-src="{f['src']}" data-poster="{f['poster']}" data-film-title="{f['title']}" aria-label="Play {f['title']} (film)">
+                <img src="{f['poster']}" width="1920" height="1080" loading="lazy" decoding="async" alt="">
+                <span class="efeature__play" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg><span>Watch the film</span></span>
+            </button>
+            <div class="efeature__text">
+                <p class="event__place">{f['place']} · Our event</p>
+                <h3 class="efeature__title">{f['title']}</h3>
+                <p class="event__text">{f['text']}</p>
+            </div>
+        </article>'''
+
+
 def page():
-    cards = '\n'.join(card(f, i) for i, f in enumerate(FILMS))
+    cards = '\n'.join(card(f, i) for i, f in enumerate(FILMS[1:]))
     return f'''<!doctype html>
 <html lang="en-US">
 <head>
@@ -97,7 +104,7 @@ def page():
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=4">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=6">
 </head>
 <body class="page-model page-lifestyle">
 
@@ -108,8 +115,9 @@ def page():
 {HEADER}<main id="main">
 
 <!-- ============================ 1 · LIFESTYLE ============================
-     The Revuelto unveiling as a muted loop behind the copy (the client's film, 0:19-0:28);
-     the full film opens with sound. Reduced motion keeps the poster. -->
+     The subject is the car at our own event: the Revuelto unveiling (the client's film, 0:23.5-0:32.4:
+     the cover comes off, doors up) fills the screen; the copy sits low left on a floor-up scrim, so
+     the film reads above it. Reduced motion keeps the poster (the car with its doors up). -->
 <section class="lhero" aria-labelledby="life-title">
     <div class="lhero__media" aria-hidden="true">
         <video class="lhero__video" muted playsinline loop preload="none" poster="assets/video/revuelto-launch-poster-d.webp" data-loop
@@ -118,24 +126,33 @@ def page():
     <div class="container lhero__inner">
         <p class="t-eyelet lhero__eyelet">Lamborghini Miami</p>
         <h1 class="t-display-xl lhero__title" id="life-title"><span class="subhero__line">Lifestyle</span> <span class="subhero__line">by Lamborghini</span></h1>
-        <p class="t-lead lhero__lead">The events we do for Lamborghini, in Miami and beyond. Join the list to hear about the next one.</p>
-        <div class="lhero__actions">
-            <a class="btn btn--accent" href="#newsletter"><span>Join the list</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <button class="btn btn--secondary" type="button" data-film-open data-src="{LAUNCH}" data-poster="assets/video/revuelto-launch-poster-d.webp" data-film-title="The Revuelto unveiling"><span>Watch the Revuelto unveiling</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-play"/></svg></button>
+        <div class="lhero__foot">
+            <p class="t-lead lhero__lead">The events we do for Lamborghini, in Miami and beyond.</p>
+            <div class="lhero__actions">
+                <a class="btn btn--accent" href="#newsletter"><span>Join the list</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="btn btn--secondary" href="#events"><span>Our events</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ============================ 2 · EVENTS ============================ -->
+<!-- ============================ 2 · EVENTS ============================
+     One feature and one row: our own event, the Revuelto unveiling, as a full-width cinema frame;
+     then the four Lamborghini events, as four equal films. -->
 <section class="events band band--dark" id="events" aria-labelledby="events-title">
     <div class="container">
-        <header class="section-head">
+        <header class="events__head">
             <div>
-                <p class="t-eyelet section-head__eyelet">Events</p>
-                <h2 class="t-banner" id="events-title">On film</h2>
+                <p class="t-eyelet section-head__eyelet">Lifestyle by Lamborghini</p>
+                <h2 class="t-banner" id="events-title">Our events</h2>
             </div>
+            <p class="t-lead events__intro">Unveilings in our showroom, drives and track days with Lamborghini. Each one on film.</p>
         </header>
-        <ol class="events__grid">
+
+{feature(FILMS[0])}
+
+        <h3 class="events__sub">With Lamborghini</h3>
+        <ol class="events__row">
 {cards}
         </ol>
     </div>
@@ -144,17 +161,21 @@ def page():
 <!-- ============================ 3 · NEWSLETTER ============================
      The client's ask: get people onto the newsletter. First name, last name, email, phone.
      Every state as the enquiry forms; NOT connected yet. -->
-<section class="request band band--black" id="newsletter" aria-labelledby="news-title">
-    <div class="container">
-        <header class="section-head">
+<section class="request band band--black newsletter" id="newsletter" aria-labelledby="news-title">
+    <div class="container newsletter__grid">
+        <header class="newsletter__head">
             <div>
                 <p class="t-eyelet section-head__eyelet">Newsletter</p>
                 <h2 class="t-banner" id="news-title"><span class="svc-line">Hear about</span> <span class="svc-line">the next one</span></h2>
-                <p class="t-lead section-head__lead">Invitations, unveilings and drives from Lamborghini Miami.</p>
+                <p class="t-lead newsletter__lead">Join the Lamborghini Miami list for invitations to what comes next.</p>
+                <ul class="newsletter__list">
+                    <li>Unveilings in our showroom</li>
+                    <li>Drives and track days with Lamborghini</li>
+                </ul>
                 <p class="dev-note" data-dev-note><b>Note for Alex</b> Sign-up form is a mock-up and is not connected. Films: the Revuelto unveiling streams from the client’s Dropbox; the other four are the YouTube links they sent, titled as on YouTube.</p>
             </div>
         </header>
-        <div class="request__grid">
+        <div class="newsletter__form">
             <div class="request__form-wrap">
                 <form class="form" id="news-form" action="#" method="post" novalidate data-enquire-form data-endpoint="" data-fail="You could not be added just now. Please try again, or call (833) 290-5147.">
                     <div class="form__summary" data-no-rise role="alert" tabindex="-1" hidden data-form-summary></div>

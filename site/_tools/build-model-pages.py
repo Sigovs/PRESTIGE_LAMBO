@@ -142,7 +142,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=315">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=4">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=6">
 </head>
 <body class="page-model">
 
