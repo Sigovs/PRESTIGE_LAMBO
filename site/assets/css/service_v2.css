@@ -170,6 +170,15 @@
     .why__grid > .jobs { grid-column: 1 / -1; grid-row: 3; }
 }
 
+/* department pages (Alex, 23 Oct): the 16:9 still fills the whole height of the text and its action,
+   cropped to cover; the row's height comes from the text alone. Phones keep the still in flow. */
+@media (min-width: 768px) {
+    .workshop__grid:has(.workshop__media--fill) { align-items: stretch; }
+    .workshop__media--fill { position: relative; min-height: 20rem; }
+    .workshop__media--fill picture { position: absolute; inset: 0; }
+    .workshop__media--fill img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+}
+
 /* ---------- 2 · Why us ---------- */
 .why__grid { display: grid; gap: var(--sp-64); }
 .why__intro { display: grid; align-content: start; }
