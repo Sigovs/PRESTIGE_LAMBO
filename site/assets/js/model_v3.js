@@ -26,7 +26,7 @@
                 : v.replace(/\D/g, '').length >= 10 ? '' : 'Enter a phone number with at least 10 digits.'),
             consent: (v, input) => (input.checked ? '' : 'Tick the box to agree to being contacted.')
         };
-        // v4 (22 Oct, client): ZIP code on the contact form (US, 5 digits; ZIP+4 accepted)
+        // v4 (22 Oct, client): ZIP code on every lead form (US, 5 digits; ZIP+4 accepted)
         if (form.elements.zip) rules.zip = (v) => (!v.trim() ? 'Enter your ZIP code.'
             : /^\d{5}(-\d{4})?$/.test(v.trim()) ? '' : 'Enter a 5-digit ZIP code.');
         // contact.html?topic=service: arrive with the inquiry type chosen

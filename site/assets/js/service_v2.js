@@ -57,6 +57,9 @@
                 const y = Number(v);
                 return /^\d{4}$/.test(v.trim()) && y >= 1963 && y <= thisYear + 1 ? '' : `Enter a four-digit year between 1963 and ${thisYear + 1}.`;
             },
+            // ZIP code on every lead form (US, 5 digits; ZIP+4 accepted)
+            zip: (v) => (!v.trim() ? 'Enter your ZIP code.'
+                : /^\d{5}(-\d{4})?$/.test(v.trim()) ? '' : 'Enter a 5-digit ZIP code.'),
             consent: (v, input) => (input.checked ? '' : 'Tick the box to agree to being contacted.')
         };
         const labelOf = (input) => (input.name === 'consent' ? 'Consent'
@@ -77,6 +80,7 @@
         // Validate on leaving a field; once a field has been flagged, re-check as the visitor types.
         Object.keys(rules).forEach((name) => {
             const input = form.elements[name];
+            if (!input) return;   // a page may not carry every field (ad-personam.html has no year)
             if (input.type === 'checkbox') { input.addEventListener('change', () => { if (input.getAttribute('aria-invalid')) check(input); }); return; }
             input.addEventListener('blur', () => { if (input.value || input.getAttribute('aria-invalid')) check(input); });
             input.addEventListener('input', () => { if (input.getAttribute('aria-invalid') === 'true') check(input); });
@@ -100,6 +104,7 @@
             e.preventDefault();
             status.textContent = '';
             const errors = Object.keys(rules)
+                .filter((name) => form.elements[name])
                 .map((name) => ({ input: form.elements[name], msg: check(form.elements[name]) }))
                 .filter((x) => x.msg);
             if (errors.length) {

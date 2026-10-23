@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ad Personam | Lamborghini Miami, North Miami Beach, FL</title>
+    <meta name="description" content="Ad Personam at Lamborghini Miami: Lamborghini's personalization programme, colours, materials and details specified with our sales team on Biscayne Boulevard.">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="assets/img/bull.svg" type="image/svg+xml">
+    <script>
+        /* ?figma = static capture mode: no reveals, no Lenis, every image eager (as index_v4.html). */
+        if (/[?&]figma\b/.test(location.search)) {
+            document.documentElement.classList.add('figma');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+            });
+        } else {
+            document.documentElement.classList.add('js');
+        }
+    </script>
+
+    <!-- Stand-in brand face: Roboto Flex (wdth 25–151, wght 100–1000). See DESIGN_SYSTEM.md §1.1 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
+
+    <!-- Hero preload: the film's posters, landscape frame and the phone frame -->
+    <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
+          href="assets/video/adp-hero-poster-d.webp" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" media="(max-width: 1199.98px) and (orientation: portrait), (max-width: 767.98px)"
+          href="assets/video/adp-hero-poster-m.webp" fetchpriority="high">
+
+    <!-- Leaflet: open-source map for the request section, as on the Prestige Imports service page -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+    <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
+    <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=16">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "Lamborghini Miami Service",
+        "brand": { "@type": "Brand", "name": "Lamborghini" },
+        "parentOrganization": { "@type": "AutoDealer", "name": "Lamborghini Miami" },
+        "telephone": "+1-833-290-5148",
+        "openingHours": ["Mo-Fr 08:00-17:30"],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14780 Biscayne Boulevard",
+            "addressLocality": "North Miami Beach",
+            "addressRegion": "FL",
+            "postalCode": "33181",
+            "addressCountry": "US"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 25.913485, "longitude": -80.15750349 }
+    }
+    </script>
+</head>
+<body class="page-service">
+
+<!-- Icon set: one family, 24px box, 1.5 stroke, square caps. DESIGN_SYSTEM.md §5 -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ HEADER (as index_v4.html; links point across pages) ============================ -->
+<header class="site-header" data-header>
+    <div class="site-header__bar container">
+        <div class="site-header__start">
+            <button class="site-header__menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+                <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+                <span>Menu</span>
+            </button>
+            <nav class="site-header__nav" aria-label="Primary">
+                <a class="site-header__link" href="srp.html?condition=new">New</a>
+                <a class="site-header__link" href="srp.html?condition=used">Pre-owned</a>
+                <a class="site-header__link" href="service.html">Service</a>
+            </nav>
+        </div>
+
+        <a class="site-header__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home">
+            <img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
+            <span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span>
+        </a>
+
+        <div class="site-header__end">
+            <a class="site-header__phone" href="tel:+18332905147" aria-label="Call sales, (833) 290-5147">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                <span class="site-header__phone-num">(833) 290-5147</span>
+            </a>
+            <a class="site-header__link site-header__contact" href="#request">Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- ============================ MENU (overlay) ============================ -->
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu data-lenis-prevent>
+  <div class="menu__panel">
+    <div class="menu__bar container">
+        <button class="site-header__menu" type="button" data-menu-close>
+            <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="menu-icon__l1" d="M3 7h18"/><path class="menu-icon__l2" d="M3 12h18"/><path class="menu-icon__l3" d="M3 17h18"/></svg>
+            <span>Close</span>
+        </button>
+        <a class="menu__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
+        <span class="menu__spacer" aria-hidden="true"></span>
+    </div>
+    <div class="menu__body container">
+        <nav class="menu__cols" aria-label="Site">
+            <div class="menu__col">
+                <p class="menu__head">Vehicles</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="index_v4.html#range">Models</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=new">New inventory</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=used">Pre-owned inventory</a></li>
+                    <li><a class="menu__link" href="srp.html">All Lamborghini inventory</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Ownership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="service.html">Service</a></li>
+                    <li><a class="menu__link" href="#request" data-menu-link>Schedule service</a></li>
+                    <li><a class="menu__link" href="service.html#request">Order parts</a></li>
+                    <li><a class="menu__link" href="index_v4.html#collision">Collision center</a></li>
+                    <li><a class="menu__link" href="ad-personam.html" aria-current="page">Ad Personam</a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Dealership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="lifestyle.html">Lifestyle</a></li>
+                    <li><a class="menu__link" href="index_v4.html#house">Our story</a></li>
+                    <li><a class="menu__link" href="index_v4.html#visit">Visit &amp; hours</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghinimiami.com/careers">Careers</a></li>
+                    <li><a class="menu__link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <dl class="menu__contact">
+            <div><dt>Sales</dt><dd><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+            <div><dt>Service</dt><dd><a href="tel:+18332905148">(833) 290-5148</a></dd></div>
+            <div><dt>Parts</dt><dd><a href="tel:+18332905149">(833) 290-5149</a></dd></div>
+        </dl>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================ 1 · HERO ============================
+     v4 sample page (23 Oct 2026, Alex): Ad Personam gets its own page on the service-page
+     template, hero film + programme facts + process + the client's stills + a sales request
+     form that arrives with department=sales and reason=ad-personam. The film is the client's
+     Ad Personam Revuelto reel, cut for this hero from 3.96 s (the car from behind past a palm trunk, the bull on the carbon, the
+     car, the wheel, the door; the opening white-wall and badge shots are left out, and the palm trunk
+     gives the copy a dark first frame), under the
+     homepage vignettes. -->
+<section class="subhero" aria-labelledby="adp-title">
+    <div class="subhero__media">
+        <picture>
+            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" srcset="assets/video/adp-hero-poster-d.webp">
+            <img class="subhero__img subhero__poster" src="assets/video/adp-hero-poster-m.webp" width="960" height="720" fetchpriority="high" decoding="async"
+                 alt="A red and black Revuelto Ad Personam from behind, seen past a palm trunk.">
+        </picture>
+        <video class="subhero__video" muted playsinline loop preload="none" aria-hidden="true" data-svc-video
+               data-src-d="assets/video/adp-hero-loop-d.mp4" data-src-m="assets/video/adp-hero-loop-m.mp4"></video>
+    </div>
+    <div class="container subhero__inner">
+        <div class="subhero__group">
+            <p class="t-eyelet subhero__eyelet">Personalization</p>
+            <h1 class="t-display-xl subhero__title" id="adp-title">
+                <span class="subhero__line">Lamborghini</span>
+                <span class="subhero__line">Ad Personam</span>
+            </h1>
+            <p class="t-lead subhero__lead">Lamborghini’s personalization programme: colours, materials and details specified around you. Begin with our sales team in Miami; continue in the Lamborghini configurator.</p>
+            <div class="subhero__actions">
+                <a class="btn btn--accent" href="#request">
+                    <span>Request a consultation</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+                <a class="btn btn--secondary" href="https://configurator.lamborghini.com/" rel="noopener">
+                    <span>Start configuration</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 2 · THE PROGRAMME ============================
+     What Ad Personam covers, in Lamborghini's own categories (lamborghini.com/en-en/ownership/ad-personam,
+     read 23 Oct 2026): paint colours and finishes (Harlequin, crystallising, Fading), liveries, interior
+     materials (Corsatex named), the Ad Personam Studio in Sant'Agata Bolognese reached through the dealer.
+     No on-site studio is claimed. -->
+<section class="why band band--dark" id="programme" aria-labelledby="programme-title">
+    <div class="container why__grid">
+        <div class="why__intro">
+            <p class="t-eyelet section-head__eyelet">The programme</p>
+            <h2 class="t-banner" id="programme-title">Specified around you</h2>
+
+        </div>
+
+        <div class="why__data why__data--departments">
+            <h3 class="t-eyelet why__head">Where to begin</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Sales</dt>
+                    <dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a><span class="spec__sub">Mon–Fri 9:00 am – 7:00 pm · Sat 10:00 am – 6:00 pm</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Configurator</dt>
+                    <dd class="spec__value"><a class="spec__link" href="https://configurator.lamborghini.com/" rel="noopener">configurator.lamborghini.com</a><span class="spec__sub">Colours and options, with us or at home</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Ad Personam Studio</dt>
+                    <dd class="spec__value">Sant’Agata Bolognese<span class="spec__sub">Visits arranged through us</span></dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="why__data">
+            <h3 class="t-eyelet why__head">What you can specify</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Paint</dt>
+                    <dd class="spec__value">Colours and finishes<span class="spec__sub">Harlequin shades, crystallising finishes, Fading</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Liveries</dt>
+                    <dd class="spec__value">Fully customisable<span class="spec__sub">A design of your own</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Interiors</dt>
+                    <dd class="spec__value">Fine leathers, technical materials<span class="spec__sub">Corsatex among them</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Details</dt>
+                    <dd class="spec__value">To your specification<span class="spec__sub">Developed with our sales team and Lamborghini’s Ad Personam team</span></dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 3 · THE PROCESS ============================
+     The service page's "workshop" block: a still from the client's reel (the white and red
+     steering wheel) and how it works. -->
+<section class="workshop band band--black" id="process" aria-labelledby="process-title">
+    <div class="container workshop__grid">
+        <figure class="workshop__media" data-reveal>
+            <picture>
+                <source type="image/webp" srcset="assets/img/adp-wheel-1600.webp 1600w, assets/img/adp-wheel-1200.webp 1200w, assets/img/adp-wheel-800.webp 800w, assets/img/adp-wheel-560.webp 560w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw">
+                <img src="assets/img/adp-wheel-1200.jpg" srcset="assets/img/adp-wheel-1600.jpg 1600w, assets/img/adp-wheel-1200.jpg 1200w, assets/img/adp-wheel-800.jpg 800w, assets/img/adp-wheel-560.jpg 560w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="The white and red steering wheel and cabin of a Revuelto Ad Personam.">
+            </picture>
+        </figure>
+
+        <div class="workshop__body">
+            <header>
+                <p class="t-eyelet section-head__eyelet">The process</p>
+                <h2 class="t-banner" id="process-title"><span class="svc-line">From Miami</span> <span class="svc-line">to Sant’Agata</span></h2>
+            </header>
+            <div class="workshop__text">
+                <p>It begins with a conversation with our sales team in Miami: the model, the colours, the materials and the details you have in mind.</p>
+                <p>The specification is then developed with Lamborghini’s Ad Personam team, and a visit to the Ad Personam Studio in Sant’Agata Bolognese can be arranged through us.</p>
+            </div>
+            <div class="workshop__actions">
+                <a class="btn btn--primary" href="#request">
+                    <span>Request a consultation</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 4 · THE STEPS ============================
+     The service page's four rule-topped columns. -->
+<section class="difference band band--light" id="steps" aria-labelledby="steps-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">Step by step</p>
+                <h2 class="t-banner" id="steps-title"><span class="svc-line">Four steps</span> <span class="svc-line">to your car</span></h2>
+            </div>
+        </header>
+
+        <ul class="points">
+            <li class="points__item">
+                <h3 class="points__title">Talk to us</h3>
+                <p class="points__text">A conversation with our sales team in Miami about the car you have in mind.</p>
+            </li>
+            <li class="points__item">
+                <h3 class="points__title">Configure</h3>
+                <p class="points__text">Colours and options in the Lamborghini configurator, with us in the showroom or at home.</p>
+            </li>
+            <li class="points__item">
+                <h3 class="points__title">Specify</h3>
+                <p class="points__text">The specification is developed with Lamborghini’s Ad Personam team; a Studio visit in Sant’Agata can be arranged through us.</p>
+            </li>
+            <li class="points__item">
+                <h3 class="points__title">Delivery</h3>
+                <p class="points__text">Your car is built to that specification and delivered through Lamborghini Miami.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================ 5 · THE CAR ============================
+     Three stills from the client's Ad Personam Revuelto reel (_tools/process-ad-personam-v4.py).
+     No stock imagery on this page (Alex, 23 Oct 2026). -->
+<section class="stills band band--black" id="car" aria-labelledby="car-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">Ad Personam in Miami</p>
+                <h2 class="t-banner" id="car-title"><span class="svc-line">Revuelto</span> <span class="svc-line">Ad Personam</span></h2>
+            </div>
+        </header>
+        <ul class="stills__grid">
+            <li class="stills__item">
+            <picture>
+                <source type="image/webp" srcset="assets/img/adp-wide-1600.webp 1600w, assets/img/adp-wide-1200.webp 1200w, assets/img/adp-wide-800.webp 800w, assets/img/adp-wide-560.webp 560w" sizes="(min-width: 768px) 33vw, 100vw">
+                <img src="assets/img/adp-wide-1200.jpg" srcset="assets/img/adp-wide-1600.jpg 1600w, assets/img/adp-wide-1200.jpg 1200w, assets/img/adp-wide-800.jpg 800w, assets/img/adp-wide-560.jpg 560w" sizes="(min-width: 768px) 33vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="The red and black Revuelto Ad Personam, side on, by a hedge.">
+            </picture>
+            </li>
+            <li class="stills__item">
+            <picture>
+                <source type="image/webp" srcset="assets/img/adp-bull-1600.webp 1600w, assets/img/adp-bull-1200.webp 1200w, assets/img/adp-bull-800.webp 800w, assets/img/adp-bull-560.webp 560w" sizes="(min-width: 768px) 33vw, 100vw">
+                <img src="assets/img/adp-bull-1200.jpg" srcset="assets/img/adp-bull-1600.jpg 1600w, assets/img/adp-bull-1200.jpg 1200w, assets/img/adp-bull-800.jpg 800w, assets/img/adp-bull-560.jpg 560w" sizes="(min-width: 768px) 33vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="The Revuelto Ad Personam from behind, seen past a palm trunk.">
+            </picture>
+            </li>
+            <li class="stills__item">
+            <picture>
+                <source type="image/webp" srcset="assets/img/adp-door-1600.webp 1600w, assets/img/adp-door-1200.webp 1200w, assets/img/adp-door-800.webp 800w, assets/img/adp-door-560.webp 560w" sizes="(min-width: 768px) 33vw, 100vw">
+                <img src="assets/img/adp-door-1200.jpg" srcset="assets/img/adp-door-1600.jpg 1600w, assets/img/adp-door-1200.jpg 1200w, assets/img/adp-door-800.jpg 800w, assets/img/adp-door-560.jpg 560w" sizes="(min-width: 768px) 33vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="The Revuelto Ad Personam with its door raised.">
+            </picture>
+            </li>
+        </ul>
+        <p class="t-legal stills__caption">A Revuelto Ad Personam, from the Lamborghini Miami film.</p>
+    </div>
+</section>
+
+<!-- ============================ 6 · REQUEST ============================
+     The service page's form + map, for sales. The hidden fields tell the CRM where the lead goes
+     and what it is (department=sales, reason=ad-personam); every state as the service form
+     (service_v2.js); no endpoint yet. -->
+<section class="request band band--dark" id="request" aria-labelledby="request-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">Ad Personam request</p>
+                <h2 class="t-banner" id="request-title"><span class="svc-line">Tell us what</span> <span class="svc-line">you have in mind</span></h2>
+                <p class="t-lead section-head__lead">Send a request and our sales team will contact you. Or call <a class="spec__link" href="tel:+18332905147">(833) 290-5147</a>.</p>
+            </div>
+        </header>
+
+        <div class="request__grid">
+            <div class="request__form-wrap">
+                <form class="form" id="adp-form" action="#" method="post" novalidate data-service-form data-endpoint="">
+                    <input type="hidden" name="department" value="sales">
+                    <input type="hidden" name="reason" value="ad-personam">
+                    <div class="form__summary" data-no-rise role="alert" tabindex="-1" hidden data-form-summary></div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="adp-first">First name <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="adp-first" name="first" type="text" autocomplete="given-name" required aria-describedby="adp-first-err">
+                            <p class="field__error" data-no-rise id="adp-first-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="adp-last">Last name <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="adp-last" name="last" type="text" autocomplete="family-name" required aria-describedby="adp-last-err">
+                            <p class="field__error" data-no-rise id="adp-last-err" hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="adp-email">Email <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="adp-email" name="email" type="email" autocomplete="email" required aria-describedby="adp-email-err">
+                            <p class="field__error" data-no-rise id="adp-email-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="adp-phone">Phone <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="adp-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="adp-phone-err">
+                            <p class="field__error" data-no-rise id="adp-phone-err" hidden></p>
+                        </div>
+                    </div>
+
+                    <fieldset class="field segmented">
+                        <legend class="field__label">Preferred contact <span class="field__req">(required)</span></legend>
+                        <div class="segmented__opts">
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="call" checked><span>Call</span></label>
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="text"><span>Text</span></label>
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="email"><span>Email</span></label>
+                        </div>
+                    </fieldset>
+
+                    <!-- v4 (22 Oct, client): ZIP code, for the CRM, as on the other forms -->
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="adp-zip">ZIP code <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="adp-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" maxlength="10" required aria-describedby="adp-zip-err">
+                            <p class="field__error" data-no-rise id="adp-zip-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="adp-model">Model</label>
+                            <select class="field__input field__select" id="adp-model" name="model">
+                                <option value="">Select a model</option>
+                                <option>Revuelto</option>
+                                <option>Revuelto SV</option>
+                                <option>Temerario</option>
+                                <option>Urus SE</option>
+                                <option>Urus SE Performante</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="adp-message">What would you like to personalize?</label>
+                        <textarea class="field__input field__textarea" id="adp-message" name="message" rows="5"></textarea>
+                    </div>
+
+                    <div class="field field--consent">
+                        <label class="check check--consent">
+                            <input class="check__input" type="checkbox" name="consent" value="yes" id="adp-consent" required aria-describedby="adp-consent-err">
+                            <span class="check__box" aria-hidden="true"></span>
+                            <span class="check__label">Please note that by completing this form, you agree to being contacted via text, phone and email. <span class="field__req">(required)</span></span>
+                        </label>
+                        <p class="field__error" data-no-rise id="adp-consent-err" hidden></p>
+                    </div>
+
+                    <div class="form__foot">
+                        <button class="btn btn--accent form__submit" type="submit" data-form-submit>
+                            <span data-submit-label>Send request</span>
+                            <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                        </button>
+                        <p class="form__status" data-no-rise role="status" aria-live="polite" data-form-status></p>
+                    </div>
+                </form>
+
+                <div class="form-done" tabindex="-1" hidden data-form-done data-no-rise>
+                    <p class="t-eyelet section-head__eyelet">Request sent</p>
+                    <p class="t-title form-done__title">Thank you<span data-done-name></span>.</p>
+                    <p class="t-lead form-done__text">Our sales team will contact you. For anything urgent, call <a class="spec__link" href="tel:+18332905147">(833) 290-5147</a>.</p>
+                    <button class="btn btn--tertiary form-done__again" type="button" data-form-again><span>Send another request</span></button>
+                </div>
+            </div>
+
+            <aside class="request__aside" aria-label="Lamborghini Miami location">
+                <div class="request__map" id="service-map" role="img" aria-label="Map showing Lamborghini Miami at 14780 Biscayne Boulevard, North Miami Beach, FL"></div>
+                <address class="request__address">
+                    14780 Biscayne Boulevard<br>
+                    North Miami Beach, FL 33181
+                </address>
+                <dl class="spec spec--hours">
+                    <div class="spec__row"><dt class="spec__label">Sales</dt><dd class="spec__value">Mon–Fri 9:00 am – 7:00 pm<span class="spec__sub">Sat 10:00 am – 6:00 pm · Sun closed</span></dd></div>
+                    <div class="spec__row"><dt class="spec__label">Call</dt><dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+                </dl>
+                <a class="btn btn--tertiary request__directions" href="https://maps.google.com/maps?q=Lamborghini+Miami,+14780+Biscayne+Boulevard+North,+North+Miami+Beach,+FL+33181" rel="noopener">
+                    <span>Get directions</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                </a>
+            </aside>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER (as index_v4.html) ============================ -->
+<footer class="site-footer band band--black" aria-labelledby="footer-title">
+    <div class="container">
+        <div class="site-footer__top">
+            <div class="site-footer__brand">
+                <img src="assets/img/bull.svg" width="57" height="59" alt="" class="site-footer__bull">
+                <p class="site-footer__name" id="footer-title">Lamborghini Miami</p>
+                <p class="site-footer__sub">Authorized Lamborghini Dealer</p>
+            </div>
+
+            <nav class="site-footer__nav" aria-label="Footer">
+                <div>
+                    <p class="site-footer__head">Vehicles</p>
+                    <ul>
+                        <li><a href="index_v4.html#range">Models</a></li>
+                        <li><a href="srp.html?condition=new">New inventory</a></li>
+                        <li><a href="srp.html?condition=used">Pre-owned inventory</a></li>
+                        <li><a href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Ownership</p>
+                    <ul>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="#request">Schedule service</a></li>
+                        <li><a href="service.html#request">Parts</a></li>
+                        <li><a href="index_v4.html#collision">Collision center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Dealership</p>
+                    <ul>
+                        <li><a href="lifestyle.html">Lifestyle</a></li>
+                        <li><a href="index_v4.html#house">Our story</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/careers">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Follow</p>
+                    <ul>
+                        <li><a href="https://www.instagram.com/lamborghinimiami/" rel="noopener">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/lamborghinimiami.prestigeimports" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@lamborghiniofmiami" rel="noopener">YouTube</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="site-footer__parent">
+            <img src="assets/img/logo-prestige-imports-white.png" width="318" height="146" loading="lazy" alt="Prestige Imports, established 1977" class="site-footer__prestige">
+            <p class="site-footer__parent-text">Lamborghini Miami is a division of Prestige Imports.</p>
+            <a class="btn btn--tertiary" href="https://www.prestigeimports.com/" rel="noopener"><span>Visit Prestige Imports</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+        </div>
+
+        <div class="site-footer__legal t-legal">
+            <p>Lamborghini, the Bull logo, model names and related marks are trademarks of Automobili Lamborghini S.p.A.</p>
+            <div class="site-footer__baseline">
+                <p>© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181</p>
+                <p class="site-footer__powered">Powered by <a href="https://www.allautonetwork.com/" target="_blank" rel="noopener">All Auto Network<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script src="assets/js/main_v2.js?v=105" defer></script>
+<script src="assets/js/service_v2.js?v=8" defer></script>
+</body>
+</html>

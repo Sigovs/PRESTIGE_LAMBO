@@ -136,16 +136,28 @@
     .subhero__inner { padding-block: calc(var(--header-h) + var(--sp-16)) var(--sp-24); }
 }
 
+/* ---------- Ad Personam page: the stills strip (v4 sample) ---------- */
+.stills__grid { display: grid; gap: var(--sp-24); list-style: none; margin: 0; padding: 0; }
+.stills__item img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.stills__caption { margin-top: var(--sp-16); color: var(--fg-3); }
+@media (min-width: 768px) {
+    .stills__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--grid-gap); }
+}
+
 /* ---------- 2 · Why us ---------- */
 .why__grid { display: grid; gap: var(--sp-64); }
 .why__intro { display: grid; align-content: start; }
 .why__lead { margin-top: var(--sp-24); }
 .why__data { display: grid; gap: var(--sp-16); align-content: start; }
 .why__head { color: var(--fg-3); }
-.why__data--departments { margin-top: var(--sp-48); }   /* v4: under the title, in the intro column */
+.why__data--departments { margin-top: var(--sp-16); }   /* stacked: a little air after the title */
 @media (min-width: 1200px) {
-    .why__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); column-gap: var(--grid-gap); }
-    .why__grid > .why__data { grid-column: 3; }   /* the direct child only: the departments block sits inside the intro */
+    /* two rows (Alex, 23 Oct): the title alone in the first, both lists in the second, so the two
+       list headings sit on one line */
+    .why__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); grid-template-rows: auto auto; column-gap: var(--grid-gap); row-gap: var(--sp-48); }
+    .why__intro { grid-column: 1; grid-row: 1; }
+    .why__data--departments { grid-column: 1; grid-row: 2; margin-top: 0; }
+    .why__grid > .why__data:not(.why__data--departments) { grid-column: 3; grid-row: 2; }
 }
 
 /* ---------- 3 · The workshop ---------- */

@@ -240,8 +240,22 @@ Client round 2 (`OCT 2026 changes/Lambor 2.docx`, received 22 Oct 2026). v4 is a
 | Change on the page | Status | Source |
 |---|---|---|
 | "Inquire" / "inquiry" on every page, `#inquire` anchors | client-stated | Lambor 2.docx |
-| ZIP code (required, 5 digits, ZIP+4 accepted) on the contact form only, as asked | client-stated | Lambor 2.docx ("ZIP Code if possible … I do want that info in our CRM") |
+| ZIP code (required, 5 digits, ZIP+4 accepted) on every lead form: contact, the five model inquiry forms, the service request and the Ad Personam request (Alex, 23 Oct: the client wants it in the CRM, so every lead carries it) | client-stated | Lambor 2.docx ("ZIP Code if possible … I do want that info in our CRM") |
 | Contact form: "Inquiry type" Sales / Service / General (`department`), `contact.html?topic=…` preset | client-stated | Lambor 2.docx ("toggle between sales/service/general … send inquiries more directly to the right departments"). **The routing itself is the platform's: the form still has no endpoint.** |
 | Service hero: the client's service film, 6.21–18.31 s (the STO and the technicians; the white sign and lifts shots left out for legibility), in place of the stock STO photograph | client-supplied | Lambor 2.docx, client Dropbox file `Andres-Service-Landing-Video.mov` |
 | Workshop photograph: DSC_3226 (blue Lamborghini on a lift) in place of the SVJ | client-supplied | Lambor 2.docx, client Dropbox file `DSC_3226-Edit.jpg` (`_tools/process-service-v4.py`) |
 | "By the numbers": largest service department in the nation; #1 service department 2025 (Lamborghini award); 12+ master-certified technicians; 24+ service bays; largest parts department in the nation; top Pirelli provider, 7 years running; 100% customer satisfaction (Lamborghini score); carbon-fiber and full-paint certified collision center; 6 in-house flatbed transports; Polo Storico certified | **dealer-stated, client's figures** | Lambor 2.docx, verbatim list. The superlatives ("largest in the nation", "#1", "100%") were kept off the page in v1 as unverified (CP6); they return at the client's explicit request and remain the client's claims. The former "Why choose us" paragraph is gone. |
+
+## Ad Personam page (ad-personam.html, sample, 23 Oct 2026)
+
+Alex's proposal, not a client request: one page per intent (Ad Personam, schedule service, order parts, collision center) on the service-page template, each with its own form that arrives in the CRM with the department and the reason. This is the first, to show the client.
+
+| Claim on the page | Status | Source |
+|---|---|---|
+| Programme description ("colours, materials and details specified around you"; begin with our sales team, continue in the configurator) | verified | The homepage Ad Personam chapter (v1 ledger above) |
+| Paint: colours and finishes, Harlequin shades, crystallising finishes, Fading; liveries fully customisable; interiors: fine leathers and technical materials, Corsatex; the Ad Personam Studio in Sant'Agata Bolognese, visits through the dealer, with a Vehicle Configuration Specialist | verified | lamborghini.com/en-en/ownership/ad-personam, read 23 Oct 2026 |
+| "Details: to your specification, developed with our sales team and Lamborghini's Ad Personam team"; the four steps; "built to that specification and delivered through Lamborghini Miami" | dealer process, **confirm** | Our description of the dealer's role; no on-site studio is claimed (unverified, see "Deliberately excluded") |
+| Sales hours Mon–Fri 9:00 am – 7:00 pm, Sat 10:00 am – 6:00 pm, Sun closed; (833) 290-5147 | verified / dealer-stated | Dealer facts above |
+| Form: `department=sales`, `reason=ad-personam` hidden; first/last/email/phone, preferred contact, model, message, consent | design | Same handler as the service form (service_v2.js); no endpoint |
+
+**Imagery** (no stock, Alex): the hero film and all four stills come from the client's own Ad Personam Revuelto reel (Dropbox, round 1: `Andres-Ad-Personam-Revuelto-Horizontal-Reel.mp4`). Hero loop `adp-hero-loop-*`: 3.96–11.96 s (the car from behind past a palm trunk, the bull on the carbon, the car, the wheel, the door; the opening white-wall and badge shots are left out, and the palm trunk gives the copy a dark first frame). Stills `adp-{wide,bull,wheel,door}-*` at 7.3 / 4.6 (the rear view past the palm, despite the name) / 9.8 / 11.4 s (`_tools/process-ad-personam-v4.py`). The official Revuelto interior render in `NEW IMAGES/personalization.webp` was rejected as corporate stock.

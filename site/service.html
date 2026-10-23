@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
-    <link rel="stylesheet" href="assets/css/service_v2.css?v=14">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=16">
 
     <script type="application/ld+json">
     {
@@ -132,7 +132,7 @@
                     <li><a class="menu__link" href="#request" data-menu-link>Schedule service</a></li>
                     <li><a class="menu__link" href="service.html#request">Order parts</a></li>
                     <li><a class="menu__link" href="index_v4.html#collision">Collision center</a></li>
-                    <li><a class="menu__link" href="index_v4.html#ad-personam">Ad Personam</a></li>
+                    <li><a class="menu__link" href="ad-personam.html">Ad Personam</a></li>
                 </ul>
             </div>
             <div class="menu__col">
@@ -209,27 +209,28 @@
             <p class="t-eyelet section-head__eyelet">Service department</p>
             <h2 class="t-banner" id="why-title">Why choose us</h2>
 
-            <div class="why__data why__data--departments">
-                <h3 class="t-eyelet why__head">Departments</h3>
-                <dl class="spec">
-                    <div class="spec__row">
-                        <dt class="spec__label">Service</dt>
-                        <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri, 8:00 am – 5:30 pm</span></dd>
-                    </div>
-                    <div class="spec__row">
-                        <dt class="spec__label">Parts</dt>
-                        <dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a><span class="spec__sub">Genuine Lamborghini parts</span></dd>
-                    </div>
-                    <div class="spec__row">
-                        <dt class="spec__label">Collision &amp; paint</dt>
-                        <dd class="spec__value">Lamborghini-certified<span class="spec__sub"><a class="spec__link" href="index_v4.html#collision">Collision center and paint shop</a></span></dd>
-                    </div>
-                    <div class="spec__row">
-                        <dt class="spec__label">Roadside assistance</dt>
-                        <dd class="spec__value"><a href="tel:+18884646040">1-888-464-6040</a><span class="spec__sub">24 hours</span></dd>
-                    </div>
-                </dl>
-            </div>
+        </div>
+
+        <div class="why__data why__data--departments">
+            <h3 class="t-eyelet why__head">Departments</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Service</dt>
+                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri, 8:00 am – 5:30 pm</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Parts</dt>
+                    <dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a><span class="spec__sub">Genuine Lamborghini parts</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Collision &amp; paint</dt>
+                    <dd class="spec__value">Lamborghini-certified<span class="spec__sub"><a class="spec__link" href="index_v4.html#collision">Collision center and paint shop</a></span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Roadside assistance</dt>
+                    <dd class="spec__value"><a href="tel:+18884646040">1-888-464-6040</a><span class="spec__sub">24 hours</span></dd>
+                </div>
+            </dl>
         </div>
 
         <div class="why__data">
@@ -469,17 +470,25 @@
                         </div>
                     </div>
 
-                    <div class="field">
-                        <label class="field__label" for="svc-type">Service needed</label>
-                        <select class="field__input field__select" id="svc-type" name="service">
-                            <option value="">Select a service</option>
-                            <option>Scheduled maintenance</option>
-                            <option>Repair</option>
-                            <option>Collision &amp; paint</option>
-                            <option>Parts</option>
-                            <option>Detailing</option>
-                            <option>Other</option>
-                        </select>
+                    <!-- v4 (22 Oct, client): ZIP code, for the CRM, as on the sales forms -->
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="svc-zip">ZIP code <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="svc-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" maxlength="10" required aria-describedby="svc-zip-err">
+                            <p class="field__error" data-no-rise id="svc-zip-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="svc-type">Service needed</label>
+                            <select class="field__input field__select" id="svc-type" name="service">
+                                <option value="">Select a service</option>
+                                <option>Scheduled maintenance</option>
+                                <option>Repair</option>
+                                <option>Collision &amp; paint</option>
+                                <option>Parts</option>
+                                <option>Detailing</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="field">
@@ -610,6 +619,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script src="assets/js/main_v2.js?v=105" defer></script>
-<script src="assets/js/service_v2.js?v=6" defer></script>
+<script src="assets/js/service_v2.js?v=8" defer></script>
 </body>
 </html>
