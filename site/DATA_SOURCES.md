@@ -219,3 +219,29 @@ The structure follows the Prestige Imports service page (`prestige-final/service
 - `svc-workshop-*`: dealer-shot Aventador SVJ under a raised Aventador, cropped at y 1900 to drop the stamped shield.
 - `svc-transport-*`: dealer-shot Prestige enclosed transporter and flatbed, no watermark.
 - Rejected: `service_detailer-sanitizing-interior-covid` (a non-Lamborghini car and a COVID mask).
+
+## Homepage v4 carousel (index_v4.html, 22 Oct 2026)
+
+Client round 2 (`OCT 2026 changes/Lambor 2.docx`, received 22 Oct 2026). v4 is a copy of v3 (`main_v4.css`, `tokens_v4.css`, `main_v4.js`); v3 is kept at `v3/index_v3.html`.
+
+| Change on the page | Status | Source |
+|---|---|---|
+| "Inquire" replaces "Enquire" on every visible button | client-stated | Lambor 2.docx ("please change all enquires to inquire") |
+| Slide 01: "Watch full video" action and the full-film dialog removed. All slides (Alex, 22 Oct): no side scrim; a plain black-to-clear vignette top and bottom only | client-stated / Alex | Lambor 2.docx ("I don't think the CTA is beneficial"; "half the page is black") |
+| Slide 02: End of Year 2021 film, 0:00–0:20 as asked, the 4K frame's top-left 84% so the Prestige watermark stays out | client-supplied | Lambor 2.docx, client Dropbox file `Lamborghini-Miami-End-of-Year-Video-2021-Landscape-4K-With-Logos.mov` (`_tools/encode-oct-video.sh inventory`) |
+| Slide 03: background DSC_1766 (white Temerario, waterfront), in Alex's desktop frame (`slide 03d.jpg`) and his whole-screen phone frame (`slide 03m.png`, 440 px wide, shown full-height: `hero__slide--full-m`) | client-supplied | Lambor 2.docx, client Dropbox file `DSC_1766-Edit-copy.jpg` (`_tools/process-temerario-v4.py`) |
+| Slide 05: "Lamborghini Miami, by Irv David." | client-stated | Lambor 2.docx |
+| Slide 06: Lamborghini Financial Services. "One-pay lease options, 12 to 24 months, and more with LFS." | client-stated, **placeholder copy** | Lambor 2.docx ("Promoting 12-24 One Pay Lease Options and more with LFS; CTA to get your Lease Quote"). The title "Lease it your way" is ours. No LFS terms, rates, disclosures or creative have been supplied. Desktop background: Alex's frame `slide06d.jpg` (yellow Revuelto, `_tools/process-lfs-v4.py`); portrait phones still show the earlier Revuelto profile until a phone frame exists. **Legal/LFS review before launch.** |
+| Slide 07 and the Range panel: "Sant'Agata's latest Super Veloce"; "Only 1,963 produced worldwide" | verified | Lambor 2.docx; the figure matches the model-range ledger above (media.lamborghini.com press release: limited to 1,963 units). The Hockenheimring lap (1:41.6) is dropped at the client's request |
+| Slide 09: "Enjoy the ultimate owner's experience"; "Explore the world of private launches, Bull Run rallies and more."; "Join our mailing list"; "See our past events" | client-stated | Lambor 2.docx |
+
+## Lead forms and the service page, v4 (22 Oct 2026)
+
+| Change on the page | Status | Source |
+|---|---|---|
+| "Inquire" / "inquiry" on every page, `#inquire` anchors | client-stated | Lambor 2.docx |
+| ZIP code (required, 5 digits, ZIP+4 accepted) on the contact form only, as asked | client-stated | Lambor 2.docx ("ZIP Code if possible … I do want that info in our CRM") |
+| Contact form: "Inquiry type" Sales / Service / General (`department`), `contact.html?topic=…` preset | client-stated | Lambor 2.docx ("toggle between sales/service/general … send inquiries more directly to the right departments"). **The routing itself is the platform's: the form still has no endpoint.** |
+| Service hero: the client's service film, 6.21–18.31 s (the STO and the technicians; the white sign and lifts shots left out for legibility), in place of the stock STO photograph | client-supplied | Lambor 2.docx, client Dropbox file `Andres-Service-Landing-Video.mov` |
+| Workshop photograph: DSC_3226 (blue Lamborghini on a lift) in place of the SVJ | client-supplied | Lambor 2.docx, client Dropbox file `DSC_3226-Edit.jpg` (`_tools/process-service-v4.py`) |
+| "By the numbers": largest service department in the nation; #1 service department 2025 (Lamborghini award); 12+ master-certified technicians; 24+ service bays; largest parts department in the nation; top Pirelli provider, 7 years running; 100% customer satisfaction (Lamborghini score); carbon-fiber and full-paint certified collision center; 6 in-house flatbed transports; Polo Storico certified | **dealer-stated, client's figures** | Lambor 2.docx, verbatim list. The superlatives ("largest in the nation", "#1", "100%") were kept off the page in v1 as unverified (CP6); they return at the client's explicit request and remain the client's claims. The former "Why choose us" paragraph is gone. |

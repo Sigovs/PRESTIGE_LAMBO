@@ -65,6 +65,19 @@
 .subhero__lead { margin-top: var(--sp-24); color: var(--grey-2); }
 .subhero__actions { display: grid; gap: var(--sp-16); width: 100%; margin-top: var(--sp-32); }
 .subhero .btn--secondary { border-color: var(--grey-1); color: var(--grey-1); }
+/* v4 (22 Oct): the film over its poster; it fades in over the poster's own first frame once it plays */
+.subhero__video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: var(--svc-hero-pos);
+    opacity: 0;
+    transition: opacity 900ms cubic-bezier(0.2, 0, 0, 1);
+}
+.subhero__video.is-playing { opacity: 1; }
+/* the poster carries the same feather, so under it the film alone cannot cover it: once the
+   film plays the poster goes, over the same 900 ms */
+.subhero__poster { transition: opacity 900ms cubic-bezier(0.2, 0, 0, 1); }
+.subhero__media:has(.subhero__video.is-playing) .subhero__poster { opacity: 0; }
 
 @media (min-width: 768px) {
     .subhero__media img { aspect-ratio: 16 / 9; }
@@ -75,36 +88,37 @@
    starts --svc-hero-shift in from the left and feathers into page black, so the copy stands
    in a dark field that is the page, not the car */
 @media (min-width: 1200px), (min-width: 768px) and (orientation: landscape) {
-    :root { --svc-hero-shift: 26%; --svc-hero-pos: 78% 50%; }
+    :root { --svc-hero-shift: 0%; --svc-hero-pos: 50% 50%; }   /* v4 (Alex): as the homepage films, the frame fills the width */
     .subhero {
         min-height: max(var(--svc-hero-min), var(--svc-hero-h));
         display: grid;
     }
     /* one floor across the whole width, over the photograph and the black field alike, so the
        scene blends into the next band (#181818) with no seam at the photograph's box edge */
+    /* v4 (22 Oct, Alex): as on the homepage, no side scrim and no feather. Two plain linear
+       vignettes: black down from the top (under the header), the next band's grey up from the
+       bottom (so the scene still blends into #181818). The copy reads against the frame itself. */
     .subhero::after {
         content: "";
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background: linear-gradient(0deg, var(--surface-1-dark) 0%, rgb(24 24 24 / 0) var(--svc-hero-floor));
+        background:
+            linear-gradient(180deg, rgb(0 0 0 / 1) 0%, rgb(0 0 0 / 0) 30%),
+            linear-gradient(0deg, var(--surface-1-dark) 0%, rgb(24 24 24 / 0) 36%);
     }
     .subhero__media { position: absolute; inset: 0 0 0 var(--svc-hero-shift); }
     .subhero__media picture { height: 100%; }
-    .subhero__media img {
+    .subhero__media img,
+    .subhero__video {
         height: 100%;
         aspect-ratio: auto;
-        -webkit-mask-image: var(--svc-feather);
-        mask-image: var(--svc-feather);
     }
-    /* no horizontal scrim: the copy stands on page black and the feathered edge, never on the
-       car, and an unmasked scrim would draw the box's left edge as a line over the black */
-    .subhero__media::after { content: none; }
+    .subhero__media::after { content: none; }   /* the vignettes above do the whole field */
     .subhero__lead { max-width: var(--measure-note); }
-    /* the actions stack, one width: side by side the second button reached the STO's front
-       wheel (1024: fully visible; 1440: in the feather). Alex's rule: text and buttons may
-       cross the roofline or haunch, never the face, badge or wheels */
-    .subhero__actions { display: grid; grid-template-columns: max-content; gap: var(--sp-16); }
+    /* v4 (Alex): the actions side by side, as on the homepage slides (the STO photograph that
+       made them stack is gone) */
+    .subhero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-24); width: auto; }
     .subhero__inner {
         z-index: 1;   /* above the floor (.subhero::after paints after the children) */
         display: flex;
@@ -128,9 +142,10 @@
 .why__lead { margin-top: var(--sp-24); }
 .why__data { display: grid; gap: var(--sp-16); align-content: start; }
 .why__head { color: var(--fg-3); }
+.why__data--departments { margin-top: var(--sp-48); }   /* v4: under the title, in the intro column */
 @media (min-width: 1200px) {
     .why__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr); column-gap: var(--grid-gap); }
-    .why__data { grid-column: 3; }
+    .why__grid > .why__data { grid-column: 3; }   /* the direct child only: the departments block sits inside the intro */
 }
 
 /* ---------- 3 · The workshop ---------- */

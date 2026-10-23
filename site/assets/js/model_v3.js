@@ -1,10 +1,10 @@
-/* v3 model pages (Oct 2026). The sales enquiry form, with the service form's states (idle,
+/* v3 model pages (Oct 2026). The sales inquiry form, with the service form's states (idle,
    invalid with inline messages and a summary, sending, sent, failed); it posts to
    data-endpoint once one exists and until then confirms locally (NOT connected: the client's
    DriveCentric campaign comes later). And the YouTube film, loaded only when asked for. */
 (() => {
     const SEND_TIMEOUT = 15000;
-    const form = document.querySelector('[data-enquire-form]');
+    const form = document.querySelector('[data-inquire-form]');
     if (form) {
         const summary = form.querySelector('[data-form-summary]');
         const status = form.querySelector('[data-form-status]');
@@ -15,8 +15,8 @@
         const want = new URLSearchParams(location.search).get('model');
         const sel = form.elements.model;
         if (want && sel && [...sel.options].some((o) => o.text === want)) sel.value = [...sel.options].find((o) => o.text === want).value || want;
-        const idleLabel = submitLabel.textContent;   // 'Send enquiry' / 'Join the list': the page's own words
-        const failMsg = form.dataset.fail || 'Your enquiry could not be sent. Please try again, or call sales on (833) 290-5147.';
+        const idleLabel = submitLabel.textContent;   // 'Send inquiry' / 'Join the list': the page's own words
+        const failMsg = form.dataset.fail || 'Your inquiry could not be sent. Please try again, or call sales on (833) 290-5147.';
         const rules = {
             first: (v) => (v.trim() ? '' : 'Enter your first name.'),
             last: (v) => (v.trim() ? '' : 'Enter your last name.'),
@@ -26,6 +26,13 @@
                 : v.replace(/\D/g, '').length >= 10 ? '' : 'Enter a phone number with at least 10 digits.'),
             consent: (v, input) => (input.checked ? '' : 'Tick the box to agree to being contacted.')
         };
+        // v4 (22 Oct, client): ZIP code on the contact form (US, 5 digits; ZIP+4 accepted)
+        if (form.elements.zip) rules.zip = (v) => (!v.trim() ? 'Enter your ZIP code.'
+            : /^\d{5}(-\d{4})?$/.test(v.trim()) ? '' : 'Enter a 5-digit ZIP code.');
+        // contact.html?topic=service: arrive with the inquiry type chosen
+        const topic = new URLSearchParams(location.search).get('topic');
+        const dep = topic && form.elements.department && [...form.elements.department].find((r) => r.value === topic);
+        if (dep) dep.checked = true;
         const labelOf = (input) => (input.name === 'consent' ? 'Consent'
             : form.querySelector(`label[for="${input.id}"]`).childNodes[0].textContent.trim());
         const check = (input) => {

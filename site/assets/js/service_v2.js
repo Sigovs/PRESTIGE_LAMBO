@@ -8,6 +8,30 @@
 (() => {
     'use strict';
 
+    /* ---------- Hero film (v4, 22 Oct) ---------- */
+    // Armed after load (the poster stays the LCP), the file chosen for the frame; it plays only
+    // while the hero is on screen and the tab is visible. Reduced motion keeps the poster.
+    const film = document.querySelector('[data-svc-video]');
+    if (film && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const portrait = window.matchMedia('(max-width: 1199.98px) and (orientation: portrait)');
+        let inView = true;
+        const sync = () => {
+            if (inView && !document.hidden) film.play().catch(() => {});
+            else if (!film.paused) film.pause();
+        };
+        const arm = () => {
+            film.src = portrait.matches ? film.dataset.srcM : film.dataset.srcD;
+            film.addEventListener('playing', () => film.classList.add('is-playing'), { once: true });
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver((entries) => { inView = entries.some((e) => e.isIntersecting); sync(); }, { threshold: 0.1 }).observe(film);
+            }
+            document.addEventListener('visibilitychange', sync);
+            sync();
+        };
+        if (document.readyState === 'complete') setTimeout(arm, 300);
+        else window.addEventListener('load', () => setTimeout(arm, 300));
+    }
+
     /* ---------- Service request form ---------- */
     const form = document.querySelector('[data-service-form]');
     if (form) {

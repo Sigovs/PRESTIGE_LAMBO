@@ -33,3 +33,6 @@ case ${1:-grand-opening} in
   sv)            enc revuelto-sv "$SRC/Revuelto SV/YTDown.com_YouTube_Media_1UE_RnIbt4c_Lamborghini-Revuelto-SV-The-Quantum-of-Driving_001_1080p.mp4" 37.9 9.0 800/943 2.6 ;;
   service)       enc service       "$SRC/04-service/Andres-Service-Landing-Video.mov" 3.128 9.09 ;;
 esac
+# v4 (22 Oct, client round 2): slide 02, the End of Year 2021 film, 0:00-0:20 as the client asked, the 4K frame's
+# top-left 84% so the bottom-right Prestige watermark stays out. Run with the same enc() body:
+#   inventory)     enc inventory "$SRC/02-inventory/Lamborghini-Miami-End-of-Year-Video-2021-Landscape-4K-With-Logos.mov" 0 20 800/943 0 crop=3226:1814:0:0 ;;

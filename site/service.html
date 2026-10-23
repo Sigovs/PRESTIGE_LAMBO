@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#000000">
     <link rel="icon" href="assets/img/bull.svg" type="image/svg+xml">
     <script>
-        /* ?figma = static capture mode: no reveals, no Lenis, every image eager (as index_v3.html). */
+        /* ?figma = static capture mode: no reveals, no Lenis, every image eager (as index_v4.html). */
         if (/[?&]figma\b/.test(location.search)) {
             document.documentElement.classList.add('figma');
             document.addEventListener('DOMContentLoaded', () => {
@@ -24,13 +24,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
 
-    <!-- Hero preload: landscape frame and the phone frame -->
+    <!-- Hero preload: the film's posters, landscape frame and the phone frame -->
     <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
-          imagesrcset="assets/img/svc-hero-l-960.webp 960w, assets/img/svc-hero-l-1440.webp 1440w, assets/img/svc-hero-l-1920.webp 1920w"
-          imagesizes="100vw" fetchpriority="high">
+          href="assets/video/svc-hero-poster-d.webp" fetchpriority="high">
     <link rel="preload" as="image" type="image/webp" media="(max-width: 1199.98px) and (orientation: portrait), (max-width: 767.98px)"
-          imagesrcset="assets/img/svc-hero-p-800.webp 800w, assets/img/svc-hero-p-1200.webp 1200w"
-          imagesizes="100vw" fetchpriority="high">
+          href="assets/video/svc-hero-poster-m.webp" fetchpriority="high">
 
     <!-- Leaflet: open-source map for the request section, as on the Prestige Imports service page -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -38,7 +36,7 @@
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
     <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
-    <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=14">
 
     <script type="application/ld+json">
     {
@@ -74,7 +72,7 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ============================ HEADER (as index_v3.html; links point across pages) ============================ -->
+<!-- ============================ HEADER (as index_v4.html; links point across pages) ============================ -->
 <header class="site-header" data-header>
     <div class="site-header__bar container">
         <div class="site-header__start">
@@ -89,7 +87,7 @@
             </nav>
         </div>
 
-        <a class="site-header__brand dealer-mark" href="index_v3.html" aria-label="Lamborghini Miami — home">
+        <a class="site-header__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home">
             <img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
             <span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span>
         </a>
@@ -112,7 +110,7 @@
             <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="menu-icon__l1" d="M3 7h18"/><path class="menu-icon__l2" d="M3 12h18"/><path class="menu-icon__l3" d="M3 17h18"/></svg>
             <span>Close</span>
         </button>
-        <a class="menu__brand dealer-mark" href="index_v3.html" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
+        <a class="menu__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
         <span class="menu__spacer" aria-hidden="true"></span>
     </div>
     <div class="menu__body container">
@@ -120,7 +118,7 @@
             <div class="menu__col">
                 <p class="menu__head">Vehicles</p>
                 <ul class="menu__list">
-                    <li><a class="menu__link" href="index_v3.html#range">Models</a></li>
+                    <li><a class="menu__link" href="index_v4.html#range">Models</a></li>
                     <li><a class="menu__link" href="srp.html?condition=new">New inventory</a></li>
                     <li><a class="menu__link" href="srp.html?condition=used">Pre-owned inventory</a></li>
                     <li><a class="menu__link" href="srp.html">All Lamborghini inventory</a></li>
@@ -133,16 +131,16 @@
                     <li><a class="menu__link" href="service.html" aria-current="page">Service</a></li>
                     <li><a class="menu__link" href="#request" data-menu-link>Schedule service</a></li>
                     <li><a class="menu__link" href="service.html#request">Order parts</a></li>
-                    <li><a class="menu__link" href="index_v3.html#collision">Collision center</a></li>
-                    <li><a class="menu__link" href="index_v3.html#ad-personam">Ad Personam</a></li>
+                    <li><a class="menu__link" href="index_v4.html#collision">Collision center</a></li>
+                    <li><a class="menu__link" href="index_v4.html#ad-personam">Ad Personam</a></li>
                 </ul>
             </div>
             <div class="menu__col">
                 <p class="menu__head">Dealership</p>
                 <ul class="menu__list">
                     <li><a class="menu__link" href="lifestyle.html">Lifestyle</a></li>
-                    <li><a class="menu__link" href="index_v3.html#house">Our story</a></li>
-                    <li><a class="menu__link" href="index_v3.html#visit">Visit &amp; hours</a></li>
+                    <li><a class="menu__link" href="index_v4.html#house">Our story</a></li>
+                    <li><a class="menu__link" href="index_v4.html#visit">Visit &amp; hours</a></li>
                     <li><a class="menu__link" href="https://www.lamborghinimiami.com/careers">Careers</a></li>
                     <li><a class="menu__link" href="contact.html">Contact</a></li>
                 </ul>
@@ -160,21 +158,23 @@
 <main id="main">
 
 <!-- ============================ 1 · HERO ============================
-     Scene, not object: the official Huracán STO in a dark workshop. Landscape: the copy
-     stands in the dark left field under a constructed scrim, the car owns the right.
-     Portrait: the photograph sits in flow above the copy, so no text crosses the car. -->
+     v4 (22 Oct, client): the client's own service film in place of the stock STO photograph.
+     Andres-Service-Landing-Video.mov, 6.21-18.31 s (the STO in the workshop, the technicians at the
+     engine, the wheel and the blue car; ends on a cut; the opening sign and lifts shots are left out
+     because their white frames sat under the copy), muted loop, 1920x1080 and a 4:3 centre crop for
+     portrait phones;
+     the poster is the first frame and stays the LCP, the loop is armed after load and never under
+     reduced motion (service_v2.js). Landscape (Alex, 22 Oct): as the homepage films, the frame fills the
+     width under top and bottom vignettes only, no side scrim. Portrait: the film sits in flow above the copy. -->
 <section class="subhero" aria-labelledby="svc-title">
     <div class="subhero__media">
         <picture>
-            <source type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
-                    srcset="assets/img/svc-hero-l-960.webp 960w, assets/img/svc-hero-l-1440.webp 1440w, assets/img/svc-hero-l-1920.webp 1920w" sizes="100vw">
-            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
-                    srcset="assets/img/svc-hero-l-960.jpg 960w, assets/img/svc-hero-l-1440.jpg 1440w, assets/img/svc-hero-l-1920.jpg 1920w" sizes="100vw">
-            <source type="image/webp" srcset="assets/img/svc-hero-p-800.webp 800w, assets/img/svc-hero-p-1200.webp 1200w" sizes="100vw">
-            <img class="subhero__img" src="assets/img/svc-hero-p-800.jpg" srcset="assets/img/svc-hero-p-800.jpg 800w, assets/img/svc-hero-p-1200.jpg 1200w" sizes="100vw"
-                 width="1200" height="900" fetchpriority="high" decoding="async"
-                 alt="A blue and orange Lamborghini Huracán STO, seen from the rear, parked in a dimly lit workshop.">
+            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" srcset="assets/video/svc-hero-poster-d.webp">
+            <img class="subhero__img subhero__poster" src="assets/video/svc-hero-poster-m.webp" width="960" height="720" fetchpriority="high" decoding="async"
+                 alt="A grey Lamborghini Huracán STO in the Lamborghini Miami workshop.">
         </picture>
+        <video class="subhero__video" muted playsinline loop preload="none" aria-hidden="true" data-svc-video
+               data-src-d="assets/video/svc-hero-loop-d.mp4" data-src-m="assets/video/svc-hero-loop-m.mp4"></video>
     </div>
     <div class="container subhero__inner">
         <div class="subhero__group">
@@ -199,34 +199,81 @@
 </section>
 
 <!-- ============================ 2 · WHY US ============================
-     Prestige's "Why choose us" intro, with the department facts as corporate spec rows
-     in place of Prestige's stat row (its "#1 largest" figure is unverified, CP6). -->
+     v4 (22 Oct, client): the intro paragraph is replaced by the client's ten service facts, set as
+     the page's own spec rows ("By the numbers"); the department rows move under the title. The
+     facts are the client's statements (Lambor 2.docx): dealer-stated in DATA_SOURCES.md, the
+     superlatives ("largest in the nation", "#1", "100%") among them, at the client's request. -->
 <section class="why band band--dark" id="why" aria-labelledby="why-title">
     <div class="container why__grid">
         <div class="why__intro">
             <p class="t-eyelet section-head__eyelet">Service department</p>
             <h2 class="t-banner" id="why-title">Why choose us</h2>
-            <p class="t-lead why__lead">When it is time to service your Lamborghini, our service department gets the job done, effectively and efficiently. We use only genuine, factory-approved parts, and we keep a large supply of them in stock.</p>
+
+            <div class="why__data why__data--departments">
+                <h3 class="t-eyelet why__head">Departments</h3>
+                <dl class="spec">
+                    <div class="spec__row">
+                        <dt class="spec__label">Service</dt>
+                        <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri, 8:00 am – 5:30 pm</span></dd>
+                    </div>
+                    <div class="spec__row">
+                        <dt class="spec__label">Parts</dt>
+                        <dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a><span class="spec__sub">Genuine Lamborghini parts</span></dd>
+                    </div>
+                    <div class="spec__row">
+                        <dt class="spec__label">Collision &amp; paint</dt>
+                        <dd class="spec__value">Lamborghini-certified<span class="spec__sub"><a class="spec__link" href="index_v4.html#collision">Collision center and paint shop</a></span></dd>
+                    </div>
+                    <div class="spec__row">
+                        <dt class="spec__label">Roadside assistance</dt>
+                        <dd class="spec__value"><a href="tel:+18884646040">1-888-464-6040</a><span class="spec__sub">24 hours</span></dd>
+                    </div>
+                </dl>
+            </div>
         </div>
 
         <div class="why__data">
-            <h3 class="t-eyelet why__head">Departments</h3>
+            <h3 class="t-eyelet why__head">By the numbers</h3>
             <dl class="spec">
                 <div class="spec__row">
-                    <dt class="spec__label">Service</dt>
-                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri, 8:00 am – 5:30 pm</span></dd>
+                    <dt class="spec__label">Service department</dt>
+                    <dd class="spec__value">Largest in the nation</dd>
                 </div>
                 <div class="spec__row">
-                    <dt class="spec__label">Parts</dt>
-                    <dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a><span class="spec__sub">Genuine Lamborghini parts</span></dd>
+                    <dt class="spec__label">Lamborghini award</dt>
+                    <dd class="spec__value">#1 service department<span class="spec__sub">2025</span></dd>
                 </div>
                 <div class="spec__row">
-                    <dt class="spec__label">Collision &amp; paint</dt>
-                    <dd class="spec__value">Lamborghini-certified<span class="spec__sub"><a class="spec__link" href="index_v3.html#collision">Collision center and paint shop</a></span></dd>
+                    <dt class="spec__label">Master-certified technicians</dt>
+                    <dd class="spec__value">12+</dd>
                 </div>
                 <div class="spec__row">
-                    <dt class="spec__label">Roadside assistance</dt>
-                    <dd class="spec__value"><a href="tel:+18884646040">1-888-464-6040</a><span class="spec__sub">24 hours</span></dd>
+                    <dt class="spec__label">Service bays</dt>
+                    <dd class="spec__value">24+</dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Parts department</dt>
+                    <dd class="spec__value">Largest in the nation</dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Pirelli</dt>
+                    <dd class="spec__value">Top provider<span class="spec__sub">7 years running</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Customer satisfaction</dt>
+                    <dd class="spec__value">100%<span class="spec__sub">Scored by Lamborghini</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Collision center</dt>
+                    <dd class="spec__value">Certified<span class="spec__sub">Carbon fiber and full paint</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Flatbed transports</dt>
+                    <dd class="spec__value">6<span class="spec__sub">In-house</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Polo Storico</dt>
+                    <dd class="spec__value">Certified<span class="spec__sub">Vintage classics</span></dd>
                 </div>
             </dl>
         </div>
@@ -234,17 +281,18 @@
 </section>
 
 <!-- ============================ 3 · THE WORKSHOP ============================
-     Prestige's "Factory expertise" media + text. The dealer's own workshop photograph
-     (Aventador SVJ under a raised Aventador); it opens upward on scroll, the same
-     unveil as the homepage collision photograph. -->
+     Prestige's "Factory expertise" media + text. v4 (22 Oct, client): the client's DSC_3226,
+     a blue Lamborghini on a four-post lift in the workshop (_tools/process-service-v4.py), in
+     place of the SVJ photograph; it opens upward on scroll, the same unveil as the homepage
+     collision photograph. -->
 <section class="workshop band band--black" id="workshop" aria-labelledby="workshop-title">
     <div class="container workshop__grid">
         <figure class="workshop__media" data-reveal>
             <picture>
-                <source type="image/webp" srcset="assets/img/svc-workshop-560.webp 560w, assets/img/svc-workshop-800.webp 800w, assets/img/svc-workshop-1200.webp 1200w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw">
-                <img src="assets/img/svc-workshop-800.jpg" srcset="assets/img/svc-workshop-560.jpg 560w, assets/img/svc-workshop-800.jpg 800w, assets/img/svc-workshop-1200.jpg 1200w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw"
-                     width="1200" height="1250" loading="lazy" decoding="async"
-                     alt="A technician works on a blue Aventador SVJ while a green Aventador stands raised on a lift above it.">
+                <source type="image/webp" srcset="assets/img/svc-workshop-3226-560.webp 560w, assets/img/svc-workshop-3226-800.webp 800w, assets/img/svc-workshop-3226-1200.webp 1200w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw">
+                <img src="assets/img/svc-workshop-3226-800.jpg" srcset="assets/img/svc-workshop-3226-560.jpg 560w, assets/img/svc-workshop-3226-800.jpg 800w, assets/img/svc-workshop-3226-1200.jpg 1200w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw"
+                     width="1200" height="1500" loading="lazy" decoding="async"
+                     alt="A blue Lamborghini raised on a four-post lift in the Lamborghini Miami workshop, tool chests and a second car below it.">
             </picture>
         </figure>
 
@@ -492,7 +540,7 @@
 
 </main>
 
-<!-- ============================ FOOTER (as index_v3.html) ============================ -->
+<!-- ============================ FOOTER (as index_v4.html) ============================ -->
 <footer class="site-footer band band--black" aria-labelledby="footer-title">
     <div class="container">
         <div class="site-footer__top">
@@ -506,7 +554,7 @@
                 <div>
                     <p class="site-footer__head">Vehicles</p>
                     <ul>
-                        <li><a href="index_v3.html#range">Models</a></li>
+                        <li><a href="index_v4.html#range">Models</a></li>
                         <li><a href="srp.html?condition=new">New inventory</a></li>
                         <li><a href="srp.html?condition=used">Pre-owned inventory</a></li>
                         <li><a href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini</a></li>
@@ -518,14 +566,14 @@
                         <li><a href="service.html" aria-current="page">Service</a></li>
                         <li><a href="#request">Schedule service</a></li>
                         <li><a href="service.html#request">Parts</a></li>
-                        <li><a href="index_v3.html#collision">Collision center</a></li>
+                        <li><a href="index_v4.html#collision">Collision center</a></li>
                     </ul>
                 </div>
                 <div>
                     <p class="site-footer__head">Dealership</p>
                     <ul>
                         <li><a href="lifestyle.html">Lifestyle</a></li>
-                        <li><a href="index_v3.html#house">Our story</a></li>
+                        <li><a href="index_v4.html#house">Our story</a></li>
                         <li><a href="https://www.lamborghinimiami.com/careers">Careers</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="https://www.lamborghinimiami.com/privacy">Privacy</a></li>
@@ -562,6 +610,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script src="assets/js/main_v2.js?v=105" defer></script>
-<script src="assets/js/service_v2.js?v=4" defer></script>
+<script src="assets/js/service_v2.js?v=6" defer></script>
 </body>
 </html>
