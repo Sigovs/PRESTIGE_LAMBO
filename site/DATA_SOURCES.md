@@ -259,3 +259,27 @@ Alex's proposal, not a client request: one page per intent (Ad Personam, schedul
 | Form: `department=sales`, `reason=ad-personam` hidden; first/last/email/phone, preferred contact, model, message, consent | design | Same handler as the service form (service_v2.js); no endpoint |
 
 **Imagery** (no stock, Alex): the hero film and all four stills come from the client's own Ad Personam Revuelto reel (Dropbox, round 1: `Andres-Ad-Personam-Revuelto-Horizontal-Reel.mp4`). Hero loop `adp-hero-loop-*`: 3.96–11.96 s (the car from behind past a palm trunk, the bull on the carbon, the car, the wheel, the door; the opening white-wall and badge shots are left out, and the palm trunk gives the copy a dark first frame). Stills `adp-{wide,bull,wheel,door}-*` at 7.3 / 4.6 (the rear view past the palm, despite the name) / 9.8 / 11.4 s (`_tools/process-ad-personam-v4.py`). The official Revuelto interior render in `NEW IMAGES/personalization.webp` was rejected as corporate stock.
+
+## Schedule service, order parts, collision center (sample pages, 23 Oct 2026)
+
+Alex's proposal (see the Ad Personam page above): one page per intent on the service-page template, each with its own form arriving in the CRM with `department` and `reason`. No stock imagery: every frame is from the client's service film (`Andres-Service-Landing-Video.mov`), plus the paint-booth photograph already on the homepage (the Prestige group's, scene only).
+
+| Page | Hidden fields | Hero loop (seconds in the film) | Stills |
+|---|---|---|---|
+| `schedule-service.html` | department=service, reason=service-appointment | 18.31–20.90 + 9.34–12.22 + 15.27–18.31 (wing, engine, body) | wheel, body, STO |
+| `order-parts.html` | department=parts, reason=parts-order | 12.22–15.27 + 9.34–12.22 (wheel, engine) | engine, wing, STO |
+| `collision-center.html` | department=service, reason=collision | a still, not a film (Alex): DSC_3226 band from y 2064, the car on the lift and the tool chests (`_tools/process-collision-v4.py`) | body, wing, STO; the paint booth in the process block |
+
+| Claim on the pages | Status | Source |
+|---|---|---|
+| Service and parts phone numbers and hours; roadside 1-888-464-6040 | verified / **confirm** (roadside) | Dealer facts above |
+| Genuine, factory-approved parts; a large supply on hand; direct ordering; pickup and delivery in an enclosed transporter; technicians trained for high-end models; detailing | dealer-stated | Service page ledger above |
+| Largest parts department in the nation; top Pirelli provider, 7 years; carbon-fiber and full-paint certified collision center | **dealer-stated, client's figures** | Lambor 2.docx |
+| Lamborghini-certified collision center and paint shop; Lamborghini-approved procedures, original parts; paintwork, liveries, steel and aluminium repair, re-installation of components | verified / dealer-stated | Certified collision center ledger above |
+| The four-step processes ("we confirm a time", "stock check, quote, collect or fit", "estimate, repair, paint and return") and "Is the car drivable?" | dealer process, **confirm** | Our description of how the departments work; the client should confirm the flow |
+
+## Careers page and the contact map (23 Oct 2026, Alex)
+
+`careers.html` on the service-page template: hero from the client's End of Year 2021 reel (69.07–74.16 s + 114.20–121.54 s: the Sián at night and the showroom entrance under the lit sign, the STOs at the entrance, the Sián at the facade, the interview; watermark cropped out), a **sample list of four positions written by us** (Lamborghini Master Technician, Service Advisor, Sales Consultant, Parts Specialist), marked "sample listings" on the page itself; the live vacancies come from Lamborghini Miami. The application form arrives with `department=hr`, `reason=application` and a resume file; no endpoint. "Part of Prestige Imports since 1977, Lamborghini's dealer for Miami since 1988" is from the dealer facts above. The Careers link in every menu and footer now points here instead of lamborghinimiami.com/careers.
+
+`contact.html`: a full-width map under the form (Leaflet + OpenStreetMap, the service page's dark tiles and pin), with the address and the directions link on the map; on phones the card sits under the map.

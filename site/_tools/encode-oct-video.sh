@@ -36,3 +36,7 @@ esac
 # v4 (22 Oct, client round 2): slide 02, the End of Year 2021 film, 0:00-0:20 as the client asked, the 4K frame's
 # top-left 84% so the bottom-right Prestige watermark stays out. Run with the same enc() body:
 #   inventory)     enc inventory "$SRC/02-inventory/Lamborghini-Miami-End-of-Year-Video-2021-Landscape-4K-With-Logos.mov" 0 20 800/943 0 crop=3226:1814:0:0 ;;
+# v4 sample pages (23 Oct): three loops cut from the service film with the concat filter, each starting
+# on a different shot (seconds in the source): sched = 18.31-20.90 + 9.34-12.22 + 15.27-18.31 (wing, engine,
+# body); parts = 12.22-15.27 + 9.34-12.22 (wheel, engine); collision = 15.27-20.90 (body, wing). Phone =
+# 4:3 centre crop at 960x720. Posters = first frame. See the enc() in the shell history / DATA_SOURCES.md.

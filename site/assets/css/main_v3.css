@@ -1920,3 +1920,53 @@ html.is-film { overflow: hidden; }
 @media (min-width: 1200px) { .lifestyle-block .events__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .lifestyle-block .event__media { text-decoration: none; }
 .lifestyle-block__actions { display: flex; flex-wrap: wrap; gap: var(--sp-16) var(--sp-24); margin-top: var(--sp-48); }
+
+
+/* ---------- Contact: the full-width map under the form (v4, 23 Oct, Alex). The tile, control and pin
+   rules are the service page's (service_v2.css), copied so this sheet stands alone. ---------- */
+.map-band { position: relative; background: var(--surface-0-dark); }
+.map-band__map { height: clamp(360px, 62vh, 680px); width: 100%; background: var(--surface-0-dark); }
+.map-band__card {
+    position: absolute; left: var(--page-gutter); bottom: var(--sp-32); z-index: 500;
+    display: grid; gap: var(--sp-12); justify-items: start;
+    padding: var(--sp-24) var(--sp-32);
+    background: rgb(0 0 0 / 0.84); border: var(--stroke-1) solid var(--grey-8);
+}
+.map-band__card .request__address { font-size: var(--fs-18); line-height: var(--lh-28); color: var(--grey-1); font-style: normal; }
+@media (max-width: 767.98px) {
+    /* phones: the card would cover the pin, so it sits under the map */
+    .map-band__map { height: clamp(320px, 52vh, 460px); }
+    .map-band__card { position: static; padding: var(--sp-24) var(--page-gutter); border: 0; border-top: var(--stroke-1) solid var(--grey-8); background: var(--surface-0-dark); }
+}
+.request__map .leaflet-tile-pane { filter: grayscale(1) invert(1) brightness(0.85) contrast(0.9); }
+.request__map .leaflet-container,
+.request__map.leaflet-container { background: var(--surface-0-dark); font: inherit; }
+.request__map .leaflet-bar { border: var(--stroke-1) solid var(--grey-8); border-radius: 0; box-shadow: none; }
+.request__map .leaflet-bar a {
+    width: var(--tap);
+    height: var(--tap);
+    line-height: var(--tap);
+    font-size: var(--fs-24);
+    color: var(--grey-1);
+    background: var(--surface-1-dark);
+    border-bottom-color: var(--grey-8);
+    border-radius: 0;
+}
+.request__map .leaflet-bar a:hover { background: var(--surface-2-dark); color: var(--grey-0); }
+.request__map .leaflet-control-attribution {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    padding-inline: var(--sp-8);
+    color: var(--grey-3);
+    background: rgb(0 0 0 / 0.8);
+}
+.request__map .leaflet-control-attribution a { color: var(--grey-1); text-decoration: underline; }
+.map-pin {
+    display: block;
+    width: var(--sp-24);
+    height: var(--sp-24);
+    border-radius: 50%;
+    background: var(--grey-0);
+    border: var(--sp-4) solid var(--grey-11);
+    box-shadow: 0 0 0 var(--stroke-1) var(--grey-0);
+}

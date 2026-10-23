@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schedule Service | Lamborghini Miami, North Miami Beach, FL</title>
+    <meta name="description" content="Schedule Lamborghini service at Lamborghini Miami on Biscayne Boulevard: scheduled maintenance, repair and genuine parts, with pickup and delivery.">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="assets/img/bull.svg" type="image/svg+xml">
+    <script>
+        /* ?figma = static capture mode: no reveals, no Lenis, every image eager (as index_v4.html). */
+        if (/[?&]figma\b/.test(location.search)) {
+            document.documentElement.classList.add('figma');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+            });
+        } else {
+            document.documentElement.classList.add('js');
+        }
+    </script>
+
+    <!-- Stand-in brand face: Roboto Flex (wdth 25–151, wght 100–1000). See DESIGN_SYSTEM.md §1.1 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
+
+    <!-- Hero preload: the film's posters, landscape frame and the phone frame -->
+    <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)"
+          href="assets/video/sched-poster-d.webp" fetchpriority="high">
+    <link rel="preload" as="image" type="image/webp" media="(max-width: 1199.98px) and (orientation: portrait), (max-width: 767.98px)"
+          href="assets/video/sched-poster-m.webp" fetchpriority="high">
+
+    <!-- Leaflet: open-source map for the request section, as on the Prestige Imports service page -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+    <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
+    <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=18">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "Lamborghini Miami Service",
+        "brand": { "@type": "Brand", "name": "Lamborghini" },
+        "parentOrganization": { "@type": "AutoDealer", "name": "Lamborghini Miami" },
+        "telephone": "+1-833-290-5148",
+        "openingHours": ["Mo-Fr 08:00-17:30"],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14780 Biscayne Boulevard",
+            "addressLocality": "North Miami Beach",
+            "addressRegion": "FL",
+            "postalCode": "33181",
+            "addressCountry": "US"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 25.913485, "longitude": -80.15750349 }
+    }
+    </script>
+</head>
+<body class="page-service">
+
+<!-- Icon set: one family, 24px box, 1.5 stroke, square caps. DESIGN_SYSTEM.md §5 -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ HEADER (as index_v4.html; links point across pages) ============================ -->
+<header class="site-header" data-header>
+    <div class="site-header__bar container">
+        <div class="site-header__start">
+            <button class="site-header__menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+                <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+                <span>Menu</span>
+            </button>
+            <nav class="site-header__nav" aria-label="Primary">
+                <a class="site-header__link" href="srp.html?condition=new">New</a>
+                <a class="site-header__link" href="srp.html?condition=used">Pre-owned</a>
+                <a class="site-header__link" href="service.html">Service</a>
+            </nav>
+        </div>
+
+        <a class="site-header__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home">
+            <img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
+            <span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span>
+        </a>
+
+        <div class="site-header__end">
+            <a class="site-header__phone" href="tel:+18332905147" aria-label="Call sales, (833) 290-5147">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                <span class="site-header__phone-num">(833) 290-5147</span>
+            </a>
+            <a class="site-header__link site-header__contact" href="#request">Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- ============================ MENU (overlay) ============================ -->
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu data-lenis-prevent>
+  <div class="menu__panel">
+    <div class="menu__bar container">
+        <button class="site-header__menu" type="button" data-menu-close>
+            <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="menu-icon__l1" d="M3 7h18"/><path class="menu-icon__l2" d="M3 12h18"/><path class="menu-icon__l3" d="M3 17h18"/></svg>
+            <span>Close</span>
+        </button>
+        <a class="menu__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
+        <span class="menu__spacer" aria-hidden="true"></span>
+    </div>
+    <div class="menu__body container">
+        <nav class="menu__cols" aria-label="Site">
+            <div class="menu__col">
+                <p class="menu__head">Vehicles</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="index_v4.html#range">Models</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=new">New inventory</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=used">Pre-owned inventory</a></li>
+                    <li><a class="menu__link" href="srp.html">All Lamborghini inventory</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Ownership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="service.html">Service</a></li>
+                    <li><a class="menu__link" href="#request" data-menu-link>Schedule service</a></li>
+                    <li><a class="menu__link" href="order-parts.html">Order parts</a></li>
+                    <li><a class="menu__link" href="collision-center.html">Collision center</a></li>
+                    <li><a class="menu__link" href="ad-personam.html">Ad Personam</a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Dealership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="lifestyle.html">Lifestyle</a></li>
+                    <li><a class="menu__link" href="index_v4.html#house">Our story</a></li>
+                    <li><a class="menu__link" href="index_v4.html#visit">Visit &amp; hours</a></li>
+                    <li><a class="menu__link" href="careers.html">Careers</a></li>
+                    <li><a class="menu__link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <dl class="menu__contact">
+            <div><dt>Sales</dt><dd><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+            <div><dt>Service</dt><dd><a href="tel:+18332905148">(833) 290-5148</a></dd></div>
+            <div><dt>Parts</dt><dd><a href="tel:+18332905149">(833) 290-5149</a></dd></div>
+        </dl>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================ 1 · HERO ============================
+     v4 sample page (23 Oct 2026, Alex): one page per intent on the service-page template, with its own
+     form that arrives in the CRM with department and reason. The film is the client's service film, cut wing / engine / technician so the first frame is dark under the copy. -->
+<section class="subhero" aria-labelledby="page-title">
+    <div class="subhero__media">
+        <picture>
+            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" srcset="assets/video/sched-poster-d.webp">
+            <img class="subhero__img subhero__poster" src="assets/video/sched-poster-m.webp" width="960" height="720" fetchpriority="high" decoding="async"
+                 alt="A carbon rear wing in the Lamborghini Miami workshop.">
+        </picture>
+        <video class="subhero__video" muted playsinline loop preload="none" aria-hidden="true" data-svc-video
+               data-src-d="assets/video/sched-loop-d.mp4" data-src-m="assets/video/sched-loop-m.mp4"></video>
+    </div>
+    <div class="container subhero__inner">
+        <div class="subhero__group">
+            <p class="t-eyelet subhero__eyelet">Service</p>
+            <h1 class="t-display-xl subhero__title" id="page-title">
+                <span class="subhero__line">Schedule</span>
+                <span class="subhero__line">service</span>
+            </h1>
+            <p class="t-lead subhero__lead">Scheduled maintenance, repair and genuine Lamborghini parts, at our workshop on Biscayne Boulevard. Tell us what your car needs and we confirm a time.</p>
+            <div class="subhero__actions">
+                <a class="btn btn--accent" href="#request">
+                    <span>Request a time</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+                <a class="btn btn--secondary subhero__call" href="tel:+18332905148">
+                    <span>Call (833) 290-5148</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 2 · WHAT WE DO ============================
+     The service page's facts, by department. -->
+<section class="why band band--dark" id="about" aria-labelledby="about-title">
+    <div class="container why__grid">
+        <div class="why__intro">
+            <p class="t-eyelet section-head__eyelet">Service department</p>
+            <h2 class="t-banner" id="about-title">What your car needs</h2>
+        </div>
+        <div class="why__data why__data--departments">
+            <h3 class="t-eyelet why__head">Where to begin</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Service</dt>
+                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri, 8:00 am – 5:30 pm</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Pickup &amp; delivery</dt>
+                    <dd class="spec__value">Available<span class="spec__sub">In an enclosed transporter</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Roadside assistance</dt>
+                    <dd class="spec__value"><a href="tel:+18884646040">1-888-464-6040</a><span class="spec__sub">24 hours</span></dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="why__data">
+            <h3 class="t-eyelet why__head">What we do</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Scheduled maintenance</dt>
+                    <dd class="spec__value">Genuine, factory-approved parts<span class="spec__sub">On every job</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Repair</dt>
+                    <dd class="spec__value">Diagnosis and repair<span class="spec__sub">Technicians trained for high-end models</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Collision &amp; paint</dt>
+                    <dd class="spec__value">Lamborghini-certified<span class="spec__sub"><a class="spec__link" href="collision-center.html">Collision center and paint shop</a></span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Detailing</dt>
+                    <dd class="spec__value">Interior and exterior</dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Parts</dt>
+                    <dd class="spec__value"><a class="spec__link" href="order-parts.html">Order parts</a><span class="spec__sub">A large supply in stock</span></dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 3 · HOW IT WORKS ============================ -->
+<section class="workshop band band--black" id="how" aria-labelledby="how-title">
+    <div class="container workshop__grid">
+        <figure class="workshop__media" data-reveal>
+            <picture>
+                <source type="image/webp" srcset="assets/img/svcf-engine-1600.webp 1600w, assets/img/svcf-engine-1200.webp 1200w, assets/img/svcf-engine-800.webp 800w, assets/img/svcf-engine-560.webp 560w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw">
+                <img src="assets/img/svcf-engine-1200.jpg" srcset="assets/img/svcf-engine-1600.jpg 1600w, assets/img/svcf-engine-1200.jpg 1200w, assets/img/svcf-engine-800.jpg 800w, assets/img/svcf-engine-560.jpg 560w" sizes="(min-width: 1200px) 520px, (min-width: 768px) 50vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="A technician at the engine bay of a white Lamborghini in the workshop.">
+            </picture>
+        </figure>
+
+        <div class="workshop__body">
+            <header>
+                <p class="t-eyelet section-head__eyelet">How it works</p>
+                <h2 class="t-banner" id="how-title"><span class="svc-line">Tell us,</span> <span class="svc-line">we confirm a time</span></h2>
+            </header>
+            <div class="workshop__text">
+                <p>Send a request with the model, the year and what the car needs. Our service team contacts you to confirm a time, Monday to Friday, 8:00 am – 5:30 pm.</p>
+                <p>If you would like pickup and delivery, say so in the request: we collect the car and bring it back once the work is done.</p>
+            </div>
+            <div class="workshop__actions">
+                <a class="btn btn--primary" href="#request">
+                    <span>Request a time</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 4 · THE STEPS ============================ -->
+<section class="difference band band--light" id="steps" aria-labelledby="steps-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">Step by step</p>
+                <h2 class="t-banner" id="steps-title"><span class="svc-line">Four steps</span> <span class="svc-line">to a booked service</span></h2>
+            </div>
+        </header>
+
+        <ul class="points">
+            <li class="points__item">
+                <h3 class="points__title">Request</h3>
+                <p class="points__text">The model, the year and what it needs, in the form below.</p>
+            </li>
+            <li class="points__item">
+                <h3 class="points__title">Confirm</h3>
+                <p class="points__text">Our service team calls or writes to confirm a time.</p>
+            </li>
+            <li class="points__item">
+                <h3 class="points__title">Drop off or pickup</h3>
+                <p class="points__text">Bring the car to Biscayne Boulevard, or we collect it.</p>
+            </li>
+            <li class="points__item">
+                <h3 class="points__title">Return</h3>
+                <p class="points__text">The car comes back as it should, with genuine parts on every job.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================ 5 · THE WORKSHOP ============================
+     Stills from the client's service film (_tools/process-service-stills-v4.py). No stock imagery (Alex). -->
+<section class="stills band band--black" id="workshop" aria-labelledby="workshop-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">The workshop</p>
+                <h2 class="t-banner" id="workshop-title"><span class="svc-line">Trained on</span> <span class="svc-line">the cars we service</span></h2>
+            </div>
+        </header>
+        <ul class="stills__grid">
+            <li class="stills__item">
+            <picture>
+                <source type="image/webp" srcset="assets/img/svcf-wheel-1600.webp 1600w, assets/img/svcf-wheel-1200.webp 1200w, assets/img/svcf-wheel-800.webp 800w, assets/img/svcf-wheel-560.webp 560w" sizes="(min-width: 768px) 33vw, 100vw">
+                <img src="assets/img/svcf-wheel-1200.jpg" srcset="assets/img/svcf-wheel-1600.jpg 1600w, assets/img/svcf-wheel-1200.jpg 1200w, assets/img/svcf-wheel-800.jpg 800w, assets/img/svcf-wheel-560.jpg 560w" sizes="(min-width: 768px) 33vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="A technician fitting a wheel to a blue Lamborghini.">
+            </picture>
+            </li>
+            <li class="stills__item">
+            <picture>
+                <source type="image/webp" srcset="assets/img/svcf-body-1600.webp 1600w, assets/img/svcf-body-1200.webp 1200w, assets/img/svcf-body-800.webp 800w, assets/img/svcf-body-560.webp 560w" sizes="(min-width: 768px) 33vw, 100vw">
+                <img src="assets/img/svcf-body-1200.jpg" srcset="assets/img/svcf-body-1600.jpg 1600w, assets/img/svcf-body-1200.jpg 1200w, assets/img/svcf-body-800.jpg 800w, assets/img/svcf-body-560.jpg 560w" sizes="(min-width: 768px) 33vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="A technician at the body of a blue Lamborghini.">
+            </picture>
+            </li>
+            <li class="stills__item">
+            <picture>
+                <source type="image/webp" srcset="assets/img/svcf-sto-1600.webp 1600w, assets/img/svcf-sto-1200.webp 1200w, assets/img/svcf-sto-800.webp 800w, assets/img/svcf-sto-560.webp 560w" sizes="(min-width: 768px) 33vw, 100vw">
+                <img src="assets/img/svcf-sto-1200.jpg" srcset="assets/img/svcf-sto-1600.jpg 1600w, assets/img/svcf-sto-1200.jpg 1200w, assets/img/svcf-sto-800.jpg 800w, assets/img/svcf-sto-560.jpg 560w" sizes="(min-width: 768px) 33vw, 100vw"
+                     width="1600" height="900" loading="lazy" decoding="async"
+                     alt="A grey Huracán STO in the Lamborghini Miami workshop.">
+            </picture>
+            </li>
+        </ul>
+        <p class="t-legal stills__caption">The Lamborghini Miami workshop, from our film.</p>
+    </div>
+</section>
+
+<!-- ============================ 6 · REQUEST ============================
+     The service page's form + map. Hidden fields: department=service, reason=service-appointment; every state
+     as the service form (service_v2.js); no endpoint yet. -->
+<section class="request band band--dark" id="request" aria-labelledby="request-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <p class="t-eyelet section-head__eyelet">Service request</p>
+                <h2 class="t-banner" id="request-title"><span class="svc-line">Tell us what</span> <span class="svc-line">your car needs</span></h2>
+                <p class="t-lead section-head__lead">Send a request and our service team will contact you to confirm a time. Or call <a class="spec__link" href="tel:+18332905148">(833) 290-5148</a>.</p>
+            </div>
+        </header>
+
+        <div class="request__grid">
+            <div class="request__form-wrap">
+                <form class="form" id="ss-form" action="#" method="post" novalidate data-service-form data-endpoint="">
+                    <input type="hidden" name="department" value="service">
+                    <input type="hidden" name="reason" value="service-appointment">
+                    <div class="form__summary" data-no-rise role="alert" tabindex="-1" hidden data-form-summary></div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ss-first">First name <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ss-first" name="first" type="text" autocomplete="given-name" required aria-describedby="ss-first-err">
+                            <p class="field__error" data-no-rise id="ss-first-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ss-last">Last name <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ss-last" name="last" type="text" autocomplete="family-name" required aria-describedby="ss-last-err">
+                            <p class="field__error" data-no-rise id="ss-last-err" hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ss-email">Email <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ss-email" name="email" type="email" autocomplete="email" required aria-describedby="ss-email-err">
+                            <p class="field__error" data-no-rise id="ss-email-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ss-phone">Phone <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ss-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="ss-phone-err">
+                            <p class="field__error" data-no-rise id="ss-phone-err" hidden></p>
+                        </div>
+                    </div>
+
+                    <fieldset class="field segmented">
+                        <legend class="field__label">Preferred contact <span class="field__req">(required)</span></legend>
+                        <div class="segmented__opts">
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="call" checked><span>Call</span></label>
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="text"><span>Text</span></label>
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="email"><span>Email</span></label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ss-zip">ZIP code <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ss-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" maxlength="10" required aria-describedby="ss-zip-err">
+                            <p class="field__error" data-no-rise id="ss-zip-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ss-model">Model</label>
+                            <select class="field__input field__select" id="ss-model" name="model">
+                                <option value="">Select a model</option>
+                                <option>Revuelto</option>
+                                <option>Temerario</option>
+                                <option>Urus SE</option>
+                                <option>Urus SE Performante</option>
+                                <option>Urus</option>
+                                <option>Huracán</option>
+                                <option>Aventador</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ss-year">Year</label>
+                            <input class="field__input" id="ss-year" name="year" type="text" inputmode="numeric" maxlength="4" placeholder="e.g. 2024" aria-describedby="ss-year-err">
+                            <p class="field__error" data-no-rise id="ss-year-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ss-type">Service needed</label>
+                            <select class="field__input field__select" id="ss-type" name="service">
+                                <option value="">Select a service</option>
+                                <option>Scheduled maintenance</option>
+                                <option>Repair</option>
+                                <option>Detailing</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="ss-message">What does it need?</label>
+                        <textarea class="field__input field__textarea" id="ss-message" name="message" rows="5"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label class="check">
+                            <input class="check__input" type="checkbox" name="pickup" value="yes" id="ss-pickup">
+                            <span class="check__box" aria-hidden="true"></span>
+                            <span class="check__label">I would like pickup and delivery</span>
+                        </label>
+                    </div>
+
+                    <div class="field field--consent">
+                        <label class="check check--consent">
+                            <input class="check__input" type="checkbox" name="consent" value="yes" id="ss-consent" required aria-describedby="ss-consent-err">
+                            <span class="check__box" aria-hidden="true"></span>
+                            <span class="check__label">Please note that by completing this form, you agree to being contacted via text, phone and email. <span class="field__req">(required)</span></span>
+                        </label>
+                        <p class="field__error" data-no-rise id="ss-consent-err" hidden></p>
+                    </div>
+
+                    <div class="form__foot">
+                        <button class="btn btn--accent form__submit" type="submit" data-form-submit>
+                            <span data-submit-label>Send request</span>
+                            <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                        </button>
+                        <p class="form__status" data-no-rise role="status" aria-live="polite" data-form-status></p>
+                    </div>
+                </form>
+
+                <div class="form-done" tabindex="-1" hidden data-form-done data-no-rise>
+                    <p class="t-eyelet section-head__eyelet">Request sent</p>
+                    <p class="t-title form-done__title">Thank you<span data-done-name></span>.</p>
+                    <p class="t-lead form-done__text">Our service team will contact you to confirm a time, Monday to Friday, 8:00 am – 5:30 pm. For anything urgent, call <a class="spec__link" href="tel:+18332905148">(833) 290-5148</a>.</p>
+                    <button class="btn btn--tertiary form-done__again" type="button" data-form-again><span>Send another request</span></button>
+                </div>
+            </div>
+
+            <aside class="request__aside" aria-label="Lamborghini Miami location">
+                <div class="request__map" id="service-map" role="img" aria-label="Map showing Lamborghini Miami at 14780 Biscayne Boulevard, North Miami Beach, FL"></div>
+                <address class="request__address">
+                    14780 Biscayne Boulevard<br>
+                    North Miami Beach, FL 33181
+                </address>
+                <dl class="spec spec--hours">
+                <div class="spec__row">
+                    <dt class="spec__label">Hours</dt>
+                    <dd class="spec__value">Mon–Fri 8:00 am – 5:30 pm</dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Service</dt>
+                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a></dd>
+                </div>
+                </dl>
+                <a class="btn btn--tertiary request__directions" href="https://maps.google.com/maps?q=Lamborghini+Miami,+14780+Biscayne+Boulevard+North,+North+Miami+Beach,+FL+33181" rel="noopener">
+                    <span>Get directions</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                </a>
+            </aside>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER (as index_v4.html) ============================ -->
+<footer class="site-footer band band--black" aria-labelledby="footer-title">
+    <div class="container">
+        <div class="site-footer__top">
+            <div class="site-footer__brand">
+                <img src="assets/img/bull.svg" width="57" height="59" alt="" class="site-footer__bull">
+                <p class="site-footer__name" id="footer-title">Lamborghini Miami</p>
+                <p class="site-footer__sub">Authorized Lamborghini Dealer</p>
+            </div>
+
+            <nav class="site-footer__nav" aria-label="Footer">
+                <div>
+                    <p class="site-footer__head">Vehicles</p>
+                    <ul>
+                        <li><a href="index_v4.html#range">Models</a></li>
+                        <li><a href="srp.html?condition=new">New inventory</a></li>
+                        <li><a href="srp.html?condition=used">Pre-owned inventory</a></li>
+                        <li><a href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Ownership</p>
+                    <ul>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="#request">Schedule service</a></li>
+                        <li><a href="order-parts.html">Parts</a></li>
+                        <li><a href="collision-center.html">Collision center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Dealership</p>
+                    <ul>
+                        <li><a href="lifestyle.html">Lifestyle</a></li>
+                        <li><a href="index_v4.html#house">Our story</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Follow</p>
+                    <ul>
+                        <li><a href="https://www.instagram.com/lamborghinimiami/" rel="noopener">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/lamborghinimiami.prestigeimports" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@lamborghiniofmiami" rel="noopener">YouTube</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="site-footer__parent">
+            <img src="assets/img/logo-prestige-imports-white.png" width="318" height="146" loading="lazy" alt="Prestige Imports, established 1977" class="site-footer__prestige">
+            <p class="site-footer__parent-text">Lamborghini Miami is a division of Prestige Imports.</p>
+            <a class="btn btn--tertiary" href="https://www.prestigeimports.com/" rel="noopener"><span>Visit Prestige Imports</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+        </div>
+
+        <div class="site-footer__legal t-legal">
+            <p>Lamborghini, the Bull logo, model names and related marks are trademarks of Automobili Lamborghini S.p.A.</p>
+            <div class="site-footer__baseline">
+                <p>© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181</p>
+                <p class="site-footer__powered">Powered by <a href="https://www.allautonetwork.com/" target="_blank" rel="noopener">All Auto Network<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script src="assets/js/main_v2.js?v=105" defer></script>
+<script src="assets/js/service_v2.js?v=10" defer></script>
+</body>
+</html>

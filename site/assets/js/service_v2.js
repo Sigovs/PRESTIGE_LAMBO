@@ -159,6 +159,13 @@
             form.elements.first.focus();
         });
 
+        // schedule-service.html?pickup=1 (from the service page's "Arrange pickup") arrives with the box ticked
+        if (new URLSearchParams(location.search).get('pickup') === '1' && form.elements.pickup) form.elements.pickup.checked = true;
+        // careers.html: "Apply" beside a position selects it in the form
+        document.querySelectorAll('[data-position]').forEach((a) => a.addEventListener('click', () => {
+            const sel = form.elements.position;
+            if (sel && [...sel.options].some((o) => o.text === a.dataset.position)) sel.value = a.dataset.position;
+        }));
         // "Arrange pickup" ticks the pickup box on its way to the form.
         document.querySelectorAll('[data-prefill="pickup"]').forEach((a) => a.addEventListener('click', () => {
             const box = form.elements.pickup;
