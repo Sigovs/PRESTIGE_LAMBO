@@ -505,7 +505,7 @@ address { font-style: normal; }
     left: 50%; bottom: calc(-1 * var(--sp-32));
     width: 100vw; height: calc(100% + var(--sp-80));
     transform: translateX(-50%);
-    background: linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.6) 55%, rgb(0 0 0 / 0) 100%);
+    background: linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.822) 13.75%, rgb(0 0 0 / 0.73) 27.5%, rgb(0 0 0 / 0.638) 41.25%, rgb(0 0 0 / 0.6) 55%, rgb(0 0 0 / 0.595) 59.5%, rgb(0 0 0 / 0.565) 64%, rgb(0 0 0 / 0.502) 68.5%, rgb(0 0 0 / 0.41) 73%, rgb(0 0 0 / 0.3) 77.5%, rgb(0 0 0 / 0.19) 82%, rgb(0 0 0 / 0.098) 86.5%, rgb(0 0 0 / 0.035) 91%, rgb(0 0 0 / 0.005) 95.5%, rgb(0 0 0 / 0) 100%);
     z-index: -1;
     pointer-events: none;
 }
@@ -724,8 +724,8 @@ address { font-style: normal; }
         display: block;
         position: absolute; inset: 0; z-index: -1;
         background:
-            linear-gradient(180deg, rgb(0 0 0 / var(--vig-a, 1)) 0%, rgb(0 0 0 / 0) var(--vig-top, 30%)),
-            linear-gradient(0deg,   rgb(0 0 0 / var(--vig-a, 1)) 0%, rgb(0 0 0 / 0) var(--vig-bottom, 36%));
+            linear-gradient(180deg, rgb(0 0 0 / calc(var(--vig-a, 1) * 1)) 0%, rgb(0 0 0 / calc(var(--vig-a, 1) * 0.991)) calc(var(--vig-top, 30%) * 0.1), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.942)) calc(var(--vig-top, 30%) * 0.2), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.837)) calc(var(--vig-top, 30%) * 0.3), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.683)) calc(var(--vig-top, 30%) * 0.4), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.5)) calc(var(--vig-top, 30%) * 0.5), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.317)) calc(var(--vig-top, 30%) * 0.6), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.163)) calc(var(--vig-top, 30%) * 0.7), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.058)) calc(var(--vig-top, 30%) * 0.8), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.009)) calc(var(--vig-top, 30%) * 0.9), rgb(0 0 0 / 0) var(--vig-top, 30%)),
+            linear-gradient(0deg, rgb(0 0 0 / calc(var(--vig-a, 1) * 1)) 0%, rgb(0 0 0 / calc(var(--vig-a, 1) * 0.991)) calc(var(--vig-bottom, 36%) * 0.1), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.942)) calc(var(--vig-bottom, 36%) * 0.2), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.837)) calc(var(--vig-bottom, 36%) * 0.3), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.683)) calc(var(--vig-bottom, 36%) * 0.4), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.5)) calc(var(--vig-bottom, 36%) * 0.5), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.317)) calc(var(--vig-bottom, 36%) * 0.6), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.163)) calc(var(--vig-bottom, 36%) * 0.7), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.058)) calc(var(--vig-bottom, 36%) * 0.8), rgb(0 0 0 / calc(var(--vig-a, 1) * 0.009)) calc(var(--vig-bottom, 36%) * 0.9), rgb(0 0 0 / 0) var(--vig-bottom, 36%));
     }
 }
 /* dealer slide (Alex's edit of img8): the frame is drawn 1.2x from its left edge so
@@ -1321,7 +1321,7 @@ address { font-style: normal; }
     position: absolute; inset: 0;
     /* portrait: header gradient on top, the frame fading to black at its foot */
     background:
-        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0.496) 2.2%, rgb(0 0 0 / 0.471) 4.4%, rgb(0 0 0 / 0.418) 6.6%, rgb(0 0 0 / 0.341) 8.8%, rgb(0 0 0 / 0.25) 11%, rgb(0 0 0 / 0.159) 13.2%, rgb(0 0 0 / 0.082) 15.4%, rgb(0 0 0 / 0.029) 17.6%, rgb(0 0 0 / 0.004) 19.8%, rgb(0 0 0 / 0) 22%),
         linear-gradient(180deg, rgb(0 0 0 / 0) 55%, var(--surface-0-dark) 100%);
 }
 .adp__stage::after {
@@ -1377,8 +1377,8 @@ address { font-style: normal; }
     .adp__img { object-position: var(--adp-pos-l); }
     .adp__scrim {
         background:
-            linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
-            linear-gradient(90deg, rgb(0 0 0 / var(--adp-scrim-a)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * var(--adp-scrim-k))) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-end));
+            linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0.496) 2.2%, rgb(0 0 0 / 0.471) 4.4%, rgb(0 0 0 / 0.418) 6.6%, rgb(0 0 0 / 0.341) 8.8%, rgb(0 0 0 / 0.25) 11%, rgb(0 0 0 / 0.159) 13.2%, rgb(0 0 0 / 0.082) 15.4%, rgb(0 0 0 / 0.029) 17.6%, rgb(0 0 0 / 0.004) 19.8%, rgb(0 0 0 / 0) 22%),
+            linear-gradient(90deg, rgb(0 0 0 / calc(var(--adp-scrim-a) * 1)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.854 + calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.146)) calc(0% + (var(--adp-scrim-mid) - 0%) * 0.25), rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.5 + calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.5)) calc(0% + (var(--adp-scrim-mid) - 0%) * 0.5), rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.146 + calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.854)) calc(0% + (var(--adp-scrim-mid) - 0%) * 0.75), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 1)) var(--adp-scrim-mid), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.991)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.1), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.942)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.2), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.837)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.3), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.683)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.4), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.5)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.5), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.317)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.6), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.163)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.7), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.058)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.8), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.009)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.9), rgb(0 0 0 / 0) var(--adp-scrim-end));
     }
     .adp {
         margin-top: -100vh;

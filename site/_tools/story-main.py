@@ -66,17 +66,19 @@ DECADES = ['1990', '2000', '2010', '2020']   # 1980 is where the rule starts, be
 MAIN = f'''<main id="main">
 
 <!-- ============================ 1 · HERO ============================
-     Our Story (6 Nov 2026, client sheet row 26 "Design"): the department template. The frame is the
-     Prestige Imports archive portrait of Irv David in a Countach, already used on the homepage. -->
+     Our Story (6 Nov 2026, client sheet row 26 "Design"; Alex: the Prestige website's film on the hero).
+     The history film: the Prestige Imports portal's our-story footage (Irv on the phone, the first building,
+     the Countach, Ferruccio signing) with the archive photographs animated, as on the homepage's slide 05.
+     Its poster first; the film over it once it plays (service_v2.js, data-svc-video); reduced motion keeps the poster. -->
 <section class="subhero story-hero" aria-labelledby="story-title">
     <div class="subhero__media">
         <picture>
-            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" type="image/webp" srcset="assets/img/slide-prestige-3-1920.webp">
-            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" srcset="assets/img/slide-prestige-3-1920.jpg">
-            <source type="image/webp" srcset="assets/img/slide-prestige-3-p-800.webp">
-            <img class="subhero__img" src="assets/img/slide-prestige-3-p-800.jpg" width="800" height="943" fetchpriority="high" decoding="async"
-                 alt="Irv David seated in a white Lamborghini Countach with its doors raised, outside the early Prestige Imports.">
+            <source media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" srcset="assets/video/prestige-history-poster-d.webp">
+            <img class="subhero__img subhero__poster" src="assets/video/prestige-history-poster-m.webp" width="720" height="848" fetchpriority="high" decoding="async"
+                 alt="Archive footage of Prestige Imports: Irv David, the first building, a Lamborghini Countach.">
         </picture>
+        <video class="subhero__video" muted playsinline loop preload="none" aria-hidden="true" data-svc-video
+               data-src-d="assets/video/prestige-history-d.mp4" data-src-m="assets/video/prestige-history-m.mp4"></video>
     </div>
     <div class="container subhero__inner">
         <div class="subhero__group">

@@ -77,10 +77,14 @@
 .mmedia { padding-block: var(--sp-64); }
 .mphoto { margin: 0; }
 .mphoto img { width: 100%; height: auto; }
-.mfilm { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+/* the film: the frame 16:9, the Play button under it on the frame's left edge, never over the picture
+   (Alex, 6 Nov 2026: the button sat on the poster's edge) */
+.mfilm { position: relative; aspect-ratio: var(--poster-ratio, 16 / 9); background: #000; overflow: hidden; margin-bottom: calc(var(--btn-h-lg) + var(--sp-24)); }
+.mfilm:not(.is-playing) { overflow: visible; }   /* the button hangs below the frame until Play */
 .mfilm__poster, .mfilm iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.mfilm.is-playing { margin-bottom: 0; aspect-ratio: 16 / 9; }   /* playing: the player's own 16:9 */
 .mfilm__play {
-    position: absolute; left: var(--sp-24); bottom: var(--sp-24);
+    position: absolute; left: 0; top: calc(100% + var(--sp-24));
     display: inline-flex; align-items: center; gap: var(--sp-16);
     min-height: var(--btn-h-lg); padding-inline: var(--btn-pad-lg);
     border: var(--stroke-1) solid var(--grey-0); background: rgb(0 0 0 / 0.64); color: var(--grey-0);
@@ -89,6 +93,16 @@
 }
 .mfilm__play:hover, .mfilm__play:focus-visible { background: rgb(0 0 0 / 0.84); }
 .mfilm.is-playing .mfilm__play, .mfilm.is-playing .mfilm__poster { display: none; }
+
+/* phones upright: the hero's copy and actions within the first screen (Alex, 6 Nov 2026) */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .mbig__actions { gap: var(--sp-8); }
+    .mbig__actions .btn { min-height: var(--btn-h-md); }
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 760px) {
+    .mbig__inner { gap: var(--sp-8); padding-top: calc(var(--header-h) + var(--sp-24)); padding-bottom: var(--sp-24); }
+    .mbig__actions { margin-top: var(--sp-8); }
+}
 
 /* ---------- Lifestyle page (v3, Oct; re-laid out after Alex's 3/10) ----------
    The car at our own event fills the first screen; the copy sits low left on a floor-up scrim.
@@ -100,8 +114,8 @@
 .lhero::after {
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background:
-        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
-        linear-gradient(0deg, rgb(0 0 0 / 0.92) 0%, rgb(0 0 0 / 0.8) 28%, rgb(0 0 0 / 0.25) 55%, rgb(0 0 0 / 0) 70%);
+        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0.496) 2.2%, rgb(0 0 0 / 0.471) 4.4%, rgb(0 0 0 / 0.418) 6.6%, rgb(0 0 0 / 0.341) 8.8%, rgb(0 0 0 / 0.25) 11%, rgb(0 0 0 / 0.159) 13.2%, rgb(0 0 0 / 0.082) 15.4%, rgb(0 0 0 / 0.029) 17.6%, rgb(0 0 0 / 0.004) 19.8%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(0deg, rgb(0 0 0 / 0.92) 0%, rgb(0 0 0 / 0.902) 7%, rgb(0 0 0 / 0.86) 14%, rgb(0 0 0 / 0.818) 21%, rgb(0 0 0 / 0.8) 28%, rgb(0 0 0 / 0.793) 32.2%, rgb(0 0 0 / 0.754) 36.4%, rgb(0 0 0 / 0.67) 40.6%, rgb(0 0 0 / 0.546) 44.8%, rgb(0 0 0 / 0.4) 49%, rgb(0 0 0 / 0.254) 53.2%, rgb(0 0 0 / 0.13) 57.4%, rgb(0 0 0 / 0.046) 61.6%, rgb(0 0 0 / 0.007) 65.8%, rgb(0 0 0 / 0) 70%);
 }
 .lhero__inner { position: relative; z-index: 1; display: grid; gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-64)); padding-bottom: var(--sp-56); }
 .lhero__eyelet { color: var(--grey-1); }
@@ -177,9 +191,9 @@
 .mbig::after {
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background:
-        linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 22%),
-        linear-gradient(0deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.7) 26%, rgb(0 0 0 / 0) 55%),
-        linear-gradient(90deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.76) 34%, rgb(0 0 0 / 0) 54%);   /* the copy column, as the home slides */
+        linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0.545) 2.2%, rgb(0 0 0 / 0.518) 4.4%, rgb(0 0 0 / 0.46) 6.6%, rgb(0 0 0 / 0.375) 8.8%, rgb(0 0 0 / 0.275) 11%, rgb(0 0 0 / 0.175) 13.2%, rgb(0 0 0 / 0.09) 15.4%, rgb(0 0 0 / 0.032) 17.6%, rgb(0 0 0 / 0.005) 19.8%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(0deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.871) 6.5%, rgb(0 0 0 / 0.8) 13%, rgb(0 0 0 / 0.729) 19.5%, rgb(0 0 0 / 0.7) 26%, rgb(0 0 0 / 0.694) 28.9%, rgb(0 0 0 / 0.659) 31.8%, rgb(0 0 0 / 0.586) 34.7%, rgb(0 0 0 / 0.478) 37.6%, rgb(0 0 0 / 0.35) 40.5%, rgb(0 0 0 / 0.222) 43.4%, rgb(0 0 0 / 0.114) 46.3%, rgb(0 0 0 / 0.041) 49.2%, rgb(0 0 0 / 0.006) 52.1%, rgb(0 0 0 / 0) 55%),
+        linear-gradient(90deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.845) 8.5%, rgb(0 0 0 / 0.81) 17%, rgb(0 0 0 / 0.775) 25.5%, rgb(0 0 0 / 0.76) 34%, rgb(0 0 0 / 0.753) 37.8%, rgb(0 0 0 / 0.716) 41.6%, rgb(0 0 0 / 0.636) 45.4%, rgb(0 0 0 / 0.519) 49.2%, rgb(0 0 0 / 0.38) 53%, rgb(0 0 0 / 0.241) 56.8%, rgb(0 0 0 / 0.124) 60.6%, rgb(0 0 0 / 0.044) 64.4%, rgb(0 0 0 / 0.007) 68.2%, rgb(0 0 0 / 0) 72%);   /* the copy column, as the home slides */
 }
 .mbig__inner { position: relative; z-index: 1; display: grid; justify-items: start; gap: var(--sp-16); padding-top: calc(var(--header-h) + var(--sp-64)); padding-bottom: var(--sp-64); }
 .mbig__eyelet { color: var(--grey-1); }
@@ -197,7 +211,10 @@
 @media (min-width: 768px) { .mbig__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-24); width: auto; } }
 @media (max-width: 767.98px) and (orientation: portrait) {
     .mbig__img { object-position: 50% 50%; }
-    .mbig::after { background: linear-gradient(0deg, rgb(0 0 0 / 0.95) 0%, rgb(0 0 0 / 0.88) 48%, rgb(0 0 0 / 0) 72%), linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 18%); }
+    /* phones: the scrim belongs to the copy, not to the screen: it starts above the eyelet however long the name and lead run */
+    .mbig::after { background: linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0.495) 1.8%, rgb(0 0 0 / 0.471) 3.6%, rgb(0 0 0 / 0.419) 5.4%, rgb(0 0 0 / 0.341) 7.2%, rgb(0 0 0 / 0.25) 9%, rgb(0 0 0 / 0.159) 10.8%, rgb(0 0 0 / 0.081) 12.6%, rgb(0 0 0 / 0.029) 14.4%, rgb(0 0 0 / 0.004) 16.2%, rgb(0 0 0 / 0) 18%); }
+    .mbig__inner::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); pointer-events: none;
+        background: linear-gradient(180deg, rgb(0 0 0 / 0.0) calc((var(--header-h) + var(--sp-40)) * 0), rgb(0 0 0 / 0.008) calc((var(--header-h) + var(--sp-40)) * 0.1), rgb(0 0 0 / 0.052) calc((var(--header-h) + var(--sp-40)) * 0.2), rgb(0 0 0 / 0.147) calc((var(--header-h) + var(--sp-40)) * 0.3), rgb(0 0 0 / 0.286) calc((var(--header-h) + var(--sp-40)) * 0.4), rgb(0 0 0 / 0.45) calc((var(--header-h) + var(--sp-40)) * 0.5), rgb(0 0 0 / 0.614) calc((var(--header-h) + var(--sp-40)) * 0.6), rgb(0 0 0 / 0.753) calc((var(--header-h) + var(--sp-40)) * 0.7), rgb(0 0 0 / 0.848) calc((var(--header-h) + var(--sp-40)) * 0.8), rgb(0 0 0 / 0.892) calc((var(--header-h) + var(--sp-40)) * 0.9), rgb(0 0 0 / 0.9) calc((var(--header-h) + var(--sp-40)) * 1), rgb(0 0 0 / 0.9) 100%); }
 }
 
 /* 2 · figures: big numerals, the engine beside them */

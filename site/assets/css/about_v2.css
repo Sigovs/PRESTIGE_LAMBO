@@ -7,6 +7,8 @@
 /* hero: three authored lines; on phones they may wrap rather than run off the screen */
 @media (max-width: 767.98px) {
     .about-hero .subhero__line { white-space: normal; }
+    /* the longest title on the site: set one step down so the copy and its actions stay on the first screen */
+    .about-hero .subhero__title { font-size: var(--fs-56); line-height: var(--lh-52); }
 }
 /* the lit showroom fills the right of the frame; the copy keeps to the dark lot and trees */
 @media (min-width: 1200px), (min-width: 768px) and (orientation: landscape) {
@@ -16,7 +18,7 @@
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        background: linear-gradient(90deg, rgb(0 0 0 / 0.84) 0%, rgb(0 0 0 / 0.68) 34%, rgb(0 0 0 / 0) 64%);
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.84) 0%, rgb(0 0 0 / 0.817) 8.5%, rgb(0 0 0 / 0.76) 17%, rgb(0 0 0 / 0.703) 25.5%, rgb(0 0 0 / 0.68) 34%, rgb(0 0 0 / 0.674) 37%, rgb(0 0 0 / 0.641) 40%, rgb(0 0 0 / 0.569) 43%, rgb(0 0 0 / 0.464) 46%, rgb(0 0 0 / 0.34) 49%, rgb(0 0 0 / 0.216) 52%, rgb(0 0 0 / 0.111) 55%, rgb(0 0 0 / 0.039) 58%, rgb(0 0 0 / 0.006) 61%, rgb(0 0 0 / 0) 64%);
     }
 }
 
@@ -105,7 +107,7 @@
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.82) 36%, rgb(0 0 0 / 0.55) 58%, rgb(0 0 0 / 0) 84%);
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.888) 9%, rgb(0 0 0 / 0.86) 18%, rgb(0 0 0 / 0.832) 27%, rgb(0 0 0 / 0.82) 36%, rgb(0 0 0 / 0.813) 40.8%, rgb(0 0 0 / 0.773) 45.6%, rgb(0 0 0 / 0.686) 50.4%, rgb(0 0 0 / 0.56) 55.2%, rgb(0 0 0 / 0.41) 60%, rgb(0 0 0 / 0.26) 64.8%, rgb(0 0 0 / 0.134) 69.6%, rgb(0 0 0 / 0.047) 74.4%, rgb(0 0 0 / 0.007) 79.2%, rgb(0 0 0 / 0) 84%);
     }
 }
 

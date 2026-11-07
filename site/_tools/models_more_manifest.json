@@ -1,0 +1,947 @@
+{
+ "aventador-design-c1": [
+  800,
+  1200
+ ],
+ "aventador-design-c2": [
+  800,
+  1200
+ ],
+ "aventador-g1": [
+  900,
+  1600
+ ],
+ "aventador-g2": [
+  900,
+  1600
+ ],
+ "aventador-g3": [
+  900,
+  1600
+ ],
+ "aventador-g4": [
+  900,
+  1600
+ ],
+ "aventador-g5": [
+  900,
+  1600
+ ],
+ "aventador-g6": [
+  900,
+  1080
+ ],
+ "aventador-g7": [
+  900,
+  1600
+ ],
+ "aventador-g8": [
+  900,
+  1600
+ ],
+ "aventador-g9": [
+  900,
+  1600
+ ],
+ "aventador-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "aventador-hero-p": [
+  707
+ ],
+ "aventador-tile": [
+  800,
+  1200
+ ],
+ "aventador-w-design": [
+  1440,
+  1920
+ ],
+ "aventador-w-design-p": [
+  750
+ ],
+ "concept-asterion-estoque-c1": [
+  800,
+  1200
+ ],
+ "concept-asterion-estoque-c2": [
+  800,
+  1200
+ ],
+ "concept-g1": [
+  900,
+  1600
+ ],
+ "concept-g2": [
+  900,
+  1200
+ ],
+ "concept-g3": [
+  900,
+  1600
+ ],
+ "concept-g4": [
+  900,
+  1600
+ ],
+ "concept-g5": [
+  900,
+  1200
+ ],
+ "concept-g6": [
+  900,
+  1600
+ ],
+ "concept-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "concept-hero-p": [
+  707
+ ],
+ "concept-tile": [
+  800,
+  1200
+ ],
+ "countach-lpi-800-4-c1": [
+  800,
+  1200
+ ],
+ "countach-lpi-800-4-c2": [
+  800,
+  1200
+ ],
+ "countach-lpi-800-4-c3": [
+  800,
+  1200
+ ],
+ "countach-lpi-800-4-ext": [
+  1440,
+  1920
+ ],
+ "countach-lpi-800-4-ext-p": [
+  750
+ ],
+ "countach-lpi-800-4-g1": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g2": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g3": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g4": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g5": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g6": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g7": [
+  900,
+  1200
+ ],
+ "countach-lpi-800-4-g8": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-g9": [
+  900,
+  1600
+ ],
+ "countach-lpi-800-4-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "countach-lpi-800-4-hero-p": [
+  707
+ ],
+ "countach-lpi-800-4-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "countach-lpi-800-4-int-p": [
+  707
+ ],
+ "countach-lpi-800-4-num": [
+  800,
+  1200
+ ],
+ "countach-lpi-800-4-tile": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-c1": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-c2": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-c3": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-ext": [
+  1440,
+  2160
+ ],
+ "huracan-evo-spyder-ext-p": [
+  750
+ ],
+ "huracan-evo-spyder-g1": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-g2": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-g3": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-g4": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-g5": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-g6": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-g7": [
+  900,
+  1200
+ ],
+ "huracan-evo-spyder-g8": [
+  900,
+  1200
+ ],
+ "huracan-evo-spyder-g9": [
+  900,
+  1600
+ ],
+ "huracan-evo-spyder-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-evo-spyder-hero-p": [
+  707
+ ],
+ "huracan-evo-spyder-ic1": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-ic2": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-evo-spyder-int-p": [
+  707
+ ],
+ "huracan-evo-spyder-num": [
+  800,
+  1200
+ ],
+ "huracan-evo-spyder-tile": [
+  800,
+  1200
+ ],
+ "huracan-ext": [
+  1440,
+  1920
+ ],
+ "huracan-ext-p": [
+  750
+ ],
+ "huracan-g1": [
+  900,
+  1600
+ ],
+ "huracan-g2": [
+  900,
+  1600
+ ],
+ "huracan-g3": [
+  900,
+  1600
+ ],
+ "huracan-g4": [
+  900,
+  1600
+ ],
+ "huracan-g5": [
+  900,
+  1600
+ ],
+ "huracan-g6": [
+  900,
+  1600
+ ],
+ "huracan-hero": [
+  1000,
+  1600,
+  2400
+ ],
+ "huracan-hero-p": [
+  786
+ ],
+ "huracan-sterrato-c1": [
+  800,
+  1200
+ ],
+ "huracan-sterrato-c2": [
+  800,
+  1200
+ ],
+ "huracan-sterrato-c3": [
+  800,
+  1200
+ ],
+ "huracan-sterrato-ext": [
+  1440,
+  2160
+ ],
+ "huracan-sterrato-ext-p": [
+  750
+ ],
+ "huracan-sterrato-g1": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g2": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g3": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g4": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g5": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g6": [
+  900,
+  1200
+ ],
+ "huracan-sterrato-g7": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g8": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-g9": [
+  900,
+  1600
+ ],
+ "huracan-sterrato-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-sterrato-hero-p": [
+  707
+ ],
+ "huracan-sterrato-ic1": [
+  800,
+  1200
+ ],
+ "huracan-sterrato-ic2": [
+  800,
+  1200
+ ],
+ "huracan-sterrato-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-sterrato-int-p": [
+  707
+ ],
+ "huracan-sterrato-num": [
+  800,
+  1200
+ ],
+ "huracan-sterrato-tile": [
+  800,
+  1200
+ ],
+ "huracan-sto-c1": [
+  800,
+  1200
+ ],
+ "huracan-sto-c2": [
+  800,
+  1200
+ ],
+ "huracan-sto-c3": [
+  800,
+  1200
+ ],
+ "huracan-sto-ext": [
+  1440,
+  2160
+ ],
+ "huracan-sto-ext-p": [
+  750
+ ],
+ "huracan-sto-g1": [
+  900,
+  1600
+ ],
+ "huracan-sto-g2": [
+  900,
+  1600
+ ],
+ "huracan-sto-g3": [
+  900,
+  1600
+ ],
+ "huracan-sto-g4": [
+  900,
+  1600
+ ],
+ "huracan-sto-g5": [
+  900,
+  1600
+ ],
+ "huracan-sto-g6": [
+  900,
+  1600
+ ],
+ "huracan-sto-g7": [
+  900,
+  1600
+ ],
+ "huracan-sto-g8": [
+  900,
+  1600
+ ],
+ "huracan-sto-g9": [
+  900,
+  1200
+ ],
+ "huracan-sto-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-sto-hero-p": [
+  707
+ ],
+ "huracan-sto-ic1": [
+  800,
+  1200
+ ],
+ "huracan-sto-ic2": [
+  800,
+  1200
+ ],
+ "huracan-sto-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-sto-int-p": [
+  707
+ ],
+ "huracan-sto-num": [
+  800,
+  1200
+ ],
+ "huracan-sto-tile": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-c1": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-c2": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-c3": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-ext": [
+  1440,
+  2160
+ ],
+ "huracan-tecnica-ext-p": [
+  750
+ ],
+ "huracan-tecnica-g1": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-g2": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-g3": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-g4": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-g5": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-g6": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-g7": [
+  900,
+  1566
+ ],
+ "huracan-tecnica-g8": [
+  900,
+  1200
+ ],
+ "huracan-tecnica-g9": [
+  900,
+  1600
+ ],
+ "huracan-tecnica-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-tecnica-hero-p": [
+  707
+ ],
+ "huracan-tecnica-ic1": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-ic2": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "huracan-tecnica-int-p": [
+  707
+ ],
+ "huracan-tecnica-num": [
+  800,
+  1200
+ ],
+ "huracan-tecnica-tile": [
+  800,
+  1200
+ ],
+ "huracan-tile": [
+  800,
+  1200
+ ],
+ "lanzador-g1": [
+  900,
+  1600
+ ],
+ "lanzador-g2": [
+  900,
+  1600
+ ],
+ "lanzador-g3": [
+  900,
+  1600
+ ],
+ "lanzador-hero": [
+  1000,
+  1600,
+  2400
+ ],
+ "lanzador-hero-p": [
+  786
+ ],
+ "lanzador-m-interior": [
+  1000,
+  1600,
+  1980
+ ],
+ "lanzador-m-interior-p": [
+  786
+ ],
+ "lanzador-m-technology": [
+  1000,
+  1600,
+  2400
+ ],
+ "lanzador-m-technology-p": [
+  786
+ ],
+ "lanzador-tile": [
+  800,
+  1200
+ ],
+ "lanzador-w-aerodynamics": [
+  1440,
+  2160
+ ],
+ "lanzador-w-aerodynamics-p": [
+  750
+ ],
+ "lanzador-w-concept": [
+  1440,
+  2160
+ ],
+ "lanzador-w-concept-p": [
+  750
+ ],
+ "limited-series-g1": [
+  900,
+  1600
+ ],
+ "limited-series-g2": [
+  900,
+  1600
+ ],
+ "limited-series-g3": [
+  900,
+  1600
+ ],
+ "limited-series-g4": [
+  900,
+  1600
+ ],
+ "limited-series-g5": [
+  900,
+  1600
+ ],
+ "limited-series-g6": [
+  900,
+  1566
+ ],
+ "limited-series-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "limited-series-hero-p": [
+  707
+ ],
+ "limited-series-sian-c1": [
+  800,
+  1200
+ ],
+ "limited-series-sian-c2": [
+  800,
+  1200
+ ],
+ "limited-series-sian-roadster-c1": [
+  800,
+  1200
+ ],
+ "limited-series-sian-roadster-c2": [
+  800,
+  1200
+ ],
+ "limited-series-tile": [
+  800,
+  1200
+ ],
+ "limited-series-w-countach": [
+  1440,
+  2160
+ ],
+ "limited-series-w-countach-p": [
+  750
+ ],
+ "limited-series-w-sian": [
+  1440,
+  2160
+ ],
+ "limited-series-w-sian-p": [
+  750
+ ],
+ "limited-series-w-sian-roadster": [
+  1440,
+  2160
+ ],
+ "limited-series-w-sian-roadster-p": [
+  750
+ ],
+ "urus-c1": [
+  800,
+  1200
+ ],
+ "urus-c2": [
+  800,
+  1200
+ ],
+ "urus-c3": [
+  800,
+  1200
+ ],
+ "urus-ext": [
+  1440,
+  1920
+ ],
+ "urus-ext-p": [
+  750
+ ],
+ "urus-g1": [
+  900,
+  1600
+ ],
+ "urus-g2": [
+  900,
+  1600
+ ],
+ "urus-g3": [
+  900,
+  1600
+ ],
+ "urus-g4": [
+  900,
+  1600
+ ],
+ "urus-g5": [
+  900,
+  1600
+ ],
+ "urus-g6": [
+  900,
+  1566
+ ],
+ "urus-g7": [
+  900,
+  1600
+ ],
+ "urus-g8": [
+  900,
+  1600
+ ],
+ "urus-g9": [
+  900,
+  1600
+ ],
+ "urus-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "urus-hero-p": [
+  707
+ ],
+ "urus-performante-c1": [
+  800,
+  1200
+ ],
+ "urus-performante-c2": [
+  800,
+  1200
+ ],
+ "urus-performante-c3": [
+  800,
+  1200
+ ],
+ "urus-performante-ext": [
+  1440,
+  2160
+ ],
+ "urus-performante-ext-p": [
+  750
+ ],
+ "urus-performante-g1": [
+  900,
+  1600
+ ],
+ "urus-performante-g2": [
+  900,
+  1600
+ ],
+ "urus-performante-g3": [
+  900,
+  1600
+ ],
+ "urus-performante-g4": [
+  900,
+  1600
+ ],
+ "urus-performante-g5": [
+  900,
+  1600
+ ],
+ "urus-performante-g6": [
+  900,
+  1600
+ ],
+ "urus-performante-g7": [
+  900,
+  1200
+ ],
+ "urus-performante-g8": [
+  900,
+  1600
+ ],
+ "urus-performante-g9": [
+  900,
+  1200
+ ],
+ "urus-performante-hero": [
+  1000,
+  1600,
+  2400
+ ],
+ "urus-performante-hero-p": [
+  786
+ ],
+ "urus-performante-ic1": [
+  800,
+  1200
+ ],
+ "urus-performante-ic2": [
+  800,
+  1200
+ ],
+ "urus-performante-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "urus-performante-int-p": [
+  707
+ ],
+ "urus-performante-num": [
+  800,
+  1200
+ ],
+ "urus-performante-tile": [
+  800,
+  1200
+ ],
+ "urus-s-c1": [
+  800,
+  1200
+ ],
+ "urus-s-c2": [
+  800,
+  1200
+ ],
+ "urus-s-c3": [
+  800,
+  1200
+ ],
+ "urus-s-ext": [
+  1440,
+  1920
+ ],
+ "urus-s-ext-p": [
+  750
+ ],
+ "urus-s-g1": [
+  900,
+  1600
+ ],
+ "urus-s-g2": [
+  900,
+  1600
+ ],
+ "urus-s-g3": [
+  900,
+  1600
+ ],
+ "urus-s-g4": [
+  900,
+  1600
+ ],
+ "urus-s-g5": [
+  900,
+  1600
+ ],
+ "urus-s-g6": [
+  900,
+  1600
+ ],
+ "urus-s-g7": [
+  900,
+  1200
+ ],
+ "urus-s-g8": [
+  900,
+  1600
+ ],
+ "urus-s-g9": [
+  900,
+  1200
+ ],
+ "urus-s-hero": [
+  1000,
+  1600,
+  1920
+ ],
+ "urus-s-hero-p": [
+  707
+ ],
+ "urus-s-ic1": [
+  800,
+  1200
+ ],
+ "urus-s-ic2": [
+  800,
+  1200
+ ],
+ "urus-s-int": [
+  1000,
+  1600,
+  1920
+ ],
+ "urus-s-int-p": [
+  707
+ ],
+ "urus-s-num": [
+  800,
+  1200
+ ],
+ "urus-s-tile": [
+  800,
+  1200
+ ],
+ "urus-tile": [
+  800,
+  1200
+ ]
+}

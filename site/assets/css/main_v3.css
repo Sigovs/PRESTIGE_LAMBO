@@ -505,7 +505,7 @@ address { font-style: normal; }
     left: 50%; bottom: calc(-1 * var(--sp-32));
     width: 100vw; height: calc(100% + var(--sp-80));
     transform: translateX(-50%);
-    background: linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.6) 55%, rgb(0 0 0 / 0) 100%);
+    background: linear-gradient(0deg, rgb(0 0 0 / 0.86) 0%, rgb(0 0 0 / 0.822) 13.75%, rgb(0 0 0 / 0.73) 27.5%, rgb(0 0 0 / 0.638) 41.25%, rgb(0 0 0 / 0.6) 55%, rgb(0 0 0 / 0.595) 59.5%, rgb(0 0 0 / 0.565) 64%, rgb(0 0 0 / 0.502) 68.5%, rgb(0 0 0 / 0.41) 73%, rgb(0 0 0 / 0.3) 77.5%, rgb(0 0 0 / 0.19) 82%, rgb(0 0 0 / 0.098) 86.5%, rgb(0 0 0 / 0.035) 91%, rgb(0 0 0 / 0.005) 95.5%, rgb(0 0 0 / 0) 100%);
     z-index: -1;
     pointer-events: none;
 }
@@ -715,8 +715,8 @@ address { font-style: normal; }
         display: block;
         position: absolute; inset: 0; z-index: -1;
         background:
-            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
-            linear-gradient(90deg, rgb(0 0 0 / var(--scrim-a, 0.8)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.7)) var(--scrim-mid, 34%), rgb(0 0 0 / 0) var(--scrim-end, 62%));
+            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0.545) 3%, rgb(0 0 0 / 0.518) 6%, rgb(0 0 0 / 0.46) 9%, rgb(0 0 0 / 0.375) 12%, rgb(0 0 0 / 0.275) 15%, rgb(0 0 0 / 0.175) 18%, rgb(0 0 0 / 0.09) 21%, rgb(0 0 0 / 0.032) 24%, rgb(0 0 0 / 0.005) 27%, rgb(0 0 0 / 0) 30%),
+            linear-gradient(90deg, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 1)) 0%, rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.854 + calc(var(--scrim-a, 0.8) * 0.7) * 0.146)) calc(0% + (var(--scrim-mid, 34%) - 0%) * 0.25), rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.5 + calc(var(--scrim-a, 0.8) * 0.7) * 0.5)) calc(0% + (var(--scrim-mid, 34%) - 0%) * 0.5), rgb(0 0 0 / calc(var(--scrim-a, 0.8) * 0.146 + calc(var(--scrim-a, 0.8) * 0.7) * 0.854)) calc(0% + (var(--scrim-mid, 34%) - 0%) * 0.75), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 1)) var(--scrim-mid, 34%), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.991)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.1), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.942)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.2), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.837)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.3), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.683)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.4), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.5)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.5), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.317)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.6), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.163)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.7), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.058)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.8), rgb(0 0 0 / calc(calc(var(--scrim-a, 0.8) * 0.7) * 0.009)) calc(var(--scrim-mid, 34%) + (var(--scrim-end, 62%) - var(--scrim-mid, 34%)) * 0.9), rgb(0 0 0 / 0) var(--scrim-end, 62%));
     }
 }
 @media (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
@@ -737,7 +737,7 @@ address { font-style: normal; }
 .hero__slide--model .btn--secondary { background: rgb(0 0 0 / 0.64); }
 @media (orientation: landscape) and (max-height: 600px) {
     .hero__slide--bleed .hero__scrim {
-        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 46%, rgb(0 0 0 / 0) 78%);
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.894) 11.5%, rgb(0 0 0 / 0.88) 23%, rgb(0 0 0 / 0.866) 34.5%, rgb(0 0 0 / 0.86) 46%, rgb(0 0 0 / 0.853) 49.2%, rgb(0 0 0 / 0.81) 52.4%, rgb(0 0 0 / 0.72) 55.6%, rgb(0 0 0 / 0.587) 58.8%, rgb(0 0 0 / 0.43) 62%, rgb(0 0 0 / 0.273) 65.2%, rgb(0 0 0 / 0.14) 68.4%, rgb(0 0 0 / 0.05) 71.6%, rgb(0 0 0 / 0.007) 74.8%, rgb(0 0 0 / 0) 78%);
     }
 }
 /* short screens: compact claim, one row of actions; "In our inventory" stays in the
@@ -770,8 +770,8 @@ address { font-style: normal; }
 @media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
     .hero__slide--prestige .hero__scrim {
         background:
-            linear-gradient(180deg, rgb(0 0 0 / 0.45) 0%, rgb(0 0 0 / 0) 25%),
-            linear-gradient(90deg, rgb(0 0 0 / 0.88) 0%, rgb(0 0 0 / 0.84) 35%, rgb(0 0 0 / 0) 58%) !important;
+            linear-gradient(180deg, rgb(0 0 0 / 0.45) 0%, rgb(0 0 0 / 0.446) 2.5%, rgb(0 0 0 / 0.424) 5%, rgb(0 0 0 / 0.377) 7.5%, rgb(0 0 0 / 0.307) 10%, rgb(0 0 0 / 0.225) 12.5%, rgb(0 0 0 / 0.143) 15%, rgb(0 0 0 / 0.073) 17.5%, rgb(0 0 0 / 0.026) 20%, rgb(0 0 0 / 0.004) 22.5%, rgb(0 0 0 / 0) 25%),
+            linear-gradient(90deg, rgb(0 0 0 / 0.88) 0%, rgb(0 0 0 / 0.874) 8.75%, rgb(0 0 0 / 0.86) 17.5%, rgb(0 0 0 / 0.846) 26.25%, rgb(0 0 0 / 0.84) 35%, rgb(0 0 0 / 0.833) 37.3%, rgb(0 0 0 / 0.791) 39.6%, rgb(0 0 0 / 0.703) 41.9%, rgb(0 0 0 / 0.573) 44.2%, rgb(0 0 0 / 0.42) 46.5%, rgb(0 0 0 / 0.267) 48.8%, rgb(0 0 0 / 0.137) 51.1%, rgb(0 0 0 / 0.049) 53.4%, rgb(0 0 0 / 0.007) 55.7%, rgb(0 0 0 / 0) 58%) !important;
     }
 }
 /* slide 01 (v3, Oct): the Grand Opening film. Poster and loop fill the field at every
@@ -804,8 +804,8 @@ address { font-style: normal; }
 @media (min-width: 768px) and (orientation: landscape), (min-width: 1200px) {
     .hero__slide--film .hero__scrim {
         background:
-            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0) 30%),
-            linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.86) 52%, rgb(0 0 0 / 0) 85%);
+            linear-gradient(180deg, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0.545) 3%, rgb(0 0 0 / 0.518) 6%, rgb(0 0 0 / 0.46) 9%, rgb(0 0 0 / 0.375) 12%, rgb(0 0 0 / 0.275) 15%, rgb(0 0 0 / 0.175) 18%, rgb(0 0 0 / 0.09) 21%, rgb(0 0 0 / 0.032) 24%, rgb(0 0 0 / 0.005) 27%, rgb(0 0 0 / 0) 30%),
+            linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.894) 13%, rgb(0 0 0 / 0.88) 26%, rgb(0 0 0 / 0.866) 39%, rgb(0 0 0 / 0.86) 52%, rgb(0 0 0 / 0.853) 55.3%, rgb(0 0 0 / 0.81) 58.6%, rgb(0 0 0 / 0.72) 61.9%, rgb(0 0 0 / 0.587) 65.2%, rgb(0 0 0 / 0.43) 68.5%, rgb(0 0 0 / 0.273) 71.8%, rgb(0 0 0 / 0.14) 75.1%, rgb(0 0 0 / 0.05) 78.4%, rgb(0 0 0 / 0.007) 81.7%, rgb(0 0 0 / 0) 85%);
     }
 }
 /* phones on their side: same diagonal, compressed so the copy and both actions
@@ -1317,7 +1317,7 @@ address { font-style: normal; }
     position: absolute; inset: 0;
     /* portrait: header gradient on top, the frame fading to black at its foot */
     background:
-        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
+        linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0.496) 2.2%, rgb(0 0 0 / 0.471) 4.4%, rgb(0 0 0 / 0.418) 6.6%, rgb(0 0 0 / 0.341) 8.8%, rgb(0 0 0 / 0.25) 11%, rgb(0 0 0 / 0.159) 13.2%, rgb(0 0 0 / 0.082) 15.4%, rgb(0 0 0 / 0.029) 17.6%, rgb(0 0 0 / 0.004) 19.8%, rgb(0 0 0 / 0) 22%),
         linear-gradient(180deg, rgb(0 0 0 / 0) 55%, var(--surface-0-dark) 100%);
 }
 .adp__stage::after {
@@ -1373,8 +1373,8 @@ address { font-style: normal; }
     .adp__img { object-position: var(--adp-pos-l); }
     .adp__scrim {
         background:
-            linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0) 22%),
-            linear-gradient(90deg, rgb(0 0 0 / var(--adp-scrim-a)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * var(--adp-scrim-k))) var(--adp-scrim-mid), rgb(0 0 0 / 0) var(--adp-scrim-end));
+            linear-gradient(180deg, rgb(0 0 0 / 0.5) 0%, rgb(0 0 0 / 0.496) 2.2%, rgb(0 0 0 / 0.471) 4.4%, rgb(0 0 0 / 0.418) 6.6%, rgb(0 0 0 / 0.341) 8.8%, rgb(0 0 0 / 0.25) 11%, rgb(0 0 0 / 0.159) 13.2%, rgb(0 0 0 / 0.082) 15.4%, rgb(0 0 0 / 0.029) 17.6%, rgb(0 0 0 / 0.004) 19.8%, rgb(0 0 0 / 0) 22%),
+            linear-gradient(90deg, rgb(0 0 0 / calc(var(--adp-scrim-a) * 1)) 0%, rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.854 + calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.146)) calc(0% + (var(--adp-scrim-mid) - 0%) * 0.25), rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.5 + calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.5)) calc(0% + (var(--adp-scrim-mid) - 0%) * 0.5), rgb(0 0 0 / calc(var(--adp-scrim-a) * 0.146 + calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.854)) calc(0% + (var(--adp-scrim-mid) - 0%) * 0.75), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 1)) var(--adp-scrim-mid), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.991)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.1), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.942)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.2), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.837)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.3), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.683)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.4), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.5)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.5), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.317)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.6), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.163)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.7), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.058)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.8), rgb(0 0 0 / calc(calc(var(--adp-scrim-a) * var(--adp-scrim-k)) * 0.009)) calc(var(--adp-scrim-mid) + (var(--adp-scrim-end) - var(--adp-scrim-mid)) * 0.9), rgb(0 0 0 / 0) var(--adp-scrim-end));
     }
     .adp {
         margin-top: -100vh;

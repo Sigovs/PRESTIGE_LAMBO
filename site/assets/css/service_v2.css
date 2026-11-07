@@ -136,6 +136,19 @@
     .subhero__inner { padding-block: calc(var(--header-h) + var(--sp-16)) var(--sp-24); }
 }
 
+/* phones upright: the whole hero, copy and actions, within the first screen (Alex, 6 Nov 2026) */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .subhero__media img { aspect-ratio: 16 / 10; }
+    .subhero__eyelet { margin-bottom: var(--sp-8); }
+    .subhero__lead { margin-top: var(--sp-16); }
+    .subhero__actions { margin-top: var(--sp-24); gap: var(--sp-8); }
+    .subhero__actions .btn { min-height: var(--btn-h-md); }
+}
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 760px) {
+    .subhero__media img { aspect-ratio: 2 / 1; }
+    .subhero__inner { padding-top: var(--sp-16); }
+}
+
 /* ---------- Ad Personam page: the stills strip (v4 sample) ---------- */
 .stills__grid { display: grid; gap: var(--sp-24); list-style: none; margin: 0; padding: 0; }
 .stills__item img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }

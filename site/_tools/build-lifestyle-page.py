@@ -102,9 +102,9 @@ def page():
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
-    <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=6">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=321">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=10">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=10">
 </head>
 <body class="page-model page-lifestyle">
 

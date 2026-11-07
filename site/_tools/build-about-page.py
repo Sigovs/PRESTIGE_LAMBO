@@ -37,7 +37,7 @@ def build(out, main, title, desc, preload, current, leaflet=True):
     page = sub(r'<title>.*?</title>', f'<title>{title}</title>', page)
     page = sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{desc}">', page)
     page = sub(r'    <!-- Hero preload:.*?fetchpriority="high">\n    <link rel="preload"[^>]*>\n', lambda m: preload, page)
-    page = sub(r'(<link rel="stylesheet" href="assets/css/service_v2.css\?v=\d+">)', r'\1\n    <link rel="stylesheet" href="assets/css/about_v2.css?v=10">', page)
+    page = sub(r'(<link rel="stylesheet" href="assets/css/service_v2.css\?v=\d+">)', r'\1\n    <link rel="stylesheet" href="assets/css/about_v2.css?v=12">', page)
     page = sub(r'(<script src="assets/js/service_v2.js\?v=\d+" defer></script>)', r'\1\n<script src="assets/js/about_v2.js?v=4" defer></script>', page)
     page = sub(r'<script type="application/ld\+json">.*?</script>', lambda m: LD, page)
     if not leaflet:
@@ -70,5 +70,5 @@ story = importlib.import_module('story-main')
 build('our-story.html', story.MAIN,
       'Lamborghini Miami History | North Miami Beach, FL',
       'The story of Prestige Imports and Lamborghini Miami, from Irv David in 1980 to Brett David today: our history in pictures.',
-      '    <!-- Hero preload: the archive portrait, landscape and phone frames -->\n    <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" href="assets/img/slide-prestige-3-1920.webp" fetchpriority="high">\n    <link rel="preload" as="image" type="image/webp" media="(max-width: 1199.98px) and (orientation: portrait), (max-width: 767.98px)" href="assets/img/slide-prestige-3-p-800.webp" fetchpriority="high">\n',
+      '    <!-- Hero preload: the history film’s poster, landscape and phone -->\n    <link rel="preload" as="image" type="image/webp" media="(min-width: 1200px), (min-width: 768px) and (orientation: landscape)" href="assets/video/prestige-history-poster-d.webp" fetchpriority="high">\n    <link rel="preload" as="image" type="image/webp" media="(max-width: 1199.98px) and (orientation: portrait), (max-width: 767.98px)" href="assets/video/prestige-history-poster-m.webp" fetchpriority="high">\n',
       'our-story.html', leaflet=False)

@@ -1,0 +1,125 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — the other model pages (_tools/build-models-more.py): Huracán, Urus, Aventador,
+   Limited Series, Lanzador. Loaded after model_v3.css; only what the template did not have.
+   Client sheet rows 34-44: follow the model page, and no "empty space next to text": the overview and
+   the long texts run full width. Every value a token.
+   ============================================================ */
+
+/* the hero name keeps to the copy column and its scrim: a long one (Huracán Sterrato, Countach LPI 800-4)
+   takes two lines instead of running over the car */
+.mbig__name { max-width: 3.8em; }
+
+/* the overview: one statement across the container, under the hero */
+.mintro__inner { display: grid; gap: var(--sp-16); }
+.mintro__title { margin-bottom: var(--sp-8); }
+.mintro__text {
+    margin: 0;
+    max-width: 62rem;
+    font-size: var(--fs-24);
+    line-height: var(--lh-34);
+    color: var(--fg);
+    text-wrap: pretty;
+}
+.mintro__legal { max-width: 62rem; margin: var(--sp-8) 0 0; color: var(--fg-3); }
+@media (min-width: 1024px) {
+    .mintro__text { font-size: var(--fs-28); line-height: var(--lh-38); }
+}
+
+/* a long text: the heading above, the text in two columns across the container */
+.mstory__head--long { grid-template-columns: 1fr !important; align-items: start; }
+.mstory__head--long .mstory__text { max-width: none; }
+@media (min-width: 1024px) {
+    .mstory__head--long .mstory__text { column-count: 2; column-gap: var(--grid-gap); }
+}
+.mstory__legal { max-width: 48rem; margin: var(--sp-24) 0 0; color: var(--fg-3); }
+.mcard__cap .mcard__text { color: var(--fg-2); }
+@media (min-width: 768px) {
+    .mstory__cards--one { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+/* the family's models: dark photo tiles, each opens its model page */
+.mtiles__lead { margin-top: var(--sp-16); max-width: 36rem; color: var(--fg-2); }
+.mtiles__grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-40) var(--grid-gap); }
+@media (min-width: 768px) { .mtiles__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .mtiles__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* two tiles (You may also like) take half the width each, not two quarters */
+@media (min-width: 768px) { .mtiles__grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+.mtile { display: grid; gap: var(--sp-8); color: var(--fg); }
+.mtile__media { display: block; overflow: hidden; background: #000; margin-bottom: var(--sp-8); }
+.mtile__media img { display: block; width: 100%; height: auto; aspect-ratio: 1744 / 1000; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.mtile__name {
+    padding-top: var(--sp-16);
+    border-top: var(--stroke-1) solid var(--stroke);
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+}
+.mtile__more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-8);
+    min-height: var(--tap);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--track-upper);
+    color: var(--fg-2);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.mtile__more .icon { width: var(--icon-sm); height: var(--icon-sm); transition: transform var(--dur-fast) var(--ease-out); }
+.mtile:hover .mtile__media img { transform: scale(1.03); }
+.mtile:hover .mtile__more { color: var(--accent-dark); }
+.mtile:hover .mtile__more .icon { transform: translateX(var(--sp-4)); }
+.mtile:focus-visible { outline: var(--stroke-2) solid var(--focus); outline-offset: 4px; }
+
+/* a quote: type alone, centred */
+.mquote__text { margin: 0 auto; max-width: 56rem; text-align: center; }
+.mquote__text p {
+    margin: 0;
+    font-size: var(--fs-28);
+    line-height: var(--lh-38);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    color: var(--fg);
+    text-wrap: balance;
+}
+@media (min-width: 1024px) { .mquote__text p { font-size: var(--fs-40); line-height: var(--lh-46); } }
+
+@media (prefers-reduced-motion: reduce) {
+    .mtile__media img, .mtile__more, .mtile__more .icon { transition: none; }
+    .mtile:hover .mtile__media img { transform: none; }
+}
+
+/* a story that ends on its full-bleed photograph: the photograph is the section's edge, no empty band under it */
+.mstory--flush { padding-bottom: 0; }
+
+/* at a glance: the client's comparison table; on phones each row becomes a short labelled list */
+.mcompare__table { width: 100%; border-collapse: collapse; }
+.mcompare__table th, .mcompare__table td { width: 33.33%; text-align: left; }
+.mcompare__table th {
+    padding: 0 var(--sp-24) var(--sp-16) 0;
+    border-bottom: var(--stroke-1) solid var(--grey-0);
+    vertical-align: bottom;
+    font-size: var(--fs-18); line-height: var(--lh-28); font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    text-transform: uppercase; letter-spacing: var(--track-upper); color: var(--fg);
+}
+.mcompare__table td {
+    padding: var(--sp-16) var(--sp-24) var(--sp-16) 0;
+    border-bottom: var(--stroke-1) solid var(--stroke);
+    vertical-align: top; font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2);
+}
+@media (max-width: 767.98px) {
+    .mcompare__table thead { display: none; }
+    .mcompare__table, .mcompare__table tbody, .mcompare__table tr, .mcompare__table td { display: block; width: auto; }
+    .mcompare__table tr { padding: var(--sp-16) 0; border-bottom: var(--stroke-1) solid var(--stroke); }
+    .mcompare__table td { padding: var(--sp-4) 0; border: 0; }
+    .mcompare__table td::before {
+        content: attr(data-col); display: block;
+        font-size: var(--fs-14); line-height: var(--lh-22); color: var(--fg-3);
+        text-transform: uppercase; letter-spacing: var(--track-upper);
+    }
+}

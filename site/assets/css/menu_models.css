@@ -53,7 +53,19 @@
     transition: color var(--dur-fast) var(--ease-out);
 }
 .menu__model:hover { color: var(--accent-dark); }
-.menu__model[aria-current="page"] { color: var(--grey-0); box-shadow: inset var(--stroke-2) 0 0 var(--accent-dark); padding-left: var(--sp-16); }
+/* the page you are on: its family in the accent even while closed, the model itself white behind an accent chevron */
+.menu__fam[data-current] { color: var(--accent-dark); }
+.menu__fam[data-current] .menu__fam-chev { color: var(--accent-dark); }
+.menu__model[aria-current="page"] { gap: var(--sp-8); color: var(--grey-0); }
+.menu__model[aria-current="page"]::before {
+    content: "";
+    flex: none;
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+    background: var(--accent-dark);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m9 6 6 6-6 6' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m9 6 6 6-6 6' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .menu__model:focus-visible { outline: var(--stroke-2) solid var(--focus); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {

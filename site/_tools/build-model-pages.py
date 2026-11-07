@@ -520,9 +520,9 @@ def page(m):
     {'' if m.get('story') else f'<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/showcase-{slug}-800.webp 800w, assets/img/showcase-{slug}-1200.webp 1200w, assets/img/showcase-{slug}-1830.webp 1830w" imagesizes="(min-width: 1024px) 62vw, 100vw" fetchpriority="high">'}
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
-    <link rel="stylesheet" href="assets/css/main_v3.css?v=320">
-    <link rel="stylesheet" href="assets/css/service_v2.css?v=9">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=17">
+    <link rel="stylesheet" href="assets/css/main_v3.css?v=321">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=10">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=23">
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 

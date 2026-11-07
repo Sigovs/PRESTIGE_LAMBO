@@ -12,17 +12,17 @@ import re
 from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 LIVE = 'https://www.lamborghinimiami.com'
-CSS_V, JS_V = 6, 1
+CSS_V, JS_V = 7, 1   # the models with a page of ours link to it (all but Concept since 6 Nov 2026)
 FAMILIES = [
     ('revuelto', 'Revuelto', [('model-revuelto.html', 'Revuelto'), ('model-revuelto-sv.html', 'Revuelto SV')]),
     ('temerario', 'Temerario', [('model-temerario.html', 'Temerario')]),
     ('urus', 'Urus', [('model-urus-se.html', 'Urus SE'), ('model-urus-se-performante.html', 'Urus SE Performante'),
-                      (f'{LIVE}/urus-mlp/', 'Urus'), (f'{LIVE}/urus-s-mlp/', 'Urus S'), (f'{LIVE}/urus-performante-mlp/', 'Urus Performante')]),
-    ('huracan', 'Huracán', [(f'{LIVE}/huracan-mlp/', 'Huracán'), (f'{LIVE}/huracan-sterrato-mlp/', 'Huracán Sterrato'), (f'{LIVE}/huracan-tecnica-mlp/', 'Huracán Tecnica'),
-                            (f'{LIVE}/huracan-sto-mlp/', 'Huracán STO'), (f'{LIVE}/huracan-evo-spyder-mlp/', 'Huracán EVO Spyder')]),
-    ('aventador', 'Aventador', [(f'{LIVE}/aventador/', 'Aventador')]),
-    ('limited', 'Limited Series', [(f'{LIVE}/limited-series-mlp/', 'Limited Series'), (f'{LIVE}/countach-lpi-800-4-mlp/', 'Countach LPI 800-4')]),
-    ('concept', 'Concept', [(f'{LIVE}/clp-lamborghini-concept-models-north-miami-beach-fl/', 'Concept'), (f'{LIVE}/lanzador/', 'Lanzador')]),
+                      ('model-urus.html', 'Urus'), ('model-urus-s.html', 'Urus S'), ('model-urus-performante.html', 'Urus Performante')]),
+    ('huracan', 'Huracán', [('model-huracan.html', 'Huracán'), ('model-huracan-sterrato.html', 'Huracán Sterrato'), ('model-huracan-tecnica.html', 'Huracán Tecnica'),
+                            ('model-huracan-sto.html', 'Huracán STO'), ('model-huracan-evo-spyder.html', 'Huracán EVO Spyder')]),
+    ('aventador', 'Aventador', [('model-aventador.html', 'Aventador')]),
+    ('limited', 'Limited Series', [('model-limited-series.html', 'Limited Series'), ('model-countach-lpi-800-4.html', 'Countach LPI 800-4')]),
+    ('concept', 'Concept', [('model-concept.html', 'Concept'), ('model-lanzador.html', 'Lanzador')]),
     ('marine', 'Marine', [('tecnomar63.html', 'Tecnomar for Lamborghini 63')]),
 ]
 CHEV = '<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'
@@ -32,7 +32,7 @@ def column(page):
     cur = lambda href: ' aria-current="page"' if href == page else ''
     fams = ''.join(f'''
                     <li class="menu__fam-item">
-                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-{k}">{n}{CHEV}</button>
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-{k}"{' data-current' if any(h == page for h, _ in ms) else ''}>{n}{CHEV}</button>
                         <div class="menu__fam-drop" id="menu-models-{k}"><ul class="menu__fam-list">{''.join(f"""
                             <li><a class="menu__model" href="{h}"{cur(h)}>{t}</a></li>""" for h, t in ms)}
                         </ul></div>

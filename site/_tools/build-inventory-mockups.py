@@ -143,7 +143,7 @@ def page(title, desc, body, kind):
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
-    <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
+    <link rel="stylesheet" href="assets/css/main_v2.css?v=105">
     <link rel="stylesheet" href="assets/css/forms_v2.css?v=1">
     <link rel="stylesheet" href="assets/css/prestige_{kind}.css?v=1">
     <link rel="stylesheet" href="assets/css/inventory_pi.css?v=17">
