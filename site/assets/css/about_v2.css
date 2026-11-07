@@ -1,0 +1,274 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — About (about.html), on the department template.
+   Loaded after tokens_v2.css, main_v2.css and service_v2.css; only the
+   page's own pieces live here, every value a token.
+   ============================================================ */
+
+/* hero: three authored lines; on phones they may wrap rather than run off the screen */
+@media (max-width: 767.98px) {
+    .about-hero .subhero__line { white-space: normal; }
+}
+/* the lit showroom fills the right of the frame; the copy keeps to the dark lot and trees */
+@media (min-width: 1200px), (min-width: 768px) and (orientation: landscape) {
+    .about-hero .subhero__media::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.84) 0%, rgb(0 0 0 / 0.68) 34%, rgb(0 0 0 / 0) 64%);
+    }
+}
+
+/* the difference: the client's two paragraphs under the title */
+.about__text {
+    display: grid;
+    gap: var(--sp-16);
+    margin-top: var(--sp-24);
+    max-width: var(--measure-note);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    color: var(--fg-2);
+    text-wrap: pretty;
+}
+
+/* ---------- Testimonials: five cards, all on screen ---------- */
+.rcards { list-style: none; margin: 0; padding: 0; columns: 1; column-gap: var(--grid-gap); }
+.rcard {
+    break-inside: avoid;
+    display: grid;
+    gap: var(--sp-24);
+    margin: 0 0 var(--grid-gap);
+    padding: var(--sp-32);
+    border: var(--stroke-1) solid var(--stroke);
+    background: var(--surface-0-light);
+    transition: border-color var(--dur-fast) var(--ease-out);
+}
+.rcard:hover { border-color: var(--fg); }
+.rcard__quote { margin: 0; display: grid; gap: var(--sp-16); }
+.rcard__pull {
+    margin: 0;
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    color: var(--fg);
+    text-wrap: balance;
+}
+.rcard__rest { margin: 0; font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); text-wrap: pretty; }
+.rcard__meta { margin: 0; padding-top: var(--sp-16); border-top: var(--stroke-1) solid var(--stroke); color: var(--fg-3); }
+/* phones: a rail, the next card peeking in; vertical wheel and swipe stay with the page */
+@media (max-width: 767.98px) {
+    .rcards { columns: auto; display: flex; gap: var(--sp-16); overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; margin-inline: calc(-1 * var(--page-gutter, var(--sp-24))); padding-inline: var(--page-gutter, var(--sp-24)); scroll-padding-inline: var(--page-gutter, var(--sp-24)); scrollbar-width: none; align-items: start; }
+    .rcards::-webkit-scrollbar { display: none; }
+    .rcard { flex: none; width: 84%; margin: 0; scroll-snap-align: start; }
+}
+@media (min-width: 768px) {
+    .rcards { columns: 2; }
+}
+@media (min-width: 1200px) {
+    .rcards { columns: 3; }
+}
+/* ---------- Community: the archive still keeps its own proportions, a caption under the text ---------- */
+.about__media img { aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.about__caption { color: var(--fg-3); margin-top: calc(-1 * var(--sp-16)); }
+
+/* ---------- Our story: three archive frames, dated ---------- */
+.about-story__head { display: grid; gap: var(--sp-32); }
+@media (min-width: 768px) {
+    .about-story__head { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+}
+.about-story__grid .stills__item img { aspect-ratio: 3 / 2; }
+.about-story__year {
+    margin: var(--sp-16) 0 0;
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-normal), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+}
+.about-story__text { margin: var(--sp-4) 0 0; font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); max-width: var(--measure-caption); text-wrap: pretty; }
+.about-story__grid { row-gap: var(--sp-40); }
+
+/* ============================================================
+   Our Story (our-story.html), same template and file
+   ============================================================ */
+@media (max-width: 767.98px) {
+    .story-hero .subhero__line { white-space: normal; }
+}
+/* the archive frame is sepia and light: a left vignette keeps the copy on the dark field */
+@media (min-width: 1200px), (min-width: 768px) and (orientation: landscape) {
+    .story-hero .subhero__media::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.82) 36%, rgb(0 0 0 / 0.55) 58%, rgb(0 0 0 / 0) 84%);
+    }
+}
+
+/* the story: three chapters, each beside a photograph that fills the height of its text */
+.chap + .chap { border-top: var(--stroke-1) solid var(--grey-8); }
+.chap__grid { display: grid; gap: var(--sp-40); }
+.chap__media { margin: 0; position: relative; overflow: hidden; }
+.chap__media img { width: 100%; height: auto; display: block; }
+.chap__body { display: grid; gap: var(--sp-24); align-content: center; }
+.chap__lead {
+    margin: 0;
+    font-size: var(--fs-28);
+    line-height: var(--lh-38);
+    color: var(--fg);
+    text-wrap: balance;
+}
+.chap__text { display: grid; gap: var(--sp-16); max-width: var(--measure); font-size: var(--fs-16); line-height: var(--lh-26); color: var(--fg-2); }
+.chap__text p { margin: 0; text-wrap: pretty; }
+.chap__text strong { font-weight: inherit; color: var(--fg); }
+/* Brett David stands right of centre in the opening frame: keep him in every crop */
+.chap--rev .chap__media img { object-position: 72% 50%; }
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .chap__media img { aspect-ratio: 16 / 9; object-fit: cover; }
+    .chap__lead { font-size: var(--fs-40); line-height: var(--lh-46); }
+}
+@media (min-width: 1200px) {
+    .chap__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); column-gap: var(--sp-80); align-items: stretch; }
+    .chap__media { min-height: 28rem; }
+    .chap__media picture { position: absolute; inset: 0; }
+    .chap__media img { height: 100%; object-fit: cover; object-position: 50% 50%; }
+    .chap--rev .chap__media { order: 2; }
+    .chap__lead { font-size: var(--fs-40); line-height: var(--lh-46); }
+    .chap__text { font-size: var(--fs-18); line-height: var(--lh-28); }
+}
+/* the unveil, as the service page's workshop photograph */
+@media (prefers-reduced-motion: no-preference) {
+    .js .chap__media[data-reveal] { clip-path: inset(calc((1 - var(--reveal, 0)) * 100%) 0 0 0); }
+    .js .chap__media[data-reveal] img { transform: scale(calc(1.12 - 0.12 * var(--reveal, 0))); transform-origin: 50% 100%; }
+}
+
+/* the quote: alone, centred, regular weight */
+.quote { border-top: var(--stroke-1) solid var(--grey-8); }
+.quote__body { margin: 0 auto; max-width: 52rem; display: grid; gap: var(--sp-32); justify-items: center; text-align: center; }
+.quote__text { margin: 0; }
+.quote__text p {
+    margin: 0;
+    font-size: var(--fs-24);
+    line-height: var(--lh-34);
+    font-weight: 400;
+    color: var(--fg);
+    text-wrap: balance;
+}
+.quote__who {
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-cnd), "wght" var(--wght-bold);
+    letter-spacing: var(--track-upper);
+    text-transform: uppercase;
+    color: var(--fg);
+}
+@media (min-width: 768px) {
+    .quote__text p { font-size: var(--fs-28); line-height: var(--lh-38); }
+}
+@media (min-width: 1200px) {
+    .quote__text p { font-size: var(--fs-40); line-height: var(--lh-52); }
+}
+
+/* ---------- Our history in pictures: the held film ----------
+   Base (phones, reduced motion, no JS): one frame after another, the year large above the first
+   print of each year. From 768 with JS (.is-pinned): the stage is held for the length of the
+   track, and the prints travel right to left at two heights over the pale year of the centre print. */
+.film { overflow: clip; }
+.film__head { margin-bottom: var(--sp-48); }
+.film__ghost, .film__scale { display: none; }
+.film__track { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-56); }
+.film__fig { margin: 0; display: flex; flex-direction: column; gap: var(--sp-16); }
+.film__print img { width: 100%; height: auto; display: block; }
+.film__frame { max-width: 24rem; }
+.film__frame--hi { max-width: 34rem; }
+.film__cap { display: grid; gap: var(--sp-8); }
+.film__year {
+    margin: 0;
+    font-size: var(--fs-80);
+    line-height: var(--lh-80);
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+}
+.film__y { display: none; }
+.film__text { font-size: var(--fs-16); line-height: var(--lh-24); color: var(--fg-2); text-wrap: pretty; }
+.film__end { display: grid; gap: var(--sp-16); margin-top: var(--sp-64); }
+@media (min-width: 768px) {
+    .film__end { display: flex; gap: var(--sp-24); }
+}
+
+/* held (JS, from 1024, motion allowed) */
+.film.is-pinned .film__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.film.is-pinned .film__head { margin-bottom: 0; }
+.film.is-pinned .film__ghost {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    right: var(--sp-40);
+    bottom: var(--sp-80);
+    margin: 0;
+    font-size: min(46svh, 30vw);
+    line-height: 0.78;
+    font-weight: var(--wght-bold);
+    font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold);
+    font-variant-numeric: tabular-nums;
+    color: var(--sc-mark);
+    pointer-events: none;
+    transition: opacity 300ms var(--ease-out), transform 600ms var(--ease-drive);
+}
+.film.is-pinned .film__ghost.is-out { opacity: 0; transform: translateY(6%); transition-duration: 160ms; }
+.film.is-pinned .film__track {
+    position: absolute;
+    z-index: 1;
+    top: calc(var(--header-h) + var(--sp-24));
+    bottom: var(--sp-120);
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-80);
+    padding-inline: 46vw 12vw;
+    will-change: transform;
+}
+.film.is-pinned .film__frame { flex: none; width: 24rem; max-width: none; }
+.film.is-pinned .film__frame--hi { width: 34rem; }
+.film.is-pinned .film__frame:nth-child(odd) { transform: translateY(-6svh); }
+.film.is-pinned .film__frame:nth-child(even) { transform: translateY(8svh); }
+.film.is-pinned .film__print { overflow: hidden; }
+.film.is-pinned .film__print img { transform: translateX(var(--px, 0px)) scale(1.08); }
+.film.is-pinned .film__fig { gap: var(--sp-16); }
+.film.is-pinned .film__cap { gap: var(--sp-4); max-width: 26rem; }
+.film.is-pinned .film__y { display: block; font-size: var(--fs-16); line-height: var(--lh-24); font-weight: var(--wght-bold); font-variant-numeric: tabular-nums; color: var(--fg); }
+.film.is-pinned .film__year { display: none; }
+/* the scale: the current year, legible, over a rule that fills as the decades pass */
+.film.is-pinned .film__scale {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: end;
+    gap: var(--sp-32);
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: var(--sp-40);
+    margin: 0 auto;
+}
+.film__now { margin: 0; min-width: 4ch; font-size: var(--fs-48); line-height: var(--lh-46); font-weight: var(--wght-bold); font-variation-settings: "wdth" var(--wdth-ultra), "wght" var(--wght-bold); font-variant-numeric: tabular-nums; color: var(--fg); }
+.film__rule { position: relative; height: var(--sp-32); border-bottom: var(--stroke-1) solid var(--stroke); }
+.film__fill { position: absolute; left: 0; bottom: -1px; height: var(--stroke-2); width: calc(var(--p, 0) * 100%); background: var(--fg); }
+.film__tick { position: absolute; bottom: var(--sp-8); left: var(--at, 0%); transform: translateX(-50%); font-size: var(--fs-14); line-height: var(--lh-22); font-variant-numeric: tabular-nums; color: var(--fg-3); transition: color var(--dur-fast) var(--ease-out); }
+.film__tick.is-past { color: var(--fg); }
+.film.is-pinned + * { position: relative; }
+.film.is-pinned .film__end { padding-bottom: var(--sp-120); }
+@media (prefers-reduced-motion: reduce) {
+    .film.is-pinned .film__ghost { transition: opacity 300ms var(--ease-out); }
+}
+
+
+/* base path (phones, reduced motion, no JS): the strip keeps the page gutter */
+.film:not(.is-pinned) .film__stage { width: min(var(--container-max), calc(100% - 2 * var(--page-gutter))); margin-inline: auto; }

@@ -1,0 +1,61 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — the menu's Models column (every page; _tools/menu-models.py, assets/js/menu_models.js).
+   Loaded after the page's main_v2/v3/v4.css. Four columns, everything visible at once; the Models
+   column lists the families at the menu's own size, a click opens that family's models under it,
+   one family at a time (Alex, 6 Nov 2026, concept A with drop-downs). Every value a token.
+   ============================================================ */
+@media (min-width: 768px) {
+    .menu__body .menu__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--sp-48); }
+}
+/* four across: Models a fixed width (open or closed, nothing beside it moves),
+   the other three as wide as their longest line, the space shared between them */
+@media (min-width: 1280px) {
+    .menu__body .menu__cols { grid-template-columns: 19rem repeat(3, max-content); justify-content: space-between; }
+}
+
+.menu__fam { width: 100%; justify-content: space-between; text-align: left; }
+.menu__fam-chev {
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: square;
+    color: var(--grey-5);
+    transition: transform var(--dur-base) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.menu__fam:hover .menu__fam-chev, .menu__fam[aria-expanded="true"] .menu__fam-chev { color: var(--accent-dark); }
+.menu__fam[aria-expanded="true"] .menu__fam-chev { transform: rotate(180deg); }
+.menu__fam:focus-visible { outline: var(--stroke-2) solid var(--focus); outline-offset: 2px; }
+
+/* the drop-down: opens to its own height; closed, its links are out of the tab order */
+.menu__fam-drop {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows var(--dur-base) var(--ease-out), visibility 0s linear var(--dur-base);
+}
+.menu__fam[aria-expanded="true"] + .menu__fam-drop {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows var(--dur-base) var(--ease-out), visibility 0s;
+}
+.menu__fam-list { min-height: 0; overflow: hidden; list-style: none; margin: 0; padding: 0; }
+.menu__fam-list li:last-child { padding-bottom: var(--sp-16); }
+.menu__model {
+    display: flex;
+    align-items: center;
+    min-height: var(--tap);
+    font-size: var(--fs-18);
+    line-height: var(--lh-28);
+    color: var(--grey-3);
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.menu__model:hover { color: var(--accent-dark); }
+.menu__model[aria-current="page"] { color: var(--grey-0); box-shadow: inset var(--stroke-2) 0 0 var(--accent-dark); padding-left: var(--sp-16); }
+.menu__model:focus-visible { outline: var(--stroke-2) solid var(--focus); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .menu__fam-drop, .menu__fam[aria-expanded="true"] + .menu__fam-drop, .menu__fam-chev { transition: none; }
+}

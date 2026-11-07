@@ -1,0 +1,44 @@
+/* ============================================================
+   LAMBORGHINI MIAMI — Tecnomar for Lamborghini 63 (tecnomar63.html), on the model-page template.
+   Loaded after tokens_v3.css, main_v3.css, service_v2.css and model_v3.css; only the page's
+   own pieces live here, every value a token.
+   ============================================================ */
+
+/* hero: the client's white wordmark stands in for the set name; the frame is the sea, so the yacht
+   (centre right) keeps clear of the copy low left */
+.tec-hero__name { line-height: 0; }
+.tec-hero__mark { display: block; width: min(100%, 34rem); height: auto; }
+.tec-hero .mbig__img { object-position: 70% 50%; }
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .tec-hero .mbig__img { object-position: 50% 30%; }
+    .tec-hero__mark { width: min(100%, 22rem); }
+}
+
+/* figures: the client's paragraph under the title, the big four, then every row of the table */
+.tec-num__head { display: grid; gap: var(--sp-24); }
+.tec-num__text { display: grid; gap: var(--sp-16); max-width: var(--measure); color: var(--fg-2); font-size: var(--fs-18); line-height: var(--lh-28); text-wrap: pretty; }
+.tec-num__specs { margin: 0; }
+@media (min-width: 1024px) {
+    .tec-num__head { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--grid-gap); align-items: start; }
+    .tec-num .mnum__list { grid-column: 1; }
+    .tec-num__specs { grid-column: 2; align-self: start; }
+}
+
+/* the three variants: three columns on the light band */
+.tec-versions__intro { color: var(--fg); max-width: 40rem; }
+@media (min-width: 1200px) {
+    .tec-versions__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.tec-versions .points__text { max-width: var(--measure-note); }
+
+/* gallery: six photographs; on two columns the last would stand alone, so it spans the row */
+@media (max-width: 1023.98px) {
+    .page-tecnomar .mgal__item--6 { grid-column: 1 / -1; }
+}
+
+/* the three variants sit in one row from 1024, so none is left alone on a second row */
+@media (min-width: 1024px) {
+    .tec-versions__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* the yacht's name is long: its select takes the full row, so it is never cut */
+.page-tecnomar .form__row:has(#enq-model) { grid-template-columns: minmax(0, 1fr); }

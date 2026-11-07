@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Lamborghini Miami | Local dealership in North Miami Beach, FL</title>
+    <meta name="description" content="Lamborghini Miami, part of Prestige Imports: a staple in Miami and South Florida for over 40 years. The Prestige Imports Difference, testimonials and how to reach us.">
+    <meta name="theme-color" content="#000000">
+    <link rel="icon" href="assets/img/bull.svg" type="image/svg+xml">
+    <script>
+        /* ?figma = static capture mode: no reveals, no Lenis, every image eager (as index_v4.html). */
+        if (/[?&]figma\b/.test(location.search)) {
+            document.documentElement.classList.add('figma');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+            });
+        } else {
+            document.documentElement.classList.add('js');
+        }
+    </script>
+
+    <!-- Stand-in brand face: Roboto Flex (wdth 25–151, wght 100–1000). See DESIGN_SYSTEM.md §1.1 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap">
+
+    <!-- Hero preload: the night aerial -->
+    <link rel="preload" as="image" type="image/webp" href="assets/img/showroom-aerial-night-1760.webp" imagesrcset="assets/img/showroom-aerial-night-1760.webp 1760w, assets/img/showroom-aerial-night-1200.webp 1200w, assets/img/showroom-aerial-night-800.webp 800w" imagesizes="100vw" fetchpriority="high">
+
+    <!-- Leaflet: open-source map for the request section, as on the Prestige Imports service page -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+    <link rel="stylesheet" href="assets/css/tokens_v2.css?v=103">
+    <link rel="stylesheet" href="assets/css/main_v2.css?v=104">
+    <link rel="stylesheet" href="assets/css/menu_models.css?v=6">
+    <link rel="stylesheet" href="assets/css/service_v2.css?v=21">
+    <link rel="stylesheet" href="assets/css/about_v2.css?v=10">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoDealer",
+        "name": "Lamborghini Miami",
+        "brand": { "@type": "Brand", "name": "Lamborghini" },
+        "parentOrganization": { "@type": "AutoDealer", "name": "Prestige Imports" },
+        "telephone": "+1-833-290-5147",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14780 Biscayne Boulevard",
+            "addressLocality": "North Miami Beach",
+            "addressRegion": "FL",
+            "postalCode": "33181",
+            "addressCountry": "US"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 25.913485, "longitude": -80.15750349 }
+    }
+    </script>
+</head>
+<body class="page-service">
+
+<!-- Icon set: one family, 24px box, 1.5 stroke, square caps. DESIGN_SYSTEM.md §5 -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================ HEADER (as index_v4.html; links point across pages) ============================ -->
+<header class="site-header" data-header>
+    <div class="site-header__bar container">
+        <div class="site-header__start">
+            <button class="site-header__menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+                <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+                <span>Menu</span>
+            </button>
+            <nav class="site-header__nav" aria-label="Primary">
+                <a class="site-header__link" href="srp.html?condition=new">New</a>
+                <a class="site-header__link" href="srp.html?condition=used">Pre-owned</a>
+                <a class="site-header__link" href="service.html">Service</a>
+            </nav>
+        </div>
+
+        <a class="site-header__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home">
+            <img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt="">
+            <span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span>
+        </a>
+
+        <div class="site-header__end">
+            <a class="site-header__phone" href="tel:+18332905147" aria-label="Call sales, (833) 290-5147">
+                <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                <span class="site-header__phone-num">(833) 290-5147</span>
+            </a>
+            <a class="site-header__link site-header__contact" href="#request">Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- ============================ MENU (overlay) ============================ -->
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu data-lenis-prevent>
+  <div class="menu__panel">
+    <div class="menu__bar container">
+        <button class="site-header__menu" type="button" data-menu-close>
+            <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="menu-icon__l1" d="M3 7h18"/><path class="menu-icon__l2" d="M3 12h18"/><path class="menu-icon__l3" d="M3 17h18"/></svg>
+            <span>Close</span>
+        </button>
+        <a class="menu__brand dealer-mark" href="index_v4.html" aria-label="Lamborghini Miami — home"><img class="dealer-mark__bull" src="assets/img/bull.svg" width="57" height="59" alt=""><span class="dealer-mark__name" aria-hidden="true">Lamborghini Miami</span></a>
+        <span class="menu__spacer" aria-hidden="true"></span>
+    </div>
+    <div class="menu__body container">
+        <nav class="menu__cols" aria-label="Site">
+            <div class="menu__col menu__col--models" data-menu-models>
+                <p class="menu__head">Models</p>
+                <ul class="menu__list">
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-revuelto">Revuelto<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-revuelto"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="model-revuelto.html">Revuelto</a></li>
+                            <li><a class="menu__model" href="model-revuelto-sv.html">Revuelto SV</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-temerario">Temerario<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-temerario"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="model-temerario.html">Temerario</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-urus">Urus<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-urus"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="model-urus-se.html">Urus SE</a></li>
+                            <li><a class="menu__model" href="model-urus-se-performante.html">Urus SE Performante</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/urus-mlp/">Urus</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/urus-s-mlp/">Urus S</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/urus-performante-mlp/">Urus Performante</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-huracan">Huracán<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-huracan"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/huracan-mlp/">Huracán</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/huracan-sterrato-mlp/">Huracán Sterrato</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/huracan-tecnica-mlp/">Huracán Tecnica</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/huracan-sto-mlp/">Huracán STO</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/huracan-evo-spyder-mlp/">Huracán EVO Spyder</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-aventador">Aventador<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-aventador"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/aventador/">Aventador</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-limited">Limited Series<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-limited"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/limited-series-mlp/">Limited Series</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/countach-lpi-800-4-mlp/">Countach LPI 800-4</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-concept">Concept<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-concept"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/clp-lamborghini-concept-models-north-miami-beach-fl/">Concept</a></li>
+                            <li><a class="menu__model" href="https://www.lamborghinimiami.com/lanzador/">Lanzador</a></li>
+                        </ul></div>
+                    </li>
+                    <li class="menu__fam-item">
+                        <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-marine">Marine<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+                        <div class="menu__fam-drop" id="menu-models-marine"><ul class="menu__fam-list">
+                            <li><a class="menu__model" href="tecnomar63.html">Tecnomar for Lamborghini 63</a></li>
+                        </ul></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Vehicles</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="srp.html?condition=new">New inventory</a></li>
+                    <li><a class="menu__link" href="srp.html?condition=used">Pre-owned inventory</a></li>
+                    <li><a class="menu__link" href="srp.html">All Lamborghini inventory</a></li>
+                    <li><a class="menu__link" href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Ownership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="service.html">Service</a></li>
+                    <li><a class="menu__link" href="schedule-service.html">Schedule service</a></li>
+                    <li><a class="menu__link" href="order-parts.html">Order parts</a></li>
+                    <li><a class="menu__link" href="collision-center.html">Collision center</a></li>
+                    <li><a class="menu__link" href="ad-personam.html">Ad Personam</a></li>
+                </ul>
+            </div>
+            <div class="menu__col">
+                <p class="menu__head">Dealership</p>
+                <ul class="menu__list">
+                    <li><a class="menu__link" href="about.html" aria-current="page">About us</a></li>
+                    <li><a class="menu__link" href="lifestyle.html">Lifestyle</a></li>
+                    <li><a class="menu__link" href="our-story.html">Our story</a></li>
+                    <li><a class="menu__link" href="index_v4.html#visit">Visit &amp; hours</a></li>
+                    <li><a class="menu__link" href="careers.html">Careers</a></li>
+                    <li><a class="menu__link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <dl class="menu__contact">
+            <div><dt>Sales</dt><dd><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+            <div><dt>Service</dt><dd><a href="tel:+18332905148">(833) 290-5148</a></dd></div>
+            <div><dt>Parts</dt><dd><a href="tel:+18332905149">(833) 290-5149</a></dd></div>
+        </dl>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================ 1 · HERO ============================
+     About (6 Nov 2026, client sheet row 25 "Need a new design"): the department template.
+     Copy is the client's About page, word for word (lamborghinimiami.aandemo.com/about-lamborghini-miami-in-miami-fl/,
+     read 6 Nov 2026). The night aerial is the client's own frame, already on the homepage. -->
+<section class="subhero about-hero" aria-labelledby="about-title">
+    <div class="subhero__media">
+        <picture>
+            <source type="image/webp" srcset="assets/img/showroom-aerial-night-1760.webp 1760w, assets/img/showroom-aerial-night-1200.webp 1200w, assets/img/showroom-aerial-night-800.webp 800w" sizes="100vw">
+            <img class="subhero__img" src="assets/img/showroom-aerial-night-1200.jpg" srcset="assets/img/showroom-aerial-night-1760.jpg 1760w, assets/img/showroom-aerial-night-1200.jpg 1200w, assets/img/showroom-aerial-night-800.jpg 800w" sizes="100vw"
+                 width="1760" height="990" fetchpriority="high" decoding="async"
+                 alt="Lamborghini Miami at night from the air: the lit showroom on Biscayne Boulevard, cars lined up under the palms.">
+        </picture>
+    </div>
+    <div class="container subhero__inner">
+        <div class="subhero__group">
+            <h1 class="t-display-xl subhero__title" id="about-title">
+                <span class="subhero__line">Local dealership</span>
+                <span class="subhero__line">in North Miami</span>
+                <span class="subhero__line">Beach, FL</span>
+            </h1>
+            <p class="t-lead subhero__lead">Lamborghini Miami has been a staple here in Miami and throughout South Florida for over 40 years!</p>
+            <div class="subhero__actions">
+                <a class="btn btn--accent" href="srp.html">
+                    <span>View inventory</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+                <a class="btn btn--secondary" href="#request">
+                    <span>Contact us</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 2 · THE PRESTIGE IMPORTS DIFFERENCE ============================
+     The client's first and second paragraphs, word for word; the title and the rows' heading and labels are
+     the client's own phrases from the second. Values are the site's departments (phones, pages). -->
+<section class="why band band--dark" id="difference" aria-labelledby="difference-title">
+    <div class="container why__grid">
+        <div class="why__intro">
+            <h2 class="t-banner" id="difference-title"><span class="svc-line">The Prestige</span> <span class="svc-line">Imports Difference</span></h2>
+            <div class="about__text">
+                <p>Customers throughout the area can visit our dealership to explore our excellent inventory of pre-owned Lamborghini models today! There are a number of reasons why customers believe we are the best pre-owned luxury vehicles available in the Miami area!</p>
+                <p>One of the biggest reasons why customers love our dealership so much is the Prestige Imports Difference. The Prestige Imports Difference allows our staff here at Lamborghini Miami to support our customers through every aspect of the vehicle ownership process!</p>
+            </div>
+        </div>
+
+        <div class="why__data why__data--departments">
+            <h3 class="t-eyelet why__head">We are there to support our customers during</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">The shopping process</dt>
+                    <dd class="spec__value"><a class="spec__link" href="srp.html">Inventory</a></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Vehicle purchase</dt>
+                    <dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a><span class="spec__sub">Mon–Fri 9:00 am – 7:00 pm · Sat 10:00 am – 6:00 pm</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Automotive maintenance visits</dt>
+                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a><span class="spec__sub">Mon–Fri 8:00 am – 5:30 pm</span></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Vehicle trade-in or buy-back process</dt>
+                    <dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a></dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="why__data">
+            <h3 class="t-eyelet why__head">Departments</h3>
+            <dl class="spec">
+                <div class="spec__row">
+                    <dt class="spec__label">Sales</dt>
+                    <dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Service</dt>
+                    <dd class="spec__value"><a href="tel:+18332905148">(833) 290-5148</a></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Parts</dt>
+                    <dd class="spec__value"><a href="tel:+18332905149">(833) 290-5149</a></dd>
+                </div>
+                <div class="spec__row">
+                    <dt class="spec__label">Collision &amp; paint</dt>
+                    <dd class="spec__value"><a class="spec__link" href="collision-center.html">Collision center</a></dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 3 · TESTIMONIALS ============================
+     Redone 6 Nov 2026 (Alex): the five reviews as cards, all visible at once. Each card sets the
+     review's first sentence large and the rest under it, every word as the client posted it.
+     Three columns from 1200 (masonry, so a long review never stretches its neighbours), two on
+     tablets; on phones a horizontal rail with the next card peeking in. View all reviews opens the
+     client's reviews page on lamborghinimiami.com in a new tab (client: links off the site open a new tab). -->
+<section class="reviews band band--light" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+        <header class="section-head about-story__head">
+            <div>
+                <h2 class="t-banner" id="reviews-title">Testimonials</h2>
+            </div>
+            <a class="btn btn--primary" href="https://www.lamborghinimiami.com/lamborghini-miami-dealership-customer-reviews/" target="_blank" rel="noopener">
+                <span>View all reviews</span>
+                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                <span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+        </header>
+        <ul class="rcards">
+                <li class="rcard">
+                    <blockquote class="rcard__quote">
+                        <p class="rcard__pull">I had an outstanding experience purchasing my Lamborghini Huracán from Lamborghini Miami.</p>
+                        <p class="rcard__rest">From the initial conversation through taking delivery of the car, the entire process was handled professionally and with the level of service you would expect when purchasing a vehicle of this caliber. The team was knowledgeable, responsive, and straightforward throughout the transaction. There was never any unnecessary pressure, and communication was excellent. They took the time to answer my questions, made sure everything was handled properly, and made the purchasing process feel seamless. What stood out most was the overall experience. Buying a Lamborghini should feel special, and Lamborghini Miami delivered on that. The dealership, inventory, attention to detail, and customer service were all first-class. My Huracán was presented beautifully, and taking delivery was an experience I’ll always remember. If you’re considering purchasing a Lamborghini or another exotic vehicle, I would absolutely recommend Lamborghini Miami. They understand both the cars and the expectations of their customers. I couldn’t be happier with my Huracán or the experience I had purchasing it. Five stars all around.</p>
+                    </blockquote>
+                    <p class="t-legal rcard__meta">Over a month ago</p>
+                </li>
+                <li class="rcard">
+                    <blockquote class="rcard__quote">
+                        <p class="rcard__pull">Exceptional customer service and awesome selection of vehicles.</p>
+                        <p class="rcard__rest">Cip my sales rep was great,made the process simple,fun and hassle free; will definitely return with him.👍🏻😎🇮🇹</p>
+                    </blockquote>
+                    <p class="t-legal rcard__meta">Over a month ago</p>
+                </li>
+                <li class="rcard">
+                    <blockquote class="rcard__quote">
+                        <p class="rcard__pull">What an amazing experience.</p>
+                        <p class="rcard__rest">They people are so kind and hospitable. I need to find the names of the Manager and one of the Sales Consultants. Need to send a thank you card. They just handed a very expensive one of one Urus SE model to my son as a gift. I was floored!! Thank you guys so much. I’m sure he will remember it forever and hopefully one day return to buy one! ❤️</p>
+                    </blockquote>
+                    <p class="t-legal rcard__meta">Over a month ago</p>
+                </li>
+                <li class="rcard">
+                    <blockquote class="rcard__quote">
+                        <p class="rcard__pull">Excellent experience!!!</p>
+                        <p class="rcard__rest">Cip worked with me on the price and was extremely professional. There was no hassle on when it came time to finance. I was presented with options and chose what best fits my needs. Overall, 10 out 10! I would definitely refer and return for future purchases.</p>
+                    </blockquote>
+                    <p class="t-legal rcard__meta">Over a month ago</p>
+                </li>
+                <li class="rcard">
+                    <blockquote class="rcard__quote">
+                        <p class="rcard__pull">Ciprian was absolutely brilliant from the minute we walked onto the Lamborghini Miami / Prestige Imports dealership lot and began to look at all their awesome inventory.</p>
+                        <p class="rcard__rest">No pressure whatsoever, However, He quickly figured out what I was looking for and guided me to the perfect Black Ghost! The entire process was flawless, and an absolute pleasure. Cip and his team are true professionals in every sense. They made me feel welcome, valued and made sure my Rolls was perfect in every way possible. He has followed up with me after the sale and made every effort to make sure I am happy and extremely satisfied with my purchase. Can’t offer any higher recommend than I do to Ciprian Keresztesi and the fine folks at Prestige Imports and Lamborghini Miami! Well done! Thank you! - Aaron</p>
+                    </blockquote>
+                    <p class="t-legal rcard__meta">Over a month ago</p>
+                </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================ 4 · COMMUNITY ============================
+     The client's third paragraph. No Ride 2 Revive photograph exists in the set; the still is the
+     client's own archive frame of the 2024 Movember drive, captioned as on the homepage archive. -->
+<section class="workshop band band--black" id="community" aria-labelledby="community-title">
+    <div class="container workshop__grid">
+        <figure class="workshop__media about__media" data-reveal>
+            <picture>
+                <source type="image/webp" srcset="assets/img/archive-2024-movember-1280.webp 1280w, assets/img/archive-2024-movember-640.webp 640w" sizes="(min-width: 1200px) 520px, (min-width: 1024px) 40vw, 100vw">
+                <img src="assets/img/archive-2024-movember-1280.jpg" srcset="assets/img/archive-2024-movember-1280.jpg 1280w, assets/img/archive-2024-movember-640.jpg 640w" sizes="(min-width: 1200px) 520px, (min-width: 1024px) 40vw, 100vw"
+                     width="1280" height="853" loading="lazy" decoding="async"
+                     alt="A red Lamborghini Countach with a painted moustache on a Miami street lined with palms.">
+            </picture>
+        </figure>
+
+        <div class="workshop__body">
+            <header>
+                <h2 class="t-banner" id="community-title"><span class="svc-line">Committed to supporting</span> <span class="svc-line">the Miami community</span></h2>
+            </header>
+            <div class="workshop__text">
+                <p>Lamborghini Miami is also very committed to supporting the Miami community as well! Our dealership works with Ride 2 Revive to host special events for terminally ill children as well as working with other pediatric organizations throughout South Florida as well!</p>
+            </div>
+            <p class="t-legal about__caption">2024. Number one in Movember fundraising worldwide.</p>
+            <div class="workshop__actions">
+                <a class="btn btn--primary" href="lifestyle.html">
+                    <span>Lifestyle</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================ 5 · OUR STORY ============================
+     Three frames from the client's archive (captions as on the homepage archive), leading to the
+     story page (client sheet row 26). -->
+<section class="stills band band--light about-story" id="story" aria-labelledby="story-title">
+    <div class="container">
+        <header class="section-head about-story__head">
+            <div>
+                <h2 class="t-banner" id="story-title"><span class="svc-line">Our history</span> <span class="svc-line">in pictures</span></h2>
+            </div>
+            <a class="btn btn--primary" href="our-story.html">
+                <span>Read our story</span>
+                <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+        </header>
+        <ol class="stills__grid about-story__grid">
+            <li class="stills__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-1988-1280.webp 1280w, assets/img/archive-1988-640.webp 640w" sizes="(min-width: 768px) 33vw, 100vw">
+                    <img src="assets/img/archive-1988-640.jpg" srcset="assets/img/archive-1988-1280.jpg 1280w, assets/img/archive-1988-640.jpg 640w" sizes="(min-width: 768px) 33vw, 100vw"
+                         width="1280" height="853" loading="lazy" decoding="async" alt="Irv David seated in a white Lamborghini Countach, its doors raised.">
+                </picture>
+                <p class="about-story__year">1988</p>
+                <p class="about-story__text">Irv David secures the Lamborghini franchise for Miami.</p>
+            </li>
+            <li class="stills__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2014-1280.webp 1280w, assets/img/archive-2014-640.webp 640w" sizes="(min-width: 768px) 33vw, 100vw">
+                    <img src="assets/img/archive-2014-640.jpg" srcset="assets/img/archive-2014-1280.jpg 1280w, assets/img/archive-2014-640.jpg 640w" sizes="(min-width: 768px) 33vw, 100vw"
+                         width="1280" height="853" loading="lazy" decoding="async" alt="A silver Lamborghini Veneno with its doors raised, on a turntable in the showroom.">
+                </picture>
+                <p class="about-story__year">2014</p>
+                <p class="about-story__text">Delivery of the second of three Lamborghini Veneno Coupés.</p>
+            </li>
+            <li class="stills__item">
+                <picture>
+                    <source type="image/webp" srcset="assets/img/archive-2020-1280.webp 1280w, assets/img/archive-2020-640.webp 640w" sizes="(min-width: 768px) 33vw, 100vw">
+                    <img src="assets/img/archive-2020-640.jpg" srcset="assets/img/archive-2020-1280.jpg 1280w, assets/img/archive-2020-640.jpg 640w" sizes="(min-width: 768px) 33vw, 100vw"
+                         width="1280" height="853" loading="lazy" decoding="async" alt="Brett David and Stephan Winkelmann holding a gold Lamborghini bull at the grand opening.">
+                </picture>
+                <p class="about-story__year">2020</p>
+                <p class="about-story__text">The grand opening of the all-new Lamborghini Miami showroom.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ============================ 6 · CONTACT ============================
+     The client's fourth paragraph as the lead; the form is the site's lead form (ZIP for the CRM)
+     plus the client's own "Best time to contact" choice. department=sales, reason=about. -->
+<section class="request band band--dark" id="request" aria-labelledby="request-title">
+    <div class="container">
+        <header class="section-head">
+            <div>
+                <h2 class="t-banner" id="request-title"><span class="svc-line">Visit us here at</span> <span class="svc-line">Lamborghini Miami</span></h2>
+                <p class="t-lead section-head__lead">If you would like to learn more about all of the other excellent aspects of the Lamborghini Miami dealership, then you should contact our staff here today! We are proud to sell terrific pre-owned Lamborghini models to customers throughout South Florida, but we also are able to ship these vehicles nationwide—frequently sending models as far away as Chicago and various cities throughout Texas as well!</p>
+            </div>
+        </header>
+
+        <div class="request__grid">
+            <div class="request__form-wrap">
+                <form class="form" id="about-form" action="#" method="post" novalidate data-service-form data-endpoint="">
+                    <input type="hidden" name="department" value="sales">
+                    <input type="hidden" name="reason" value="about">
+                    <div class="form__summary" data-no-rise role="alert" tabindex="-1" hidden data-form-summary></div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ab-first">First name <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ab-first" name="first" type="text" autocomplete="given-name" required aria-describedby="ab-first-err">
+                            <p class="field__error" data-no-rise id="ab-first-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ab-last">Last name <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ab-last" name="last" type="text" autocomplete="family-name" required aria-describedby="ab-last-err">
+                            <p class="field__error" data-no-rise id="ab-last-err" hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ab-email">Email <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ab-email" name="email" type="email" autocomplete="email" required aria-describedby="ab-email-err">
+                            <p class="field__error" data-no-rise id="ab-email-err" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ab-phone">Phone <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ab-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="ab-phone-err">
+                            <p class="field__error" data-no-rise id="ab-phone-err" hidden></p>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="field">
+                            <label class="field__label" for="ab-zip">ZIP code <span class="field__req">(required)</span></label>
+                            <input class="field__input" id="ab-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" maxlength="10" required aria-describedby="ab-zip-err">
+                            <p class="field__error" data-no-rise id="ab-zip-err" hidden></p>
+                        </div>
+                        <fieldset class="field segmented">
+                            <legend class="field__label">Best time to contact</legend>
+                            <div class="segmented__opts">
+                                <label class="segmented__opt"><input type="radio" name="best_time" value="morning" checked><span>Morning</span></label>
+                                <label class="segmented__opt"><input type="radio" name="best_time" value="afternoon"><span>Afternoon</span></label>
+                                <label class="segmented__opt"><input type="radio" name="best_time" value="evening"><span>Evening</span></label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <fieldset class="field segmented">
+                        <legend class="field__label">Preferred contact <span class="field__req">(required)</span></legend>
+                        <div class="segmented__opts">
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="call" checked><span>Call</span></label>
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="text"><span>Text</span></label>
+                            <label class="segmented__opt"><input type="radio" name="prefer" value="email"><span>Email</span></label>
+                        </div>
+                    </fieldset>
+
+                    <div class="field">
+                        <label class="field__label" for="ab-message">Message</label>
+                        <textarea class="field__input field__textarea" id="ab-message" name="message" rows="5"></textarea>
+                    </div>
+
+                    <div class="field field--consent">
+                        <label class="check check--consent">
+                            <input class="check__input" type="checkbox" name="consent" value="yes" id="ab-consent" required aria-describedby="ab-consent-err">
+                            <span class="check__box" aria-hidden="true"></span>
+                            <span class="check__label">Please note that by completing this form, you agree to being contacted via text, phone and email. <span class="field__req">(required)</span></span>
+                        </label>
+                        <p class="field__error" data-no-rise id="ab-consent-err" hidden></p>
+                    </div>
+
+                    <div class="form__foot">
+                        <button class="btn btn--accent form__submit" type="submit" data-form-submit>
+                            <span data-submit-label>Send message</span>
+                            <svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                        </button>
+                        <p class="form__status" data-no-rise role="status" aria-live="polite" data-form-status></p>
+                    </div>
+                </form>
+
+                <div class="form-done" tabindex="-1" hidden data-form-done data-no-rise>
+                    <p class="t-eyelet section-head__eyelet">Message sent</p>
+                    <p class="t-title form-done__title">Thank you<span data-done-name></span>.</p>
+                    <p class="t-lead form-done__text">Our staff will contact you. For anything urgent, call <a class="spec__link" href="tel:+18332905147">(833) 290-5147</a>.</p>
+                    <button class="btn btn--tertiary form-done__again" type="button" data-form-again><span>Send another message</span></button>
+                </div>
+            </div>
+
+            <aside class="request__aside" aria-label="Lamborghini Miami location">
+                <div class="request__map" id="service-map" role="img" aria-label="Map showing Lamborghini Miami at 14780 Biscayne Boulevard, North Miami Beach, FL"></div>
+                <address class="request__address">
+                    14780 Biscayne Boulevard<br>
+                    North Miami Beach, FL 33181
+                </address>
+                <dl class="spec spec--hours">
+                    <div class="spec__row"><dt class="spec__label">Sales</dt><dd class="spec__value">Mon–Fri 9:00 am – 7:00 pm<span class="spec__sub">Sat 10:00 am – 6:00 pm · Sun closed</span></dd></div>
+                    <div class="spec__row"><dt class="spec__label">Call</dt><dd class="spec__value"><a href="tel:+18332905147">(833) 290-5147</a></dd></div>
+                </dl>
+                <a class="btn btn--tertiary request__directions" href="https://maps.google.com/maps?q=Lamborghini+Miami,+14780+Biscayne+Boulevard+North,+North+Miami+Beach,+FL+33181" rel="noopener">
+                    <span>Get directions</span>
+                    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg>
+                </a>
+            </aside>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER (as index_v4.html) ============================ -->
+<footer class="site-footer band band--black" aria-labelledby="footer-title">
+    <div class="container">
+        <div class="site-footer__top">
+            <div class="site-footer__brand">
+                <img src="assets/img/bull.svg" width="57" height="59" alt="" class="site-footer__bull">
+                <p class="site-footer__name" id="footer-title">Lamborghini Miami</p>
+                <p class="site-footer__sub">Authorized Lamborghini Dealer</p>
+            </div>
+
+            <nav class="site-footer__nav" aria-label="Footer">
+                <div>
+                    <p class="site-footer__head">Vehicles</p>
+                    <ul>
+                        <li><a href="index_v4.html#range">Models</a></li>
+                        <li><a href="srp.html?condition=new">New inventory</a></li>
+                        <li><a href="srp.html?condition=used">Pre-owned inventory</a></li>
+                        <li><a href="https://www.lamborghini.com/en-en/models/pre-owned" rel="noopener">Selezione Lamborghini</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Ownership</p>
+                    <ul>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="schedule-service.html">Schedule service</a></li>
+                        <li><a href="order-parts.html">Parts</a></li>
+                        <li><a href="collision-center.html">Collision center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Dealership</p>
+                    <ul>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="lifestyle.html">Lifestyle</a></li>
+                        <li><a href="our-story.html">Our story</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://www.lamborghinimiami.com/privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="site-footer__head">Follow</p>
+                    <ul>
+                        <li><a href="https://www.instagram.com/lamborghinimiami/" rel="noopener">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/lamborghinimiami.prestigeimports" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@lamborghiniofmiami" rel="noopener">YouTube</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="site-footer__parent">
+            <img src="assets/img/logo-prestige-imports-white.png" width="318" height="146" loading="lazy" alt="Prestige Imports, established 1977" class="site-footer__prestige">
+            <p class="site-footer__parent-text">Lamborghini Miami is a division of Prestige Imports.</p>
+            <a class="btn btn--tertiary" href="https://www.prestigeimports.com/" rel="noopener"><span>Visit Prestige Imports</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+        </div>
+
+        <div class="site-footer__legal t-legal">
+            <p>Lamborghini, the Bull logo, model names and related marks are trademarks of Automobili Lamborghini S.p.A.</p>
+            <div class="site-footer__baseline">
+                <p>© 2026 Prestige Motorcar Imports, Inc. · 14780 Biscayne Boulevard, North Miami Beach, FL 33181</p>
+                <p class="site-footer__powered">Powered by <a href="https://www.allautonetwork.com/" target="_blank" rel="noopener">All Auto Network<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script src="assets/js/main_v2.js?v=105" defer></script>
+<script src="assets/js/menu_models.js?v=1" defer></script>
+<script src="assets/js/service_v2.js?v=10" defer></script>
+<script src="assets/js/about_v2.js?v=4" defer></script>
+</body>
+</html>

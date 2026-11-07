@@ -13,6 +13,9 @@ SETS = {
     'v2': ['index_v2.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/js/main_v2.js'],
     'v3': ['index_v3.html', 'assets/css/tokens_v3.css', 'assets/css/main_v3.css', 'assets/js/main_v3.js'],
     'service': ['service.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/service_v2.css', 'assets/js/main_v2.js', 'assets/js/service_v2.js'],
+    'story': ['our-story.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/service_v2.css', 'assets/css/about_v2.css', 'assets/js/main_v2.js', 'assets/js/service_v2.js'],
+    'tecnomar': ['tecnomar63.html', 'assets/css/tokens_v3.css', 'assets/css/main_v3.css', 'assets/css/service_v2.css', 'assets/css/model_v3.css', 'assets/css/tecnomar_v3.css', 'assets/js/main_v3.js', 'assets/js/model_v3.js'],
+    'about': ['about.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/service_v2.css', 'assets/css/about_v2.css', 'assets/js/main_v2.js', 'assets/js/service_v2.js'],
     'inventory-srp': ['srp.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/forms_v2.css', 'assets/css/prestige_srp.css', 'assets/css/inventory_pi.css', 'assets/js/main_v2.js', 'assets/js/forms_v2.js', 'assets/js/inventory_pi.js'],
     'inventory-vdp': ['vdp.html', 'assets/css/tokens_v2.css', 'assets/css/main_v2.css', 'assets/css/forms_v2.css', 'assets/css/prestige_vdp.css', 'assets/css/inventory_pi.css', 'assets/js/main_v2.js', 'assets/js/forms_v2.js', 'assets/js/inventory_pi.js'],
 }
