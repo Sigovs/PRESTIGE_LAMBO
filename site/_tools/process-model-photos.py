@@ -132,6 +132,32 @@ SETS = {
         ('gallery-8', 'model_details_new__urus_se_performante__aero__UrusSE-Performante_01-Aero-H_Card-FlussiLaterali-last-optim.jpg', (1600, 900)),
         ('gallery-9', 'model_details_new__urus_se_performante__mecha__UrusSE-Performante_00-Mecha-H_Card-Brakes-last-optim.jpg', (1600, 900)),
     ],
+    # 20 Nov 2026 (Kirsten): the new Temerario Spyder, lamborghini.com/en-en/models/temerario-models/temerario-spyder.
+    # The site's DAM serves WebP under .jpg names; the two upright frames are local derivatives
+    # (_tools/derive-spyder-portraits.py), because the site publishes none for this model.
+    'temerario-spyder': [
+        ('hero', 'alex_model_d.jpg', (2400, 1600, 1000)),   # Alex's frame, 20 Nov (NEW SLIDER/Temerario Spyder model d.jpg)
+        ('hero-p', 'derived_hero-p.jpg', (786,)),
+        ('exterior', 'banner_banner-desktop.jpg', (2160, 1440)),
+        ('exterior-p', 'banner_banner-mobile.jpg', (750,)),
+        ('ext-roof', 'RHT_TemerarioSpyder_02-Exterior-H_Card-ConceptExclusivity-last-optim.jpg', (1200, 800)),
+        ('ext-engine', 'exterior_TemerarioSpyder_02-Exterior-H_Card-Engine-last-optim.jpg', (1200, 800)),
+        ('ext-rear', 'exterior_TemerarioSpyder_02-Exterior-H_Card-Rear-last-optim.jpg', (1200, 800)),
+        ('int-engine', 'powertrain_TemerarioSpyder_00-Mecha-H_Card-GruppoPropulsore-last-optim.jpg', (1200, 800)),
+        ('interior', 'interior_Temerario_04-Interior-H_Chapter-Main_Still-B.png', (2400, 1600, 1000)),
+        ('interior-p', 'derived_interior-p.jpg', (786,)),
+        ('int-neck', 'interior_Temerario_04-Interior-H_Card-AirScarf_Still-last-optim.jpg', (1200, 800)),
+        ('int-mirror', 'interior_Temerario_04-Interior-H_Card-DigitalRearMirror_Still-last-optim.jpg', (1200, 800)),
+        ('gallery-1', 'gallery_11_13_gallery2-desktop.jpg', (1600, 900)),
+        ('gallery-2', 'gallery_11_13_gallery3-desktop.jpg', (1600, 900)),
+        ('gallery-3', 'gallery_11_13_gallery4-desktop.jpg', (1600, 900)),
+        ('gallery-4', 'gallery_11_13_gallery5-desktop.jpg', (1600, 900)),
+        ('gallery-5', 'RHT_TemerarioSpyder_02-Exterior-H_Card-ViaggiDinamici-last-optim.jpg', (1600, 900)),
+        ('gallery-6', 'meride_1793982796TemerarioSpyder_VideoHeader_HOR_v1-0.jpg', (1600, 900)),
+        ('gallery-7', 'gallery_11_13_gallery1-desktop.jpg', (1600, 900)),
+        ('gallery-8', 'aero_TemerarioSpyder_01-Aero-H_Card-Comfort_RoofClosed-last-optim.jpg', (1600, 900)),
+        ('gallery-9', 'alleggerita_TemerarioSpyder_03-Alleggerita-H_Card-EngineBonnet-last-optim.jpg', (1600, 900)),
+    ],
 }
 
 for slug in (sys.argv[1:] or ['revuelto']):

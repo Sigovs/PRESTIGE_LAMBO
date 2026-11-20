@@ -14,7 +14,7 @@ from pathlib import Path
 import re
 
 SITE = Path(__file__).resolve().parent.parent
-SVC = (SITE / 'service.html').read_text()
+SVC = (SITE / 'service.html').read_text(encoding='utf-8')
 CONFIGURATOR = 'https://configurator.lamborghini.com/'
 
 MODELS = [
@@ -101,6 +101,40 @@ MODELS = [
                       ('gallery-7', 'A green Temerario in a dark studio.'), ('gallery-8', 'The Temerario’s spoiler, airflow drawn over it.'),
                       ('gallery-9', 'The front of a Temerario, airflow drawn over it.')],
          )),
+    # 20 Nov 2026 (Kirsten): the new Temerario Spyder. Copy is lamborghini.com's own
+    # (en-en/models/temerario-models/temerario-spyder, read 20 Nov): the claim, the lead and the exterior and interior
+    # lines word for word; the card titles are its own section titles. Figures in US units from its 920 CV /
+    # 343 km/h / 2.8 s / 3,995.2 cm3. Photos: process-model-photos.py temerario-spyder.
+    dict(slug='temerario-spyder', name='Temerario Spyder', mark='Spyder', mk='0.86',
+         claim='Unfiltered Performance', allocation=True,
+         facts=[('Max power', '907 hp'), ('Top speed', '213 mph'), ('0–62 mph', '2.8 s')],
+         art_alt='Lamborghini Temerario Spyder in blue, roof open, front three-quarter view.',
+         media=None, inventory='Temerario Spyder', note='',
+         story=dict(
+             lead='Designed to strengthen the bond between driver, vehicle, and their environment, the Temerario Spyder expands the Lamborghini open-air experience, combining 920 CV HPEV architecture with the first retractable hardtop roof in the history of the brand.',
+             hero_alt='A blue Lamborghini Temerario Spyder, roof open, from the rear three-quarter, in a dark blue studio.',
+             numbers=[('907', 'hp', 'Max power, V8 and three electric motors combined'), ('213', 'mph', 'Top speed'),
+                      ('2.8', 's', '0–62 mph'), ('4.0', 'L', 'V8 displacement')],
+             numbers_img=('int-engine', 'The Temerario Spyder powertrain, on a dark ground.'),
+             exterior=dict(text='In the Temerario Spyder, the architecture, functional surfaces, and aerodynamics give form to a technical and stylistic language immediately identifiable as that of Lamborghini.',
+                           wide_alt='An orange Lamborghini Temerario Spyder, roof open, in side profile by the sea at dusk.',
+                           cards=[('ext-roof', 'Retractable hardtop roof', 'The first retractable hardtop roof in Lamborghini history.', 'A light-blue Temerario Spyder from above, the cabin open, the roof folded behind the seats.'),
+                                  ('ext-engine', 'Exposed engine', 'The V8 stays on show under the rear deck.', 'The engine cover of a light-blue Temerario Spyder, seen from above.'),
+                                  ('ext-rear', 'Rear view', 'Hexagonal taillights frame the rear.', 'The rear of a light-blue Temerario Spyder, its taillights lit.')]),
+             interior=dict(text='Technology, ergonomics, and engagement come together in a cabin engineered around the driver and with the continuity of the driving experience in mind.',
+                           main_alt='The Temerario Spyder cockpit in white and black, the roof open.',
+                           cards=[('int-neck', 'Neck warmer', 'Set into the seat backs, for driving with the roof open.', 'The Temerario Spyder seats in white, the neck warmer vents in the seat backs.'),
+                                  ('int-mirror', 'Digital rear-view mirror', 'A camera view of the road behind, in the mirror.', 'The Temerario Spyder digital rear-view mirror, above the dashboard.')]),
+             gallery=[('gallery-1', 'An orange Temerario Spyder from behind, its taillights lit, in an orange haze.'),
+                      ('gallery-2', 'A blue Temerario Spyder, roof open, in side profile.'),
+                      ('gallery-3', 'An orange Temerario Spyder seen from above, roof open.'),
+                      ('gallery-4', 'A blue Temerario Spyder from the rear three-quarter, roof open.'),
+                      ('gallery-5', 'A light-blue Temerario Spyder on a circuit at night.'),
+                      ('gallery-6', 'The hexagonal lights of a Temerario Spyder in the dark.'),
+                      ('gallery-7', 'A blue Temerario Spyder, roof open, front three-quarter view, in a blue studio.'),
+                      ('gallery-8', 'Airflow drawn over a light-blue Temerario Spyder, roof closed.'),
+                      ('gallery-9', 'The carbon-fibre engine cover of the Alleggerita package, on an orange ground.')],
+         )),
     dict(slug='urus-se', name='Urus SE', mark='Urus SE', mk='1',
          claim='Dare to live more',
          facts=[('Max power', '789 hp'), ('Top speed', '194 mph'), ('0–62 mph', '3.4 s')],
@@ -131,7 +165,7 @@ MODELS = [
          claim='Urus at its peak',
          facts=[('Max power', '801 hp'), ('Top speed', '194 mph'), ('0–62 mph', '3.3 s')],
          art_alt='Lamborghini Urus SE Performante in yellow-green with a carbon bonnet, front three-quarter view.',
-         media=dict(kind='youtube', id='5ZtLH3s8Wvg', title='Urus SE Performante film'),
+         media=dict(kind='youtube', id='5ZtLH3s8Wvg', title='Urus SE Performante film', poster_ratio='2'),
          inventory='Urus', note='',
          story=dict(
              lead='The plug-in hybrid Super SUV at its most precise: aerodynamics, driving dynamics and an innovative suspension system.',
@@ -155,7 +189,7 @@ MODELS = [
                       ('gallery-9', 'The Urus SE Performante brakes.')][:9],
          )),
 ]
-ORDER = ['revuelto', 'revuelto-sv', 'temerario', 'urus-se', 'urus-se-performante']
+ORDER = ['revuelto', 'revuelto-sv', 'temerario', 'temerario-spyder', 'urus-se', 'urus-se-performante']
 
 
 def chunk(start, end):
@@ -193,7 +227,8 @@ def media(m):
         return ''
     if md['kind'] == 'youtube':
         vid = md['id']
-        inner = f'''<div class="mfilm" data-yt="{vid}" data-yt-title="{md['title']}">
+        ratio = f' style="--poster-ratio: {md["poster_ratio"]}"' if md.get('poster_ratio') else ''
+        inner = f'''<div class="mfilm" data-yt="{vid}" data-yt-title="{md['title']}"{ratio}>
                 <img class="mfilm__poster" src="https://i.ytimg.com/vi/{vid}/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="">
                 <button class="mfilm__play" type="button" data-yt-play aria-label="Play the {md['title']} (YouTube)">
                     <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span>Watch the film</span>
@@ -218,7 +253,7 @@ def media(m):
 
 
 import html as _html
-SRP = (SITE / 'srp.html').read_text()
+SRP = (SITE / 'srp.html').read_text(encoding='utf-8')
 
 
 def pic(slug, role, widths, sizes, alt, cls='', eager=False, portrait=None):
@@ -234,6 +269,17 @@ def pic(slug, role, widths, sizes, alt, cls='', eager=False, portrait=None):
                     <source type="image/webp" srcset="{webp}" sizes="{sizes}">
                     <img{f' class="{cls}"' if cls else ''} src="assets/img/models/{slug}-{role}-{w[-1]}.jpg" srcset="{jpg}" sizes="{sizes}" {load} decoding="async" alt="{alt}">
                 </picture>'''
+
+
+def in_stock(m):
+    # only a model flagged allocation=True swaps its inventory links for the enquiry when none is listed
+    if not m.get('allocation'):
+        return True
+    name = m.get('inventory')
+    return bool(name) and bool(__import__('re').search(r'<li data-year[^>]*data-model="' + name + r'"', SRP))
+
+
+ASK = '<a class="btn btn--tertiary" href="#enquire"><span>Ask about allocation</span></a>'   # a model not in stock yet (Temerario Spyder, 20 Nov 2026)
 
 
 def inventory(m):
@@ -271,7 +317,7 @@ def inventory(m):
                 <p class="t-eyelet section-head__eyelet">Lamborghini Miami</p>
                 <h2 class="t-banner" id="inv-title">In our inventory</h2>
             </div>
-            <a class="btn btn--secondary" href="srp.html?model={name}"><span>View all {name} inventory</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            {f'<a class="btn btn--secondary" href="srp.html?model={name}"><span>View all {name} inventory</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>' if cards or not m.get('allocation') else '<a class="btn btn--secondary" href="#enquire"><span>Ask about allocation</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>'}
         </header>
         <ol class="minv__grid">
 {chr(10).join(cards) if cards else '            <li class="minv__none">No ' + name + ' in stock today. Ask our sales team about allocation.</li>'}
@@ -321,7 +367,7 @@ def story(m):
         <div class="mbig__actions">
             <a class="btn btn--accent" href="#enquire"><span>Enquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn--secondary" href="{CONFIGURATOR}" rel="noopener"><span>Configure yours</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            <a class="btn btn--tertiary" href="srp.html?model={m.get('inventory', name)}"><span>View inventory</span></a>
+            <a class="btn btn--tertiary" href="{'srp.html?model=' + m.get('inventory', name) if in_stock(m) else '#in-stock'}"><span>View inventory</span></a>
         </div>
     </div>
 </section>
@@ -341,7 +387,7 @@ def story(m):
         <p class="t-legal mnum__src">As published by Automobili Lamborghini; power and speed in US units.</p>
         <div class="mcta__row mnum__cta">
             <a class="btn btn--secondary" href="{CONFIGURATOR}" rel="noopener"><span>Configure yours</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            <a class="btn btn--tertiary" href="srp.html?model={m.get('inventory', name)}"><span>See the {name}s in stock</span></a>
+            {f'<a class="btn btn--tertiary" href="srp.html?model={m.get("inventory", name)}"><span>See the {name}s in stock</span></a>' if in_stock(m) else ASK}
         </div>
     </div>
 </section>
@@ -491,6 +537,14 @@ def STUDIO(m):
 {media(m)}'''
 
 
+def HERO_POS(m):
+    # a hero frame composed for a crop anchor of its own (desktop and phones on their side; upright phones keep theirs)
+    if not m.get('hero_pos'):
+        return ''
+    return ('\n    <style>@media (min-width: 768px), (orientation: landscape) { .mbig__img { object-position: '
+            + m['hero_pos'] + '; } }</style>')
+
+
 def page(m):
     slug, name = m['slug'], m['name']
     return f'''<!doctype html>
@@ -522,7 +576,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=321">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=10">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=23">
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=23">{HERO_POS(m)}
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 
@@ -642,7 +696,24 @@ def page(m):
 '''
 
 
+# The v4 layer (model_page_v4.py) brings each page to what is committed: US spelling, ZIP, menu, versions.
+#   python _tools/build-model-pages.py                      all model pages
+#   python _tools/build-model-pages.py temerario-spyder     one page
+#   python _tools/build-model-pages.py --check              build in memory, compare with the pages on disk, write nothing
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from model_page_v4 import v4
+
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+CHECK = '--check' in sys.argv
 for m in MODELS:
+    if ARGS and m['slug'] not in ARGS:
+        continue
     out = SITE / f"model-{m['slug']}.html"
-    out.write_text(page(m))
+    html = v4(page(m), out.name)
+    if CHECK:
+        disk = out.read_text(encoding='utf-8') if out.exists() else ''
+        print('same' if html == disk else 'DIFFERS', out.name)
+        continue
+    out.write_text(html, encoding='utf-8', newline='\n')
     print('wrote', out.name)

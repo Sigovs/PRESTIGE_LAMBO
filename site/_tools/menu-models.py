@@ -15,7 +15,7 @@ LIVE = 'https://www.lamborghinimiami.com'
 CSS_V, JS_V = 7, 1   # the models with a page of ours link to it (all but Concept since 6 Nov 2026)
 FAMILIES = [
     ('revuelto', 'Revuelto', [('model-revuelto.html', 'Revuelto'), ('model-revuelto-sv.html', 'Revuelto SV')]),
-    ('temerario', 'Temerario', [('model-temerario.html', 'Temerario')]),
+    ('temerario', 'Temerario', [('model-temerario.html', 'Temerario'), ('model-temerario-spyder.html', 'Temerario Spyder')]),   # Spyder: 20 Nov 2026
     ('urus', 'Urus', [('model-urus-se.html', 'Urus SE'), ('model-urus-se-performante.html', 'Urus SE Performante'),
                       ('model-urus.html', 'Urus'), ('model-urus-s.html', 'Urus S'), ('model-urus-performante.html', 'Urus Performante')]),
     ('huracan', 'Huracán', [('model-huracan.html', 'Huracán'), ('model-huracan-sterrato.html', 'Huracán Sterrato'), ('model-huracan-tecnica.html', 'Huracán Tecnica'),

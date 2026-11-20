@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link rel="stylesheet" href="assets/css/tokens_v4.css?v=400">
-    <link rel="stylesheet" href="assets/css/main_v4.css?v=413">
+    <link rel="stylesheet" href="assets/css/main_v4.css?v=414">
     <link rel="stylesheet" href="assets/css/menu_models.css?v=7">
 
     <script type="application/ld+json">
@@ -151,6 +151,7 @@
                         <button class="menu__link menu__fam" type="button" data-models-fam aria-expanded="false" aria-controls="menu-models-temerario">Temerario<svg class="icon menu__fam-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
                         <div class="menu__fam-drop" id="menu-models-temerario"><ul class="menu__fam-list">
                             <li><a class="menu__model" href="model-temerario.html">Temerario</a></li>
+                            <li><a class="menu__model" href="model-temerario-spyder.html">Temerario Spyder</a></li>
                         </ul></div>
                     </li>
                     <li class="menu__fam-item">
@@ -249,7 +250,7 @@
      from the right at ~55–60% of frame width. DESIGN_SYSTEM.md §6. -->
 <section class="hero" aria-roledescription="carousel" aria-label="Lamborghini Miami: the dealership" data-hero>
     <div class="hero__slides" data-hero-track>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--opening hero__slide--bleed is-active" data-slide data-hold="8300" aria-roledescription="slide" aria-label="1 of 9: Lamborghini Miami" id="hero-slide-1">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--opening hero__slide--bleed is-active" data-slide data-hold="8300" aria-roledescription="slide" aria-label="1 of 10: Lamborghini Miami" id="hero-slide-1">
         <div class="hero__inner container">
             <div class="hero__group">
                 <div class="hero__copy">
@@ -285,7 +286,29 @@
             <div class="hero__scrim" aria-hidden="true"></div>
         </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="20000" aria-roledescription="slide" aria-label="2 of 9: In the showroom" id="hero-slide-2">
+        <article class="hero__slide hero__slide--model hero__slide--spyder hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="2 of 10: Temerario Spyder" id="hero-slide-2">
+            <div class="hero__inner container">
+                <div class="hero__group">
+                    <div class="hero__copy">
+                        <p class="hero__eyelet t-eyelet" data-hero-line style="--i:0">Temerario Spyder</p>
+                        <h2 class="hero__title hero__title--claim t-display-xl"><span class="hero__line" data-hero-line style="--i:1">Unfiltered</span> <span class="hero__line" data-hero-line style="--i:2">Performance</span></h2>
+                        <p class="hero__place hero__figures" data-hero-line style="--i:3">907 hp · 213 mph · 0–62 mph 2.8 s</p>
+                    </div>
+                    <div class="hero__actions" data-hero-line style="--i:4">
+                        <a class="btn btn--primary" href="model-temerario-spyder.html"><span>Explore the model</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        <a class="btn btn--secondary" href="model-temerario-spyder.html#inquire"><span>Inquire</span><svg class="icon btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                    </div>
+                </div>
+                <!-- 20 Nov 2026 (Kirsten): the new Temerario Spyder, Alex's frame (_tools/add-spyder-slide.py).
+                     Phones show the whole 16:9 frame above the copy. Claim and figures as on the model page. -->
+                <picture class="hero__media">
+                    <source type="image/webp" data-srcset="assets/img/slide-temerario-spyder-1920.webp 1920w, assets/img/slide-temerario-spyder-1280.webp 1280w" sizes="100vw">
+                    <img class="hero__img" data-src="assets/img/slide-temerario-spyder-1920.jpg" data-srcset="assets/img/slide-temerario-spyder-1920.jpg 1920w, assets/img/slide-temerario-spyder-1280.jpg 1280w" sizes="100vw" width="1920" height="1080" decoding="async" alt="A blue Lamborghini Temerario Spyder, roof open, in side profile in a blue studio.">
+                </picture>
+                <div class="hero__scrim" aria-hidden="true"></div>
+            </div>
+        </article>
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="20000" aria-roledescription="slide" aria-label="3 of 10: In the showroom" id="hero-slide-3">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -313,7 +336,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--temerario hero__slide--full-m hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="3 of 9: Temerario" id="hero-slide-3">
+        <article class="hero__slide hero__slide--model hero__slide--temerario hero__slide--full-m hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="4 of 10: Temerario" id="hero-slide-4">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -336,7 +359,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--service hero__slide--bleed" data-slide data-hold="9100" aria-roledescription="slide" aria-label="4 of 9: Service and parts" id="hero-slide-4">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--service hero__slide--bleed" data-slide data-hold="9100" aria-roledescription="slide" aria-label="5 of 10: Service and parts" id="hero-slide-5">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -362,7 +385,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--prestige hero__slide--bleed" data-slide data-hold="19300" aria-roledescription="slide" aria-label="5 of 9: Prestige Imports" id="hero-slide-5">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--prestige hero__slide--bleed" data-slide data-hold="19300" aria-roledescription="slide" aria-label="6 of 10: Prestige Imports" id="hero-slide-6">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -393,7 +416,7 @@
         <!-- v4 (22 Oct, client): slide 06 is Lamborghini Financial Services, not the Revuelto. Copy is ours from the
              client's brief (one-pay lease, 12-24 months, "and more with LFS"); no LFS terms, rates or creative have been
              supplied. INTERIM background: Alex's yellow Revuelto profile stays until LFS art arrives. -->
-        <article class="hero__slide hero__slide--model hero__slide--lfs hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="6 of 9: Lamborghini Financial Services" id="hero-slide-6">
+        <article class="hero__slide hero__slide--model hero__slide--lfs hero__slide--bleed" data-slide aria-roledescription="slide" aria-label="7 of 10: Lamborghini Financial Services" id="hero-slide-7">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -413,7 +436,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="9000" aria-roledescription="slide" aria-label="7 of 9: Revuelto SV" id="hero-slide-7">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="9000" aria-roledescription="slide" aria-label="8 of 10: Revuelto SV" id="hero-slide-8">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -440,7 +463,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--usp hero__slide--bleed" data-slide data-hold="5560" aria-roledescription="slide" aria-label="8 of 9: Urus SE Performante" id="hero-slide-8">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--usp hero__slide--bleed" data-slide data-hold="5560" aria-roledescription="slide" aria-label="9 of 10: Urus SE Performante" id="hero-slide-9">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -467,7 +490,7 @@
                 <div class="hero__scrim" aria-hidden="true"></div>
             </div>
         </article>
-        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="8800" aria-roledescription="slide" aria-label="9 of 9: Lifestyle" id="hero-slide-9">
+        <article class="hero__slide hero__slide--model hero__slide--film hero__slide--bleed" data-slide data-hold="8800" aria-roledescription="slide" aria-label="10 of 10: Lifestyle" id="hero-slide-10">
             <div class="hero__inner container">
                 <div class="hero__group">
                     <div class="hero__copy">
@@ -497,15 +520,16 @@
 
     <div class="hero__controls container" data-hero-controls>
         <ol class="hero__dots" role="list">
-                <li><button class="hero__dot" type="button" data-go="0" aria-label="Slide 1 of 9: Lamborghini Miami" aria-current="true"><span class="hero__dot-num">01</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="1" aria-label="Slide 2 of 9: In the showroom"><span class="hero__dot-num">02</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="2" aria-label="Slide 3 of 9: Temerario"><span class="hero__dot-num">03</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="3" aria-label="Slide 4 of 9: Service and parts"><span class="hero__dot-num">04</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="4" aria-label="Slide 5 of 9: Prestige Imports"><span class="hero__dot-num">05</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="5" aria-label="Slide 6 of 9: Revuelto"><span class="hero__dot-num">06</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="6" aria-label="Slide 7 of 9: Revuelto SV"><span class="hero__dot-num">07</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="7" aria-label="Slide 8 of 9: Urus SE Performante"><span class="hero__dot-num">08</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
-                <li><button class="hero__dot" type="button" data-go="8" aria-label="Slide 9 of 9: Lifestyle"><span class="hero__dot-num">09</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="0" aria-label="Slide 1 of 10: Lamborghini Miami" aria-current="true"><span class="hero__dot-num">01</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="1" aria-label="Slide 2 of 10: Temerario Spyder"><span class="hero__dot-num">02</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="2" aria-label="Slide 3 of 10: In the showroom"><span class="hero__dot-num">03</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="3" aria-label="Slide 4 of 10: Temerario"><span class="hero__dot-num">04</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="4" aria-label="Slide 5 of 10: Service and parts"><span class="hero__dot-num">05</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="5" aria-label="Slide 6 of 10: Prestige Imports"><span class="hero__dot-num">06</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="6" aria-label="Slide 7 of 10: Lamborghini Financial Services"><span class="hero__dot-num">07</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="7" aria-label="Slide 8 of 10: Revuelto SV"><span class="hero__dot-num">08</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="8" aria-label="Slide 9 of 10: Urus SE Performante"><span class="hero__dot-num">09</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
+                <li><button class="hero__dot" type="button" data-go="9" aria-label="Slide 10 of 10: Lifestyle"><span class="hero__dot-num">10</span><span class="hero__dot-bar" aria-hidden="true"><span class="hero__dot-fill"></span></span></button></li>
             </ol>
         <button class="hero__toggle" type="button" data-toggle aria-label="Pause slideshow">
             <svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg>
