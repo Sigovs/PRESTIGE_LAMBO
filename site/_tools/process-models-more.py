@@ -113,7 +113,8 @@ def pad_to(im, ratio, fy=0.5):
     w, h = im.size
     H = round(w / ratio)
     top = im.crop((0, 0, w, 6)).resize((1, 1), Image.LANCZOS).getpixel((0, 0))
-    bot = top                         # the studio's black below too: the frame's own floor feathers into it
+    # a studio frame: its black below too. A frame set at the top (fy 0): its own floor colour continues under the copy
+    bot = im.crop((0, h - 6, w, h)).resize((1, 1), Image.LANCZOS).getpixel((0, 0)) if fy == 0 else top
     y0 = round((H - h) * fy)          # 1.0: the frame at the foot, its own floor last
     canvas = Image.new('RGB', (w, H), top)
     canvas.paste(Image.new('RGB', (w, H - y0 - h), bot), (0, y0 + h))
@@ -126,6 +127,19 @@ def pad_to(im, ratio, fy=0.5):
     return canvas
 
 
+def car_window(im, cx, cy, z, ratio=0.85):
+    """a 0.85 window of z x the source's height (of its width, for an upright source), the car's centre (cx, cy)
+    at 40 % of its height, so the car sits above the copy that starts over the band's fade"""
+    w, h = im.size
+    if w / h >= ratio:
+        wh = round(h * z); ww = round(wh * ratio)
+    else:
+        ww = round(w * z); wh = round(ww / ratio)
+    x = min(max(round(cx * w - ww / 2), 0), w - ww)
+    y = min(max(round(cy * h + 0.10 * wh - wh / 2), 0), h - wh)
+    return im.crop((x, y, x + ww, y + wh))
+
+
 def phone(page):
     """the phone hero frame (hero-p) at the home band's proportion, from the frame named in models_more.HERO_M"""
     spec = M.HERO_M.get(page['slug'])
@@ -133,7 +147,13 @@ def phone(page):
         return
     n, fx, fy = spec[:3]
     im = src(page, n)
-    im = pad_to(im, 0.85, fy) if 'pad' in spec[3:] else crop(im, 0.85, fx, fy)
+    zoom = next((v for v in spec[3:] if isinstance(v, float)), None)
+    if 'pad' in spec[3:]:
+        im = pad_to(im, 0.85, fy)
+    elif zoom:
+        im = car_window(im, fx, fy, zoom)
+    else:
+        im = crop(im, 0.85, fx, fy)
     for old in OUT.glob(f"{page['slug']}-hero-p-*"):
         old.unlink()                     # the earlier 0.655 cut, at another width
     save(page['slug'], 'hero-p', im, (1020,))

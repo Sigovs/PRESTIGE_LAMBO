@@ -287,15 +287,17 @@ SPECIAL.append(dict(
 
 # Phone hero frames (Alex, 20 Nov 2026): on phones the model hero follows the home slider's system, a photo band of
 # about 0.85 (390 x 460). The landscape hero frames lost the car in it, so each page names a frame of its own folder in
-# which the whole car fits that band: (file number, focal x, focal y[, 'pad']). 'pad' sets a landscape studio frame whole
-# across the band's width on its own black (the studio's black, nothing added). process-models-more.py --phone cuts them.
+# which the whole car fits that band: (file number, focal x, focal y[, 'pad' | zoom]). 'pad' sets a landscape studio frame whole
+# across the band's width on its own black (the studio's black, nothing added). A zoom (0-1, of the source's height) cuts a
+# tighter window and reads x, y as the car's centre, which lands at 40 % of the band, above the copy (Alex, 20 Nov:
+# STO and EVO Spyder 'weak', the car too small and too low). process-models-more.py --phone cuts them.
 HERO_M = {
     'aventador': (16, 0.5, 0.5),               # orange, dark studio
     'concept': (10, 0.5, 0.3, 'pad'),          # Asterion, front three-quarter: set high in its black studio; the floor runs into the band's fade
     'countach-lpi-800-4': (12, 0.5, 0.5),      # white, under the palms
-    'huracan-evo-spyder': (33, 0.5, 0.62),     # the green Spyder on the road (upright source)
+    'huracan-evo-spyder': (18, 0.5, 0.62, 0.75),  # the green Spyder head-on, on a bridge in fog
     'huracan-sterrato': (17, 0.5, 0.5),        # from above, on the snow road
-    'huracan-sto': (14, 0.35, 0.5),            # blue, side on, on the snow
+    'huracan-sto': (18, 0.5, 0.0, 'pad'),      # blue, head-on on the track at sunset: whole, its own asphalt below
     'huracan-tecnica': (18, 0.5, 0.5),         # from above, on the circuit
     'huracan': (14, 0.53, 0.5),                # orange, in the smoke
     'urus-performante': (26, 0.5, 0.5),        # orange, at dusk
