@@ -283,3 +283,22 @@ SPECIAL.append(dict(
     gallery=[(8, 'A blue Lamborghini Asterion in side profile, in a dark studio.'), (13, 'The Asterion with its door open, its cabin in white leather.'),
              (11, 'The rear of the blue Asterion, its taillights lit.'), (15, 'A grey Lamborghini Estoque in side profile, on white.'),
              (18, 'The rear of the Estoque, on white.'), (9, 'The rear of the Asterion, head-on, on white.')]))
+
+
+# Phone hero frames (Alex, 20 Nov 2026): on phones the model hero follows the home slider's system, a photo band of
+# about 0.85 (390 x 460). The landscape hero frames lost the car in it, so each page names a frame of its own folder in
+# which the whole car fits that band: (file number, focal x, focal y[, 'pad']). 'pad' sets a landscape studio frame whole
+# across the band's width on its own black (the studio's black, nothing added). process-models-more.py --phone cuts them.
+HERO_M = {
+    'aventador': (16, 0.5, 0.5),               # orange, dark studio
+    'concept': (10, 0.5, 0.3, 'pad'),          # Asterion, front three-quarter: set high in its black studio; the floor runs into the band's fade
+    'countach-lpi-800-4': (12, 0.5, 0.5),      # white, under the palms
+    'huracan-evo-spyder': (33, 0.5, 0.62),     # the green Spyder on the road (upright source)
+    'huracan-sterrato': (17, 0.5, 0.5),        # from above, on the snow road
+    'huracan-sto': (14, 0.35, 0.5),            # blue, side on, on the snow
+    'huracan-tecnica': (18, 0.5, 0.5),         # from above, on the circuit
+    'huracan': (14, 0.53, 0.5),                # orange, in the smoke
+    'urus-performante': (26, 0.5, 0.5),        # orange, at dusk
+    'urus-s': (21, 0.5, 0.5),                  # from behind, dark studio
+    'urus': (17, 0.5, 0.5),                    # blue, on the cliff
+}

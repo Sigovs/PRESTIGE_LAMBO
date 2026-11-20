@@ -576,7 +576,7 @@ def page(m):
     <link rel="stylesheet" href="assets/css/tokens_v3.css?v=302">
     <link rel="stylesheet" href="assets/css/main_v3.css?v=321">
     <link rel="stylesheet" href="assets/css/service_v2.css?v=10">
-    <link rel="stylesheet" href="assets/css/model_v3.css?v=23">{HERO_POS(m)}
+    <link rel="stylesheet" href="assets/css/model_v3.css?v=24">{HERO_POS(m)}
 </head>
 <body class="page-model{' page-model--story' if m.get('story') else ''}">
 

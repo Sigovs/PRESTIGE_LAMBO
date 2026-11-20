@@ -5,8 +5,8 @@ Straight crops only: nothing is extended, blended or added (Alex rejected a comp
 
     python _tools/derive-spyder-portraits.py
 
-hero-p     the hero's own frame (Alex's 1920x1080, 20 Nov), cut upright around the rear three-quarter:
-           the taillight and the rear wheel.
+hero-p     the hero's own frame (Alex's 1920x1080, 20 Nov), cut at the phone band's 0.85 (the home slider's
+           system) around the car, which fits it whole (the car spans 800-1690 of 1920).
 interior-p the cockpit still, cut upright around the wheel and seats.
 
 Writes derived_hero-p.jpg and derived_interior-p.jpg into ___OCT changes/sources/models/temerario-spyder/
@@ -18,13 +18,13 @@ SRC = Path(__file__).resolve().parent.parent.parent / '___OCT changes' / 'source
 RATIO = 786 / 1200   # the template's upright frame
 
 
-def upright(name, cx, out):
+def upright(name, cx, out, ratio=RATIO):
     im = Image.open(SRC / name).convert('RGB')
-    w = round(im.height * RATIO)
+    w = round(im.height * ratio)
     x0 = min(max(0, round(cx - w / 2)), im.width - w)
     im.crop((x0, 0, x0 + w, im.height)).save(SRC / out, quality=92)
     print(out, (x0, 0, x0 + w, im.height))
 
 
-upright('alex_model_d.jpg', 1250, 'derived_hero-p.jpg')   # Alex's frame (NEW SLIDER/Temerario Spyder model d.jpg): the rear three-quarter, taillight and rear wheel
+upright('alex_model_d.jpg', 1245, 'derived_hero-p.jpg', 0.85)   # Alex's frame (NEW SLIDER/Temerario Spyder model d.jpg): the rear three-quarter, taillight and rear wheel
 upright('interior_Temerario_04-Interior-H_Chapter-Main_Still-B.png', 1320, 'derived_interior-p.jpg')

@@ -75,7 +75,10 @@ def run(page):
     n, fx = page['hero']
     im = src(page, n)
     save(s, 'hero', im, (1000, 1600, 2400))
-    save(s, 'hero-p', crop(im, 786 / 1200, fx), (786,))
+    if s in M.HERO_M:
+        phone(page)
+    else:
+        save(s, 'hero-p', crop(im, 786 / 1200, fx), (786,))
     save(s, 'tile', crop(im, 1.744, fx), (800, 1200))          # its tile on the family page
     if page.get('num'):
         n, fy = page['num']
@@ -104,8 +107,42 @@ def run(page):
     print(s, 'done')
 
 
-want = set(sys.argv[1:])
+def pad_to(im, ratio, fy=0.5):
+    """a landscape studio frame set whole across an upright canvas: above and below it, the studio's own edge colour,
+    blended over the frame's first and last rows so no seam shows"""
+    w, h = im.size
+    H = round(w / ratio)
+    top = im.crop((0, 0, w, 6)).resize((1, 1), Image.LANCZOS).getpixel((0, 0))
+    bot = top                         # the studio's black below too: the frame's own floor feathers into it
+    y0 = round((H - h) * fy)          # 1.0: the frame at the foot, its own floor last
+    canvas = Image.new('RGB', (w, H), top)
+    canvas.paste(Image.new('RGB', (w, H - y0 - h), bot), (0, y0 + h))
+    mask = Image.new('L', (w, h), 255)
+    F = max(8, h // 12)
+    for i in range(F):
+        a = round(255 * (i + 1) / F)
+        mask.paste(a, (0, i, w, i + 1)); mask.paste(a, (0, h - 1 - i, w, h - i))
+    canvas.paste(im, (0, y0), mask)
+    return canvas
+
+
+def phone(page):
+    """the phone hero frame (hero-p) at the home band's proportion, from the frame named in models_more.HERO_M"""
+    spec = M.HERO_M.get(page['slug'])
+    if not spec:
+        return
+    n, fx, fy = spec[:3]
+    im = src(page, n)
+    im = pad_to(im, 0.85, fy) if 'pad' in spec[3:] else crop(im, 0.85, fx, fy)
+    for old in OUT.glob(f"{page['slug']}-hero-p-*"):
+        old.unlink()                     # the earlier 0.655 cut, at another width
+    save(page['slug'], 'hero-p', im, (1020,))
+    print(page['slug'], 'hero-p', im.size)
+
+
+PHONE = '--phone' in sys.argv          # only the phone hero frames
+want = set(a for a in sys.argv[1:] if not a.startswith('--'))
 for p in M.PAGES + M.FAMILIES + M.SPECIAL:
     if not want or p['slug'] in want:
-        run(p)
+        phone(p) if PHONE else run(p)
 MAN.write_text(json.dumps(man, indent=1, sort_keys=True))

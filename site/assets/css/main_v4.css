@@ -753,7 +753,7 @@ address { font-style: normal; }
 /* per-slide authored framing */
 .hero__slide--dealer { --d-pos: 0% 50%; }         /* Alex's edit of img8: the left side is already dark; a light scrim only */
 .hero__slide--temerario { --d-pos: 50% 50%; --m-pos: 50%; }  /* v4: DSC_1766, 16:9 band from a 4:5 portrait (_tools/process-temerario-v4.py) */
-.hero__slide--spyder { --d-pos: 0% 50%; --m-pos: 50%; }     /* 20 Nov: Alex's Spyder side profile; the car right of the copy (_tools/add-spyder-slide.py) */
+.hero__slide--spyder { --d-pos: 0% 50%; --m-pos: 61%; }     /* 20 Nov: Alex's Spyder side profile; desktop: the car right of the copy; phones: the standard model band, the window starting at the nose (the car spans 33-81 % of the frame) */
 .hero__slide--revuelto { --d-pos: 0% 50%; --m-pos: 50%; }   /* img6 aerial: car pushed right, zebra crossing under the scrim */
 .hero__slide--urus-se { --d-pos: 50% 50%; --m-pos: 23%; }   /* rocks at sunset: car right-centre; the long service line needs a wider scrim */
 .hero__slide--urus-se-performante { --d-pos: 60% 40%; --m-pos: 50%; }   /* the wide Prestige eyelet */
@@ -826,11 +826,6 @@ address { font-style: normal; }
 /* centred-group follow-ups (Alex, 30 Sep 2026) */
 @media (max-width: 767.98px) and (orientation: portrait) {
     .hero__group { justify-self: stretch; }            /* the primary action is one width on every slide */
-}
-/* Spyder slide (20 Nov): Alex's side profile spans 33-81 % of its width. A 70vw band draws the frame
-   at ~124 % of the screen, so the whole car fits (the model band, ~215 %, cut its tail). */
-@media (max-width: 1199.98px) and (orientation: portrait) {
-    .hero__slide--spyder { --hero-scene-h: 70vw; }
 }
 @media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
     .hero__slide--model { --photo-k: 0.73; }   /* 375x667: the longer dealership lines need ~20 px */

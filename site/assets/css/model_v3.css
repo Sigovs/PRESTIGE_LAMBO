@@ -336,3 +336,41 @@
 .mcta__actions { display: grid; gap: var(--sp-16); align-content: end; }
 @media (min-width: 768px) { .mcta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-16) var(--sp-24); } }
 @media (min-width: 1024px) { .mcta__grid { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); align-items: end; } .mcta__actions { justify-content: flex-end; } }
+
+/* ---------- phones upright: the model hero on the home slider's system (Alex, 20 Nov 2026) ----------
+   "One size, one system": on phones the model hero is laid out exactly as a model slide of the home carousel
+   (index_v4, main_v4.css): a photo band min(58svh, 118vw) from the top of the screen under the header, the upright
+   frame (hero-p) cover-fitted and fading out from 62 %, the eyelet starting over that fade (13 % of the band up),
+   eyelet 16 px, title min(4rem, (100vw - gutters) / 4.3) at 0.875, actions --btn-h-lg tall (--btn-h-md on short
+   phones). The page's own extras keep their place after it: Configure and View inventory share one text row,
+   and the lead follows the actions, so the actions sit where the home slide has them. */
+@media (max-width: 767.98px) and (orientation: portrait) {
+    .mbig { display: block; min-height: 0; padding-top: 0; --band: min(58svh, 118vw); }
+    .mbig::after, .mbig__inner::before { display: none; }
+    .mbig__media { position: relative; inset: auto; height: var(--band); }
+    .mbig__img {
+        object-fit: cover; object-position: 50% var(--m-y, 50%);
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+    }
+    .mbig__inner { margin-top: calc(var(--band) * -0.13); padding-top: 0; padding-bottom: var(--sp-40); gap: var(--sp-16); }
+    .mbig__eyelet { font-size: var(--fs-16); line-height: var(--lh-24); }
+    .mbig__name { font-size: min(4rem, calc((100vw - 2 * var(--page-gutter)) / 4.3)); line-height: 0.875; }
+    .mbig__lead { order: 10; }
+    .mbig__actions { display: flex; flex-wrap: wrap; align-items: flex-end; column-gap: var(--sp-8); row-gap: var(--sp-8); margin-top: var(--sp-16); }
+    .mbig__actions .btn--accent { flex-basis: 100%; min-height: var(--btn-h-lg); }
+    .mbig__actions .btn--secondary {
+        width: auto; min-height: var(--tap); padding-inline: 0; gap: var(--sp-8);
+        background: none; border-width: 0 0 var(--stroke-1); border-color: var(--grey-0);
+    }
+    .mbig__actions .btn--secondary, .mbig__actions .btn--tertiary { min-height: var(--tap); }
+}
+/* short phones (375×667), as the home slider (main_v4.css "Short phones"): md actions, 14 px eyelet,
+   title min(3rem, …/4.3), copy gap 8, 16 before the actions */
+@media (max-width: 767.98px) and (orientation: portrait) and (max-height: 700px) {
+    .mbig__actions .btn--accent { min-height: var(--btn-h-md); }
+    .mbig__eyelet { font-size: var(--fs-14); line-height: var(--lh-22); }
+    .mbig__name { font-size: min(3rem, calc((100vw - 2 * var(--page-gutter)) / 4.3)); }
+    .mbig__inner { gap: var(--sp-8); }
+    .mbig__actions { margin-top: var(--sp-8); }
+}
